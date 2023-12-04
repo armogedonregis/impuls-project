@@ -1,4 +1,4 @@
-import { MiddleSwiperSliderType } from "../types/carousel"
+import { MiddleSwiperSliderType } from "@/types/carousel"
 
 export const MiddleSwiperSlideContent = (props: MiddleSwiperSliderType) => {
     return (

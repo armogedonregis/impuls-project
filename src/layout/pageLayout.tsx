@@ -1,7 +1,7 @@
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Navbar } from '@/components/navbar';
-import { ISliderPosts } from '@/components/types/post';
+import { ISliderPosts } from '@/types/post';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 

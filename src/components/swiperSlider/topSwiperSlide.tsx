@@ -1,5 +1,5 @@
+import { TopSwiperSliderType } from "@/types/carousel"
 import Image from "next/image"
-import { TopSwiperSliderType } from "../types/carousel"
 
 export const TopSwiperSlideContent = (props: TopSwiperSliderType) => {
     return (

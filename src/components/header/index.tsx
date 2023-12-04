@@ -7,8 +7,7 @@ import { ChoiseTheme } from './choiseTheme';
 import { HeaderPost } from './headerPost';
 import { LangBar } from './langBar';
 import { TopSwiperSlideContent } from '../swiperSlider/topSwiperSlide';
-import { mainHeroCarouselData } from '../data/mainHeroCarouselData';
-import { ISliderPosts } from '../types/post';
+import { ISliderPosts } from '@/types/post';
 
 
 export const Header: React.FC<{

@@ -1,4 +1,4 @@
-import { ILanguage } from "../types/language";
+import { ILanguage } from "@/types/language";
 
 // массив для языков в хедере
 export const HeaderLang: ILanguage[] = [

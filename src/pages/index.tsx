@@ -1,7 +1,7 @@
 import { HomeScreen } from '@/components/screens/homeScreen'
-import { ISliderPosts } from '@/components/types/post';
 import { HeadLayout } from '@/layout/headLayout'
 import PageLayout from '@/layout/pageLayout'
+import { ISliderPosts } from '@/types/post';
 import { HomeParams } from '@/utils/headerParams';
 import { isServer } from '@/utils/server';
 import { NextPageContext } from 'next';
