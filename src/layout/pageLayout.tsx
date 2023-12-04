@@ -1,14 +1,16 @@
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Navbar } from '@/components/navbar';
+import { ISliderPosts } from '@/components/types/post';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 type LayoutProps = {
     children: React.ReactNode;
+    sliderPosts: ISliderPosts[];
 };
 
-export default function PageLayout({ children }: LayoutProps) {
+export default function PageLayout({ children, sliderPosts }: LayoutProps) {
 
     const [isNavBarOpen, openNavBar] = useState<Boolean>(false);
 
@@ -31,6 +33,7 @@ export default function PageLayout({ children }: LayoutProps) {
             <Header
                 isNavBarOpen={isNavBarOpen}
                 openNavBar={openNavBar}
+                sliderPosts={sliderPosts}
             />
 
             {/* тут main оборачивает все страницы */}

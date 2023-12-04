@@ -8,12 +8,14 @@ import { HeaderPost } from './headerPost';
 import { LangBar } from './langBar';
 import { TopSwiperSlideContent } from '../swiperSlider/topSwiperSlide';
 import { mainHeroCarouselData } from '../data/mainHeroCarouselData';
+import { ISliderPosts } from '../types/post';
 
 
 export const Header: React.FC<{
     isNavBarOpen: Boolean;
-    openNavBar: Dispatch<SetStateAction<Boolean>>
-}> = ({ isNavBarOpen, openNavBar }) => {
+    openNavBar: Dispatch<SetStateAction<Boolean>>;
+    sliderPosts: ISliderPosts[];
+}> = ({ isNavBarOpen, openNavBar, sliderPosts }) => {
     return (
         <header className={'tc-header-style10'}>
             <nav className={"navbar navbar-expand-lg navbar-dark style-10 px-lg-5"}>
@@ -67,9 +69,9 @@ export const Header: React.FC<{
                                 prevEl: '.tc-header-slider10 .swiper-button-prev',
                             }}
                                 keyboard={false}>
-                                {mainHeroCarouselData.map(item => {
+                                {sliderPosts.map(item => {
                                     return (
-                                        <SwiperSlide key={item.author}>
+                                        <SwiperSlide key={item.id}>
                                             <TopSwiperSlideContent {...item} />
                                         </SwiperSlide>
                                     )

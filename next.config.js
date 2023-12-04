@@ -19,7 +19,16 @@ const nextConfig = {
         http: true
       }
     ]
-  }
+  },
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+        {
+            protocol: 'https',
+            hostname: 'impulsplus.s3.eu-south-2.amazonaws.com',
+        },
+    ],
+},
 }
 
 module.exports = nextConfig

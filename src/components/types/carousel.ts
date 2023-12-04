@@ -1,12 +1,12 @@
 // хедер свайпер
 export type TopSwiperSliderType = {
-    imgSrc: string,
-    href: string,
-    category: string,
-    date: string,
-    author: string,
-    h2: string,
-    pText: string
+    id: number;
+    title: string;
+    description: string;
+    url: string;
+    image: string;
+    publicationDate: string;
+    author?: string;
 }
 
 // random category swiper
