@@ -6,6 +6,7 @@ export const UnderMainSwiperPost: React.FC<{
     posts: postType[],
     category: categoryType
 }> = (props) => {
+    console.log(props.posts)
     return (
         <div className="col">
             <div className="tc-breaking-style10 px-lg-5">
@@ -22,8 +23,8 @@ export const UnderMainSwiperPost: React.FC<{
                         <h2 className="fsz-32px mb-20">
                             <a href={props.posts[0].url}> {props.posts[0].title}</a>
                         </h2>
-                        <span className="fsz-12px me-3"><i className="la la-calendar me-2"></i>{props.posts[1][0]?.publicationDate}</span>
-                        <span className="fsz-12px me-3"><i className="la la-user me-2"></i>{props.posts[1][0]?.author}</span>
+                        <span className="fsz-12px me-3"><i className="la la-calendar me-2"></i>{props.posts[0]?.publicationDate}</span>
+                        {props.posts[0]?.author && <span className="fsz-12px me-3"><i className="la la-user me-2"></i>{props.posts[0]?.author}</span>}
     
                         <ul className="fsz-20px">
                             <li>

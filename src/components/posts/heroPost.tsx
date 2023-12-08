@@ -1,7 +1,7 @@
-import { postData } from "@/types/postsType"
+import { postType } from "@/types/postsType"
 
 type heroPostType = {
-    post: postData;
+    post: postType;
 }
 
 export const HeroPost = (props: heroPostType) => {
