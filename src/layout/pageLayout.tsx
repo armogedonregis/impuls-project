@@ -1,49 +1,55 @@
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
 import { Navbar } from '@/components/navbar';
-import { ISliderPosts } from '@/types/post';
-import { useRouter } from 'next/router';
+import { SideBar } from '@/components/sideBar/sideBar';
+import { categoryType } from '@/types/categoriesType';
+import { postType, swiperPostData } from '@/types/postsType';
+import { socialsType } from '@/types/socials';
 import { useState } from 'react';
+
+interface categorizedPosts {
+    [key: string]: postType[]
+}
 
 type LayoutProps = {
     children: React.ReactNode;
-    sliderPosts: ISliderPosts[];
+    sliderPosts: swiperPostData[];
+    posts: categorizedPosts;
+    categories: categoryType[];
+    socials: socialsType;
 };
 
-export default function PageLayout({ children, sliderPosts }: LayoutProps) {
-
+export default function PageLayout(props: LayoutProps) {
     const [isNavBarOpen, openNavBar] = useState<Boolean>(false);
+    const [isOpenedSlideBar, setIsOpenedSlideBar] = useState<boolean>(false)
 
-    const router = useRouter();
+    const [show, setShow] = useState<boolean>(false);
+    const handleClose = () => setShow(false);
 
     return (
         <div>
-
-            {/* на каждой странице в папке pages используется navbar/header и футер
-            страница идет в чилдрен и оборачивает */}
-
             <Navbar
                 isNavBarOpen={isNavBarOpen}
             />
-
-            {/* тут сделать разный контент в хедере на страницах можно через пропс */}
-
-            {/* <Header singlePost={router.pathname === 'single_post'} /> page-single-post-video - название страницы */}
-
             <Header
                 isNavBarOpen={isNavBarOpen}
                 openNavBar={openNavBar}
-                sliderPosts={sliderPosts}
+                categories={props.categories}
+                setShow={setShow}
             />
-
-            {/* тут main оборачивает все страницы */}
-
-            {children}
-
-            {/* тут создать футер, т к он одинаковый */}
-
-            {/* <Footer /> тут нужно создать футер и перенести его, который будет использоваться везде  */}
-            <Footer />
+                {/* Page aka screen body */}
+                {props.children}
+            <Footer
+                socials={props.socials}
+            />
+            <SideBar
+                show={show}
+                handleClose={handleClose}
+                categories={props.categories}
+                isOpenedSlideBar={isOpenedSlideBar}
+                setIsOpenedSlideBar={setIsOpenedSlideBar}
+                socials={props.socials}
+            />
         </div>
-    );
+    )
 }

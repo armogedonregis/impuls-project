@@ -1,6 +1,7 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useRef, useState } from "react"
 import styles from "./navbar.module.css"
-import { animated, useSpring } from "react-spring";
+import { animated, useSpring } from "react-spring"
+import { useRouter } from "next/router"
 
 export const Navbar: React.FC<{
     isNavBarOpen: Boolean
@@ -12,18 +13,20 @@ export const Navbar: React.FC<{
         height: isNavBarOpen ? 118 : 0,
         paddingTop: isNavBarOpen ? 20 : 0,
         paddingBottom: isNavBarOpen ? 20 : 0,
-        display: isNavBarOpen ? "block"
-        : hidden ? "none" : "block",
+        display: isNavBarOpen ? "block" : hidden ? "none" : "block",
         config: { duration: 340 },
         onRest: () => {
-            if(!isNavBarOpen) {
-                hide((prev) => true)
-            }
-            else {
-                hide((prev) => false)
-            }
+            if(!isNavBarOpen) { hide((prev) => true) }
+            else { hide((prev) => false) }
         }
     });
+
+    const router = useRouter()
+    const inputRef = useRef<any>(null)
+
+    const getUrl = () => {
+        return "/search-results?query=" + inputRef.current?.value
+    }
 
     return (
         <animated.div
@@ -37,18 +40,31 @@ export const Navbar: React.FC<{
                     </div>
                 </div>
                 <div className="col-lg-6">
-                    <form className={styles.form} action="search-results.html" method="GET">
+                    <div className={styles.form}>
                         <span className="color-777 fst-italic text-capitalize mb-2 fsz-13px">Enter Keyword</span>
                         <div className={styles.formGroup}>
                             <span className={styles.icon}>
                                 <i className="la la-search"></i>
                             </span>
-                            <input type="text" className={styles.formControl} placeholder="Elon Musk ... " />
-                            <button type="submit">search</button>
+                            <input
+                                type="text"
+                                className={styles.formControl}
+                                placeholder="Elon Musk ... "
+                                ref={inputRef}
+                            />
+                            <button
+                                onClick={() => {
+                                    if(inputRef.current?.value) {
+                                        router.push(getUrl())
+                                    }}
+                                }
+                            >
+                                search
+                            </button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </animated.div>
-);
-};
+        )
+}

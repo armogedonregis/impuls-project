@@ -7246,6 +7246,10 @@ small.text {
   max-width: 30vw;
 }
 
+.swiper-container {
+  z-index: -1;
+}
+
 @media screen and (min-width: 1200px) {
   .tc-trends-news-slider10 .swiper-container .swiper-slide {
     width: -webkit-max-content !important;

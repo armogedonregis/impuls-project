@@ -1,14 +1,19 @@
-import { categoryData } from "@/components/data/categoryData";
+import { categoryType } from "@/types/categoriesType";
 import Link from "next/link";
 
-export const CategoryHome = () => {
+export const CategoryHome: React.FC<{
+    categories: categoryType[]
+}> = (props) => {
     return (
         <section className="tc-categories-style10 px-lg-5">
-            <div className="cat-content">
-                {categoryData.map(item => (
-                    <Link key={item.id} href="#" className="category"> {item.title} <span className="num"> {item.numberPost} </span> </Link>
+            {
+                props.categories
+                ? <div className="cat-content">
+                {props.categories.map(item => (
+                    <Link key={item?.id} href={item?.url} className="category"> {item?.name} <span className="num"> {item?.count} </span> </Link>
                 ))}
-            </div>
+                </div> : null
+            }
         </section>
-    );
-};
+    )
+}

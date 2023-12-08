@@ -1,6 +1,9 @@
-// выбор категорий
+import { categoryType } from "@/types/categoriesType";
 
-export const DropDownCategory = () => {
+// выбор категорий
+export const DropDownCategory: React.FC<{
+    categories: categoryType[]
+}> = (props) => {
     return (
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
@@ -15,25 +18,31 @@ export const DropDownCategory = () => {
                 <div className="dropdownMenu" aria-labelledby="navbarDropdown1">
                     <div className="d-flex flex-wrap">
                         {/* <!-- First Row --> */}
-                        <div className="w-50">
-                            <a className="dropdown-item" href="#">Category 1</a>
-                            <a className="dropdown-item" href="#">Category 2</a>
-                            <a className="dropdown-item" href="#">Category 3</a>
-                            <a className="dropdown-item" href="#">Category 4</a>
-                            <a className="dropdown-item" href="#">Category 5</a>
-                            <a className="dropdown-item" href="#">Category 6</a>
-                            <a className="dropdown-item" href="#">Category 7</a>
-                        </div>
+                        {
+                            props.categories
+                            ? <div className="w-50">
+                                {
+                                    props.categories.map(item => {
+                                        return item.id < 7
+                                        ? <a key={item.id} className="dropdown-item" href={item.url}>{item.name}</a>
+                                        : null
+                                    })
+                                }
+                            </div> : null
+                        }
                         {/* <!-- Second Row --> */}
-                        <div className="w-50">
-                            <a className="dropdown-item" href="#">Category 8</a>
-                            <a className="dropdown-item" href="#">Category 9</a>
-                            <a className="dropdown-item" href="#">Category 10</a>
-                            <a className="dropdown-item" href="#">Category 11</a>
-                            <a className="dropdown-item" href="#">Category 12</a>
-                            <a className="dropdown-item" href="#">Category 13</a>
-                            <a className="dropdown-item" href="#">Category 14</a>
-                        </div>
+                        {
+                            props.categories
+                            ? <div className="w-50">
+                            {
+                                props.categories.map(item => {
+                                    return item.id > 6
+                                    ? <a key={item.id} className="dropdown-item" href={item.url}>{item.name}</a>
+                                    : null
+                                })
+                            }
+                            </div> : null
+                        }
                     </div>
                 </div>
             </li>

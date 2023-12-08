@@ -1,5 +1,4 @@
 // выбор темы
-
 export const ChoiseTheme = () => {
     return (
         <div className="sub-darkLight">

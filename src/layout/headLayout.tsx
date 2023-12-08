@@ -1,19 +1,23 @@
-import { HeadMain } from "./headMain"
+import { HeadMain } from "../components/head/headMain"
 
 type LayoutProps = {
-    children: React.ReactNode
+    title: string;
+    description: string;
+    author: string;
+    keywords?: string;
+    children: React.ReactNode;
 }
 
-export const HeadLayout = ({children}: LayoutProps) => {
+export const HeadLayout = (props: LayoutProps) => {
     return (
         <>
-        <HeadMain
-          title="Impuls PLUS"
-          description="Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones"
-          author="Impuls PLUS"
-          keywords=""
-        />
-          {children}
+          <HeadMain
+            title={props.title}
+            description={props.description}
+            author={props.author}
+            keywords={props.keywords}
+          />
+          {props.children}
         </>
       )
 }

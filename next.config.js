@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   i18n: {
-    locales: ['es', 'en', 'ru'],
     defaultLocale: 'es',
+    locales: ['es', 'en', 'ru'],
     domains: [
       {
         domain: 'example.com',
@@ -15,8 +15,7 @@ const nextConfig = {
       },
       {
         domain: 'example.com/ru',
-        defaultLocale: 'ru',
-        http: true
+        defaultLocale: 'ru'
       }
     ]
   },

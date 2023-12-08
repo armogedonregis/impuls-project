@@ -2339,6 +2339,8 @@ small.text {
 }
 
 .nav-search-style1 {
+  display: none;
+  padding: 20px;
   background-color: #fdf6f5;
 }
 .nav-search-style1 .info h5 {
