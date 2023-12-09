@@ -31,5 +31,5 @@ export const Carousel = ({ children, navigation, pagination,
         >
             {children}
         </Swiper >
-    );
-};
+    )
+}

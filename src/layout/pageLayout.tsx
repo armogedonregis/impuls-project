@@ -17,9 +17,11 @@ type LayoutProps = {
     posts: categorizedPosts;
     categories: categoryType[];
     socials: socialsType;
+    lang: string;
 };
 
 export default function PageLayout(props: LayoutProps) {
+    const [isDark, setDark] = useState<boolean>(false)
     const [isNavBarOpen, openNavBar] = useState<Boolean>(false);
     const [isOpenedSlideBar, setIsOpenedSlideBar] = useState<boolean>(false)
 
@@ -27,7 +29,7 @@ export default function PageLayout(props: LayoutProps) {
     const handleClose = () => setShow(false);
 
     return (
-        <div>
+        <div className={`${isDark ? "dark-theme" : ""}`}>
             <Navbar
                 isNavBarOpen={isNavBarOpen}
             />
@@ -36,6 +38,9 @@ export default function PageLayout(props: LayoutProps) {
                 openNavBar={openNavBar}
                 categories={props.categories}
                 setShow={setShow}
+                lang={props.lang}
+                isDark={isDark}
+                setDark={setDark}
             />
                 {/* Page aka screen body */}
                 {props.children}
@@ -49,6 +54,8 @@ export default function PageLayout(props: LayoutProps) {
                 isOpenedSlideBar={isOpenedSlideBar}
                 setIsOpenedSlideBar={setIsOpenedSlideBar}
                 socials={props.socials}
+                isDark={isDark}
+                setDark={setDark}
             />
         </div>
     )

@@ -5,8 +5,7 @@ import { postType } from "@/types/postsType"
 import { BotVideoPost } from "../../../posts/botVideoPost"
 
 export const HotVideosBlock: React.FC<{
-    videoCards: postType[],
-    randomPosts: postType[]
+    videoCards: postType[]
 }> = (props) => {
     return (
         <section className="tc-hot-videos-style11 px-lg-5 pb-80">
@@ -26,12 +25,12 @@ export const HotVideosBlock: React.FC<{
                     {
                         props.videoCards
                         ? <div className="swiper-wrapper">
-                            {props.videoCards.map((post, id) => {
-                                return id < 2 ?
-                                <SwiperSlide key={id} className={"swiper-wrapper"}>
-                                    <VideoCard post={post} />
-                                </SwiperSlide> : null
-                            })}
+                            <SwiperSlide className={"swiper-wrapper"}>
+                                <VideoCard post={props.videoCards[0]} />
+                            </SwiperSlide>
+                            <SwiperSlide className={"swiper-wrapper"}>
+                                <VideoCard post={props.videoCards[1]} />
+                            </SwiperSlide>
                         </div> : null
                     }
                     <div className="swiper-button-next"></div>
@@ -39,13 +38,13 @@ export const HotVideosBlock: React.FC<{
                 </Carousel>
             </div>
             {
-                props.randomPosts ?
+                props.videoCards ?
                 <div className="sub-videos tc-post-list-style2">
                     <div className="items">
                         <div className="row gx-5">
-                            <BotVideoPost post={props.randomPosts[0]} />
-                            <BotVideoPost post={props.randomPosts[1]} />
-                            <BotVideoPost post={props.randomPosts[2]} />
+                            <BotVideoPost post={props.videoCards[2]} />
+                            <BotVideoPost post={props.videoCards[3]} />
+                            <BotVideoPost post={props.videoCards[4]} />
                         </div>
                     </div>
                 </div> : null

@@ -1,4 +1,5 @@
 import { postType } from "@/types/postsType";
+import Link from "next/link";
 
 type videoPostType = {
     post: postType
@@ -19,16 +20,16 @@ export const BotVideoPost = (props: videoPostType) => {
                                 <div className="sub-videos-flex">
                                     <div className="col-8">
                                         <h2 className="title fsz-28px">
-                                            <a href={props.post?.url} className="hover-underline">
+                                            <Link href={`post/${props.post?.url ? props.post?.url : ""}`} className="hover-underline">
                                                 {props.post?.title}
-                                            </a>
+                                            </Link>
                                         </h2>
                                         <p className="text mt-15"> {props.post?.description} </p>
                                     </div>
                                     <div className="col-4 custom__sub-video--width">
                                         <div className="img th-200 img-cover radius-4 overflow-hidden">
-                                            <img src={props.post?.imageSmall} alt="" />
-                                            <a href={props.post.videoUrl ? props.post.videoUrl : "404"} data-lity="" className="video_icon icon-60">
+                                            <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt="" />
+                                            <a href={props.post?.videoUrl ? props.post.videoUrl : "404"} data-lity="" className="video_icon icon-60">
                                                 <i className="ion-play"></i>
                                             </a>
                                         </div>

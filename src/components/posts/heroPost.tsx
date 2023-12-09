@@ -1,18 +1,19 @@
 import { postType } from "@/types/postsType"
+import Link from "next/link"
 
 type heroPostType = {
-    post: postType;
+    post: postType
 }
 
 export const HeroPost = (props: heroPostType) => {
     return (
         <>
             <div className="img img-cover th-550 radius-6 overflow-hidden">
-                <img src={props.post?.imageSmall} alt="" />
+                <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt="" />
             </div>
             <div className="content pt-30">
                 <h2 className="title mb-20 fsz-28px">
-                    <a href={props.post?.url}>{props.post?.title}</a>
+                    <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title}</Link>
                 </h2>
                 <p className="text mt-15 mb-20">
                     {props.post?.description}

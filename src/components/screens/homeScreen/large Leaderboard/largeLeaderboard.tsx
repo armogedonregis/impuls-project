@@ -1,7 +1,9 @@
+import Link from "next/link"
+
 type leaderBoard = {
-    url: string;
-    img: string;
-    type: 1 | 2;
+    url: string
+    img: string
+    type: 1 | 2
 }
 
 export const LargeLeaderBoard = (props: leaderBoard) => {
@@ -20,9 +22,9 @@ export const LargeLeaderBoard = (props: leaderBoard) => {
         <section className={sectionStyles}>
             <div className="row justify-content-center">
                 <div className="col-10">
-                    <a href={props?.url} className="img img-cover overflow-hidden radius-6">
-                        <img src={props?.img} alt="" />
-                    </a>
+                    <Link href={props?.url} className="img img-cover overflow-hidden radius-6">
+                        <img src={props?.img ? props?.img : "404"} alt="" />
+                    </Link>
                 </div>
             </div>
         </section>

@@ -1,4 +1,5 @@
 import { socialsType } from "@/types/socials"
+import Link from "next/link"
 
 export const StayConnected: React.FC<{
     socials: socialsType
@@ -7,22 +8,22 @@ export const StayConnected: React.FC<{
         <div className="tc-widget-social-style10  bg-white">
             <p className="text-uppercase fsz-14px mb-30"> stay connected </p>
             <div className="item">
-                <a href={props.socials ? props.socials.facebook : "#"} className="icon">
+                <Link href={props.socials ? props.socials.facebook : "#"} className="icon">
                     <i className="la la-facebook-f facebook-icon"></i>
                     <span className="fsz-14px">Facebook</span>
-                </a>
+                </Link>
             </div>
             <div className="item">
-                <a href={props.socials ? props.socials.instagram : "#"} className="icon">
+                <Link href={props.socials ? props.socials.instagram : "#"} className="icon">
                     <i className="la la-instagram instagram-icon"></i>
                     <span className="fsz-14px">Instagram</span>
-                </a>
+                </Link>
             </div>
             <div className="item">
-                <a href={props.socials ? props.socials.youtube : "#"} className="icon">
+                <Link href={props.socials ? props.socials.youtube : "#"} className="icon">
                     <i className="la la-youtube youtube-icon"></i>
                     <span className="fsz-14px">Youtube</span>
-                </a>
+                </Link>
             </div>
         </div>
     )

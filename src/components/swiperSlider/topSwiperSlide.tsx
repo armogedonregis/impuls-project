@@ -1,5 +1,6 @@
 import { swiperPostData } from "@/types/postsType"
 import Image from "next/image"
+import Link from "next/link"
 
 export const TopSwiperSlideContent = (props: swiperPostData) => {
     return (
@@ -15,16 +16,16 @@ export const TopSwiperSlideContent = (props: swiperPostData) => {
             <div className="info item-750">
                 <div className="date mb-30 fsz-12px">
                     <span className="me-3"><i className="la la-calendar me-2"></i>
-                        {props.publicationDate ? props.publicationDate : null}
+                        {props?.publicationDate}
                     </span>
                     <span><i className="la la-user me-2"></i>
-                        {props.author ? props.author : null}
+                        {props?.author}
                     </span>
                 </div>
-                <h2 className="mb-20"> <a href={props.url ? props.url : "404"}>
-                    {props.title ? props.title : null}
-                </a> </h2>
-                <p className="text">{props.description ? props.description : null}</p>
+                <h2 className="mb-20"> <Link href={`post/${props.url ? props.url : ""}`}>
+                    {props?.title}
+                </Link> </h2>
+                <p className="text">{props?.description}</p>
             </div>
         </div>
     )

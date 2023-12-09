@@ -1,5 +1,5 @@
 import { CategoryHome } from "./categoryHome"
-import { instaImg, postType, swiperPostData } from "@/types/postsType"
+import { instaImg, postType, swiperPostData, topPostType } from "@/types/postsType"
 import { categoryType } from "@/types/categoriesType"
 import { LargeLeaderBoard } from "@/components/screens/homeScreen/large Leaderboard/largeLeaderboard"
 import { CatLargeBlock } from "@/components/screens/homeScreen/bottomBlocks/catLargeBlock"
@@ -11,10 +11,9 @@ import { TopPosts_n_Form } from "@/components/screens/homeScreen/topBlocks/topPo
 import { TrandsNews } from "@/components/screens/homeScreen/trandsNews/trandsNews"
 import { StayConnected } from "@/components/screens/homeScreen/bottomBlocks/stayConnected"
 import { FavoriteRandomPosts } from "@/components/screens/homeScreen/topBlocks/favoriteRandomPosts"
-import { videoCards } from "@/components/data/videoCardsData"
 import { HotVideosBlock } from "@/components/screens/homeScreen/hotVideos/hotVideosBlock"
 import { socialsType } from "@/types/socials"
-import { HeaderSwiper } from "@/components/header/headerSwiper"
+import { TopHomeSwiper } from "@/components/screens/homeScreen/topHomeSwiper/topHomeSwiper"
 import { UnderMainSwiperPost } from "@/components/header/headerPost"
 
 interface categorizedPosts {
@@ -28,6 +27,7 @@ type homeLayout = {
     instaImgs: instaImg[];
     socials: socialsType;
     sliderPosts: swiperPostData[];
+    topPosts: topPostType[];
 }
 
 export const HomeScreen = (props: homeLayout) => {
@@ -35,7 +35,7 @@ export const HomeScreen = (props: homeLayout) => {
         <main className="home-style10 tc-header-style10">
             {/* Карусель и посты */}
             <div className="row gx-0">
-                <HeaderSwiper sliderPosts={props.sliderPosts}/>
+                <TopHomeSwiper sliderPosts={props.sliderPosts}/>
                 <UnderMainSwiperPost
                     category={props.categories[0]}
                     posts={props.posts[1]}
@@ -70,7 +70,7 @@ export const HomeScreen = (props: homeLayout) => {
                         />
 
                         {/* Widget cards (right side of what's new section) */}
-                        <TopPosts_n_Form randomPosts={props.randomPosts} />
+                        <TopPosts_n_Form topPosts={props.topPosts} />
                     </div>
                 </div>
             </section>
@@ -90,8 +90,7 @@ export const HomeScreen = (props: homeLayout) => {
 
             {/* <!-- ====== start tc-hot-videos-style11 ====== --> */}
             <HotVideosBlock
-                videoCards={videoCards}
-                randomPosts={props.randomPosts}
+                videoCards={props.posts[11]}
             />
 
             {/* <!-- ====== start posts ====== --> */}
@@ -151,7 +150,6 @@ export const HomeScreen = (props: homeLayout) => {
                     </div>
                 </div>
             </section>
-            {/* <!-- ====== end posts ====== --> */}
         </main>
     );
 };

@@ -1,4 +1,5 @@
 import { postType } from "@/types/postsType"
+import Link from "next/link";
 
 type bottomSwiperSlide = {
     post: postType;
@@ -45,11 +46,11 @@ export const BottomSwiperSlideContent = (props: bottomSwiperSlide) => {
         <div className="tc-post-grid-default">
             <div className={"item " + itemClassName}>
                 <div className={"img img-cover " + imgContainerClassName + " radius-6 overflow-hidden"}>
-                    <img src={props.post?.imageSmall} alt=""/>
+                    <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt=""/>
                 </div>
                 <div className="content pt-30">
                     <h2 className="title mb-20 fsz-28px">
-                        <a href={props.post?.url}>{props.post?.title} </a>
+                        <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title} </Link>
                     </h2>
                     <p className="text mb-20 fsz-14px">
                         {props.post?.description}

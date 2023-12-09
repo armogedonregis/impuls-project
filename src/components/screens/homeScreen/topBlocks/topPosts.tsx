@@ -1,8 +1,8 @@
-import { postType } from "@/types/postsType"
-import { WidgetCard } from "../../../widgetCards/widgetCards"
+import { topPostType } from "@/types/postsType"
+import { WidgetCard } from "../../../widgetCards/widgetCard"
 
 export const TopPosts: React.FC<{
-    randomPosts: postType[]
+    topPosts: topPostType[]
 }> = (props) => {
     return (
         <div className="col-lg-12 custom-col-half custom-col-small tc-widget-top-games-style3">
@@ -11,17 +11,17 @@ export const TopPosts: React.FC<{
             </div>
             <div className="widget-content">
                 {
-                    props.randomPosts ?
+                    props.topPosts ?
                     <WidgetCard
                         type={"main"}
-                        post={props.randomPosts[0]}
+                        post={props.topPosts[0]}
                     /> : null
                 }
                 {
-                    props.randomPosts ?
                     <div className="number-cards">
                         {
-                            props.randomPosts.map((item, id) => {
+                            props.topPosts
+                            ? props.topPosts.map((item, id) => {
                                 return id > 0 && id < 5
                                 ? <WidgetCard
                                     key={id}
@@ -30,9 +30,9 @@ export const TopPosts: React.FC<{
                                     numCardId={++id}
                                 />
                                 : null
-                            })
+                            }) : null
                         }
-                    </div> : null
+                    </div>
                 }
             </div>
         </div>

@@ -3,7 +3,7 @@ import { SearchResultsScreen } from "@/components/screens/searchResults"
 import { HeadLayout } from "@/layout/headLayout"
 import PageLayout from "@/layout/pageLayout"
 import { categoryType } from "@/types/categoriesType"
-import { foundPostType, postType, postsType } from "@/types/postsType"
+import { foundPostType, postsType } from "@/types/postsType"
 import { socialsType } from "@/types/socials"
 import { HomeParams } from "@/utils/headerParams"
 import { isServer } from "@/utils/server"
@@ -14,6 +14,7 @@ type searchLayout = {
     categories: categoryType[];
     socials: socialsType;
     foundPosts: foundPostType[];
+    lang: string;
 }
 
 export default function SearchResults(props: searchLayout) {
@@ -30,6 +31,7 @@ export default function SearchResults(props: searchLayout) {
                 posts={props.posts.categorizedPosts}
                 categories={props.categories}
                 socials={socialsData}
+                lang={props.lang}
             >
                 <SearchResultsScreen
                     foundPosts={props.foundPosts}
@@ -57,7 +59,7 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
 
     return {
       props: {
-        posts, categories, foundPosts
+        posts, categories, foundPosts, lang
       }
     }
 }

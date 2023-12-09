@@ -45,3 +45,18 @@ export type instaImg = {
     media_type: string;
     media_url: string;
 }
+export type postsByCategory = {
+    category: categoryData,
+    posts: {
+        content: postType[],
+        totalPages: number,
+        totalElements: number,
+        message: string
+    }
+}
+export type topPostType = {
+    id: number;
+    title: string;
+    url: string;
+    imageSmall: string;
+}

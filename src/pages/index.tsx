@@ -3,7 +3,7 @@ import { HomeScreen } from '@/components/screens/homeScreen'
 import { HeadLayout } from '@/layout/headLayout'
 import PageLayout from '@/layout/pageLayout'
 import { categoryType } from '@/types/categoriesType'
-import { instaImg, postType, postsType } from '@/types/postsType'
+import { instaImg, postType, postsType, topPostType } from '@/types/postsType'
 import { HomeParams } from '@/utils/headerParams'
 import { instaFetchServer, isServer } from '@/utils/server'
 import { NextPageContext } from 'next'
@@ -13,6 +13,8 @@ type IPosts = {
     randomPosts: postType[];
     categories: categoryType[];
     instaImgs: instaImg[];
+    lang: string;
+    topPosts: topPostType[];
 }
 
 export default function Home(props: IPosts) {
@@ -29,6 +31,7 @@ export default function Home(props: IPosts) {
                 posts={props.posts.categorizedPosts}
                 categories={props.categories}
                 socials={socialsData}
+                lang={props.lang}
             >
                 <HomeScreen
                     instaImgs={props.instaImgs}
@@ -37,6 +40,7 @@ export default function Home(props: IPosts) {
                     categories={props.categories}
                     socials={socialsData}
                     sliderPosts={props.posts.sliderPosts}
+                    topPosts={props.topPosts}
                 />
             </PageLayout>
         </HeadLayout>
@@ -54,15 +58,18 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     // Вытягиваем категории
     const categories_ = await fetch(`${isServer}/categories/${lang}`)
     // Вытягиваем картинки из инстаграмма
-    const InstaImgs_ = await fetch(`${instaFetchServer}/instagram/photos?count=6`)
+    const instaImgs_ = await fetch(`${instaFetchServer}/instagram/photos?count=6`)
+    // Топ посты
+    const topPosts_ = await fetch(`${isServer}/posts/top/${lang}`)
 
     // Сериализуем в джейсона
     const posts = await posts_.json()
     const randomPosts = await randomPosts_.json()
     const categories = await categories_.json()
-    const instaImgs = await InstaImgs_.json()
+    const instaImgs = await instaImgs_.json()
+    const topPosts = await topPosts_.json()
 
     return {
-      props: { posts, randomPosts, categories, instaImgs }
+      props: { posts, randomPosts, categories, instaImgs, lang, topPosts }
     }
 }

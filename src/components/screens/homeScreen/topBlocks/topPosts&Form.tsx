@@ -1,16 +1,16 @@
-import { postType } from "@/types/postsType"
+import { topPostType } from "@/types/postsType"
 import { TopPosts } from "./topPosts"
 
 
 export const TopPosts_n_Form: React.FC<{
-    randomPosts: postType[]
+    topPosts: topPostType[]
 }> = (props) => {
     return (
         <div className="col-lg-3 custom-col-large border-1 border-start brd-gray">
             <div className="widgets d-flex flex-row">
                 <div className="row g-3 custom-col-padding">
                     {/* Top posts */}
-                    <TopPosts randomPosts={props.randomPosts} />
+                    <TopPosts topPosts={props.topPosts} />
                     {/* Form */}
                     <div className="col-lg-12 custom-col-half custom-col-small tc-subscribe-style3 mt-30 custom-mt-70 custom-col-margin">
                         <div className="sub-form radius-7">

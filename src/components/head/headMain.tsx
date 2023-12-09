@@ -53,7 +53,6 @@ export const HeadMain = (props: headMainProps) => {
             <link rel="shortcut icon" href="../assets/img/fav.png" title="Favicon" sizes="16x16" />
             <link rel="stylesheet" href="../assets/css/lib/bootstrap.min.css" />
             <link rel="stylesheet" href="../assets/css/style.css" />
-            <link rel="stylesheet" href="../assets/css/style2.css" />
             <link rel="stylesheet" href="../assets/css/custom_home.css" />
             <link rel="stylesheet" href="../assets/css/custom_single.css" />
         </Head>

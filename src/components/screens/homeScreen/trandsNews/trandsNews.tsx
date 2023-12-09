@@ -3,6 +3,7 @@ import { postType } from "@/types/postsType"
 import { Carousel } from "@/components/carousel"
 import { SwiperSlide } from "swiper/react"
 import { BottomSwiperSlideContent } from "../../../swiperSlider/bottomSwiperSlide"
+import Link from "next/link"
 
 type TrandsNewsType = {
     category: categoryType;
@@ -13,12 +14,12 @@ export const TrandsNews = (props: TrandsNewsType) => {
     return (
         <section className="tc-trends-news-style10 px-lg-5 overflow-hidden">
             <div className="row text-uppercase fsz-14px mb-40">
-                <p className="text-uppercase"> {props.category ? props.category.name : null} </p>
+                <p className="text-uppercase"> {props.category ? props.category.name : ""} </p>
                 <div className="col-lg-12 text-lg-end">
-                    <a
-                        href={props.category ? props.category.url : "404"}
+                    <Link
+                        href={`category/${props.category?.url ? props.category?.url : ""}`}
                         className="text-capitalize hover-main"
-                    > View All Posts <i className="la la-angle-right ms-1"></i> </a>
+                    > View All Posts <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>
             {/* Bottom carousel gastronomy cat */}

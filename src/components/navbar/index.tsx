@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { Dispatch, SetStateAction, useRef, useState } from "react"
 import styles from "./navbar.module.css"
 import { animated, useSpring } from "react-spring"
 import { useRouter } from "next/router"

@@ -6,10 +6,13 @@ import { LangBar } from './langBar'
 import { categoryType } from '@/types/categoriesType'
 
 export const Header: React.FC<{
-    isNavBarOpen: Boolean;
-    openNavBar: Dispatch<SetStateAction<Boolean>>;
-    categories: categoryType[];
-    setShow: Dispatch<SetStateAction<boolean>>;
+    isNavBarOpen: Boolean
+    openNavBar: Dispatch<SetStateAction<Boolean>>
+    categories: categoryType[]
+    setShow: Dispatch<SetStateAction<boolean>>
+    lang: string
+    isDark: boolean
+    setDark: Dispatch<SetStateAction<boolean>>
 }> = ({...props}) => {
     return (
         <header className={'tc-header-style10'}>
@@ -17,10 +20,13 @@ export const Header: React.FC<{
                 <div className="container-fluid p-0">
                     <HeaderLogo />
                     <div className="collapse navbar-collapse custom-height" id="navbarSupportedContent">
-                        <DropDownCategory categories={props.categories} />
+                        <DropDownCategory categories={props.categories} lang={props.lang} />
                         <div className="nav-side">
                             <LangBar />
-                            <ChoiseTheme />
+                            <ChoiseTheme
+                                isDark={props.isDark}
+                                setDark={props.setDark}
+                            />
 
                             {/* Кнопка поиска */}
                             <a style={{ cursor: 'pointer' }}

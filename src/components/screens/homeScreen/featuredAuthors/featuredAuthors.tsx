@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 
 export const FeaturedAuthors = () => {
@@ -5,7 +6,7 @@ export const FeaturedAuthors = () => {
         <div className="p-30 radius-7 bg-white mb-30">
             <p className="fsz-14px text-uppercase mb-20"> featured authors </p>
 
-            <a href="#" className="columnist-card d-flex align-items-center pb-20 border-bottom border-1 brd-gray">
+            <Link href="#" className="columnist-card d-flex align-items-center pb-20 border-bottom border-1 brd-gray">
                 <div className="img img-cover icon-70 rounded-circle overflow-hidden flex-lg-shrink-0 me-4">
                     <img src="assets/img/author.png" alt="" />
                 </div>
@@ -17,8 +18,8 @@ export const FeaturedAuthors = () => {
                         <p className="fsz-12px">Jefe de revista</p>
                     </div>
                 </div>
-            </a>
-            <a href="#" className="columnist-card d-flex align-items-center pb-20 pt-20 border-bottom border-1 brd-gray">
+            </Link>
+            <Link href="#" className="columnist-card d-flex align-items-center pb-20 pt-20 border-bottom border-1 brd-gray">
                 <div className="img img-cover icon-70 rounded-circle overflow-hidden flex-lg-shrink-0 me-4">
                     <img src="assets/img/author.png" alt="" />
                 </div>
@@ -30,8 +31,8 @@ export const FeaturedAuthors = () => {
                         <p className="fsz-12px">Critico gastronomy</p>
                     </div>
                 </div>
-            </a>
-            <a href="#" className="columnist-card d-flex align-items-center pb-20 pt-20 border-bottom border-1 brd-gray">
+            </Link>
+            <Link href="#" className="columnist-card d-flex align-items-center pb-20 pt-20 border-bottom border-1 brd-gray">
                 <div className="img img-cover icon-70 rounded-circle overflow-hidden flex-lg-shrink-0 me-4">
                     <img src="assets/img/author.png" alt="" />
                 </div>
@@ -43,7 +44,7 @@ export const FeaturedAuthors = () => {
                         <p className="fsz-12px">Author, traductora</p>
                     </div>
                 </div>
-            </a>
+            </Link>
         </div>
     )
 }

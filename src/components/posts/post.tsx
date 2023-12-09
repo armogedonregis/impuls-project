@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { postType } from "../../types/postsType"
 
 type Type = {
     postType: "imgLeftTop" | "imgLeftBottom" | "imgTop" | "imgRight";
-    post: postType
+    post: postType;
+    first?: boolean;
 }
 
 export const Post = (props: Type) => {
@@ -24,13 +26,13 @@ export const Post = (props: Type) => {
                 <div className="tc-post-grid-default mt-30 mt-lg-0">
                     <div className="item">
                         <div className="img img-cover th-200 radius-6 overflow-hidden">
-                            <img src={props.post?.imageSmall} alt=""/>
+                            <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt=""/>
                         </div>
                         <div className="content pt-20">
                             <h2 className="title mb-10">
-                                <a href={props.post?.url} className="hover-underline fsz-28px">
+                                <Link href={`post/${props.post?.url ? props.post?.url : ""}`} className="hover-underline fsz-28px">
                                     {props.post?.title}
-                                </a>
+                                </Link>
                             </h2>
                             <p className="text mt-15 mb-20">{props.post?.description}</p>
                             <ul className="fsz-12px">
@@ -46,14 +48,14 @@ export const Post = (props: Type) => {
         case "imgRight":
             return (
                 // Post with image on right side
-                <div className="item pb-4">
+                <div className={props.first ? "item pb-4" : "item py-4"}>
                     <div className="row gx-3 align-items-center">
                         <div className="col-8">
                         <div className="content pt-20">
                             <h2 className="title mb-10">
-                                <a href={props.post?.url} className="hover-underline fsz-28px">
+                                <Link href={`post/${props.post?.url ? props.post?.url : ""}`} className="hover-underline fsz-28px">
                                     {props.post?.title}
-                                </a>
+                                </Link>
                             </h2>
                             <p className="text mt-15 mb-20">{props.post?.description}</p>
                             <ul className="fsz-12px">
@@ -66,7 +68,7 @@ export const Post = (props: Type) => {
                         </div>
                         <div className="col-4">
                             <div className="img th-120 img-cover radius-4 overflow-hidden">
-                                <img src={props.post?.imageSmall} alt="" />
+                                <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt="" />
                             </div>
                         </div>
                     </div>
@@ -80,16 +82,19 @@ export const Post = (props: Type) => {
             <div className="row gx-3">
                 <div className="col-4">
                     <div className="img th-140 img-cover radius-4 overflow-hidden">
-                        <img src={props.post?.imageSmall} alt="" />
-                        <a href={props.post?.videoUrl} data-lity="" className="video_icon icon-60">
-                            <i className="ion-play"></i>
-                        </a>
+                        <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt="" />
+                        {
+                            props.post?.videoUrl
+                            ? <a href={props.post?.videoUrl ? props.post.videoUrl : "404"} data-lity="" className="video_icon icon-60">
+                                <i className="ion-play"></i>
+                            </a> : null
+                        }
                     </div>
                 </div>
                 <div className="col-8">
                 <div className="content">
                     <h2 className="title">
-                        <a href={props.post?.url}>{props.post?.title}</a>
+                        <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title}</Link>
                     </h2>
                     <p className="text mt-15 mb-20">
                         {props.post?.description}
