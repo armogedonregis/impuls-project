@@ -23,8 +23,8 @@ export const UnderMainSwiperPost: React.FC<{
                         <h2 className="fsz-32px mb-20">
                             <Link href={`post/${props.posts[0]?.url ? props.posts[0]?.url : ""}`}> {props.posts[0].title}</Link>
                         </h2>
-                        <span className="fsz-12px me-3"><i className="la la-calendar me-2"></i>{props.posts[1][0]?.publicationDate}</span>
-                        <span className="fsz-12px me-3"><i className="la la-user me-2"></i>{props.posts[1][0]?.author}</span>
+                        <span className="fsz-12px me-3"><i className="la la-calendar me-2"></i>{props.posts[0]?.publicationDate}</span>
+                        <span className="fsz-12px me-3"><i className="la la-user me-2"></i>{props.posts[0]?.author}</span>
     
                         <ul className="fsz-20px">
                             <li>
