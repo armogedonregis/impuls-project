@@ -1,10 +1,10 @@
-import { topPostType } from "@/types/postsType";
+import { favPostType } from "@/types/postsType";
 import Link from "next/link";
 import { NumberedTrendsWidget } from "./widgetTrendsSmall";
-import { getCategory, getFullCategory } from "./getCategory";
+import { getFullCategory } from "../../../utils/getCategory";
 
 type widgetTrends = {
-    topCatPosts: topPostType[];
+    favoritePosts: favPostType[];
     categoryId: number;
     categoryUrl: string;
 }
@@ -18,7 +18,7 @@ export const WidgetTrends = (props: widgetTrends) => {
                 <div className="tc-post-overlay-default">
                     <div className="img th-200 img-cover">
                         <img
-                            src={props.topCatPosts[0].imageSmall ? props.topCatPosts[0].imageSmall : "404"}
+                            src={props.favoritePosts[0]?.image ? props.favoritePosts[0].image : "404"}
                             alt=""
                         />
                     </div>
@@ -30,16 +30,16 @@ export const WidgetTrends = (props: widgetTrends) => {
                             {getFullCategory(props.categoryId)}
                         </Link>
                         <h4 className="title">
-                            <Link href={props.topCatPosts[0].url ? props.topCatPosts[0].url : "404"}>
-                                {props.topCatPosts[0].title}
+                            <Link href={props.favoritePosts[0]?.url ? props.favoritePosts[0].url : "404"}>
+                                {props.favoritePosts[0]?.title}
                             </Link>
                         </h4>
                     </div>
                 </div>
                 <div className="items px-4 py-2">
                     {
-                        props.topCatPosts
-                        ? props.topCatPosts.map((item, id) => {
+                        props.favoritePosts.length > 0
+                        ? props.favoritePosts.map((item, id) => {
                             return id < 4 && id > 0
                             ? <NumberedTrendsWidget
                                 key={id}

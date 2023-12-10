@@ -1,10 +1,10 @@
-import { postType } from "@/types/postsType"
+import { singlePost } from "@/types/postsType"
 import { Fancybox } from '@fancyapps/ui'
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 
 export const PostVideoBlock: React.FC<{
-    post: postType
+    post: singlePost
 }> = (props) => {
     Fancybox.bind("[data-fancybox]", {
         hideScrollbar: true,
@@ -13,7 +13,7 @@ export const PostVideoBlock: React.FC<{
 
     return (
         <div className="tc-video-content text-white mb-50"
-                style={{backgroundImage: `url(${props.post.imageSmall ? props.post.imageSmall : "../assets/img/main.png"})`}
+                style={{backgroundImage: `url(${props.post?.mainImageLink ? props.post.mainImageLink : "404"})`}
         }>
             <div className="container">
                 <div className="row">
@@ -29,7 +29,7 @@ export const PostVideoBlock: React.FC<{
                         </div>
                         <div className="info-content">
                             <p className="sub-title">featured, video</p>
-                            <h3 className="title"> {props.post.title} </h3>
+                            <h3 className="title"> {props.post?.title} </h3>
                             <p className="mt-20">Stay focused and remember we design the best WordPress News</p>
                         </div>
                     </div>

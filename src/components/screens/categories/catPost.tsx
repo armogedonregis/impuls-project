@@ -22,8 +22,8 @@ export const CatPost: React.FC<{
                         <div className="meta-bot fsz-13px color-666">
                             <ul className="d-flex">
                                 <li className="date">
-                                    <span className="me-3"><i className="la la-calendar me-2"></i> {props.post?.publicationDate}</span>
-                                    <span className="me-3"><i className="la la-user me-2"></i> {props.post?.author}</span>
+                                    {props.post?.publicationDate && <span className="me-3"><i className="la la-calendar me-2"></i> {props.post?.publicationDate}</span>}
+                                    {props.post?.author && <span className="me-3"><i className="la la-user me-2"></i> {props.post?.author}</span>}
                                 </li>
                             </ul>
                         </div>

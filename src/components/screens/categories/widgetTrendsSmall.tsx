@@ -1,6 +1,6 @@
 import { topPostType } from "@/types/postsType"
 import Link from "next/link"
-import { getCategory, getFullCategory } from "./getCategory"
+import { getCategory, getFullCategory } from "../../../utils/getCategory"
 
 export const NumberedTrendsWidget: React.FC<{
     num: number,

@@ -1,19 +1,26 @@
-import { socialsType } from "@/types/socials";
-import Link from "next/link";
+import { socialsType } from "@/types/socials"
+import Link from "next/link"
+import ScrollToTop from "react-scroll-to-top"
+import { ArrowUp } from "./arrowUp"
+import { Trans, useTranslation } from "next-i18next"
 
 type footerType = {
-    socials: socialsType;
+    socials: socialsType
 }
 
 export const Footer = (props: footerType) => {
+    const { t, i18n } = useTranslation('footer')
+
     return (
         <footer className="footer">
             <div className="container">
                 <div className="content pt-40 pb-40 border-1 border-top brd-gray text-center">
                     <div className="foot-links mt-80">
-                        <Link href="#">About</Link>&nbsp;
-                        <Link href="#">Contact</Link>&nbsp;
-                        <Link href="#">policy</Link>
+                        <Link href="/">{t('linkAbout')}</Link>&nbsp;
+                        <Trans i18nKey="test">
+                        <Link href="/">{t('test.link.link1')} Contact</Link>&nbsp;
+                        </Trans>
+                        <Link href="/">policy</Link>
                     </div>
                     <div className="foot-social mt-40">
                         <Link href={props.socials ? props.socials.facebook : "#"}>
@@ -31,9 +38,20 @@ export const Footer = (props: footerType) => {
                         ImpulsPlus</Link>. All Rights Reserved.</p>
                 </div>
             </div>
-            <a href="#" className="to_top">
-                <i className="la la-angle-up"></i>
-            </a>
+            <ScrollToTop
+                smooth
+                className={""}
+                color="white"
+                viewBox={"0 0 256 256"}
+                style={{
+                    width: 46,
+                    height: 46,
+                    backgroundColor: "#000",
+                    borderRadius: "50%",
+                    display: "inline-block"
+                }}
+                component={<ArrowUp/>}
+            />
 
         </footer>
     );

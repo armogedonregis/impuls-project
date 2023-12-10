@@ -3,8 +3,8 @@ import Link from "next/link";
 
 type card = {
     post: topPostType;
-    type: "main" | "numCard";
-    numCardId?: number;
+    type: "main" | "numCard"
+    numCardId?: number
 }
 
 export const WidgetCard = (props: card) => {
@@ -17,14 +17,14 @@ export const WidgetCard = (props: card) => {
             </div>
             <div className="content">
                 <h3 className="title title-white">
-                    <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title}</Link>
+                    <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}>{props.post?.title}</Link>
                 </h3>
                 <div className="meta-bot mt-15 fsz-12px">
                     <span> Author </span>
                 </div>
             </div>
         </div>
-        : <Link href={`post/${props.post?.url ? props.post?.url : ""}`} className="number-card">
+        : <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`} className="number-card">
             <span className="number">
                 {props.numCardId}
             </span>

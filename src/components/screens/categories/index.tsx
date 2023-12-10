@@ -1,4 +1,4 @@
-import { postsByCategory, topPostType } from "@/types/postsType"
+import { postsByCategory, favPostType } from "@/types/postsType"
 import { CatBanner } from "./catBanner"
 import { WidgetTrends } from "./widgetTrends"
 import { CatPost } from "./catPost";
@@ -10,11 +10,12 @@ type catPageProps = {
     categoryUrl: string;
     lang: string;
     currentPage: number;
-    topCatPosts: topPostType[];
+    favoritePosts: favPostType[];
     categoryId: number;
 }
 
 export const CategoryPage = (props: catPageProps) => {
+
     return (
         <main>
             <section className="tc-popular-posts-blog">
@@ -25,21 +26,11 @@ export const CategoryPage = (props: catPageProps) => {
                                 <div className="tc-post-list-style3">
                                     <div className="items">
                                         {
-                                            props.catPosts.posts.content
+                                            props.catPosts.posts.content.length > 0
                                             ? props.catPosts.posts.content.map((item, id) => {
-                                                return id < 1 * 6 - 3 && id > 1 * 6 - 7
+                                                return !(id === props.catPosts.posts.content.length / 2)
                                                 ? <CatPost key={id} post={item} />
-                                                : null
-                                            }) : null
-                                        }
-                                        {/* Banner */}
-                                        <CatBanner />
-                                        {
-                                            props.catPosts.posts.content
-                                            ? props.catPosts.posts.content.map((item, id) => {
-                                                return id < 1 * 6 && id > 1 * 6 - 4
-                                                ? <CatPost key={id} post={item} />
-                                                : null
+                                                : <CatBanner key={id} />
                                             }) : null
                                         }
                                     </div>
@@ -59,7 +50,7 @@ export const CategoryPage = (props: catPageProps) => {
                                     <WidgetTrends
                                         categoryId={props.categoryId}
                                         categoryUrl={props.categoryUrl}
-                                        topCatPosts={props.topCatPosts}
+                                        favoritePosts={props.favoritePosts}
                                     />
 
                                     {/* Реклама в блоке виджетов */}

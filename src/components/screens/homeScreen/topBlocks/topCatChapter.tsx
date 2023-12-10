@@ -18,12 +18,12 @@ export const TopCatChapter = (props: TopCatChaperType) => {
             <div className="row gx-5">
                 {/* Tourism block - left */}
                 <TopCatLeftBlock
-                    category={props.categories[1]}
+                    category={2}
                     posts={props.posts[2]}
                 />
                 {/* Education block - right */}
                 <TopCatRightBlock
-                    category={props.categories[4]}
+                    category={5}
                     posts={props.posts[5]}
                 />
             </div>

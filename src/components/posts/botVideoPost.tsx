@@ -20,7 +20,10 @@ export const BotVideoPost = (props: videoPostType) => {
                                 <div className="sub-videos-flex">
                                     <div className="col-8">
                                         <h2 className="title fsz-28px">
-                                            <Link href={`post/${props.post?.url ? props.post?.url : ""}`} className="hover-underline">
+                                            <Link
+                                                href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}
+                                                className="hover-underline"
+                                            >
                                                 {props.post?.title}
                                             </Link>
                                         </h2>

@@ -1,25 +1,23 @@
 import { socialsData } from "@/components/data/socialsData"
 import { CategoryPage } from "@/components/screens/categories"
-import { getCategory } from "@/components/screens/categories/getCategory"
 import { HeadLayout } from "@/layout/headLayout"
 import PageLayout from "@/layout/pageLayout"
 import { categoryType } from "@/types/categoriesType"
-import { instaImg, postType, postsByCategory, postsType, topPostType } from "@/types/postsType"
-import { HomeParams } from "@/utils/headerParams"
-import { instaFetchServer, isServer } from "@/utils/server"
+import { instaImg, postType, postsByCategory, favPostType } from "@/types/postsType"
+import { getCategory } from "@/utils/getCategory"
+import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
 
 type categoriesType = {
-    posts: postsType;
-    catPosts: postsByCategory;
-    randomPosts: postType[];
-    categories: categoryType[];
-    instaImgs: instaImg[];
-    categoryId: number;
-    lang: string;
-    categoryUrl: string;
-    currentPage: number;
-    topCatPosts: topPostType[];
+    catPosts: postsByCategory
+    randomPosts: postType[]
+    categories: categoryType[]
+    instaImgs: instaImg[]
+    categoryId: number
+    lang: string
+    categoryUrl: string
+    currentPage: number
+    favoritePosts: favPostType[]
 }
 
 export default function Categories(props: categoriesType) {
@@ -31,8 +29,6 @@ export default function Categories(props: categoriesType) {
             keywords={""}
         >
             <PageLayout
-                sliderPosts={props.posts.sliderPosts}
-                posts={props.posts.categorizedPosts}
                 categories={props.categories}
                 socials={socialsData}
                 lang={props.lang}
@@ -43,7 +39,7 @@ export default function Categories(props: categoriesType) {
                     categoryId={props.categoryId}
                     lang={props.lang}
                     currentPage={props.currentPage}
-                    topCatPosts={props.topCatPosts}
+                    favoritePosts={props.favoritePosts}
                 />
             </PageLayout>
         </HeadLayout>
@@ -59,30 +55,21 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     const categoryId: number = getCategory(categoryUrl)
     const currentPage = ctx.query["page"] ? ctx.query["page"] : 1
 
-    // Вытягиваем посты
-    const posts_ = await fetch(`${isServer}/posts/home/${lang}?categoryIds=${HomeParams.categoryId}&postsSize=${HomeParams.postsSize}&sliderSize=${HomeParams.sliderSize}`)
     // Вытягиваем посты данной категории
-    const catPosts_ = await fetch(`${isServer}/posts/${lang}?page=${currentPage ? currentPage : "1"}&size=6&categoryId=${categoryId}`)
-    // Вытягиваем топовые посты данной категории
-    const topCatPosts_ = await fetch(`${isServer}/posts/top/${lang}?id=${categoryId}`)
-    // Вытягиваем рандомные посты
-    const randomPosts_ = await fetch(`${isServer}/posts/recommended/${lang}/1?limit=9`)
+    const catPosts_ = await fetch(`${isServer}/posts/${lang}?page=${currentPage ? currentPage : "1"}&size=20&categoryId=${categoryId}`)
+    // Вытягиваем избранные посты данной категории
+    const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
     // Вытягиваем категории
     const categories_ = await fetch(`${isServer}/categories/${lang}`)
-    // Вытягиваем картинки из инстаграмма
-    const InstaImgs_ = await fetch(`${instaFetchServer}/instagram/photos?count=6`)
 
 
     // Сериализуем в джейсона
-    const posts = await posts_.json()
     const catPosts = await catPosts_.json()
-    const randomPosts = await randomPosts_.json()
     const categories = await categories_.json()
-    const instaImgs = await InstaImgs_.json()
-    const topCatPosts = await topCatPosts_.json()
+    const favoritePosts = await favoritePosts_.json()
 
     return {
-      props: { posts, randomPosts, categories, instaImgs, categoryId, lang, catPosts,
-        categoryUrl, currentPage, topCatPosts }
+      props: { categories, categoryId, lang, catPosts,
+        categoryUrl, currentPage, favoritePosts }
     }
 }

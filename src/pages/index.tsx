@@ -7,14 +7,15 @@ import { instaImg, postType, postsType, topPostType } from '@/types/postsType'
 import { HomeParams } from '@/utils/headerParams'
 import { instaFetchServer, isServer } from '@/utils/server'
 import { NextPageContext } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type IPosts = {
-    posts: postsType;
-    randomPosts: postType[];
-    categories: categoryType[];
-    instaImgs: instaImg[];
-    lang: string;
-    topPosts: topPostType[];
+    posts: postsType
+    randomPosts: postType[]
+    categories: categoryType[]
+    instaImgs: instaImg[]
+    lang: string
+    topPosts: topPostType[]
 }
 
 export default function Home(props: IPosts) {
@@ -27,8 +28,6 @@ export default function Home(props: IPosts) {
             keywords={""}
         >
             <PageLayout
-                sliderPosts={props.posts.sliderPosts}
-                posts={props.posts.categorizedPosts}
                 categories={props.categories}
                 socials={socialsData}
                 lang={props.lang}
@@ -70,6 +69,11 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     const topPosts = await topPosts_.json()
 
     return {
-      props: { posts, randomPosts, categories, instaImgs, lang, topPosts }
+      props: {
+        ...(await serverSideTranslations(lang ?? 'es', [
+            'common',
+            'footer'
+          ])),
+        posts, randomPosts, categories, instaImgs, lang, topPosts }
     }
 }

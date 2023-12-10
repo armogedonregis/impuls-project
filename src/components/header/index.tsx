@@ -15,7 +15,7 @@ export const Header: React.FC<{
     setDark: Dispatch<SetStateAction<boolean>>
 }> = ({...props}) => {
     return (
-        <header className={'tc-header-style10'}>
+        <header className={'tc-header-style10 home-style10'}>
             <nav className={"navbar navbar-expand-lg navbar-dark style-10 px-lg-5"}>
                 <div className="container-fluid p-0">
                     <HeaderLogo />

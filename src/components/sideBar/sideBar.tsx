@@ -6,7 +6,7 @@ import { socialsType } from '@/types/socials';
 import Link from 'next/link';
 
 const SlideBarCatCards: React.FC<{
-    category?: categoryType
+    category: categoryType
 }> = (props) => {
     return (
         props.category
@@ -61,8 +61,8 @@ export const SideBar = (props: sideBarType) => {
                     className="logo"
                     style={{opacity: props.isOpenedSlideBar ? 1 : 0}}
                 >
-                    <img src="assets/img/logo_home_bl.svg" alt="" className="dark-none"/>
-                    <img src="assets/img/logo_home_lt.svg" alt="" className="light-none"/>
+                    <img src="/assets/img/logo_home_bl.svg" alt="" className="dark-none"/>
+                    <img src="/assets/img/logo_home_lt.svg" alt="" className="light-none"/>
                 </div>
             </Offcanvas.Header>
             <Offcanvas.Body className="mt-4">

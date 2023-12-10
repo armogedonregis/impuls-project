@@ -50,15 +50,15 @@ export const BottomSwiperSlideContent = (props: bottomSwiperSlide) => {
                 </div>
                 <div className="content pt-30">
                     <h2 className="title mb-20 fsz-28px">
-                        <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title} </Link>
+                        <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}>{props.post?.title} </Link>
                     </h2>
                     <p className="text mb-20 fsz-14px">
                         {props.post?.description}
                     </p>
                     <ul className="fsz-12px">
                         <li>
-                            <span className="me-3"><i className="la la-calendar me-2"></i> {props.post?.publicationDate}</span>
-                            <span className="me-3"><i className="la la-user me-2"></i> {props.post?.author}</span>
+                            {props.post?.publicationDate && <span className="me-3"><i className="la la-calendar me-2"></i> {props.post?.publicationDate}</span>}
+                            {props.post?.author && <span className="me-3"><i className="la la-user me-2"></i> {props.post?.author}</span>}
                         </li>
                     </ul>
                     <span className="numb mt-40 color-main"> {props?.slideId < 10 ? `0${props?.slideId + 1}` : props?.slideId} </span>

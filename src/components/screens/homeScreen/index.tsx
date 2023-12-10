@@ -14,20 +14,20 @@ import { FavoriteRandomPosts } from "@/components/screens/homeScreen/topBlocks/f
 import { HotVideosBlock } from "@/components/screens/homeScreen/hotVideos/hotVideosBlock"
 import { socialsType } from "@/types/socials"
 import { TopHomeSwiper } from "@/components/screens/homeScreen/topHomeSwiper/topHomeSwiper"
-import { UnderMainSwiperPost } from "@/components/header/headerPost"
+import { TopHomePostsBlock } from "@/components/header/homeTopGastroPosts"
 
 interface categorizedPosts {
     [key: string]: postType[]
 }
 
 type homeLayout = {
-    posts: categorizedPosts;
-    randomPosts: postType[];
-    categories: categoryType[];
-    instaImgs: instaImg[];
-    socials: socialsType;
-    sliderPosts: swiperPostData[];
-    topPosts: topPostType[];
+    posts: categorizedPosts
+    randomPosts: postType[]
+    categories: categoryType[]
+    instaImgs: instaImg[]
+    socials: socialsType
+    sliderPosts: swiperPostData[]
+    topPosts: topPostType[]
 }
 
 export const HomeScreen = (props: homeLayout) => {
@@ -36,8 +36,8 @@ export const HomeScreen = (props: homeLayout) => {
             {/* Карусель и посты */}
             <div className="row gx-0">
                 <TopHomeSwiper sliderPosts={props.sliderPosts}/>
-                <UnderMainSwiperPost
-                    category={props.categories[0]}
+                <TopHomePostsBlock
+                    category={1}
                     posts={props.posts[1]}
                 />
             </div>
@@ -55,7 +55,7 @@ export const HomeScreen = (props: homeLayout) => {
             {/* Banner */}
             <LargeLeaderBoard
                 url={"#"}
-                img={"assets/img/banner1.png"}
+                img={"/assets/img/banner1.png"}
                 type={1}
             />
 
@@ -78,7 +78,7 @@ export const HomeScreen = (props: homeLayout) => {
             {/* <!-- ====== start banner ====== --> */}
             <LargeLeaderBoard
                 url={"#"}
-                img={"assets/img/banner1.png"}
+                img={"/assets/img/banner1.png"}
                 type={2}
             />
 
@@ -100,7 +100,7 @@ export const HomeScreen = (props: homeLayout) => {
                         {/* Fashion block */}
                         <CatMinBlock
                             posts={props.posts[4]}
-                            category={props.categories[3]}
+                            category={4}
                         />
 
                         {/* Instagram block */}
@@ -109,7 +109,7 @@ export const HomeScreen = (props: homeLayout) => {
                         {/* Sport block */}
                         <CatMinBlock
                             posts={props.posts[10]}
-                            category={props.categories[9]}
+                            category={10}
                             extraPost={true}
                         />
                     </div>
@@ -117,12 +117,12 @@ export const HomeScreen = (props: homeLayout) => {
                         {/* Health block */}
                         <CatLargeBlock
                             posts={props.posts[6]}
-                            category={props.categories[5]}
+                            category={6}
                         />
                         {/* Investments block */}
                         <CatLargeBlock
                             posts={props.posts[9]}
-                            category={props.categories[8]}
+                            category={9}
                         />
                     </div>
                     <div className="col-lg-3 custom-col-half custom-col-large--trends custom-col-margin">
@@ -132,7 +132,7 @@ export const HomeScreen = (props: homeLayout) => {
                         {/* Finance block */}
                         <CatMinBlock
                             posts={props.posts[8]}
-                            category={props.categories[7]}
+                            category={8}
                             extraPost={true}
                             withoutImage={true}
                         />
@@ -140,7 +140,7 @@ export const HomeScreen = (props: homeLayout) => {
                         {/* Networking block */}
                         <CatMinBlock
                             posts={props.posts[12]}
-                            category={props.categories[11]}
+                            category={12}
                         />
 
                         {/* Stay connected block */}

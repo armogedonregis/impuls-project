@@ -1,12 +1,17 @@
-import { categoryType } from "@/types/categoriesType"
 import { postType } from "@/types/postsType"
 import { Post } from "../../../posts/post"
 import { HeroPost } from "../../../posts/heroPost"
 import Link from "next/link"
+import { getCatUrl, getFullCategory } from "@/utils/getCategory"
+
+type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
+ ? Acc[number] : Enumerate<N, [...Acc, Acc['length']]>
+
+ type IntRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>
 
 export const TopCatLeftBlock: React.FC<{
-    posts: postType[],
-    category: categoryType
+    posts: postType[]
+    category: IntRange<1, 13>
 }> = (props) => {
     let postsCount = 0
 
@@ -14,12 +19,12 @@ export const TopCatLeftBlock: React.FC<{
         <div className="col-lg-8 border-1 border-end brd-gray">
             <div className="row text-uppercase fsz-14px">
                 <div className="col-lg-6">
-                    <p className="text-uppercase"> {props.category ? props.category.name : ""} </p>
+                    <p className="text-uppercase"> { getFullCategory(props.category) } </p>
                 </div>
                 <div className="col-lg-6 text-lg-end">
                     <Link
-                        href={`category/${props.category ? props.category.url : ""}`} className="text-capitalize hover-main"
-                    > All {props.category?.name} News <i className="la la-angle-right ms-1"></i> </Link>
+                        href={`category/${getCatUrl(props.category)}`} className="text-capitalize hover-main"
+                    > All { getFullCategory(props.category) } News <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>
             <div className="tc-post-grid-default pt-30">

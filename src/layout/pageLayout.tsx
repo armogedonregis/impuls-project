@@ -1,24 +1,17 @@
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
-import { Navbar } from '@/components/navbar';
-import { SideBar } from '@/components/sideBar/sideBar';
-import { categoryType } from '@/types/categoriesType';
-import { postType, swiperPostData } from '@/types/postsType';
-import { socialsType } from '@/types/socials';
-import { useState } from 'react';
-
-interface categorizedPosts {
-    [key: string]: postType[]
-}
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
+import { Navbar } from '@/components/navbar'
+import { SideBar } from '@/components/sideBar/sideBar'
+import { categoryType } from '@/types/categoriesType'
+import { socialsType } from '@/types/socials'
+import { useState } from 'react'
 
 type LayoutProps = {
-    children: React.ReactNode;
-    sliderPosts: swiperPostData[];
-    posts: categorizedPosts;
-    categories: categoryType[];
-    socials: socialsType;
+    children: React.ReactNode
+    categories: categoryType[]
+    socials: socialsType
     lang: string;
-};
+}
 
 export default function PageLayout(props: LayoutProps) {
     const [isDark, setDark] = useState<boolean>(false)
@@ -27,6 +20,11 @@ export default function PageLayout(props: LayoutProps) {
 
     const [show, setShow] = useState<boolean>(false);
     const handleClose = () => setShow(false);
+
+    // const { data: catData, error } = useSWR<categoryType[], Error>(`${isServer}/categories/en`, fetch)
+    // if(!error && catData) {
+    //     console.log(catData)
+    // }
 
     return (
         <div className={`${isDark ? "dark-theme" : ""}`}>

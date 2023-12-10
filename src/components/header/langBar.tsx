@@ -10,7 +10,7 @@ export const LangBar = () => {
         <div className="header-lang">
             <div className="another-lang-links">
                 {HeaderLang.map(item => (
-                    <Link key={item.id} href={item.link} locale={item.locale} className="lang-link text-white">
+                    <Link key={item.id} href={router.asPath} locale={item.locale} className="lang-link text-white">
                         <span className="flag icon-20 rounded-circle overflow-hidden img-cover me-3">
                             <img src={item.icon} alt="" />
                         </span>

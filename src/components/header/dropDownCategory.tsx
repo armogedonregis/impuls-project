@@ -9,7 +9,7 @@ export const DropDownCategory: React.FC<{
     return (
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-                <Link className="nav-link active" href="#">
+                <Link className="nav-link active" href="/">
                     Inicio
                 </Link>
             </li>
@@ -29,7 +29,7 @@ export const DropDownCategory: React.FC<{
                                         ? <Link
                                             key={item.id}
                                             className="dropdown-item"
-                                            href={`/category/${item.url}`}
+                                            href={`/category/${item.url ? item.url : ""}`}
                                         >
                                             {item.name}
                                         </Link> : null
@@ -48,7 +48,7 @@ export const DropDownCategory: React.FC<{
                                     ? <Link
                                         key={item.id}
                                         className="dropdown-item"
-                                        href={`/category/${item.url}`}
+                                        href={`/category/${item.url ? item.url : ""}`}
                                     >
                                         {item.name}
                                     </Link> : null

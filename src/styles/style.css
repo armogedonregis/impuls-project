@@ -640,7 +640,7 @@ small.text {
 .form-switch .form-check-input.color-lightBlue:checked {
   background-color: var(--color-lightBlue);
   border-color: var(--color-lightBlue);
-  /* background-image: url(../img/icons/toggle_dot.svg); */
+  background-image: url(../img/icons/toggle_dot.svg);
 }
 
 /* --------------- pagination style --------------- */
@@ -4159,7 +4159,7 @@ small.text {
 ================================================================*/
 /* ----------  tc-header-style2 ------------ */
 .tc-header-style2 {
-  /* background-image: url(../img/header/1.png); */
+  background-image: url(../img/header/1.png);
   background-size: cover;
   position: relative;
 }
@@ -6500,7 +6500,7 @@ small.text {
 ================================================================*/
 /* ----------  tc-latest-posts-style3 ------------ */
 .tc-latest-posts-style3 {
-  /* background-image: url(../img/bg_pattern1.png); */
+  background-image: url(../img/bg_pattern1.png);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -7244,10 +7244,6 @@ small.text {
 }
 .tc-trends-news-style10 .tc-trends-news-slider10 .tc-post-grid-default.md-item {
   max-width: 30vw;
-}
-
-.swiper-container {
-  z-index: -1;
 }
 
 @media screen and (min-width: 1200px) {
@@ -8903,7 +8899,7 @@ small.text {
 ================================================================*/
 /* ----------  tc-hot-videos-style1 ------------ */
 .tc-hot-videos-style1 {
-  /* background-image: url(../img/videos/back1.png); */
+  background-image: url(../img/videos/back1.png);
   background-size: cover;
   position: relative;
 }
@@ -9037,7 +9033,7 @@ small.text {
 /* ----------  tc-hot-videos-style2 ------------ */
 .tc-hot-videos-style2 {
   position: relative;
-  /* background-image: url(../img/videos/back2.png); */
+  background-image: url(../img/videos/back2.png);
   background-size: cover;
 }
 .tc-hot-videos-style2::after {
@@ -9150,7 +9146,7 @@ small.text {
 /* ----------  tc-hot-videos-style9 ------------ */
 .tc-hot-videos-style9 {
   position: relative;
-  /* background-image: url(../img/latest/158.jpg); */
+  background-image: url(../img/latest/158.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -9207,7 +9203,7 @@ small.text {
 
 /* ----------  tc-hot-videos-style10 ------------ */
 .tc-hot-videos-style10 {
-  /* background-image: url(../img/latest/174.png); */
+  background-image: url(../img/latest/174.png);
   background-size: cover;
   position: relative;
 }
@@ -9831,7 +9827,7 @@ small.text {
 /* ----------  download style-1 ------------ */
 .tc-download-style1 .content {
   padding: 60px;
-  /* background-image: url(../img/download1.png); */
+  background-image: url(../img/download1.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -10198,7 +10194,7 @@ small.text {
   top: 0;
   width: 100%;
   height: 100%;
-  /* background-image: url(../img/bg_shap.png); */
+  background-image: url(../img/bg_shap.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -13409,7 +13405,7 @@ small.text {
 /* ----------  about page style ------------ */
 .tc-about-page .tc-about-header .content {
   position: relative;
-  /* background-image: url(../img/about_page/header_back.png); */
+  background-image: url(../img/about_page/header_back.png);
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
@@ -13650,7 +13646,7 @@ small.text {
 /* ----------  team page style ------------ */
 .tc-team-page .tc-team-header .content {
   position: relative;
-  /* background-image: url(../img/about_page/header_back.png); */
+  background-image: url(../img/about_page/header_back.png);
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
@@ -13697,7 +13693,7 @@ small.text {
 /* ----------  author page style ------------ */
 .tc-author-page .tc-author-header .content {
   position: relative;
-  /* background-image: url(../img/about_page/header_back.png); */
+  background-image: url(../img/about_page/header_back.png);
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
@@ -15511,7 +15507,7 @@ small.loading01 {
   color: #eeeeee;
 }
 .dark-theme .tc-download-style1 .content {
-  /* background-image: url(../img/download1_dark.png); */
+  background-image: url(../img/download1_dark.png);
 }
 .dark-theme .tc-post-list-style2 .items .item,
 .dark-theme .tc-post-list-style1 .items .item,

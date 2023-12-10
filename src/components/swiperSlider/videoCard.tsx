@@ -16,19 +16,19 @@ export const VideoCard = (props: videoCardType) => {
     return (
         <div className="video-card">
             <div className="img img-cover">
-                <img src={props.post?.url ? props.post.url : "404"} alt="" />
+                <img src={`${props.post?.image ? props.post.image : "404"}`} alt="" />
                 <div className="info">
                     <div className="row justify-content-center">
                         <div className="col-lg-7">
                             <div className="date mb-20 fsz-12px">
                                 <span>{props.post?.author}</span>
                             </div>
-                            <h2 className="title fsz-40px"> <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>
+                            <h2 className="title fsz-40px"> <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}>
                                 {props.post?.title}
                             </Link> </h2>
                             <p className="fsz-14px"> {props.post?.description} </p>
                             <a
-                                href={props.post?.videoUrl ? props.post.videoUrl : "404"}
+                                href={`https://youtu.be/${props.post?.videoUrl ? props.post.videoUrl : "404"}`}
                                 data-fancybox=""
                                 className="play-cont mt-90"
                             >

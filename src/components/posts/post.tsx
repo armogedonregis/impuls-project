@@ -30,15 +30,15 @@ export const Post = (props: Type) => {
                         </div>
                         <div className="content pt-20">
                             <h2 className="title mb-10">
-                                <Link href={`post/${props.post?.url ? props.post?.url : ""}`} className="hover-underline fsz-28px">
+                                <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`} className="hover-underline fsz-28px">
                                     {props.post?.title}
                                 </Link>
                             </h2>
                             <p className="text mt-15 mb-20">{props.post?.description}</p>
                             <ul className="fsz-12px">
                                 <li>
-                                    <span className="me-3"><i className="la la-calendar me-2"></i>{props.post?.publicationDate}</span>
-                                    <span className="me-3"><i className="la la-user me-2"></i>{props.post?.author}</span>
+                                    {props.post?.publicationDate && <span className="me-3"><i className="la la-calendar me-2"></i>{props.post?.publicationDate}</span>}
+                                    {props.post?.author && <span className="me-3"><i className="la la-user me-2"></i>{props.post?.author}</span>}
                                 </li>
                             </ul>
                         </div>
@@ -53,15 +53,15 @@ export const Post = (props: Type) => {
                         <div className="col-8">
                         <div className="content pt-20">
                             <h2 className="title mb-10">
-                                <Link href={`post/${props.post?.url ? props.post?.url : ""}`} className="hover-underline fsz-28px">
+                                <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`} className="hover-underline fsz-28px">
                                     {props.post?.title}
                                 </Link>
                             </h2>
                             <p className="text mt-15 mb-20">{props.post?.description}</p>
                             <ul className="fsz-12px">
                                 <li>
-                                    <span className="me-3"><i className="la la-calendar me-2"></i>{props.post?.publicationDate}</span>
-                                    <span className="me-3"><i className="la la-user me-2"></i>{props.post?.author}</span>
+                                    {props.post?.publicationDate && <span className="me-3"><i className="la la-calendar me-2"></i>{props.post?.publicationDate}</span>}
+                                    {props.post?.author && <span className="me-3"><i className="la la-user me-2"></i>{props.post?.author}</span>}
                                 </li>
                             </ul>
                         </div>
@@ -94,15 +94,15 @@ export const Post = (props: Type) => {
                 <div className="col-8">
                 <div className="content">
                     <h2 className="title">
-                        <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title}</Link>
+                        <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}>{props.post?.title}</Link>
                     </h2>
                     <p className="text mt-15 mb-20">
                         {props.post?.description}
                     </p>
                     <ul className="d-flex fsz-12px">
                         <li>
-                            <span className="me-3"><i className="la la-calendar me-2"></i>{props.post?.publicationDate}</span>
-                            <span className="me-3"><i className="la la-user me-2"></i>{props.post?.author}</span>
+                            {props.post?.publicationDate && <span className="me-3"><i className="la la-calendar me-2"></i>{props.post?.publicationDate}</span>}
+                            {props.post?.author && <span className="me-3"><i className="la la-user me-2"></i>{props.post?.author}</span>}
                         </li>
                     </ul>
                 </div>

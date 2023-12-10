@@ -3,42 +3,30 @@ import { SinglePost } from "@/components/screens/post"
 import { HeadLayout } from "@/layout/headLayout"
 import PageLayout from "@/layout/pageLayout"
 import { categoryType } from "@/types/categoriesType"
-import { postType, postsType } from "@/types/postsType"
+import { directionPost, postType, singlePost } from "@/types/postsType"
 import { socialsType } from "@/types/socials"
-import { HomeParams } from "@/utils/headerParams"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
-
-let tempPost: postType = {
-    id: 1,
-    title: "Amazing View! Catch the sunrise in high moutain",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos temporibus quibusdam eaque obcaecati earum a, quo fugiat laborum sint itaque soluta velit labore. Ratione adipisci nulla iusto illum doloremque? Vero.",
-    url: "#",
-    author: "Logan",
-    imageSmall: "../assets/img/main.png",
-    videoUrl: "",
-    // videoUrl: "https://youtu.be/pGbIOC83-So?t=21",
-    publicationDate: "Dec 14, 2022",
-    categories: [
-        {
-            id: 1,
-            name: "gastronomy",
-            url: "#",
-            image: "#",
-            count: 35
-        }
-    ],
-    isPrime: false
-}
+import { useRouter } from "next/router"
 
 type posthLayout = {
-    posts: postsType
     categories: categoryType[]
     socials: socialsType
     lang: string
+    post: singlePost
+    rPosts: postType[]
+    isExist: boolean
+    prevPosts: directionPost[]
+    nextPosts: directionPost[]
 }
 
 export default function Post(props: posthLayout) {
+
+    const router = useRouter()
+
+    if (!props.isExist) {
+        router.back()
+    }
 
     return (
         <HeadLayout
@@ -48,15 +36,16 @@ export default function Post(props: posthLayout) {
             keywords={""}
         >
             <PageLayout
-                sliderPosts={props.posts.sliderPosts}
-                posts={props.posts.categorizedPosts}
                 categories={props.categories}
                 socials={socialsData}
                 lang={props.lang}
             >
                 <SinglePost
-                    post={tempPost}
+                    post={props.post}
+                    rPosts={props.rPosts}
                     socials={socialsData}
+                    prevPosts={props.prevPosts}
+                    nextPosts={props.nextPosts}
                 />
             </PageLayout>
         </HeadLayout>
@@ -66,19 +55,38 @@ export default function Post(props: posthLayout) {
 export const getServerSideProps = async (ctx: NextPageContext) => {
     // Определяем локализацию
     const lang = ctx.locale
+    // Id of the targeted post
+    const postId = ctx.query["id"]
 
-    // Вытягиваем посты
-    const posts_ = await fetch(`${isServer}/posts/home/${lang}?categoryIds=${HomeParams.categoryId}&postsSize=${HomeParams.postsSize}&sliderSize=${HomeParams.sliderSize}`)
+    // Вытягиваем все данные для текущего поста
+    const post_ = await fetch(`${isServer}/post/${lang}/${postId}`)
+    // Рекомендуемые посты
+    const rPosts_ = await fetch(`${isServer}/posts/recommended/${lang}/${postId}?limit=8`)
     // Вытягиваем категории
     const categories_ = await fetch(`${isServer}/categories/${lang}`)
+    // Getting prev post
+    const prev_ = await fetch(`${isServer}/post/${lang}/${postId}/prev`)
+    // Getting next post
+    const next_ = await fetch(`${isServer}/post/${lang}/${postId}/next`)
+    // Getting next post
+    const secNext_ = await fetch(`${isServer}/post/${lang}/${postId}/next`)
 
     // Сериализуем в джейсона
-    const posts = await posts_.json()
     const categories = await categories_.json()
+    const post = await post_.json()
+    const rPosts = await rPosts_.json()
+    const prevPosts = await prev_.json()
+    const nextPosts = await next_.json()
+    
+    let isExist = true
+    if(post["message"]?.search('Post not available in requested language') === 0) {
+        isExist = false
+    }
 
     return {
       props: {
-        posts, categories, lang
+        categories, lang, post, rPosts, isExist,
+        prevPosts, nextPosts
       }
     }
 }

@@ -1,5 +1,4 @@
-import { Dispatch, SetStateAction, useRef, useState } from "react"
-import styles from "./navbar.module.css"
+import { useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import { useRouter } from "next/router"
 
@@ -30,7 +29,7 @@ export const Navbar: React.FC<{
 
     return (
         <animated.div
-            className={styles.navSearchStyle1}
+            className="home-style10 navbar navbar-expand-lg navbar-dark style-10 px-lg-5"
             style={{overflow: 'hidden', paddingLeft: 20, paddingRight: 20, ...props }}
         >
             <div className="row justify-content-center align-items-center gx-lg-5">
@@ -40,15 +39,15 @@ export const Navbar: React.FC<{
                     </div>
                 </div>
                 <div className="col-lg-6">
-                    <div className={styles.form}>
+                    <div className="form">
                         <span className="color-777 fst-italic text-capitalize mb-2 fsz-13px">Enter Keyword</span>
-                        <div className={styles.formGroup}>
-                            <span className={styles.icon}>
+                        <div className="form-group">
+                            <span className="icon">
                                 <i className="la la-search"></i>
                             </span>
                             <input
                                 type="text"
-                                className={styles.formControl}
+                                className="form-control"
                                 placeholder="Elon Musk ... "
                                 ref={inputRef}
                             />

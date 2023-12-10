@@ -1,3 +1,4 @@
+import { CursorFollower } from "@/components/cursorFollower/cursorFollower";
 import { categoryType } from "@/types/categoriesType";
 import Link from "next/link";
 
@@ -5,7 +6,7 @@ export const CategoryHome: React.FC<{
     categories: categoryType[]
 }> = (props) => {
     return (
-        <section className="tc-categories-style10 px-lg-5">
+        <CursorFollower>
             {
                 props.categories
                 ? <div className="cat-content">
@@ -15,6 +16,6 @@ export const CategoryHome: React.FC<{
                 ))}
                 </div> : null
             }
-        </section>
+        </CursorFollower>
     )
 }
