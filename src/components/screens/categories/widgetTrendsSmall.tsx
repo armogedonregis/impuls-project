@@ -6,7 +6,7 @@ export const NumberedTrendsWidget: React.FC<{
     num: number,
     topPost: topPostType,
     categoryId: number,
-    categoryUrl: string
+    categoryUrl: string,
 }> = (props) => {
     return (
         <div className="item">

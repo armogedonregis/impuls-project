@@ -78,6 +78,7 @@ export type favPostType = {
     title: string
     url: string
     image: string
+    imageSmall: string
 }
 
 // Top posts
