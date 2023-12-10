@@ -15,12 +15,12 @@ export const TopSwiperSlideContent = (props: swiperPostData) => {
             </div>
             <div className="info item-750">
                 <div className="date mb-30 fsz-12px">
-                    <span className="me-3"><i className="la la-calendar me-2"></i>
+                    {props?.publicationDate && <span className="me-3"><i className="la la-calendar me-2"></i>
                         {props?.publicationDate}
-                    </span>
-                    <span><i className="la la-user me-2"></i>
+                    </span>}
+                    {props?.author && <span><i className="la la-user me-2"></i>
                         {props?.author}
-                    </span>
+                    </span>}
                 </div>
                 <h2 className="mb-20"> <Link href={`post/${props.url ? props.url : ""}?id=${props?.id}`}>
                     {props?.title}
