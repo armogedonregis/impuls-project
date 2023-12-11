@@ -1,7 +1,10 @@
 import { isServer } from "@/utils/server"
+import { useTranslation } from "next-i18next"
 import { useRef } from "react"
 
 export const Form = () => {
+    const { t, i18n } = useTranslation('locale')
+    
     const nameRef = useRef<HTMLInputElement>(null)
     const emailRef = useRef<HTMLInputElement>(null)
     const checkBoxRef = useRef<HTMLInputElement>(null)
@@ -9,9 +12,9 @@ export const Form = () => {
     return (
         <div className="col-lg-12 custom-col-half custom-col-small tc-subscribe-style3 mt-30 custom-mt-70 custom-col-margin">
             <div className="sub-form radius-7">
-                <p className="text-uppercase fsz-14px mb-30"> newsletter </p>
+                <p className="text-uppercase fsz-14px mb-30"> {t('home.whatIsNewBlock.form.title')} </p>
                 <div className="text fsz-14px mb-15">
-                    Subscribe our newsletter to get the  latest updates about news &amp; promotions
+                    {t('home.whatIsNewBlock.form.desciption')}
                 </div>
                 <div className="form-group">
                     <span className="icon">
@@ -20,7 +23,7 @@ export const Form = () => {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Your Full Name"
+                        placeholder={t('home.whatIsNewBlock.form.nameIn')}
                         ref={nameRef}
                     />
                 </div>
@@ -31,15 +34,15 @@ export const Form = () => {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter your email"
+                        placeholder={t('home.whatIsNewBlock.form.mailIn')}
                         ref={emailRef}
                     />
                 </div>
                 <div className="form-check mt-2">
                     <input ref={checkBoxRef} className="form-check-input" type="checkbox" name="subCheck" id="subCheck1" />
                     <label className="form-check-label fsz-14px lh-5" htmlFor="subCheck1">
-                        By signing up, you agree to the our terms and our
-                        <a className="text-decoration-underline color-000">Privacy Policy</a>
+                        {t('home.whatIsNewBlock.form.policy')}&nbsp;
+                        <a className="text-decoration-underline color-000">{t('home.whatIsNewBlock.form.policyLink')}</a>
                     </label>
                 </div>
                 <a
@@ -61,7 +64,7 @@ export const Form = () => {
                         }) : null
                     }}
                 >
-                    <span className="text-white">subscribe</span>
+                    <span className="text-white">{t('home.whatIsNewBlock.form.button')}</span>
                 </a>
             </div>
         </div>

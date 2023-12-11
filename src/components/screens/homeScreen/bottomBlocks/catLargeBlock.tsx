@@ -11,6 +11,8 @@ type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] exte
 type catLargeBlockType = {
     category: IntRange<1, 13>
     posts: postType[]
+    catTitle: string
+    catViewAll: string
 }
 
 const CatLargeBlock = (props: catLargeBlockType) => {
@@ -19,10 +21,10 @@ const CatLargeBlock = (props: catLargeBlockType) => {
         <div className="p-30 bg-white radius-7 border-0 mb-30">
             <div className="row text-uppercase fsz-14px ">
                 <div className="col-lg-6">
-                    <p className="text-uppercase mb-20"> { getFullCategory(props.category) } </p>
+                    <p className="text-uppercase mb-20"> {props.catTitle} </p>
                 </div>
                 <div className="col-lg-6 text-lg-end">
-                    <Link href={`/category/${getCatUrl(props.category)}?key=${props.category}`} className="text-capitalize hover-main"> All { getFullCategory(props.category) } News <i className="la la-angle-right ms-1"></i> </Link>
+                    <Link href={`/category/${getCatUrl(props.category)}?id=${props.category}`} className="text-capitalize hover-main"> {props.catViewAll} <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>
             <div className="tc-post-list-style3">

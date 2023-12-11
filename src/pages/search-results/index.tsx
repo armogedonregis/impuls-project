@@ -57,16 +57,30 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
         return {
             props: {
                 ...(await serverSideTranslations(lang!, [
-                    'footer',
+                    'common',
+                    'locale'
                 ])),
                 categories, foundPosts, lang
             }
         }
     } 
     catch(e) {
+        // Определяем локализацию
+        const lang = ctx.locale
+
+        // Вытягиваем категории
+        const categories_ = await fetch(`${isServer}/categories/${lang}`)
+
+        // Сериализуем в джейсона
+        const categories = await categories_.json()
+
         return {
             props: {
-                
+                ...(await serverSideTranslations(lang!, [
+                    'common',
+                    'locale'
+                ])),
+                lang, categories
             }
         }
     }

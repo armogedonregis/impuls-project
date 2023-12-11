@@ -5,6 +5,7 @@ import { ChoiseTheme } from './choiseTheme'
 import { LangBar } from './langBar'
 import { categoryType } from '@/types/categoriesType'
 import { categoryData } from '@/types/postsType'
+import { useTranslation } from 'next-i18next'
 
 export const Header: React.FC<{
     isNavBarOpen: Boolean
@@ -17,6 +18,7 @@ export const Header: React.FC<{
     isCat?: boolean
     thisCategory?: categoryData
 }> = ({...props}) => {
+    const { t, i18n } = useTranslation('locale')
     
     return (
         <header className={'tc-header-style10 home-style10'}>
@@ -71,15 +73,15 @@ export const Header: React.FC<{
                 props.isCat && 
                 <div
                     className="tc-categories pt-50 pb-50"
-                    style={{backgroundImage: `url(${props.thisCategory?.image})`}}
+                    style={{backgroundImage: `url(/assets/img/category.png)`}}
                 >
-                <div className="container">
-                    <div className="content text-center">
-                        <h2 className="main-title">{props.thisCategory?.name}</h2>
-                        <p className="fsz-16px">We believe better things are created by great designers.</p>
+                    <div className="container">
+                        <div className="content text-center">
+                            <h2 className="main-title">{props.thisCategory?.name}</h2>
+                            <p className="fsz-16px">{t('cat_sPage.hatText')}.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
             }
         </header>
     );

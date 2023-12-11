@@ -1,7 +1,6 @@
 import { directionPost, postType, singlePost } from "@/types/postsType"
 import { socialsType } from "@/types/socials"
 import dynamic from "next/dynamic"
-import DirectionPostsSlider from "./directionPosts"
 
 
 const EditorsChoice = dynamic(
@@ -10,6 +9,10 @@ const EditorsChoice = dynamic(
 )
 const PostSection = dynamic(
     () => import('./postSection'),
+    { loading: () => <p>Loading...</p>, }
+)
+const DirectionPostsSlider = dynamic(
+    () => import('./directionPosts'),
     { loading: () => <p>Loading...</p>, }
 )
 

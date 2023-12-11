@@ -14,7 +14,7 @@ const CatPost = dynamic(
     { loading: () => <p>Loading...</p>, }
 )
 const CatPagination = dynamic(
-    () => import('./pagination'),
+    () => import('./pagination/pagination'),
     { loading: () => <p>Loading...</p>, }
 )
 const CatAds = dynamic(
@@ -46,7 +46,10 @@ export const CategoryPage = (props: catPageProps) => {
                                             props.catPosts?.posts?.content?.length > 0
                                             ? props.catPosts.posts.content.map((item, id) => {
                                                 return !(id === props.catPosts.posts.content.length / 2)
+                                                    && id < 10
                                                 ? <CatPost key={id} post={item} />
+                                                : !(id === props.catPosts.posts.content.length / 2) && id > 9
+                                                ? <CatPost key={id} post={item} lazy={true} />
                                                 : <div key={id}>
                                                     <CatBanner />
                                                     <CatPost post={item} />

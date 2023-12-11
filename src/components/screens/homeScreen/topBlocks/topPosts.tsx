@@ -1,13 +1,16 @@
 import { topPostType } from "@/types/postsType"
 import { WidgetCard } from "../../../widgetCards/widgetCard"
+import { useTranslation } from "next-i18next"
 
 export const TopPosts: React.FC<{
     topPosts: topPostType[]
 }> = (props) => {
+    const { t, i18n } = useTranslation('locale')
+    
     return (
         <div className="col-lg-12 custom-col-half custom-col-small tc-widget-top-games-style3">
             <div className="widget-title mb-30">
-                <h3 className="lh-1 fsz-32px">Top Posts</h3>
+                <h3 className="lh-1 fsz-32px">{t('home.whatIsNewBlock.topPosts')}</h3>
             </div>
             <div className="widget-content">
                 {

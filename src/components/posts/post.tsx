@@ -30,7 +30,7 @@ export const Post = (props: Type) => {
                         <div className="img img-cover th-200 radius-6 overflow-hidden">
                             <Image width={2000} height={2000} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt=""/>
                         </div>
-                        <div style={{overflowWrap: "anywhere"}} className="content">
+                        <div style={{overflowWrap: "anywhere"}} className="content pt-20">
                             <h2 className="title mb-10">
                                 <Link
                                     style={{maxWidth: "100%", hyphens: "auto", overflowWrap: "anywhere"}}

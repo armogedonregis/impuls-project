@@ -1,17 +1,23 @@
 import { postType } from "@/types/postsType"
 import Link from "next/link"
 import Image from 'next/image'
+import { lazy } from "react"
 
 
 const CatPost: React.FC<{
     post: postType
+    lazy?: boolean
 }> = (props) => {
     return (
         <div className={`item ${props.post?.isPrime ? "mt-30 p-30 bg-gray1 radius-6 border-bottom-0" : ""}`}>
             <div className="row">
                 <div className={`col-lg-5 ${props.post?.isPrime ? "order-1-2" : ""}`}>
                     <div className="img th-230 img-cover overflow-hidden radius-6">
-                        <Image width={2000} height={2000} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt=""/>
+                        {
+                            props.lazy
+                            ? <Image width={2000} height={2000} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt=""/>
+                            : <img src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt=""/>
+                        }
                     </div>
                 </div>
                 <div className="col-lg-7">

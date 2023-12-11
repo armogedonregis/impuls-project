@@ -1,4 +1,5 @@
 import { categoryType } from "@/types/categoriesType";
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
 // выбор категорий
@@ -6,16 +7,18 @@ export const DropDownCategory: React.FC<{
     categories: categoryType[],
     lang: string
 }> = (props) => {
+    const { t, i18n } = useTranslation('locale')
+
     return (
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
                 <Link className="nav-link active" href="/">
-                    Inicio
+                    { t('header.inicio') }
                 </Link>
             </li>
             <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    All categories <small className="hot">impuls</small>
+                    {t('header.headerDropDown')} <small className="hot">impuls</small>
                 </a>
                 <div className="dropdownMenu" aria-labelledby="navbarDropdown1">
                     <div className="d-flex flex-wrap">

@@ -3,6 +3,7 @@ import { favPostType, instaImg, postType, swiperPostData, topPostType } from '@/
 import { socialsType } from '@/types/socials'
 import dynamic from 'next/dynamic'
 import TopHomeSwiper from './topHomeSwiper/topHomeSwiper'
+import { useTranslation } from 'next-i18next'
 
 const TopHomePostsBlock = dynamic(
     () => import('@/components/header/homeTopGastroPosts'),
@@ -72,6 +73,8 @@ type homeLayout = {
 }
 
 export const HomeScreen = (props: homeLayout) => {
+    const { t, i18n } = useTranslation('locale')
+    
     return (
         <main className="home-style10 tc-header-style10">
             {/* Карусель и посты */}
@@ -95,7 +98,7 @@ export const HomeScreen = (props: homeLayout) => {
 
             {/* Banner */}
             <LargeLeaderBoard
-                url={"#"}
+                url={"/"}
                 img={"/assets/img/banner1.png"}
                 type={1}
             />
@@ -118,7 +121,7 @@ export const HomeScreen = (props: homeLayout) => {
 
             {/* <!-- ====== start banner ====== --> */}
             <LargeLeaderBoard
-                url={"#"}
+                url={"/"}
                 img={"/assets/img/banner1.png"}
                 type={2}
             />
@@ -142,6 +145,8 @@ export const HomeScreen = (props: homeLayout) => {
                         <CatMinBlock
                             posts={props.posts[4]}
                             category={4}
+                            catTitle={t('home.fashionBlock.title')}
+                            catViewAll={t('home.fashionBlock.viewAll')}                            
                         />
 
                         {/* Instagram block */}
@@ -151,6 +156,8 @@ export const HomeScreen = (props: homeLayout) => {
                         <CatMinBlock
                             posts={props.posts[10]}
                             category={10}
+                            catTitle={t('home.sportBlock.title')}
+                            catViewAll={t('home.sportBlock.viewAll')}
                         />
                     </div>
                     <div className="col-lg-6 custom-col-large">
@@ -158,11 +165,15 @@ export const HomeScreen = (props: homeLayout) => {
                         <CatLargeBlock
                             posts={props.posts[6]}
                             category={6}
+                            catTitle={t('home.HealthBlock.title')}
+                            catViewAll={t('home.HealthBlock.viewAll')}
                         />
                         {/* Investments block */}
                         <CatLargeBlock
                             posts={props.posts[9]}
                             category={9}
+                            catTitle={t('home.investBlock.title')}
+                            catViewAll={t('home.investBlock.viewAll')}
                         />
                     </div>
                     <div className="col-lg-3 custom-col-half custom-col-large--trends custom-col-margin">
@@ -174,12 +185,16 @@ export const HomeScreen = (props: homeLayout) => {
                             posts={props.posts[8]}
                             category={8}
                             withoutImage={true}
+                            catTitle={t('home.financeBlock.title')}
+                            catViewAll={t('home.financeBlock.viewAll')}
                         />
                         
                         {/* Networking block */}
                         <CatMinBlock
                             posts={props.posts[12]}
                             category={12}
+                            catTitle={t('home.networkBlock.title')}
+                            catViewAll={t('home.networkBlock.viewAll')}
                         />
 
                         {/* Stay connected block */}

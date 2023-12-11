@@ -7,6 +7,9 @@ import { BotVideoPost } from "../../../posts/botVideoPost"
 const HotVideosBlock: React.FC<{
     videoCards: postType[]
 }> = (props) => {
+
+    let postsCount = 0
+
     return (
         <section className="tc-hot-videos-style11 px-lg-5 pb-80">
             <div className="tc-hot-videos-slider11">
@@ -24,14 +27,12 @@ const HotVideosBlock: React.FC<{
                 >
                     {
                         props.videoCards
-                        ? <div className="swiper-wrapper">
-                            <SwiperSlide className={"swiper-wrapper"}>
-                                <VideoCard post={props.videoCards[0]} />
-                            </SwiperSlide>
-                            <SwiperSlide className={"swiper-wrapper"}>
-                                <VideoCard post={props.videoCards[1]} />
-                            </SwiperSlide>
-                        </div> : null
+                        ? props.videoCards?.map((item, id) => {
+                            return item.videoUrl && postsCount < 2
+                            ? <SwiperSlide key={id} className={"swiper-wrapper"}>
+                                <VideoCard post={props.videoCards[postsCount++]} />
+                            </SwiperSlide> : null
+                        }) : null
                     }
                     <div className="swiper-button-next"></div>
                     <div className="swiper-button-prev"></div>
@@ -42,9 +43,14 @@ const HotVideosBlock: React.FC<{
                 <div className="sub-videos tc-post-list-style2">
                     <div className="items">
                         <div className="row gx-5">
-                            <BotVideoPost post={props.videoCards[2]} />
-                            <BotVideoPost post={props.videoCards[3]} />
-                            <BotVideoPost post={props.videoCards[4]} />
+                        {
+                            props.videoCards
+                            ? props.videoCards?.map((item, id) => {
+                                return item.videoUrl && postsCount < 4
+                                ? <BotVideoPost key={id} post={props.videoCards[postsCount++]} />
+                                : null
+                            }) : null
+                        }
                         </div>
                     </div>
                 </div> : null

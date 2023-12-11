@@ -6,6 +6,7 @@ import { categoryType } from "@/types/categoriesType"
 import { instaImg, postType, postsByCategory, favPostType } from "@/types/postsType"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 type categoriesType = {
     catPosts: postsByCategory
@@ -74,6 +75,10 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
 
     return {
         props: {
+            ...(await serverSideTranslations(lang!, [
+                'common',
+                'locale'
+            ])),
             categories, categoryId, lang, catPosts,
             categoryUrl, currentPage, favoritePosts
         }

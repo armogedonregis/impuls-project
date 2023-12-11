@@ -72,7 +72,7 @@ export const getStaticProps = async (ctx: NextPageContext) => {
         props: {
             ...(await serverSideTranslations(lang ?? 'es', [
                 'common',
-                'footer'
+                'locale'
             ])),
             posts, favoritePosts, categories, instaImgs, lang, topPosts
         },

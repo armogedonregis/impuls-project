@@ -12,6 +12,7 @@ type directionPosts = {
 }
 
 const DirectionPostsSlider = (props: directionPosts) => {
+    
     return (
         <section className="tc-next-prev-post mb-60">
             <div className="container">

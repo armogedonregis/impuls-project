@@ -2,13 +2,16 @@ import { Carousel } from "@/components/carousel"
 import { MiddleSwiperSlideContent } from "../../../swiperSlider/middleSwiperSlide"
 import { SwiperSlide } from "swiper/react"
 import { favPostType } from "@/types/postsType"
+import { useTranslation } from "next-i18next"
 
 const FavoriteRandomPosts: React.FC<{
     favoritePosts: favPostType[]
 }> = (props) => {
+    const { t, i18n } = useTranslation('locale')
+
     return (
         <section className="tc-google-stories-style10 px-lg-5 mt-40 mb-40">
-            <p className="text-uppercase fsz-14px mb-40"> Favorite random posts (8 - 10 штук) </p>
+            <p className="text-uppercase fsz-14px mb-40"> { t('home.favRandPosts') } </p>
             <div className="tc-google-stories-slider10">
                 <Carousel
                     slidesPerView={5}

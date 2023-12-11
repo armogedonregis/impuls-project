@@ -23,13 +23,15 @@ type catLargeBlockType = {
     category: IntRange<1, 13>
     posts: postType[]
     withoutImage?: boolean
+    catTitle: string
+    catViewAll: string
 }
 
 const CatMinBlock = (props: catLargeBlockType) => {
 
     return (
         props.category ? <div className="item p-30 bg-white radius-7 border-0 mb-30">
-            <p className="text-uppercase mb-20"> { getFullCategory(props.category) } </p>
+            <p className="text-uppercase mb-20"> { props.catTitle } </p>
                 {
                     !props.withoutImage && props.posts[0] ?
                     <div className="img img-cover th-250 radius-7 overflow-hidden">
@@ -53,7 +55,7 @@ const CatMinBlock = (props: catLargeBlockType) => {
                         <CatMinBlockPostTitle post={props.posts[4]}/>
                     </ul> : null
                 }
-                <Link href={`/category/${getCatUrl(props.category)}?key=${props.category}`} className="mt-20 hover-main"> All { getFullCategory(props.category) } News <i className="la la-angle-right ms-3"></i> </Link>
+                <Link href={`/category/${getCatUrl(props.category)}?id=${props.category}`} className="mt-20 hover-main"> {props.catViewAll} <i className="la la-angle-right ms-3"></i> </Link>
             </div>
         </div> : null
     )

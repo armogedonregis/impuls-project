@@ -3,6 +3,7 @@ import Link from "next/link"
 import { NumberedTrendsWidget } from "./widgetTrendsSmall"
 import { getFullCategory } from "../../../utils/getCategory"
 import Image from 'next/image'
+import { useTranslation } from "next-i18next"
 
 type widgetTrends = {
     favoritePosts: favPostType[]
@@ -11,10 +12,11 @@ type widgetTrends = {
 }
 
 const WidgetTrends = (props: widgetTrends) => {
+    const { t, i18n } = useTranslation('locale')
 
     return (
         <div className="tc-trending-news-style5 border border-1 brd-gray mb-40">
-            <p className="color-000 text-uppercase p-15">trending posts</p>
+            <p className="color-000 text-uppercase p-15">{t('cat_sPage.trendingPosts')}</p>
             <div className="tc-post-list-style1">
                 <div className="tc-post-overlay-default">
                     <div className="img th-200 img-cover">

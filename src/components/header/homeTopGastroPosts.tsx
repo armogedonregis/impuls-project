@@ -3,6 +3,7 @@ import { postType } from "@/types/postsType"
 import { getCatUrl, getFullCategory } from "@/utils/getCategory"
 import Link from "next/link"
 import Image from 'next/image'
+import { useTranslation } from "next-i18next"
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
  ? Acc[number] : Enumerate<N, [...Acc, Acc['length']]>
@@ -13,10 +14,12 @@ export const TopHomePostsBlock: React.FC<{
     posts: postType[]
     category: IntRange<1, 13>
 }> = (props) => {
+    const { t, i18n } = useTranslation('locale')
+    
     return (
         <div className="col">
             <div className="tc-breaking-style10 px-lg-5">
-                <p className="text-uppercase fsz-14px mb-40">{ getFullCategory(props.category) }</p>
+                <p className="text-uppercase fsz-14px mb-40">{ t('home.gastroBlock.title') }</p>
                 <div className="img img-cover">
                     <Image width={2000} height={2000} src={props.posts[0]?.imageSmall ? props.posts[0]?.imageSmall : '/'} alt="" />
                 </div>
@@ -57,7 +60,7 @@ export const TopHomePostsBlock: React.FC<{
                             }
                         </ul>
                         <Link href={`category/${getCatUrl(props.category)}`} className="fsz-14px text-capitalize mt-15">
-                            View All Posts<i className="la la-angle-right ms-1"></i>
+                            { t('home.gastroBlock.viewAll') }<i className="la la-angle-right ms-1"></i>
                         </Link>
                     </div> : null
                 }

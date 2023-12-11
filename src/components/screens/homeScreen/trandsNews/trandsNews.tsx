@@ -4,22 +4,25 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { BottomSwiperSlideContent } from "../../../swiperSlider/bottomSwiperSlide"
 import Link from "next/link"
 import { Navigation, Pagination } from "swiper/modules"
+import { useTranslation } from "next-i18next"
 
 type GastronomySliderType = {
-    category: categoryType;
-    posts: postType[];
+    category: categoryType
+    posts: postType[]
 }
 
 const GastronomySlider = (props: GastronomySliderType) => {
+    const { t, i18n } = useTranslation('locale')
+    
     return (
         <section className="tc-trends-news-style10 px-lg-5 overflow-hidden">
             <div className="row text-uppercase fsz-14px mb-40">
-                <p className="text-uppercase"> {props.category ? props.category.name : ""} </p>
+                <p className="text-uppercase"> {t('home.gastroSlider.title')} </p>
                 <div className="col-lg-12 text-lg-end">
                     <Link
                         href={`/category/${props.category?.url ? props.category?.url : ""}?id=${props.category.id}`}
                         className="text-capitalize hover-main"
-                    > View All Posts <i className="la la-angle-right ms-1"></i> </Link>
+                    > {t('home.gastroSlider.viewAll')} <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>
             {/* Bottom carousel gastronomy cat */}

@@ -1,10 +1,13 @@
 import { useRef, useState } from "react"
 import { animated, useSpring } from "react-spring"
 import { useRouter } from "next/router"
+import { useTranslation } from "next-i18next"
 
 export const Navbar: React.FC<{
     isNavBarOpen: Boolean
 }> = ({isNavBarOpen}) => {
+    const { t, i18n } = useTranslation('locale')
+
     const [hidden, hide] = useState<Boolean>(false)
 
     const props = useSpring({
@@ -40,12 +43,12 @@ export const Navbar: React.FC<{
             <div className="row justify-content-center align-items-center gx-lg-5">
                 <div className="col-lg-4">
                     <div className="info">
-                        <h5> you can search by category or news title </h5>
+                        <h5> {t('navbar.title')} </h5>
                     </div>
                 </div>
                 <div className="col-lg-6">
                     <div className="form">
-                        <span className="color-777 fst-italic text-capitalize mb-2 fsz-13px">Enter Keyword</span>
+                        <span className="color-777 fst-italic text-capitalize mb-2 fsz-13px">{t('navbar.enter')}</span>
                         <div className="form-group">
                             <span className="icon">
                                 <i className="la la-search"></i>
@@ -64,7 +67,7 @@ export const Navbar: React.FC<{
                                     }}
                                 }
                             >
-                                search
+                                {t('navbar.btn')}
                             </button>
                         </div>
                     </div>

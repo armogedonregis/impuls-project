@@ -4,6 +4,7 @@ import { socialsType } from "@/types/socials"
 import parse from 'html-react-parser'
 import { PostVideoBlock } from "./videoBlock"
 import Image from 'next/image'
+import { useTranslation } from "next-i18next"
 
 type postSection = {
     post: singlePost
@@ -11,7 +12,9 @@ type postSection = {
 }
 
 const PostSection = (props: postSection) => {
+    const { t, i18n } = useTranslation('locale')
     return (
+        
         <>
         {
             props.post.videoUrl
@@ -29,7 +32,7 @@ const PostSection = (props: postSection) => {
                     <div className="row">
                         <div className="col-lg-2">
                             <div className="sharing">
-                                <p className="text-uppercase mb-20">Share</p>
+                                <p className="text-uppercase mb-20">{t('postPage.share')}</p>
                                 <div className="share-icons">
                                     <Link href={props.socials?.facebook}> <i className="la la-facebook-f"></i> </Link>
                                     <Link href={props.socials?.instagram}> <i className="la la-instagram"></i> </Link>
@@ -49,9 +52,21 @@ const PostSection = (props: postSection) => {
                                     }
                                     <div className="col-lg-8 mt-20 mb-40">
                                         <div className="author-side color-666 fsz-13px">
-                                            {/* <span className="me-40"> <i className="la la-user me-1"></i> {props.post?.author}</span> */}
-                                            <span className="me-40"> <i className="la la-calendar me-1"></i> {props.post?.publicationTime}</span>
-                                            <span className=""> <i className="la la-eye me-1"></i> {props.post?.viewCounter}</span>
+                                            {
+                                                props.post?.author
+                                                ? <span className="me-40"> <i className="la la-user me-1"></i> {props.post?.author}</span>
+                                                : null
+                                            }
+                                            {
+                                                props.post?.publicationTime
+                                                ? <span className="me-40"> <i className="la la-calendar me-1"></i> {props.post.publicationTime}</span>
+                                                : null
+                                            }
+                                            {
+                                                props.post?.viewCounter
+                                                ? <span className=""> <i className="la la-eye me-1"></i> {props.post.viewCounter}</span>
+                                                : null
+                                            }
                                         </div>
                                     </div>
                                 </div>

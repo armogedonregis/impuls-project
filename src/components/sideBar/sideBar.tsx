@@ -6,10 +6,12 @@ import { socialsType } from '@/types/socials'
 import Link from 'next/link'
 import { isDarkSessionStorage } from '@/utils/useSessionStorage'
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
 
 const SlideBarCatCards: React.FC<{
     category: categoryType
 }> = (props) => {
+
     return (
         props.category
         ? <Link href={`/category/${props.category?.url ? props.category?.url : null}?id=${props.category.id}`} className="cat-card">
@@ -37,6 +39,8 @@ type sideBarType = {
 }
 
 export const SideBar = (props: sideBarType) => {
+    const { t, i18n } = useTranslation('locale')
+    
     const options = {
         scroll: false,
         backdrop: true,
@@ -67,10 +71,10 @@ export const SideBar = (props: sideBarType) => {
             </Offcanvas.Header>
             <Offcanvas.Body className="mt-4">
                 <Offcanvas.Title>
-                    <h6 className="text-uppercase mb-15 ltspc-1"> about us <i className="la la-angle-right ms-1"></i> </h6>
+                    <h6 className="text-uppercase mb-15 ltspc-1"> {t('sidebar.about')} <i className="la la-angle-right ms-1"></i> </h6>
                 </Offcanvas.Title>
                 <div className="text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio tempora quia iure quae. Soluta corporis quidem aperiam amet nihil.
+                    {t('sidebar.description')}.
                 </div>
                 {
                     props.categories
@@ -102,19 +106,19 @@ export const SideBar = (props: sideBarType) => {
                 }
                     
                 <div className="sidebar-contact-info mt-50">
-                    <h6 className="text-uppercase mb-20 ltspc-1"> Contact & follow <i className="la la-angle-right ms-1"></i> </h6>
+                    <h6 className="text-uppercase mb-20 ltspc-1"> {t('sidebar.contactNfollow')} <i className="la la-angle-right ms-1"></i> </h6>
                     <ul className="m-0">
                         <li className="mb-3">
                             <i className="las la-map-marker me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="/">streat name 12, hollywood City, USA</Link>
+                            &nbsp;<Link href="/">{t('sidebar.contactNfollow')}</Link>
                         </li>
                         <li className="mb-3">
                             <i className="las la-envelope me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="/">Newzin@gmail.com</Link>
+                            &nbsp;<Link href="/">{t('sidebar.address')}</Link>
                         </li>
                         <li className="mb-3">
                             <i className="las la-phone-volume me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="/">+12 123 456 789</Link>
+                            &nbsp;<Link href="tel:+12123456789">+12 123 456 789</Link>
                         </li>
                     </ul>
                     <div className="social-links">

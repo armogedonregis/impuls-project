@@ -7,8 +7,7 @@ import { directionPost, postType, singlePost } from "@/types/postsType"
 import { socialsType } from "@/types/socials"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
-import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
 type postLayout = {
     categories: categoryType[]
@@ -83,6 +82,10 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
 
     return {
         props: {
+            ...(await serverSideTranslations(lang!, [
+                'common',
+                'locale'
+            ])),
             categories, lang, post, rPosts, isExist,
             prevPosts, nextPosts
         }
