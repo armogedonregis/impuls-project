@@ -88,6 +88,7 @@ export type topPostType = {
     title: string
     url: string
     imageSmall: string
+    author?: string
 }
 
 // Single post page

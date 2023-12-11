@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { DropDownCategory } from './dropDownCategory'
 import { HeaderLogo } from './headerLogo'
 import { ChoiseTheme } from './choiseTheme'
@@ -19,13 +19,16 @@ export const Header: React.FC<{
     thisCategory?: categoryData
 }> = ({...props}) => {
     const { t, i18n } = useTranslation('locale')
+    const [isOpenedMobNavbar, openMobNavbar] = useState<boolean>(false)
     
     return (
         <header className={'tc-header-style10 home-style10'}>
             <nav className={"navbar navbar-expand-lg navbar-dark style-10 px-lg-5"}>
                 <div className="container-fluid p-0">
-                    <HeaderLogo />
-                    <div className="collapse navbar-collapse custom-height" id="navbarSupportedContent">
+                    <HeaderLogo
+                        openMobNavbar={openMobNavbar}
+                    />
+                    <div className={`collapse navbar-collapse custom-height ${isOpenedMobNavbar ? "show" : ""}`} id="navbarSupportedContent">
                         <DropDownCategory categories={props.categories} lang={props.lang} />
                         <div className="nav-side">
                             <LangBar />
@@ -84,9 +87,5 @@ export const Header: React.FC<{
                 </div>
             }
         </header>
-    );
-};
-
-function getUrl(): any {
-    throw new Error('Function not implemented.')
+    )
 }
