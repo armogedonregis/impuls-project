@@ -3,13 +3,15 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { PrevPost } from "./directionPosts/prevPost"
 import { Navigation } from "swiper/modules"
 import { NextPost } from "./directionPosts/nextPost"
+import 'swiper/css'
+import 'swiper/css/bundle'
 
 type directionPosts = {
     prevPosts: directionPost[]
     nextPosts: directionPost[]
 }
 
-export const DirectionPostsSlider = (props: directionPosts) => {
+const DirectionPostsSlider = (props: directionPosts) => {
     return (
         <section className="tc-next-prev-post mb-60">
             <div className="container">
@@ -60,3 +62,5 @@ export const DirectionPostsSlider = (props: directionPosts) => {
         </section>
     )
 }
+
+export default DirectionPostsSlider

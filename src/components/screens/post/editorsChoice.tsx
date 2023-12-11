@@ -2,12 +2,14 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { postType } from "@/types/postsType"
 import { EditorsChoiceSlide } from "./editosChoiceSlide"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
+import 'swiper/css'
+import 'swiper/css/bundle'
 
 type editorsChoiceType = {
     rPosts: postType[]
 }
 
-export const EditorsChoice = (props: editorsChoiceType) => {
+const EditorsChoice = (props: editorsChoiceType) => {
 
     return (
         <section className="tc-editors-choice-style3 mb-40">
@@ -21,8 +23,8 @@ export const EditorsChoice = (props: editorsChoiceType) => {
                     slidesPerView={4}
                     spaceBetween={30}
                     navigation={{
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev",
+                        nextEl: ".tc-editors-choice-slider3 .swiper-button-next",
+                        prevEl: ".tc-editors-choice-slider3 .swiper-button-prev",
                     }}
                     keyboard={false}
                     speed={1000}
@@ -43,11 +45,13 @@ export const EditorsChoice = (props: editorsChoiceType) => {
                             }
                         </div>
                     </div>
-                    <div className="swiper-button-next"></div>
-                    <div className="swiper-button-prev"></div>
                 </Swiper>
+                <div className="swiper-button-next"></div>
+                <div className="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
     )
 }
+
+export default EditorsChoice

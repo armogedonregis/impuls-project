@@ -1,15 +1,16 @@
-import { postType, singlePost } from "@/types/postsType"
+import { singlePost } from "@/types/postsType"
 import Link from "next/link"
 import { socialsType } from "@/types/socials"
-import ReactHtmlParser from 'react-html-parser'
+import parse from 'html-react-parser'
 import { PostVideoBlock } from "./videoBlock"
+import Image from 'next/image'
 
 type postSection = {
     post: singlePost
     socials: socialsType
 }
 
-export const PostSection = (props: postSection) => {
+const PostSection = (props: postSection) => {
     return (
         <>
         {
@@ -21,10 +22,9 @@ export const PostSection = (props: postSection) => {
                 {
                     !props.post.videoUrl
                     ? <div className="tc-main-post-img img-cover pt-40 mb-50">
-                        <img src={props.post?.mainImageLink ? props.post.mainImageLink : "404"} alt=""/>
+                        <Image width={2000} height={2000} src={props.post?.mainImageLink} alt=""/>
                     </div> : null
                 }
-                
                 <div className="tc-main-post-content color-000">
                     <div className="row">
                         <div className="col-lg-2">
@@ -41,9 +41,9 @@ export const PostSection = (props: postSection) => {
                             <div className="tc-main-post-titlepb-40">
                                 <div className="row">
                                     {
-                                        !props.post.videoUrl
+                                        !props.post.videoUrl && props.post?.categories[0]
                                         ? <div className="col-lg-8">
-                                            <p className="text-uppercase mb-15">{props.post.categories[0].name}</p>
+                                            <p className="text-uppercase mb-15">{props.post?.categories[0]?.name}</p>
                                             <h1 className="title">{props.post?.title}</h1>
                                         </div> : null
                                     }
@@ -57,7 +57,7 @@ export const PostSection = (props: postSection) => {
                                 </div>
                             </div>
                             <div className="single_content">
-                                { ReactHtmlParser(props.post?.description) }
+                                { parse(props.post?.description) }
                             </div>
                         </div>
                     </div>
@@ -67,3 +67,5 @@ export const PostSection = (props: postSection) => {
         </>
     )
 }
+
+export default PostSection

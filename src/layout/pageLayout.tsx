@@ -1,33 +1,47 @@
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { Navbar } from '@/components/navbar'
-import { SideBar } from '@/components/sideBar/sideBar'
 import { categoryType } from '@/types/categoriesType'
+import { SideBar } from '@/components/sideBar/sideBar'
 import { socialsType } from '@/types/socials'
+import React from 'react'
 import { useState } from 'react'
+import { Montserrat } from 'next/font/google'
+import { useDarkMode } from '@/utils/useDarkMode'
+import { categoryData } from '@/types/postsType'
+
+const font = Montserrat({
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    subsets: ['latin', 'cyrillic'],
+    display: 'swap',
+    fallback: ['Arial', 'sans-serif']
+})
 
 type LayoutProps = {
     children: React.ReactNode
     categories: categoryType[]
     socials: socialsType
-    lang: string;
+    lang: string
+    isCat?: boolean
+    thisCategory?: categoryData
 }
 
 export default function PageLayout(props: LayoutProps) {
-    const [isDark, setDark] = useState<boolean>(false)
-    const [isNavBarOpen, openNavBar] = useState<Boolean>(false);
     const [isOpenedSlideBar, setIsOpenedSlideBar] = useState<boolean>(false)
+    const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
 
-    const [show, setShow] = useState<boolean>(false);
-    const handleClose = () => setShow(false);
+    const [show, setShow] = useState<boolean>(false)
+    const handleClose = () => setShow(false)
 
-    // const { data: catData, error } = useSWR<categoryType[], Error>(`${isServer}/categories/en`, fetch)
-    // if(!error && catData) {
-    //     console.log(catData)
-    // }
+    const [ theme, setTheme ] = useDarkMode()
+
+    let isDark
+    theme === 'dark' ? isDark = true : isDark = false
 
     return (
-        <div className={`${isDark ? "dark-theme" : ""}`}>
+        <div
+            className={`${isDark ? "dark-theme" : ""} ${font.className}`}
+        >
             <Navbar
                 isNavBarOpen={isNavBarOpen}
             />
@@ -38,7 +52,9 @@ export default function PageLayout(props: LayoutProps) {
                 setShow={setShow}
                 lang={props.lang}
                 isDark={isDark}
-                setDark={setDark}
+                setDark={setTheme}
+                isCat={props.isCat}
+                thisCategory={props.thisCategory}
             />
                 {/* Page aka screen body */}
                 {props.children}
@@ -52,8 +68,6 @@ export default function PageLayout(props: LayoutProps) {
                 isOpenedSlideBar={isOpenedSlideBar}
                 setIsOpenedSlideBar={setIsOpenedSlideBar}
                 socials={props.socials}
-                isDark={isDark}
-                setDark={setDark}
             />
         </div>
     )

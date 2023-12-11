@@ -13,7 +13,7 @@ export const PostVideoBlock: React.FC<{
 
     return (
         <div className="tc-video-content text-white mb-50"
-                style={{backgroundImage: `url(${props.post?.mainImageLink ? props.post.mainImageLink : "404"})`}
+                style={{backgroundImage: `url(${props.post?.mainImageLink})`}
         }>
             <div className="container">
                 <div className="row">

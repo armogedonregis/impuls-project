@@ -14,7 +14,7 @@ export const DropDownCategory: React.FC<{
                 </Link>
             </li>
             <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a className="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     All categories <small className="hot">impuls</small>
                 </a>
                 <div className="dropdownMenu" aria-labelledby="navbarDropdown1">
@@ -29,7 +29,7 @@ export const DropDownCategory: React.FC<{
                                         ? <Link
                                             key={item.id}
                                             className="dropdown-item"
-                                            href={`/category/${item.url ? item.url : ""}`}
+                                            href={`/category/${item.url ? item.url : ""}?id=${item.id}`}
                                         >
                                             {item.name}
                                         </Link> : null
@@ -48,7 +48,7 @@ export const DropDownCategory: React.FC<{
                                     ? <Link
                                         key={item.id}
                                         className="dropdown-item"
-                                        href={`/category/${item.url ? item.url : ""}`}
+                                        href={`/category/${item.url ? item.url : ""}?id=${item.id}`}
                                     >
                                         {item.name}
                                     </Link> : null

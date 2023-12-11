@@ -12,7 +12,7 @@ type TopCatChaperType = {
     posts: categorizedPosts;
 }
 
-export const TopCatChapter = (props: TopCatChaperType) => {
+const TopCatChapter = (props: TopCatChaperType) => {
     return (
         <div className="col-lg-9 custom-col-large">
             <div className="row gx-5">
@@ -30,3 +30,5 @@ export const TopCatChapter = (props: TopCatChaperType) => {
         </div>
     )
 }
+
+export default TopCatChapter

@@ -4,7 +4,7 @@ import { SwiperSlide } from "swiper/react"
 import { postType } from "@/types/postsType"
 import { BotVideoPost } from "../../../posts/botVideoPost"
 
-export const HotVideosBlock: React.FC<{
+const HotVideosBlock: React.FC<{
     videoCards: postType[]
 }> = (props) => {
     return (
@@ -52,3 +52,5 @@ export const HotVideosBlock: React.FC<{
         </section>
     )
 }
+
+export default HotVideosBlock

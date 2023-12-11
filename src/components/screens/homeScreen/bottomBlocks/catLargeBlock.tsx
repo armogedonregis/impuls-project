@@ -13,7 +13,7 @@ type catLargeBlockType = {
     posts: postType[]
 }
 
-export const CatLargeBlock = (props: catLargeBlockType) => {
+const CatLargeBlock = (props: catLargeBlockType) => {
 
     return (
         <div className="p-30 bg-white radius-7 border-0 mb-30">
@@ -22,7 +22,7 @@ export const CatLargeBlock = (props: catLargeBlockType) => {
                     <p className="text-uppercase mb-20"> { getFullCategory(props.category) } </p>
                 </div>
                 <div className="col-lg-6 text-lg-end">
-                    <Link href={`category/${getCatUrl(props.category)}`} className="text-capitalize hover-main"> All { getFullCategory(props.category) } News <i className="la la-angle-right ms-1"></i> </Link>
+                    <Link href={`/category/${getCatUrl(props.category)}?key=${props.category}`} className="text-capitalize hover-main"> All { getFullCategory(props.category) } News <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>
             <div className="tc-post-list-style3">
@@ -37,3 +37,5 @@ export const CatLargeBlock = (props: catLargeBlockType) => {
         </div>
     )
 }
+
+export default CatLargeBlock

@@ -18,7 +18,8 @@ export const TopCatRightBlock: React.FC<{
             <div className="tc-post-list-style2 pt-30">
                 <div className="items">
                     {
-                        props.posts ? props.posts.map((item, id) => {
+                        props.posts
+                        ? props.posts.map((item, id) => {
                             return id < 4
                                 ? <Post
                                     key={id}
@@ -30,7 +31,7 @@ export const TopCatRightBlock: React.FC<{
                     }
                 </div>
             </div>
-            <Link href={`category/${getCatUrl(props.category)}`} className="mt-20 hover-main"> All { getFullCategory(props.category) } News <i className="la la-angle-right ms-3"></i> </Link>
+            <Link href={`/category/${getCatUrl(props.category)}?key=${props.category}`} className="mt-20 hover-main"> All { getFullCategory(props.category) } News <i className="la la-angle-right ms-3"></i> </Link>
         </div>
     )
 }

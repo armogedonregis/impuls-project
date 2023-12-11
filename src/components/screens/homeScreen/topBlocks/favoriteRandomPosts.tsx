@@ -1,10 +1,10 @@
 import { Carousel } from "@/components/carousel"
 import { MiddleSwiperSlideContent } from "../../../swiperSlider/middleSwiperSlide"
 import { SwiperSlide } from "swiper/react"
-import { postType } from "@/types/postsType"
+import { favPostType } from "@/types/postsType"
 
-export const FavoriteRandomPosts: React.FC<{
-    randomPosts: postType[]
+const FavoriteRandomPosts: React.FC<{
+    favoritePosts: favPostType[]
 }> = (props) => {
     return (
         <section className="tc-google-stories-style10 px-lg-5 mt-40 mb-40">
@@ -31,10 +31,10 @@ export const FavoriteRandomPosts: React.FC<{
                     }}
                 >
                     {
-                        props.randomPosts
-                        ? props.randomPosts.map(item => (
-                                <SwiperSlide key={item.id}>
-                                    <MiddleSwiperSlideContent key={item.id} {...item} />
+                        props.favoritePosts
+                        ? props.favoritePosts.map((item, id) => (
+                                <SwiperSlide key={id}>
+                                    <MiddleSwiperSlideContent key={id} {...item} />
                                 </SwiperSlide>
                         )) : null
                     }
@@ -45,3 +45,5 @@ export const FavoriteRandomPosts: React.FC<{
         </section>
     )
 }
+
+export default FavoriteRandomPosts

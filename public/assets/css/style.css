@@ -284,13 +284,13 @@ TABLE OF CONTENTS:-
 			[ * global Section ] 
 ================================================================*/
 /* --------------- global --------------- */
-@font-face {
-  font-family: "Neco-Variable";
+/* @font-face {
+  font-family: "Montserrat";
   src: url("../fonts/neco/Neco-Variable.ttf") format("truetype"), url("../fonts/neco/Neco-VariableItalic.ttf") format("truetype");
   font-weight: 400 900;
   font-display: swap;
   font-style: normal;
-}
+} */
 *,
 * button:focus {
   outline: 0;
@@ -326,7 +326,7 @@ body {
 }
 
 .f-fm-neco {
-  font-family: "Neco-Variable", sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .container,
@@ -363,7 +363,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Neco-Variable";
+  font-family: "Montserrat";
   font-weight: 700;
   margin: 0;
   line-height: 1.4;
@@ -371,7 +371,7 @@ h4 {
 
 h5,
 h6 {
-  font-family: "Neco-Variable";
+  font-family: "Montserrat";
   font-weight: 500;
   margin: 0;
   line-height: 1.4;
@@ -4488,7 +4488,7 @@ small.text {
   padding-left: 30px;
   font-weight: bold;
   margin-bottom: 15px;
-  font-family: "Neco-Variable", sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 .tc-header-style10 .tc-breaking-style10 .info ul li::before {
   position: absolute;
@@ -7935,7 +7935,7 @@ small.text {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Neco-Variable", sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-size: 16px;
 }
 .tc-widget-social-style10 .item .icon i {
@@ -10383,7 +10383,7 @@ small.text {
 }
 .tc-categories-style10 .category {
   font-size: 72px;
-  font-family: "Neco-Variable", sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   -webkit-margin-end: 100px;
           margin-inline-end: 100px;
   position: relative;
@@ -12054,7 +12054,7 @@ small.text {
 .tc-single-post-creative-page .tc-main-post-style1 .tc-main-post-content .info-text {
   color: #666;
   font-size: 18px;
-  font-family: "Neco-Variable";
+  font-family: "Montserrat";
   line-height: 1.8;
 }
 .tc-single-post-creative-page .tc-main-post-style1 .tc-main-post-content .info-text .lg-letter {
@@ -12390,7 +12390,7 @@ small.text {
 .tc-single-post-features-page .tc-main-post-style2 .main-content-side .info-text {
   color: #666;
   font-size: 18px;
-  font-family: "Neco-Variable";
+  font-family: "Montserrat";
   line-height: 1.8;
 }
 .tc-single-post-features-page .tc-main-post-style2 .main-content-side .info-text .lg-letter {

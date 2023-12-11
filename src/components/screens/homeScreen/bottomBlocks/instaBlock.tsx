@@ -1,19 +1,24 @@
-import { instaImg } from "@/types/postsType";
-import Link from "next/link";
+import { instaImg } from "@/types/postsType"
+import Link from "next/link"
+import Image from 'next/image'
 
 const InstaBlockImage: React.FC<{
-    image?: instaImg
+    image: instaImg
 }> = ({image}) => {
     return (
-        <div className="col-4">
-            <Link href={image?.media_url ? image?.media_url : "404"} className="img">
-                <img src={image?.media_url ? image?.media_url : "404"} alt="" />
-            </Link>
-        </div>
+        image
+        ? <div className="col-4">
+            {
+            image?.media_url
+                ? <Link href={image?.media_url} className="img">
+                    <Image width={200} height={200} src={image.media_url} alt="" />
+                </Link> : null
+            }
+        </div> : null
     )
 }
 
-export const InstaBlock: React.FC<{
+const InstaBlock: React.FC<{
     instaImgs: instaImg[]
 }> = ({instaImgs}) => {
     let imgsCounter = 0
@@ -34,3 +39,5 @@ export const InstaBlock: React.FC<{
         </div>
     )
 }
+
+export default InstaBlock

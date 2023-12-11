@@ -1,17 +1,34 @@
 import { postsByCategory, favPostType } from "@/types/postsType"
-import { CatBanner } from "./catBanner"
-import { WidgetTrends } from "./widgetTrends"
-import { CatPost } from "./catPost";
-import { CatPagination } from "./pagination";
-import { CatAds } from "./catAds";
+import dynamic from "next/dynamic"
+
+const CatBanner = dynamic(
+    () => import('./catBanner'),
+    { loading: () => <p>Loading...</p>, }
+)
+const WidgetTrends = dynamic(
+    () => import('./widgetTrends'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CatPost = dynamic(
+    () => import('./catPost'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CatPagination = dynamic(
+    () => import('./pagination'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CatAds = dynamic(
+    () => import('./catAds'),
+    { loading: () => <p>Loading...</p>, }
+)
 
 type catPageProps = {
-    catPosts: postsByCategory;
-    categoryUrl: string;
-    lang: string;
-    currentPage: number;
-    favoritePosts: favPostType[];
-    categoryId: number;
+    catPosts: postsByCategory
+    categoryUrl: string
+    lang: string
+    currentPage: number
+    favoritePosts: favPostType[]
+    categoryId: number
 }
 
 export const CategoryPage = (props: catPageProps) => {
@@ -26,11 +43,14 @@ export const CategoryPage = (props: catPageProps) => {
                                 <div className="tc-post-list-style3">
                                     <div className="items">
                                         {
-                                            props.catPosts.posts.content.length > 0
+                                            props.catPosts?.posts?.content?.length > 0
                                             ? props.catPosts.posts.content.map((item, id) => {
                                                 return !(id === props.catPosts.posts.content.length / 2)
                                                 ? <CatPost key={id} post={item} />
-                                                : <CatBanner key={id} />
+                                                : <div key={id}>
+                                                    <CatBanner />
+                                                    <CatPost post={item} />
+                                                </div>
                                             }) : null
                                         }
                                     </div>
@@ -42,6 +62,7 @@ export const CategoryPage = (props: catPageProps) => {
                                     categoryUrl={props.categoryUrl}
                                     lang={props.lang}
                                     currentPage={props.currentPage}
+                                    categoryId={props.categoryId}
                                 />
                             </div>
                             

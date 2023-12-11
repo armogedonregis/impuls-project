@@ -23,18 +23,18 @@ export const Footer = (props: footerType) => {
                         <Link href="/">policy</Link>
                     </div>
                     <div className="foot-social mt-40">
-                        <Link href={props.socials ? props.socials.facebook : "#"}>
+                        <Link href={props.socials ? props.socials.facebook : "/"}>
                             <i className="la la-facebook-f"></i>
                         </Link>&nbsp;
-                        <Link href={props.socials ? props.socials.instagram : "#"}>
+                        <Link href={props.socials ? props.socials.instagram : "/"}>
                             <i className="la la-instagram"></i>
                         </Link>&nbsp;
-                        <Link href={props.socials ? props.socials.youtube : "#"}>
+                        <Link href={props.socials ? props.socials.youtube : "/"}>
                             <i className="la la-youtube"></i>
                         </Link>
                     </div>
 
-                    <p className="fsz-14px color-666 mt-40">© 2023 Copyrights by <Link href="#" className="color-000 fw-bold">
+                    <p className="fsz-14px color-666 mt-40">© 2023 Copyrights by <Link href="/" className="color-000 fw-bold">
                         ImpulsPlus</Link>. All Rights Reserved.</p>
                 </div>
             </div>

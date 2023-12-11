@@ -9,7 +9,7 @@ export const CursorFollower: React.FC<{
     ref.current?.style?.setProperty("--y", `${cursorPosition.y}px`)
 
     useEffect(() => {
-        const handleMouseMove = (event: MouseEvent) => {
+        const handleMouseMove = (event) => {
             setCursorPosition({ x: event.clientX, y: event.clientY
         })}
         window.addEventListener('mousemove', handleMouseMove)

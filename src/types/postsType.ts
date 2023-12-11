@@ -78,7 +78,8 @@ export type favPostType = {
     title: string
     url: string
     image: string
-    imageSmall: string
+    author?: string
+    publicationDate?: string
 }
 
 // Top posts
@@ -99,6 +100,7 @@ export type singlePost = {
     videoUrl: string
     categories: categoryData[]
     publicationTime: string
+    author?: string
     isPrime: boolean
     viewCounter: number
 }

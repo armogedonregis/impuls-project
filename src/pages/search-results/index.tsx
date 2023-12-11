@@ -40,24 +40,34 @@ export default function SearchResults(props: searchLayout) {
 }
 
 export const getServerSideProps = async (ctx: NextPageContext) => {
-    // Определяем локализацию
-    const lang = ctx.locale
 
-    // Вытягиваем категории
-    const categories_ = await fetch(`${isServer}/categories/${lang}`)
-    // Ищем посты
-    const foundPosts_ = await fetch(`${isServer}/posts/search/${lang}?query=` + ctx.query["query"])
+    try {
+        // Определяем локализацию
+        const lang = ctx.locale
 
-    // Сериализуем в джейсона
-    const categories = await categories_.json()
-    const foundPosts = await foundPosts_.json()
+        // Вытягиваем категории
+        const categories_ = await fetch(`${isServer}/categories/${lang}`)
+        // Ищем посты
+        const foundPosts_ = await fetch(`${isServer}/posts/search/${lang}?query=` + ctx.query["query"])
 
-    return {
-      props: {
-        ...(await serverSideTranslations(lang!, [
-            'footer',
-          ])),
-        categories, foundPosts, lang
-      }
+        // Сериализуем в джейсона
+        const categories = await categories_.json()
+        const foundPosts = await foundPosts_.json()
+
+        return {
+            props: {
+                ...(await serverSideTranslations(lang!, [
+                    'footer',
+                ])),
+                categories, foundPosts, lang
+            }
+        }
+    } 
+    catch(e) {
+        return {
+            props: {
+                
+            }
+        }
     }
 }

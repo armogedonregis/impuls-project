@@ -2,7 +2,7 @@ import { CursorFollower } from "@/components/cursorFollower/cursorFollower";
 import { categoryType } from "@/types/categoriesType";
 import Link from "next/link";
 
-export const CategoryHome: React.FC<{
+const CategoryHome: React.FC<{
     categories: categoryType[]
 }> = (props) => {
     return (
@@ -11,7 +11,7 @@ export const CategoryHome: React.FC<{
                 props.categories
                 ? <div className="cat-content">
                 {props.categories.map(item => (
-                    <Link key={item.id} href={`category/${item.url ? item.url : ""}`} className="category"> {item.name} <span className="num"> {item.count} </span> 
+                    <Link key={item.id} href={`category/${item.url ? item.url : ""}?id=${item.id}`} className="category"> {item.name} <span className="num"> {item.count} </span> 
                     </Link>
                 ))}
                 </div> : null
@@ -19,3 +19,5 @@ export const CategoryHome: React.FC<{
         </CursorFollower>
     )
 }
+
+export default CategoryHome

@@ -1,4 +1,5 @@
 import { postType } from "@/types/postsType"
+import Image from 'next/image'
 
 export const EditorsChoiceSlide: React.FC<{
     post: postType
@@ -8,7 +9,7 @@ export const EditorsChoiceSlide: React.FC<{
         <div className="swiper-slide">
             <div className="item">
                 <div className="img img-cover">
-                    <img src={props.post?.imageSmall ? props.post.imageSmall : "404"} alt="" className="main-img" />
+                    <Image width={2000} height={2000} src={props.post?.imageSmall} alt="" className="main-img" />
                     {
                         props.post?.videoUrl
                         ? <a href={props.post.videoUrl} data-lity="" className="video_icon icon-60">
@@ -18,7 +19,7 @@ export const EditorsChoiceSlide: React.FC<{
                     {/* What is it? Is there some kind of category must be?
                     But there is no category key in recommended post object that comes from the server */}
                     <div className="tags">
-                        <a href="#" className="bg-000 text-white py-1 px-3 rounded-pill fsz-12px text-uppercase me-2">videos</a>
+                        <a href="/" className="bg-000 text-white py-1 px-3 rounded-pill fsz-12px text-uppercase me-2">videos</a>
                     </div>
                 </div>
                 <div className="content">

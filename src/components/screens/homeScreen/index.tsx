@@ -1,20 +1,61 @@
-import { CategoryHome } from "./categoryHome"
-import { instaImg, postType, swiperPostData, topPostType } from "@/types/postsType"
-import { categoryType } from "@/types/categoriesType"
-import { LargeLeaderBoard } from "@/components/screens/homeScreen/large Leaderboard/largeLeaderboard"
-import { CatLargeBlock } from "@/components/screens/homeScreen/bottomBlocks/catLargeBlock"
-import { InstaBlock } from "@/components/screens/homeScreen/bottomBlocks/instaBlock"
-import { CatMinBlock } from "@/components/screens/homeScreen/bottomBlocks/catMinBlock"
-import { FeaturedAuthors } from "@/components/screens/homeScreen/featuredAuthors/featuredAuthors"
-import { TopCatChapter } from "@/components/screens/homeScreen/topBlocks/topCatChapter"
-import { TopPosts_n_Form } from "@/components/screens/homeScreen/topBlocks/topPosts&Form"
-import { TrandsNews } from "@/components/screens/homeScreen/trandsNews/trandsNews"
-import { StayConnected } from "@/components/screens/homeScreen/bottomBlocks/stayConnected"
-import { FavoriteRandomPosts } from "@/components/screens/homeScreen/topBlocks/favoriteRandomPosts"
-import { HotVideosBlock } from "@/components/screens/homeScreen/hotVideos/hotVideosBlock"
-import { socialsType } from "@/types/socials"
-import { TopHomeSwiper } from "@/components/screens/homeScreen/topHomeSwiper/topHomeSwiper"
-import { TopHomePostsBlock } from "@/components/header/homeTopGastroPosts"
+import { categoryType } from '@/types/categoriesType'
+import { favPostType, instaImg, postType, swiperPostData, topPostType } from '@/types/postsType'
+import { socialsType } from '@/types/socials'
+import dynamic from 'next/dynamic'
+import TopHomeSwiper from './topHomeSwiper/topHomeSwiper'
+
+const TopHomePostsBlock = dynamic(
+    () => import('@/components/header/homeTopGastroPosts'),
+    { loading: () => <p>Loading...</p>, }
+)
+const FavoriteRandomPosts = dynamic(
+    () => import('./topBlocks/favoriteRandomPosts'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CategoryHome = dynamic(
+    () => import('./categoryHome'),
+    { loading: () => <p>Loading...</p>, }
+)
+const LargeLeaderBoard = dynamic(
+    () => import('./largeLeaderboard/largeLeaderboard'),
+    { loading: () => <p>Loading...</p>, }
+)
+const TopCatChapter = dynamic(
+    () => import('./topBlocks/topCatChapter'),
+    { loading: () => <p>Loading...</p>, }
+)
+const TopPosts_n_Form = dynamic(
+    () => import('./topBlocks/topPosts&Form'),
+    { loading: () => <p>Loading...</p>, }
+)
+const GastronomySlider = dynamic(
+    () => import('./trandsNews/trandsNews'),
+    { loading: () => <p>Loading...</p>, }
+)
+const HotVideosBlock = dynamic(
+    () => import('./hotVideos/hotVideosBlock'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CatMinBlock = dynamic(
+    () => import('./bottomBlocks/catMinBlock'),
+    { loading: () => <p>Loading...</p>, }
+)
+const InstaBlock = dynamic(
+    () => import('./bottomBlocks/instaBlock'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CatLargeBlock = dynamic(
+    () => import('./bottomBlocks/catLargeBlock'),
+    { loading: () => <p>Loading...</p>, }
+)
+const FeaturedAuthors = dynamic(
+    () => import('./featuredAuthors/featuredAuthors'),
+    { loading: () => <p>Loading...</p>, }
+)
+const StayConnected = dynamic(
+    () => import('./bottomBlocks/stayConnected'),
+    { loading: () => <p>Loading...</p>, }
+)
 
 interface categorizedPosts {
     [key: string]: postType[]
@@ -22,7 +63,7 @@ interface categorizedPosts {
 
 type homeLayout = {
     posts: categorizedPosts
-    randomPosts: postType[]
+    favoritePosts: favPostType[]
     categories: categoryType[]
     instaImgs: instaImg[]
     socials: socialsType
@@ -49,7 +90,7 @@ export const HomeScreen = (props: homeLayout) => {
 
             {/* Favorite random posts */}
             <FavoriteRandomPosts
-                randomPosts={props.randomPosts}
+                favoritePosts={props.favoritePosts}
             />
 
             {/* Banner */}
@@ -59,7 +100,7 @@ export const HomeScreen = (props: homeLayout) => {
                 type={1}
             />
 
-            {/* <!-- ====== start whats new content ====== --> */}
+            {/* tourism, what's new block */}
             <section className="whats-new-style10 px-lg-5 overflow-hidden whats-new-style10--pb-0">
                 <div className="sec-content border-1 border-top brd-gray pt-70 pb-70">
                     <div className="row gx-5">
@@ -82,8 +123,8 @@ export const HomeScreen = (props: homeLayout) => {
                 type={2}
             />
 
-            {/* <!-- ====== start tc-trends-news-style10 ====== --> */}
-            <TrandsNews
+            {/* Gastronomy slider */}
+            <GastronomySlider
                 category={props.categories[0]}
                 posts={props.posts[1]}
             />
@@ -110,7 +151,6 @@ export const HomeScreen = (props: homeLayout) => {
                         <CatMinBlock
                             posts={props.posts[10]}
                             category={10}
-                            extraPost={true}
                         />
                     </div>
                     <div className="col-lg-6 custom-col-large">
@@ -133,7 +173,6 @@ export const HomeScreen = (props: homeLayout) => {
                         <CatMinBlock
                             posts={props.posts[8]}
                             category={8}
-                            extraPost={true}
                             withoutImage={true}
                         />
                         
@@ -151,5 +190,5 @@ export const HomeScreen = (props: homeLayout) => {
                 </div>
             </section>
         </main>
-    );
-};
+    )
+}

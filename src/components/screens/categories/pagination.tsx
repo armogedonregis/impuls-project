@@ -6,24 +6,26 @@ const PagBtn: React.FC<{
     categoryUrl: string,
     lang: string,
     currentPage: number
-}> = ({count, categoryUrl, lang, currentPage}) => {
+    categoryId: number
+}> = ({count, categoryUrl, lang, currentPage, categoryId}) => {
     return (
         <Link
             className={`${count == currentPage ? "active" : ""}`}
-            href={`/${lang}/category/${categoryUrl}?page=${count}`}
+            href={`/${lang}/category/${categoryUrl}?page=${count}&id=${categoryId}`}
         >
             <span>{count}</span>
         </Link>
     )
 }
 
-export const CatPagination: React.FC<{
-    catPosts: postsByCategory,
-    categoryUrl: string,
+const CatPagination: React.FC<{
+    catPosts: postsByCategory
+    categoryUrl: string
     lang: string,
     currentPage: number
-}> = ({catPosts, categoryUrl, lang, currentPage}) => {
-    let pages = catPosts.posts.totalPages
+    categoryId: number
+}> = ({catPosts, categoryUrl, lang, currentPage, categoryId}) => {
+    let pages = catPosts.posts?.totalPages
 
     let currentPages: number[] = []
     let maxPage: number = 1
@@ -49,6 +51,7 @@ export const CatPagination: React.FC<{
                         categoryUrl={categoryUrl}
                         lang={lang}
                         currentPage={currentPage}
+                        categoryId={categoryId}
                     /> : null
                 ))
             }
@@ -61,17 +64,17 @@ export const CatPagination: React.FC<{
             {
                 currentPage < pages - 3
                 ? <PagBtn
-                        key={pages}
-                        count={pages - 1}
-                        categoryUrl={categoryUrl}
-                        lang={lang}
-                        currentPage={currentPage}
-                    /> : null
+                    count={pages - 1}
+                    categoryUrl={categoryUrl}
+                    lang={lang}
+                    currentPage={currentPage}
+                    categoryId={categoryId}
+                /> : null
             }
             {
                 currentPage < pages - 1
                 ? <Link
-                    href={`/${lang}/category/${categoryUrl}?page=${++currentPage}`}
+                    href={`/${lang}/category/${categoryUrl}?page=${++currentPage}&id=${categoryId}`}
                 >
                     <span className="text text-uppercase">next <i className="la la-angle-right"></i> </span>
                 </Link> : null
@@ -80,3 +83,5 @@ export const CatPagination: React.FC<{
         </div>
     )
 }
+
+export default CatPagination

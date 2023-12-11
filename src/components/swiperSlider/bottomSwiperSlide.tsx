@@ -1,5 +1,6 @@
 import { postType } from "@/types/postsType"
-import Link from "next/link";
+import Link from "next/link"
+import Image from 'next/image'
 
 type bottomSwiperSlide = {
     post: postType;
@@ -46,7 +47,7 @@ export const BottomSwiperSlideContent = (props: bottomSwiperSlide) => {
         <div className="tc-post-grid-default">
             <div className={"item " + itemClassName}>
                 <div className={"img img-cover " + imgContainerClassName + " radius-6 overflow-hidden"}>
-                    <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt=""/>
+                    <Image width={2000} height={2000} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt=""/>
                 </div>
                 <div className="content pt-30">
                     <h2 className="title mb-20 fsz-28px">
@@ -57,8 +58,16 @@ export const BottomSwiperSlideContent = (props: bottomSwiperSlide) => {
                     </p>
                     <ul className="fsz-12px">
                         <li>
-                            {props.post?.publicationDate && <span className="me-3"><i className="la la-calendar me-2"></i> {props.post?.publicationDate}</span>}
-                            {props.post?.author && <span className="me-3"><i className="la la-user me-2"></i> {props.post?.author}</span>}
+                            {
+                                props.post?.publicationDate
+                                ? <span className="me-3"><i className="la la-calendar me-2"></i> {props.post.publicationDate}</span>
+                                : null
+                            }
+                            {
+                                props.post?.author
+                                ? <span className="me-3"><i className="la la-user me-2"></i> {props.post.author}</span>
+                                : null
+                            }
                         </li>
                     </ul>
                     <span className="numb mt-40 color-main"> {props?.slideId < 10 ? `0${props?.slideId + 1}` : props?.slideId} </span>

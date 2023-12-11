@@ -2,6 +2,7 @@ import { postType } from "@/types/postsType"
 import { Fancybox } from '@fancyapps/ui'
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
 import Link from "next/link"
+import Image from 'next/image'
 
 type videoCardType = {
     post: postType
@@ -16,7 +17,7 @@ export const VideoCard = (props: videoCardType) => {
     return (
         <div className="video-card">
             <div className="img img-cover">
-                <img src={`${props.post?.image ? props.post.image : "404"}`} alt="" />
+                <Image width={2000} height={2000} src={props.post?.image ? props.post.image : "/"} alt="" />
                 <div className="info">
                     <div className="row justify-content-center">
                         <div className="col-lg-7">
@@ -28,7 +29,7 @@ export const VideoCard = (props: videoCardType) => {
                             </Link> </h2>
                             <p className="fsz-14px"> {props.post?.description} </p>
                             <a
-                                href={`https://youtu.be/${props.post?.videoUrl ? props.post.videoUrl : "404"}`}
+                                href={`https://youtu.be/${props.post?.videoUrl}`}
                                 data-fancybox=""
                                 className="play-cont mt-90"
                             >

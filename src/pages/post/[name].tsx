@@ -8,8 +8,9 @@ import { socialsType } from "@/types/socials"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
 import { useRouter } from "next/router"
+import { useEffect } from "react"
 
-type posthLayout = {
+type postLayout = {
     categories: categoryType[]
     socials: socialsType
     lang: string
@@ -20,20 +21,14 @@ type posthLayout = {
     nextPosts: directionPost[]
 }
 
-export default function Post(props: posthLayout) {
-
-    const router = useRouter()
-
-    if (!props.isExist) {
-        router.back()
-    }
+export default function Post(props: postLayout) {
 
     return (
         <HeadLayout
-            title={"Impuls PLUS"}
-            description={"Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones"}
-            author={"Impuls PLUS"}
-            keywords={""}
+            title={props.post?.title}
+            description={props.post?.categories?.at(1)?.name || "description"}
+            author={props.post?.author || "author"}
+            keywords={"keyword"}
         >
             <PageLayout
                 categories={props.categories}
@@ -68,8 +63,6 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     const prev_ = await fetch(`${isServer}/post/${lang}/${postId}/prev`)
     // Getting next post
     const next_ = await fetch(`${isServer}/post/${lang}/${postId}/next`)
-    // Getting next post
-    const secNext_ = await fetch(`${isServer}/post/${lang}/${postId}/next`)
 
     // Сериализуем в джейсона
     const categories = await categories_.json()
@@ -79,14 +72,19 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     const nextPosts = await next_.json()
     
     let isExist = true
-    if(post["message"]?.search('Post not available in requested language') === 0) {
+    if(post["message"]?.search('Post not available in requested language') !== undefined) {
         isExist = false
+    }
+    if(!isExist) {
+        return {
+            redirect: { destination: '/', permanent: true }
+        }
     }
 
     return {
-      props: {
-        categories, lang, post, rPosts, isExist,
-        prevPosts, nextPosts
-      }
+        props: {
+            categories, lang, post, rPosts, isExist,
+            prevPosts, nextPosts
+        }
     }
 }

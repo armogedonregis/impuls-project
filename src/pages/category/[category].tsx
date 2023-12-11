@@ -4,7 +4,6 @@ import { HeadLayout } from "@/layout/headLayout"
 import PageLayout from "@/layout/pageLayout"
 import { categoryType } from "@/types/categoriesType"
 import { instaImg, postType, postsByCategory, favPostType } from "@/types/postsType"
-import { getCategory } from "@/utils/getCategory"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
 
@@ -21,17 +20,22 @@ type categoriesType = {
 }
 
 export default function Categories(props: categoriesType) {
+
+    const isCategory = true
+
     return (
         <HeadLayout
-            title={"Impuls PLUS"}
-            description={"Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones"}
-            author={"Impuls PLUS"}
+            title={props.catPosts?.category?.name || "Impuls TV category"}
+            description={props.catPosts?.posts?.message || "description"}
+            author={""}
             keywords={""}
         >
             <PageLayout
                 categories={props.categories}
                 socials={socialsData}
                 lang={props.lang}
+                isCat={isCategory}
+                thisCategory={props.catPosts?.category}
             >
                 <CategoryPage
                     catPosts={props.catPosts}
@@ -52,24 +56,26 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
 
     // Получаем запрашиваемую категорию
     const categoryUrl = ctx.query["category"]
-    const categoryId: number = getCategory(categoryUrl)
     const currentPage = ctx.query["page"] ? ctx.query["page"] : 1
+    const categoryId = ctx.query["id"]
+    
+    // Вытягиваем категории
+    const categories_ = await fetch(`${isServer}/categories/${lang}`)
+    const categories = await categories_.json()
 
     // Вытягиваем посты данной категории
     const catPosts_ = await fetch(`${isServer}/posts/${lang}?page=${currentPage ? currentPage : "1"}&size=20&categoryId=${categoryId}`)
     // Вытягиваем избранные посты данной категории
     const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
-    // Вытягиваем категории
-    const categories_ = await fetch(`${isServer}/categories/${lang}`)
-
 
     // Сериализуем в джейсона
     const catPosts = await catPosts_.json()
-    const categories = await categories_.json()
     const favoritePosts = await favoritePosts_.json()
 
     return {
-      props: { categories, categoryId, lang, catPosts,
-        categoryUrl, currentPage, favoritePosts }
+        props: {
+            categories, categoryId, lang, catPosts,
+            categoryUrl, currentPage, favoritePosts
+        }
     }
 }

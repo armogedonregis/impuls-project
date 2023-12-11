@@ -4,6 +4,7 @@ import { HeaderLogo } from './headerLogo'
 import { ChoiseTheme } from './choiseTheme'
 import { LangBar } from './langBar'
 import { categoryType } from '@/types/categoriesType'
+import { categoryData } from '@/types/postsType'
 
 export const Header: React.FC<{
     isNavBarOpen: Boolean
@@ -12,8 +13,11 @@ export const Header: React.FC<{
     setShow: Dispatch<SetStateAction<boolean>>
     lang: string
     isDark: boolean
-    setDark: Dispatch<SetStateAction<boolean>>
+    setDark: Dispatch<SetStateAction<string>>
+    isCat?: boolean
+    thisCategory?: categoryData
 }> = ({...props}) => {
+    
     return (
         <header className={'tc-header-style10 home-style10'}>
             <nav className={"navbar navbar-expand-lg navbar-dark style-10 px-lg-5"}>
@@ -63,6 +67,24 @@ export const Header: React.FC<{
                     </div>
                 </div>
             </nav>
+            {
+                props.isCat && 
+                <div
+                    className="tc-categories pt-50 pb-50"
+                    style={{backgroundImage: `url(${props.thisCategory?.image})`}}
+                >
+                <div className="container">
+                    <div className="content text-center">
+                        <h2 className="main-title">{props.thisCategory?.name}</h2>
+                        <p className="fsz-16px">We believe better things are created by great designers.</p>
+                    </div>
+                </div>
+            </div>
+            }
         </header>
     );
 };
+
+function getUrl(): any {
+    throw new Error('Function not implemented.')
+}

@@ -23,7 +23,7 @@ export const TopCatLeftBlock: React.FC<{
                 </div>
                 <div className="col-lg-6 text-lg-end">
                     <Link
-                        href={`category/${getCatUrl(props.category)}`} className="text-capitalize hover-main"
+                        href={`/category/${getCatUrl(props.category)}?key=${props.category}`} className="text-capitalize hover-main"
                     > All { getFullCategory(props.category) } News <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>
@@ -46,6 +46,10 @@ export const TopCatLeftBlock: React.FC<{
                                                 postType={"imgLeftBottom"}
                                                 post={props.posts[postsCount++]}
                                             />
+                                            <Post
+                                                postType={"imgLeftBottom"}
+                                                post={props.posts[postsCount++]}
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -53,6 +57,11 @@ export const TopCatLeftBlock: React.FC<{
                                     <Post
                                         postType={"imgTop"}
                                         post={props.posts[postsCount++]}
+                                    />
+                                    <Post
+                                        postType={"imgTop"}
+                                        post={props.posts[postsCount++]}
+                                        extra={true}
                                     />
                                 </div>
                             </div> : null

@@ -1,34 +1,3 @@
-export const getCategory = (value: string | string[] | undefined) => {
-    switch(value) {
-        case "gastronomy":
-            return 1
-        case "tourism":
-            return 2
-        case "culture":
-            return 3
-        case "trend-fashion":
-            return 4
-        case "education":
-            return 5
-        case "health":
-            return 6
-        case "culture":
-            return 7
-        case "finance-law":
-            return 8
-        case "investments":
-            return 9
-        case "sport":
-            return 10
-        case "impuls-tv-en":
-            return 11
-        case "business-launch":
-            return 12
-        default:
-            return 1
-    }
-}
-
 export const getCatUrl = (value: number) => {
     switch(value) {
         case 1:

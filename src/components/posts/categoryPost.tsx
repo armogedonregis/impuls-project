@@ -1,8 +1,9 @@
-import { postType } from "@/types/postsType";
-import Link from "next/link";
+import { postType } from "@/types/postsType"
+import Link from "next/link"
+import Image from 'next/image'
 
 type catPostType = {
-    post: postType;
+    post: postType
 }
 
 export const CategoryPost = (props: catPostType) => {
@@ -12,7 +13,7 @@ export const CategoryPost = (props: catPostType) => {
             <div className="row">
                 <div className="col-lg-5">
                     <div className="img img-cover th-250 radius-5 overflow-hidden">
-                        <img src={props.post?.imageSmall ? props.post.imageSmall : "404"} alt="" />
+                        <Image width={2000} height={2000} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
                     </div>
                 </div>
                 <div className="col-lg-7">

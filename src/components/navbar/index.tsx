@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 export const Navbar: React.FC<{
     isNavBarOpen: Boolean
 }> = ({isNavBarOpen}) => {
-
     const [hidden, hide] = useState<Boolean>(false)
 
     const props = useSpring({
@@ -27,9 +26,15 @@ export const Navbar: React.FC<{
         return "/search-results?query=" + inputRef.current?.value
     }
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            router.push(getUrl())
+        }
+    }
+
     return (
         <animated.div
-            className="home-style10 navbar navbar-expand-lg navbar-dark style-10 px-lg-5"
+            className="home-style10 navbar navbar-expand-lg navbar-dark nav-search-style1"
             style={{overflow: 'hidden', paddingLeft: 20, paddingRight: 20, ...props }}
         >
             <div className="row justify-content-center align-items-center gx-lg-5">
@@ -50,6 +55,7 @@ export const Navbar: React.FC<{
                                 className="form-control"
                                 placeholder="Elon Musk ... "
                                 ref={inputRef}
+                                onKeyPress={handleKeyPress}
                             />
                             <button
                                 onClick={() => {

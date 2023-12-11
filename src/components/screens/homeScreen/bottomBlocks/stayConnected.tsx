@@ -1,7 +1,7 @@
 import { socialsType } from "@/types/socials"
 import Link from "next/link"
 
-export const StayConnected: React.FC<{
+const StayConnected: React.FC<{
     socials: socialsType
 }> = (props) => {
     return (
@@ -28,3 +28,5 @@ export const StayConnected: React.FC<{
         </div>
     )
 }
+
+export default StayConnected

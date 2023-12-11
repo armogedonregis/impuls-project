@@ -3,11 +3,11 @@ import { Carousel } from '../../../carousel'
 import { TopSwiperSlideContent } from '../../../swiperSlider/topSwiperSlide'
 import { swiperPostData } from '@/types/postsType'
 
-export const TopHomeSwiper: React.FC<{
+const TopHomeSwiper: React.FC<{
     sliderPosts: swiperPostData[]
 }> = (props) => {
     return (
-        <div className="col-md-6 col-lg-7 col-xxl-8">
+        <div className="tc-header-style10 col-md-6 col-lg-7 col-xxl-8">
             <div className="head-slider">
                 <div className="tc-header-slider10">
                     <Carousel
@@ -23,9 +23,9 @@ export const TopHomeSwiper: React.FC<{
                     >
                         {
                             props.sliderPosts
-                            ? props.sliderPosts.map(item => {
+                            ? props.sliderPosts.map((item, id) => {
                                 return (
-                                    <SwiperSlide key={item.id}>
+                                    <SwiperSlide key={id}>
                                         <TopSwiperSlideContent {...item} />
                                     </SwiperSlide>
                                 )
@@ -39,3 +39,5 @@ export const TopHomeSwiper: React.FC<{
         </div>
     )
 }
+
+export default TopHomeSwiper

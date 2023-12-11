@@ -1,5 +1,8 @@
-import { postType } from "@/types/postsType";
-import Link from "next/link";
+import { postType } from "@/types/postsType"
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
+import Link from "next/link"
+import Image from 'next/image'
 
 type videoPostType = {
     post: postType
@@ -31,10 +34,13 @@ export const BotVideoPost = (props: videoPostType) => {
                                     </div>
                                     <div className="col-4 custom__sub-video--width">
                                         <div className="img th-200 img-cover radius-4 overflow-hidden">
-                                            <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt="" />
-                                            <a href={props.post?.videoUrl ? props.post.videoUrl : "404"} data-lity="" className="video_icon icon-60">
-                                                <i className="ion-play"></i>
-                                            </a>
+                                            <Image width={2000} height={2000} src={props.post?.imageSmall ? props.post?.imageSmall : '/'} alt="" />
+                                            {
+                                                props.post?.videoUrl
+                                                ? <a href={`https://youtu.be/${props.post.videoUrl}`} data-fancybox="" className="video_icon icon-60">
+                                                    <i className="ion-play"></i>
+                                                </a> : null
+                                            }
                                         </div>
                                     </div>
                                 </div>

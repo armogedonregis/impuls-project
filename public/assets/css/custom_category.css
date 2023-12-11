@@ -2,7 +2,7 @@
 /** Category **/
 
 .tc-categories {
-  background-image: url(../img/category.png);
+  /* background-image: url(/assets/img/category.png); */
   background-size: cover;
   position: relative;
 }

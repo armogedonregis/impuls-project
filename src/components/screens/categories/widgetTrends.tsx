@@ -1,15 +1,16 @@
-import { favPostType } from "@/types/postsType";
-import Link from "next/link";
-import { NumberedTrendsWidget } from "./widgetTrendsSmall";
-import { getFullCategory } from "../../../utils/getCategory";
+import { favPostType } from "@/types/postsType"
+import Link from "next/link"
+import { NumberedTrendsWidget } from "./widgetTrendsSmall"
+import { getFullCategory } from "../../../utils/getCategory"
+import Image from 'next/image'
 
 type widgetTrends = {
-    favoritePosts: favPostType[];
-    categoryId: number;
-    categoryUrl: string;
+    favoritePosts: favPostType[]
+    categoryId: number
+    categoryUrl: string
 }
 
-export const WidgetTrends = (props: widgetTrends) => {
+const WidgetTrends = (props: widgetTrends) => {
 
     return (
         <div className="tc-trending-news-style5 border border-1 brd-gray mb-40">
@@ -17,8 +18,8 @@ export const WidgetTrends = (props: widgetTrends) => {
             <div className="tc-post-list-style1">
                 <div className="tc-post-overlay-default">
                     <div className="img th-200 img-cover">
-                        <img
-                            src={props.favoritePosts[0]?.image ? props.favoritePosts[0].image : "404"}
+                        <Image width={2000} height={2000}
+                            src={props.favoritePosts[0]?.image ? props.favoritePosts[0].image : '/'}
                             alt=""
                         />
                     </div>
@@ -30,7 +31,7 @@ export const WidgetTrends = (props: widgetTrends) => {
                             {getFullCategory(props.categoryId)}
                         </Link>
                         <h4 className="title">
-                            <Link href={props.favoritePosts[0]?.url ? props.favoritePosts[0].url : "404"}>
+                            <Link href={`/post/${props.favoritePosts[0]?.url}?id=${props.favoritePosts[0].id}`}>
                                 {props.favoritePosts[0]?.title}
                             </Link>
                         </h4>
@@ -42,8 +43,8 @@ export const WidgetTrends = (props: widgetTrends) => {
                         ? props.favoritePosts.map((item, id) => {
                             return id < 4 && id > 0
                             ? <NumberedTrendsWidget
-                                key={id}
-                                topPost={item}
+                                key={item.id}
+                                favoritePost={item}
                                 num={id + 1}
                                 categoryId={props.categoryId}
                                 categoryUrl={props.categoryUrl}
@@ -55,3 +56,5 @@ export const WidgetTrends = (props: widgetTrends) => {
         </div>
     )
 }
+
+export default WidgetTrends

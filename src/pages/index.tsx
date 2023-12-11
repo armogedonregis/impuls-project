@@ -3,7 +3,7 @@ import { HomeScreen } from '@/components/screens/homeScreen'
 import { HeadLayout } from '@/layout/headLayout'
 import PageLayout from '@/layout/pageLayout'
 import { categoryType } from '@/types/categoriesType'
-import { instaImg, postType, postsType, topPostType } from '@/types/postsType'
+import { favPostType, instaImg, postsType, topPostType } from '@/types/postsType'
 import { HomeParams } from '@/utils/headerParams'
 import { instaFetchServer, isServer } from '@/utils/server'
 import { NextPageContext } from 'next'
@@ -11,7 +11,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type IPosts = {
     posts: postsType
-    randomPosts: postType[]
+    favoritePosts: favPostType[]
     categories: categoryType[]
     instaImgs: instaImg[]
     lang: string
@@ -35,7 +35,7 @@ export default function Home(props: IPosts) {
                 <HomeScreen
                     instaImgs={props.instaImgs}
                     posts={props.posts.categorizedPosts}
-                    randomPosts={props.randomPosts}
+                    favoritePosts={props.favoritePosts}
                     categories={props.categories}
                     socials={socialsData}
                     sliderPosts={props.posts.sliderPosts}
@@ -46,14 +46,14 @@ export default function Home(props: IPosts) {
     )
 }
 
-export const getServerSideProps = async (ctx: NextPageContext) => {
+export const getStaticProps = async (ctx: NextPageContext) => {
     // Определяем локализацию
     const lang = ctx.locale;
 
     // Вытягиваем посты
     const posts_ = await fetch(`${isServer}/posts/home/${lang}?categoryIds=${HomeParams.categoryId}&postsSize=${HomeParams.postsSize}&sliderSize=${HomeParams.sliderSize}`)
-    // Вытягиваем рандомные посты
-    const randomPosts_ = await fetch(`${isServer}/posts/recommended/${lang}/1?limit=9`)
+    // Вытягиваем избранные посты
+    const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
     // Вытягиваем категории
     const categories_ = await fetch(`${isServer}/categories/${lang}`)
     // Вытягиваем картинки из инстаграмма
@@ -63,17 +63,19 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
 
     // Сериализуем в джейсона
     const posts = await posts_.json()
-    const randomPosts = await randomPosts_.json()
+    const favoritePosts = await favoritePosts_.json()
     const categories = await categories_.json()
     const instaImgs = await instaImgs_.json()
     const topPosts = await topPosts_.json()
 
     return {
-      props: {
-        ...(await serverSideTranslations(lang ?? 'es', [
-            'common',
-            'footer'
-          ])),
-        posts, randomPosts, categories, instaImgs, lang, topPosts }
+        props: {
+            ...(await serverSideTranslations(lang ?? 'es', [
+                'common',
+                'footer'
+            ])),
+            posts, favoritePosts, categories, instaImgs, lang, topPosts
+        },
+        revalidate: 60
     }
 }

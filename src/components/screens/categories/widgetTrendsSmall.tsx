@@ -1,12 +1,12 @@
-import { topPostType } from "@/types/postsType"
 import Link from "next/link"
-import { getCategory, getFullCategory } from "../../../utils/getCategory"
+import { getFullCategory } from "../../../utils/getCategory"
+import { favPostType } from "@/types/postsType"
 
 export const NumberedTrendsWidget: React.FC<{
     num: number,
-    topPost: topPostType,
+    favoritePost: favPostType,
     categoryId: number,
-    categoryUrl: string,
+    categoryUrl: string
 }> = (props) => {
     return (
         <div className="item">
@@ -22,9 +22,9 @@ export const NumberedTrendsWidget: React.FC<{
                 </Link>
                 <h6 className="title fsz-16px fw-bold ltspc--1 hover-main">
                     <Link
-                        href={props.topPost.url ? props.topPost.url : "#"}
+                        href={`/post/${props.favoritePost?.url ? props.favoritePost.url : "/"}?id=${props.favoritePost.id}`}
                     >
-                        {props.topPost.title}
+                        {props.favoritePost?.title}
                     </Link>
                 </h6>
             </div>

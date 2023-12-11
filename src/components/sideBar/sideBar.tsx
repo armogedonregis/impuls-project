@@ -1,19 +1,21 @@
-import { Dispatch, SetStateAction } from 'react';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Dispatch, SetStateAction } from 'react'
+import Offcanvas from 'react-bootstrap/Offcanvas'
 import styles from "./sideBar.module.css"
-import { categoryType } from '@/types/categoriesType';
-import { socialsType } from '@/types/socials';
-import Link from 'next/link';
+import { categoryType } from '@/types/categoriesType'
+import { socialsType } from '@/types/socials'
+import Link from 'next/link'
+import { isDarkSessionStorage } from '@/utils/useSessionStorage'
+import Image from 'next/image'
 
 const SlideBarCatCards: React.FC<{
     category: categoryType
 }> = (props) => {
     return (
         props.category
-        ? <Link href={`category/${props.category?.url ? props.category?.url : null}`} className="cat-card">
+        ? <Link href={`/category/${props.category?.url ? props.category?.url : null}?id=${props.category.id}`} className="cat-card">
             <div className="img img-cover">
-                <img
-                    src={props.category?.image ? props.category.image : '404'}
+                <Image width={2000} height={2000}
+                    src={props.category?.image ? props.category?.image : '/'}
                     alt=""
                 />
             </div>
@@ -32,8 +34,6 @@ type sideBarType = {
     setIsOpenedSlideBar: Dispatch<SetStateAction<boolean>>
     categories: categoryType[]
     socials: socialsType
-    isDark: boolean
-    setDark: Dispatch<SetStateAction<boolean>>
 }
 
 export const SideBar = (props: sideBarType) => {
@@ -45,7 +45,7 @@ export const SideBar = (props: sideBarType) => {
 
     return (
         <Offcanvas
-            className={`${props.isDark ? "dark-theme" : ""} sidebar-popup-style1`}
+            className={`${isDarkSessionStorage() ? "dark-theme" : ""} sidebar-popup-style1`}
             show={props.show}
             onHide={props.handleClose}
             onEntered={() => 
@@ -106,15 +106,15 @@ export const SideBar = (props: sideBarType) => {
                     <ul className="m-0">
                         <li className="mb-3">
                             <i className="las la-map-marker me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="#">streat name 12, hollywood City, USA</Link>
+                            &nbsp;<Link href="/">streat name 12, hollywood City, USA</Link>
                         </li>
                         <li className="mb-3">
                             <i className="las la-envelope me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="#">Newzin@gmail.com</Link>
+                            &nbsp;<Link href="/">Newzin@gmail.com</Link>
                         </li>
                         <li className="mb-3">
                             <i className="las la-phone-volume me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="#">+12 123 456 789</Link>
+                            &nbsp;<Link href="/">+12 123 456 789</Link>
                         </li>
                     </ul>
                     <div className="social-links">

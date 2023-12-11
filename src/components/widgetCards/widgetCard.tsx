@@ -1,5 +1,6 @@
-import { topPostType } from "@/types/postsType";
-import Link from "next/link";
+import { topPostType } from "@/types/postsType"
+import Link from "next/link"
+import Image from 'next/image'
 
 type card = {
     post: topPostType;
@@ -11,9 +12,10 @@ export const WidgetCard = (props: card) => {
     
     return (
         // Widget top post (card)
-        props.type == "main" ? <div className="img-card">
+        props.type == "main"
+        ? <div className="img-card">
             <div className="img img-cover">
-                <img src={props.post?.imageSmall ? props.post?.imageSmall : "404"} alt="" />
+                <Image width={2000} height={2000} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
             </div>
             <div className="content">
                 <h3 className="title title-white">
@@ -29,7 +31,7 @@ export const WidgetCard = (props: card) => {
                 {props.numCardId}
             </span>
             <div className="info">
-                <h3 className="title fsz-28px">{props.post?.title}</h3>
+                <h3 style={{overflowWrap: "anywhere"}} className="title fsz-28px">{props.post?.title}</h3>
                 <div className="meta-bot fsz-12px">
                     <span> Author </span>
                 </div>
