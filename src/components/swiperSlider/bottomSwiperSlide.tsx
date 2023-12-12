@@ -47,7 +47,7 @@ export const BottomSwiperSlideContent = (props: bottomSwiperSlide) => {
         <div className="tc-post-grid-default">
             <div className={"item " + itemClassName}>
                 <div className={"img img-cover " + imgContainerClassName + " radius-6 overflow-hidden"}>
-                    <Image width={2000} height={2000} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt=""/>
+                    <img width={2000} height={2000} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt=""/>
                 </div>
                 <div className="content pt-30">
                     <h2 className="title mb-20 fsz-28px">
