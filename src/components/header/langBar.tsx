@@ -20,7 +20,7 @@ export const LangBar = () => {
                             rel={"canonical"}
                         >
                             <span className="flag icon-20 rounded-circle overflow-hidden img-cover me-3">
-                                <Image width={500} height={500} src={item.icon ? item.icon : '/'} alt="" />
+                                <img src={item.icon ? item.icon : '/'} alt="" />
                             </span>
                             <span> {item.title} </span>
                         </Link>
@@ -29,7 +29,7 @@ export const LangBar = () => {
             </div>
             <div className="lang-link">
                 <span className="flag icon-30 rounded-circle overflow-hidden img-cover me-3">
-                    <Image width={500} height={500} src={currentLang?.icon ? currentLang.icon : "/"} alt="" />
+                    <img src={currentLang?.icon ? currentLang.icon : "/"} alt="" />
                 </span>
                 <span> {currentLang?.title} <i className="la la-angle-down"></i> </span>
             </div>

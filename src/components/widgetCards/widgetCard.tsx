@@ -15,7 +15,7 @@ export const WidgetCard = (props: card) => {
         props.type == "main"
         ? <div className="img-card">
             <div className="img img-cover">
-                <Image width={500} height={500} src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
+                <img src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
             </div>
             <div className="content">
                 <h3 className="title title-white">

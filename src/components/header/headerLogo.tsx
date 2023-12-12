@@ -9,8 +9,8 @@ export const HeaderLogo: React.FC<{
     return (
         <div className="mob-nav-toggles d-flex align-items-center justify-content-between">
             <Link href="/" className="logo-brand my-4">
-                <Image style={{width: 'auto', height: 'auto'}} width={120} height={23.75} src="/assets/img/logo_home_red.svg" alt="" className="dark-none" />
-                <Image style={{width: 'auto', height: 'auto'}} width={120} height={23.75} src="/assets/img/logo_home_lt.svg" alt="" className="light-none" />
+                <img src="/assets/img/logo_home_red.svg" alt="" className="dark-none" />
+                <img src="/assets/img/logo_home_lt.svg" alt="" className="light-none" />
             </Link>
 
             <button

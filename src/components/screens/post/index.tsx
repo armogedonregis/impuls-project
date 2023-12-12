@@ -1,20 +1,8 @@
 import { directionPost, postType, singlePost } from "@/types/postsType"
 import { socialsType } from "@/types/socials"
-import dynamic from "next/dynamic"
-
-
-const EditorsChoice = dynamic(
-    () => import('./editorsChoice'),
-    { loading: () => <p>Loading...</p>, }
-)
-const PostSection = dynamic(
-    () => import('./postSection'),
-    { loading: () => <p>Loading...</p>, }
-)
-const DirectionPostsSlider = dynamic(
-    () => import('./directionPosts'),
-    { loading: () => <p>Loading...</p>, }
-)
+import DirectionPostsSlider from "./directionPosts"
+import EditorsChoice from "./editorsChoice"
+import PostSection from "./postSection"
 
 export const SinglePost: React.FC<{
     post: singlePost

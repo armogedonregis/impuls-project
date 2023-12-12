@@ -20,7 +20,7 @@ const WidgetTrends = (props: widgetTrends) => {
             <div className="tc-post-list-style1">
                 <div className="tc-post-overlay-default">
                     <div className="img th-200 img-cover">
-                        <Image width={500} height={500} 
+                        <img 
                             src={props.favoritePosts[0]?.image ? props.favoritePosts[0].image : '/'}
                             alt=""
                         />

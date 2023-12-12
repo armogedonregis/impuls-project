@@ -3,7 +3,6 @@ import Link from "next/link"
 import { socialsType } from "@/types/socials"
 import parse from 'html-react-parser'
 import { PostVideoBlock } from "./videoBlock"
-import Image from 'next/image'
 import { useTranslation } from "next-i18next"
 
 type postSection = {
@@ -25,7 +24,7 @@ const PostSection = (props: postSection) => {
                 {
                     !props.post.videoUrl
                     ? <div className="tc-main-post-img img-cover pt-40 mb-50">
-                        <Image width={500} height={500} src={props.post?.mainImageLink} alt=""/>
+                        <img src={props.post?.mainImageLink} alt=""/>
                     </div> : null
                 }
                 <div className="tc-main-post-content color-000">

@@ -1,26 +1,9 @@
 import { postsByCategory, favPostType } from "@/types/postsType"
-import dynamic from "next/dynamic"
-
-const CatBanner = dynamic(
-    () => import('./catBanner'),
-    { loading: () => <p>Loading...</p>, }
-)
-const WidgetTrends = dynamic(
-    () => import('./widgetTrends'),
-    { loading: () => <p>Loading...</p>, }
-)
-const CatPost = dynamic(
-    () => import('./catPost'),
-    { loading: () => <p>Loading...</p>, }
-)
-const CatPagination = dynamic(
-    () => import('./pagination/pagination'),
-    { loading: () => <p>Loading...</p>, }
-)
-const CatAds = dynamic(
-    () => import('./catAds'),
-    { loading: () => <p>Loading...</p>, }
-)
+import CatAds from "./catAds"
+import CatBanner from "./catBanner"
+import CatPost from "./catPost"
+import CatPagination from "./pagination/pagination"
+import WidgetTrends from "./widgetTrends"
 
 type catPageProps = {
     catPosts: postsByCategory

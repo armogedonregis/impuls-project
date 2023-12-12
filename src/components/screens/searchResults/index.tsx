@@ -1,12 +1,6 @@
 import { foundPostType } from "@/types/postsType"
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-
-
-const FoundPost = dynamic(
-    () => import('./foundPost'),
-    { loading: () => <p>Loading...</p>, }
-)
+import { useTranslation } from "next-i18next"
+import FoundPost from "./foundPost";
 
 type searchPostsType = {
     foundPosts: foundPostType[];

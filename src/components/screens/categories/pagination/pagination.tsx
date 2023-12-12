@@ -75,7 +75,7 @@ const CatPagination: React.FC<{
                 </a> : null
             }
             {
-                currentPage < pages - 2
+                currentPage < pages - 3
                 ? <PagBtn
                     count={pages - 1}
                     categoryUrl={categoryUrl}
