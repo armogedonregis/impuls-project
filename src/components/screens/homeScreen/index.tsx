@@ -4,72 +4,59 @@ import { socialsType } from '@/types/socials'
 import dynamic from 'next/dynamic'
 import TopHomeSwiper from './topHomeSwiper/topHomeSwiper'
 import { useTranslation } from 'next-i18next'
-import TopHomePostsBlock from '@/components/header/homeTopGastroPosts'
-import CatLargeBlock from './bottomBlocks/catLargeBlock'
-import CatMinBlock from './bottomBlocks/catMinBlock'
-import InstaBlock from './bottomBlocks/instaBlock'
-import StayConnected from './bottomBlocks/stayConnected'
-import CategoryHome from './categoryHome'
-import FeaturedAuthors from './featuredAuthors/featuredAuthors'
-import HotVideosBlock from './hotVideos/hotVideosBlock'
-import LargeLeaderBoard from './largeLeaderboard/largeLeaderboard'
-import FavoriteRandomPosts from './topBlocks/favoriteRandomPosts'
-import TopCatChapter from './topBlocks/topCatChapter'
-import TopPosts_n_Form from './topBlocks/topPosts&Form'
-import GastronomySlider from './trandsNews/trandsNews'
 
-// const TopHomePostsBlock = dynamic(
-//     () => import('@/components/header/homeTopGastroPosts'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const FavoriteRandomPosts = dynamic(
-//     () => import('./topBlocks/favoriteRandomPosts'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const CategoryHome = dynamic(
-//     () => import('./categoryHome'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const LargeLeaderBoard = dynamic(
-//     () => import('./largeLeaderboard/largeLeaderboard'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const TopCatChapter = dynamic(
-//     () => import('./topBlocks/topCatChapter'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const TopPosts_n_Form = dynamic(
-//     () => import('./topBlocks/topPosts&Form'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const GastronomySlider = dynamic(
-//     () => import('./trandsNews/trandsNews'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const HotVideosBlock = dynamic(
-//     () => import('./hotVideos/hotVideosBlock'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const CatMinBlock = dynamic(
-//     () => import('./bottomBlocks/catMinBlock'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const InstaBlock = dynamic(
-//     () => import('./bottomBlocks/instaBlock'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const CatLargeBlock = dynamic(
-//     () => import('./bottomBlocks/catLargeBlock'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const FeaturedAuthors = dynamic(
-//     () => import('./featuredAuthors/featuredAuthors'),
-//     { loading: () => <p>Loading...</p>, }
-// )
-// const StayConnected = dynamic(
-//     () => import('./bottomBlocks/stayConnected'),
-//     { loading: () => <p>Loading...</p>, }
-// )
+const TopHomePostsBlock = dynamic(
+    () => import('@/components/header/homeTopGastroPosts'),
+    { loading: () => <p>Loading...</p>, }
+)
+const FavoriteRandomPosts = dynamic(
+    () => import('./topBlocks/favoriteRandomPosts'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CategoryHome = dynamic(
+    () => import('./categoryHome'),
+    { loading: () => <p>Loading...</p>, }
+)
+const LargeLeaderBoard = dynamic(
+    () => import('./largeLeaderboard/largeLeaderboard'),
+    { loading: () => <p>Loading...</p>, }
+)
+const TopCatChapter = dynamic(
+    () => import('./topBlocks/topCatChapter'),
+    { loading: () => <p>Loading...</p>, }
+)
+const TopPosts_n_Form = dynamic(
+    () => import('./topBlocks/topPosts&Form'),
+    { loading: () => <p>Loading...</p>, }
+)
+const GastronomySlider = dynamic(
+    () => import('./trandsNews/trandsNews'),
+    { loading: () => <p>Loading...</p>, }
+)
+const HotVideosBlock = dynamic(
+    () => import('./hotVideos/hotVideosBlock'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CatMinBlock = dynamic(
+    () => import('./bottomBlocks/catMinBlock'),
+    { loading: () => <p>Loading...</p>, }
+)
+const InstaBlock = dynamic(
+    () => import('./bottomBlocks/instaBlock'),
+    { loading: () => <p>Loading...</p>, }
+)
+const CatLargeBlock = dynamic(
+    () => import('./bottomBlocks/catLargeBlock'),
+    { loading: () => <p>Loading...</p>, }
+)
+const FeaturedAuthors = dynamic(
+    () => import('./featuredAuthors/featuredAuthors'),
+    { loading: () => <p>Loading...</p>, }
+)
+const StayConnected = dynamic(
+    () => import('./bottomBlocks/stayConnected'),
+    { loading: () => <p>Loading...</p>, }
+)
 
 interface categorizedPosts {
     [key: string]: postType[]

@@ -6,9 +6,10 @@ export const TopSwiperSlideContent = (props: swiperPostData) => {
     return (
         <div className="card-slide">
             <div className="img img-cover">
-                <img
+                <Image
                     width={1200}
                     height={800}
+                    priority
                     src={props.image ? props.image : '/'}
                     alt=""
                 />
