@@ -1,6 +1,7 @@
 import { postType } from "@/types/postsType"
 import { useTranslation } from "next-i18next"
-import Image from 'next/image'
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 export const EditorsChoiceSlide: React.FC<{
     post: postType
@@ -14,7 +15,7 @@ export const EditorsChoiceSlide: React.FC<{
                     <img src={props.post?.imageSmall} alt="" className="main-img" />
                     {
                         props.post?.videoUrl
-                        ? <a href={props.post.videoUrl} data-lity="" className="video_icon icon-60">
+                        ? <a href={`https://youtu.be/${props.post.videoUrl}`} data-fancybox="" className="video_icon icon-60">
                             <i className="ion-play"></i>
                         </a> : null
                     }
@@ -36,7 +37,7 @@ export const EditorsChoiceSlide: React.FC<{
                 </div>
                 <div className="content">
                     <h4 className="title mt-20">
-                        <a href={`${props.post?.url ? props.post.url : ""}?id=${props.post?.id}`}>{props.post?.title}</a>
+                        <a href={`/post/${props.post?.id}/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</a>
                     </h4>
                 </div>
             </div>

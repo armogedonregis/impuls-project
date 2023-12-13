@@ -27,7 +27,7 @@ export const TopSwiperSlideContent = (props: swiperPostData) => {
                         : null
                     }
                 </div>
-                <h2 className="mb-20"> <Link href={`post/${props.url ? props.url : ""}?id=${props?.id}`}>
+                <h2 className="mb-20"> <Link href={`post/${props?.id}/${props.url ? props.url : ""}`}>
                     {props?.title}
                 </Link> </h2>
                 <p className="text">{props?.description}</p>

@@ -34,7 +34,7 @@ export const TopCatRightBlock: React.FC<{
                     }
                 </div>
             </div>
-            <Link href={`/category/${getCatUrl(props.category)}?id=${props.category}`} className="mt-20 hover-main"> { t('home.whatIsNewBlock.educationBlock.viewAll') } <i className="la la-angle-right ms-3"></i> </Link>
+            <Link href={`/category/${props.category}/${getCatUrl(props.category)}`} className="mt-20 hover-main"> { t('home.whatIsNewBlock.educationBlock.viewAll') } <i className="la la-angle-right ms-3"></i> </Link>
         </div>
     )
 }

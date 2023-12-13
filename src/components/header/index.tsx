@@ -4,7 +4,7 @@ import { HeaderLogo } from './headerLogo'
 import { ChoiseTheme } from './choiseTheme'
 import { LangBar } from './langBar'
 import { categoryType } from '@/types/categoriesType'
-import { categoryData } from '@/types/postsType'
+import { categoryData, singlePost } from '@/types/postsType'
 import { useTranslation } from 'next-i18next'
 
 export const Header: React.FC<{
@@ -17,6 +17,10 @@ export const Header: React.FC<{
     setDark: Dispatch<SetStateAction<string>>
     isCat?: boolean
     thisCategory?: categoryData
+    isSinglePost?: boolean
+    postEs?: singlePost
+    postEn?: singlePost
+    postRu?: singlePost
 }> = ({...props}) => {
     const { t, i18n } = useTranslation('locale')
     const [isOpenedMobNavbar, openMobNavbar] = useState<boolean>(false)
@@ -31,7 +35,12 @@ export const Header: React.FC<{
                     <div className={`collapse navbar-collapse custom-height ${isOpenedMobNavbar ? "show" : ""}`} id="navbarSupportedContent">
                         <DropDownCategory categories={props.categories} lang={props.lang} />
                         <div className="nav-side">
-                            <LangBar />
+                            <LangBar
+                                isSinglePost={true}
+                                postEs={props.postEs}
+                                postEn={props.postEn}
+                                postRu={props.postRu}
+                            />
                             <ChoiseTheme
                                 isDark={props.isDark}
                                 setDark={props.setDark}

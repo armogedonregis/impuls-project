@@ -22,6 +22,7 @@ export const CategoryPage = (props: catPageProps) => {
                 <div className="container">
                     <div className="content-widgets pt-50 pb-50">
                         <div className="row">
+
                             <div className="col-lg-9">
                                 <div className="tc-post-list-style3">
                                     <div className="items">
@@ -64,6 +65,7 @@ export const CategoryPage = (props: catPageProps) => {
                                     <CatAds />
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

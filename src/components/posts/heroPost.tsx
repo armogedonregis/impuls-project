@@ -16,7 +16,7 @@ export const HeroPost = (props: heroPostType) => {
                 <h2 className="title mb-20 fsz-28px">
                     <Link
                         style={{maxWidth: "100%", hyphens: "auto", overflowWrap: "anywhere"}}
-                        href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}
+                        href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}
                     >
                             {props.post?.title}
                     </Link>

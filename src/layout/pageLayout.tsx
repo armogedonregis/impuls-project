@@ -8,7 +8,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Montserrat } from 'next/font/google'
 import { useDarkMode } from '@/utils/useDarkMode'
-import { categoryData } from '@/types/postsType'
+import { categoryData, singlePost } from '@/types/postsType'
 
 const font = Montserrat({
     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -24,6 +24,10 @@ type LayoutProps = {
     lang: string
     isCat?: boolean
     thisCategory?: categoryData
+    isSinglePost?: boolean
+    postEs?: singlePost
+    postEn?: singlePost
+    postRu?: singlePost
 }
 
 export default function PageLayout(props: LayoutProps) {
@@ -55,6 +59,10 @@ export default function PageLayout(props: LayoutProps) {
                 setDark={setTheme}
                 isCat={props.isCat}
                 thisCategory={props.thisCategory}
+                isSinglePost={true}
+                postEs={props.postEs}
+                postEn={props.postEn}
+                postRu={props.postRu}
             />
                 {/* Page aka screen body */}
                 {props.children}

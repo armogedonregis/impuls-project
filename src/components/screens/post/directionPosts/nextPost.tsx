@@ -8,7 +8,7 @@ export const NextPost: React.FC<{
     const { t, i18n } = useTranslation('locale')
     
     return (
-        <Link href={`${post?.url}?id=${post?.id}`} className="item">
+        <Link href={`/post/${post?.id}/${post?.url}`} className="item">
             <p className="color-666 fsz-12px text-uppercase">{t('postPage.directions.next')}</p>
             <h6 className="title">{post?.title}</h6>
         </Link>

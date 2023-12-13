@@ -28,7 +28,7 @@ export const TopHomePostsBlock: React.FC<{
                     ? <div className="info">
                         <h2 className="fsz-32px mb-20">
                             <Link
-                                href={`post/${props.posts[0]?.url ? props.posts[0]?.url : ""}?id=${props.posts[0]?.id}`}> {props.posts[0].title}
+                                href={`post/${props.posts[0]?.id}/${props.posts[0]?.url ? props.posts[0]?.url : ""}`}> {props.posts[0].title}
                             </Link>
                         </h2>
                         {
@@ -49,7 +49,7 @@ export const TopHomePostsBlock: React.FC<{
                                     ? <li key={id}>
                                         <h2 className="fsz-20px" key={id}>
                                             <a
-                                                href={`post/${item.url ? item.url : ""}?id=${item.id}`}
+                                                href={`post/${item.id}/${item.url ? item.url : ""}`}
                                                 key={id}
                                             >
                                                 {item.title}

@@ -34,7 +34,7 @@ export const Post = (props: Type) => {
                             <h2 className="title mb-10">
                                 <Link
                                     style={{maxWidth: "100%", hyphens: "auto", overflowWrap: "anywhere"}}
-                                    href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}
+                                    href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}
                                     className="hover-underline fsz-28px"
                                 >
                                     {" "}{props.post?.title}{" "}
@@ -67,7 +67,7 @@ export const Post = (props: Type) => {
                         <div className="col-8">
                         <div style={{overflowWrap: "anywhere"}} className="content">
                             <h2 className="title mb-10">
-                                <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`} className="hover-underline fsz-28px">
+                                <Link href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`} className="hover-underline fsz-28px">
                                     {props.post?.title}
                                 </Link>
                             </h2>
@@ -116,7 +116,7 @@ export const Post = (props: Type) => {
                 <div className="col-8">
                 <div style={{overflowWrap: "anywhere"}} className="content">
                     <h2 className="title">
-                        <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}>{props.post?.title}</Link>
+                        <Link href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title}</Link>
                     </h2>
                     <p className="text mt-15 mb-20">
                         {props.post?.description}

@@ -33,7 +33,7 @@ const WidgetTrends = (props: widgetTrends) => {
                             {getFullCategory(props.categoryId)}
                         </Link>
                         <h4 className="title">
-                            <Link href={`/post/${props.favoritePosts[0]?.url}?id=${props.favoritePosts[0].id}`}>
+                            <Link href={`/post/${props.favoritePosts[0].id}/${props.favoritePosts[0]?.url}`}>
                                 {props.favoritePosts[0]?.title}
                             </Link>
                         </h4>

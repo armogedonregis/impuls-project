@@ -13,8 +13,8 @@ const PagBtn: React.FC<{
 
     return (
         <Link
-            className={`${Number(count) == Number(currentPage) ? "active" : ""}`}
-            href={`/${lang}/category/${categoryUrl}?${Number(count > 1) ? "page=" : ""}${Number(count) > 1 ? Number(count) + "&" : ""}id=${Number(categoryId)}`}
+            className={`${Number(count - 1) == Number(currentPage) ? "active" : ""}`}
+            href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryId}/${categoryUrl}${Number(count > 1) ? "?page=" : ""}${Number(count) > 1 ? Number(count - 1) : ""}`}
         >
             <span>{count}</span>
         </Link>
@@ -34,12 +34,12 @@ const CatPagination: React.FC<{
 
     let currentPages: number[] = []
     let maxPage: number = 1
-    if(currentPage == 1) { maxPage = Number(currentPage) + Number(4)}
-    else { maxPage = Number(currentPage) + Number(3) }
+    if(currentPage == 1) { maxPage = Number(currentPage) + Number(5)}
+    else { maxPage = Number(currentPage) + Number(4) }
 
     let currentBtnPage = 1
     if (currentPage == 1) { currentBtnPage = currentPage }
-    else { currentBtnPage = (currentPage - 2) }
+    else { currentBtnPage = (currentPage - 1) }
 
     for (let i = currentBtnPage; i < maxPage; i++) {
         currentPages.push(i)
@@ -48,9 +48,9 @@ const CatPagination: React.FC<{
     return (
         <div className="pagination style-1 color-main justify-content-center mt-60">
             {
-                currentPage > 1
+                currentPage > 0
                 ? <Link
-                    href={`/${lang}/category/${categoryUrl}?${Number(currentPage) > 2 ? "page=" : ""}${Number(currentPage) > 2 ? Number(currentPage) - 1 + "&" : ""}id=${categoryId}`}
+                    href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryId}/${categoryUrl}?${Number(currentPage) > 1 ? "page=" : ""}${Number(currentPage) > 1 ? Number(currentPage) - 1 : ""}`}
                 >
                     <span className="text text-uppercase"><i className={`${styles.arrowPrev} la la-angle-right`}/> {t('cat_sPage.pagination.prev')} </span>
                 </Link> : null
@@ -69,7 +69,7 @@ const CatPagination: React.FC<{
                 ))
             }
             {
-                currentPage < pages - 3
+                currentPage < pages - 4
                 ? <a style={{cursor: "pointer"}}>
                     <span>...</span>
                 </a> : null
@@ -85,9 +85,9 @@ const CatPagination: React.FC<{
                 /> : null
             }
             {
-                currentPage < pages - 1
+                currentPage < pages - 2
                 ? <Link
-                    href={`/${lang}/category/${categoryUrl}?page=${Number(currentPage) + 1}&id=${Number(categoryId)}`}
+                    href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryId}/${categoryUrl}?page=${Number(currentPage) + 1}`}
                 >
                     <span className="text text-uppercase">{t('cat_sPage.pagination.next')} <i className="la la-angle-right"></i> </span>
                 </Link> : null

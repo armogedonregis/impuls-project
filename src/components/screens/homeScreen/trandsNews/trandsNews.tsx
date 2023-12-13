@@ -20,7 +20,7 @@ const GastronomySlider = (props: GastronomySliderType) => {
                 <p className="text-uppercase"> {t('home.gastroSlider.title')} </p>
                 <div className="col-lg-12 text-lg-end">
                     <Link
-                        href={`/category/${props.category?.url ? props.category?.url : ""}?id=${props.category.id}`}
+                        href={`/category/${props.category.id}/${props.category?.url ? props.category?.url : ""}`}
                         className="text-capitalize hover-main"
                     > {t('home.gastroSlider.viewAll')} <i className="la la-angle-right ms-1"></i> </Link>
                 </div>

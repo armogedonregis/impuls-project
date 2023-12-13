@@ -20,7 +20,7 @@ export const PostVideoBlock: React.FC<{
                     <div className="col-lg-2"></div>
                     <div className="col-lg-10">
                         <div className="play-btn-content">
-                            <a href={props.post.videoUrl} data-fancybox="" className="play-cont">
+                            <a href={`https://youtu.be/${props.post.videoUrl}`} data-fancybox="" className="play-cont">
                                 <i className="ion-play me-3"></i>
                                 <span>
                                     play <br/> video

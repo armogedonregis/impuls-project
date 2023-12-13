@@ -51,7 +51,7 @@ export const BottomSwiperSlideContent = (props: bottomSwiperSlide) => {
                 </div>
                 <div className="content pt-30">
                     <h2 className="title mb-20 fsz-28px">
-                        <Link href={`post/${props.post?.url ? props.post?.url : ""}?id=${props.post?.id}`}>{props.post?.title} </Link>
+                        <Link href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title} </Link>
                     </h2>
                     <p className="text mb-20 fsz-14px">
                         {props.post?.description}

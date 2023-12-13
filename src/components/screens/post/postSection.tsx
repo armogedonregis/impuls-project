@@ -4,10 +4,14 @@ import { socialsType } from "@/types/socials"
 import parse from 'html-react-parser'
 import { PostVideoBlock } from "./videoBlock"
 import { useTranslation } from "next-i18next"
+import { webSite } from "@/utils/server"
 
 type postSection = {
     post: singlePost
     socials: socialsType
+    lang: string
+    postName: string
+    postId: number
 }
 
 const PostSection = (props: postSection) => {
@@ -33,9 +37,25 @@ const PostSection = (props: postSection) => {
                             <div className="sharing">
                                 <p className="text-uppercase mb-20">{t('postPage.share')}</p>
                                 <div className="share-icons">
-                                    <Link href={`https://www.facebook.com/sharer/sharer.php?u=${props.socials?.facebook}`} target="_blank"> <i className="la la-facebook-f"></i> </Link>
-                                    <Link href={`https://www.instagram.com/sharer/sharer.php?u=${props.socials?.instagram}`} target="_blank"> <i className="la la-instagram"></i> </Link>
-                                    {/* <Link href={props.socials?.youtube}> <i className="la la-youtube"></i> </Link> */}
+                                    <Link
+                                        href={`https://www.facebook.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}/${props.postName}`}
+                                        target={"_blank"}
+                                    > <i className="la la-facebook-f">
+                                    </i> </Link>
+                                    <Link href={`https://www.instagram.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}/${props.postName}`}
+                                        target={"_blank"}
+                                    > <i className="la la-instagram">
+                                    </i> </Link>
+                                    {
+                                        props.post?.videoUrl
+                                        ? <Link 
+                                            href={`https://www.youtube.com/share?v=${props.post.videoUrl}`}
+                                            target={"_blank"}
+                                        > <i className="la la-youtube">
+                                        </i> </Link>
+                                        : null
+                                    }
+                                    
                                 </div>
                             </div>
                         </div>

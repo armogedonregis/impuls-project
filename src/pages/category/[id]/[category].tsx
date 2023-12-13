@@ -7,6 +7,8 @@ import { instaImg, postType, postsByCategory, favPostType } from "@/types/postsT
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
 
 type categoriesType = {
     catPosts: postsByCategory
@@ -21,6 +23,13 @@ type categoriesType = {
 }
 
 export default function Categories(props: categoriesType) {
+
+    const router = useRouter()
+    useEffect(() => {
+        Number(props.catPosts?.posts?.totalPages) - 1 < Number(props.currentPage) + 1
+        ? router.push(`${props.lang === 'es' ? "" : "/" + props.lang}/category/${props.categoryId}/${props.categoryUrl}`)
+        : null
+    }, [router])
 
     const isCategory = true
 
