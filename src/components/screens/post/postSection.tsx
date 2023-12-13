@@ -33,9 +33,9 @@ const PostSection = (props: postSection) => {
                             <div className="sharing">
                                 <p className="text-uppercase mb-20">{t('postPage.share')}</p>
                                 <div className="share-icons">
-                                    <Link href={props.socials?.facebook}> <i className="la la-facebook-f"></i> </Link>
-                                    <Link href={props.socials?.instagram}> <i className="la la-instagram"></i> </Link>
-                                    <Link href={props.socials?.youtube}> <i className="la la-youtube"></i> </Link>
+                                    <Link href={`https://www.facebook.com/sharer/sharer.php?u=${props.socials?.facebook}`} target="_blank"> <i className="la la-facebook-f"></i> </Link>
+                                    <Link href={`https://www.instagram.com/sharer/sharer.php?u=${props.socials?.instagram}`} target="_blank"> <i className="la la-instagram"></i> </Link>
+                                    {/* <Link href={props.socials?.youtube}> <i className="la la-youtube"></i> </Link> */}
                                 </div>
                             </div>
                         </div>

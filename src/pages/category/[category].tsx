@@ -57,7 +57,7 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
 
     // Получаем запрашиваемую категорию
     const categoryUrl = ctx.query["category"]
-    const currentPage = ctx.query["page"] ? ctx.query["page"] : 1
+    const currentPage = ctx.query["page"] ? ctx.query["page"] : 0
     const categoryId = ctx.query["id"]
     
     // Вытягиваем категории
@@ -65,7 +65,7 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     const categories = await categories_.json()
 
     // Вытягиваем посты данной категории
-    const catPosts_ = await fetch(`${isServer}/posts/${lang}?page=${currentPage ? currentPage : "1"}&size=20&categoryId=${categoryId}`)
+    const catPosts_ = await fetch(`${isServer}/posts/${lang}?page=${currentPage ? currentPage : "0"}&size=20&categoryId=${categoryId}`)
     // Вытягиваем избранные посты данной категории
     const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
 
