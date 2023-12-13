@@ -31,7 +31,7 @@ export const LangBar = (props: langBarType) => {
     }
     if(props.postRu) {
         if(props.postRu["message"]?.search('Post not available in requested language') !== undefined) {
-            isEsPostExist = false
+            isRuPostExist = false
         }
     }
 

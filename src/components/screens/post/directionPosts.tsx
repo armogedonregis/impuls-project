@@ -22,6 +22,10 @@ const DirectionPostsSlider = (props: directionPosts) => {
                             className={"tc-next-prev-post-slider"}
                             watchOverflow={false}
                             slidesPerView={2}
+                            breakpoints={{
+                                0: { slidesPerView: 1 },
+                                800: { slidesPerView: 2 },
+                            }}
                             spaceBetween={60}
                             navigation={{
                                 nextEl: ".swiper-button-next",

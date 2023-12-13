@@ -63,7 +63,7 @@ const PostSection = (props: postSection) => {
                             <div className="tc-main-post-titlepb-40">
                                 <div className="row">
                                     {
-                                        !props.post.videoUrl && props.post?.categories[0]
+                                        !props.post.videoUrl && props.post?.categories
                                         ? <div className="col-lg-8">
                                             <p className="text-uppercase mb-15">{props.post?.categories[0]?.name}</p>
                                             <h1 className="title">{props.post?.title}</h1>
@@ -91,7 +91,11 @@ const PostSection = (props: postSection) => {
                                 </div>
                             </div>
                             <div className="single_content">
-                                { parse(props.post?.description) }
+                                {
+                                    props.post
+                                    ? parse(props.post?.description ? props.post?.description : "")
+                                    : null
+                                }
                             </div>
                         </div>
                     </div>

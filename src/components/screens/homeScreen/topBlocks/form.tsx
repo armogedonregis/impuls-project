@@ -9,6 +9,23 @@ export const Form = () => {
     const emailRef = useRef<HTMLInputElement>(null)
     const checkBoxRef = useRef<HTMLInputElement>(null)
 
+    const subscribe = async () => {
+        const formData = {
+            firstName: nameRef.current?.value,
+            email: emailRef.current?.value,
+            tags: [],
+            gdpr: true
+        }
+        checkBoxRef.current?.checked ? fetch(`${isServer}/subscribe/add`, {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json',
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(formData)
+        }) : null
+    }
+
     return (
         <div className="col-lg-12 custom-col-half custom-col-small tc-subscribe-style3 mt-30 custom-mt-70 custom-col-margin">
             <div className="sub-form radius-7">
@@ -47,22 +64,7 @@ export const Form = () => {
                 </div>
                 <a
                     className="btn w-100 bg-main mt-30 rounded-pill"
-                    onClick={async () => {
-                        const formData = {
-                            firstName: nameRef.current?.value,
-                            email: emailRef.current?.value,
-                            tags: [],
-                            gdpr: true
-                        }
-                        checkBoxRef.current?.checked ? fetch(`${isServer}/subscribe/add`, {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": 'application/json',
-                                "Access-Control-Allow-Origin": "*"
-                            },
-                            body: JSON.stringify(formData)
-                        }) : null
-                    }}
+                    onClick={async () => { subscribe() }}
                 >
                     <span className="text-white">{t('home.whatIsNewBlock.form.button')}</span>
                 </a>

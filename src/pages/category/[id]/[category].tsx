@@ -26,7 +26,7 @@ export default function Categories(props: categoriesType) {
 
     const router = useRouter()
     useEffect(() => {
-        Number(props.catPosts?.posts?.totalPages) - 1 < Number(props.currentPage) + 1
+        Number(props.catPosts?.posts?.totalPages) - 1 < Number(props.currentPage)
         ? router.push(`${props.lang === 'es' ? "" : "/" + props.lang}/category/${props.categoryId}/${props.categoryUrl}`)
         : null
     }, [router])

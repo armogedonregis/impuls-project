@@ -23,6 +23,10 @@ const EditorsChoice = (props: editorsChoiceType) => {
                 <Swiper
                     watchOverflow={true}
                     slidesPerView={4}
+                    breakpoints={{
+                        0: { slidesPerView: 1 },
+                        800: { slidesPerView: 3 },
+                    }}
                     spaceBetween={30}
                     navigation={{
                         nextEl: ".tc-editors-choice-slider3 .swiper-button-next",

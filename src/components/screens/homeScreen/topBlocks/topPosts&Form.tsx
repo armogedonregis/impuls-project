@@ -2,7 +2,6 @@ import { topPostType } from "@/types/postsType"
 import { TopPosts } from "./topPosts"
 import { Form } from "./form"
 
-
 const TopPosts_n_Form: React.FC<{
     topPosts: topPostType[]
 }> = (props) => {
