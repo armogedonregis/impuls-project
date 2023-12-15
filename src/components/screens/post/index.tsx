@@ -28,7 +28,10 @@ export const SinglePost: React.FC<{
                 prevPosts={props.prevPosts}
                 nextPosts={props.nextPosts}
             />
-            <EditorsChoice rPosts={props.rPosts} />
+            <EditorsChoice
+                rPosts={props.rPosts}
+                lang={props.lang}
+            />
         </main>
     )
 }

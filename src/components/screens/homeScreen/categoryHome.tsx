@@ -11,7 +11,7 @@ const CategoryHome: React.FC<{
                 props.categories
                 ? <div className="cat-content">
                 {props.categories.map(item => (
-                    <Link key={item.id} href={`category/${item.id}/${item.url ? item.url : ""}`} className="category"> {item.name} <span className="num"> {item.count} </span> 
+                    <Link key={item.id} href={`category/${item.id}--${item.url ? item.url : ""}`} className="category"> {item.name} <span className="num"> {item.count} </span> 
                     </Link>
                 ))}
                 </div> : null

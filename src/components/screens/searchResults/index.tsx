@@ -1,9 +1,10 @@
 import { foundPostType } from "@/types/postsType"
 import { useTranslation } from "next-i18next"
-import FoundPost from "./foundPost";
+import FoundPost from "./foundPost"
 
 type searchPostsType = {
-    foundPosts: foundPostType[];
+    foundPosts: foundPostType[]
+    lang: string
 }
 
 export const SearchResultsScreen = (props: searchPostsType) => {
@@ -23,7 +24,11 @@ export const SearchResultsScreen = (props: searchPostsType) => {
                         {
                             props.foundPosts
                             ? props.foundPosts.map((item, id) =>
-                            <FoundPost key={id} foundPost={item} />)
+                            <FoundPost
+                                key={id}
+                                foundPost={item}
+                                lang={props.lang}
+                            />)
                             : <p> {t('postPage.conditionText')} </p>
                         }
                     </div>

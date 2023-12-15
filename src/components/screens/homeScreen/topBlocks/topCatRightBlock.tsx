@@ -1,8 +1,8 @@
 import { postType } from "@/types/postsType"
 import { Post } from "../../../posts/post"
 import Link from "next/link"
-import { getCatUrl, getFullCategory } from "@/utils/getCategory"
 import { useTranslation } from "next-i18next"
+import { categoryType } from "@/types/categoriesType"
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
  ? Acc[number] : Enumerate<N, [...Acc, Acc['length']]>
@@ -12,6 +12,7 @@ type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] exte
 export const TopCatRightBlock: React.FC<{
     posts: postType[]
     category: IntRange<1, 13>
+    categories: categoryType[]
 }> = (props) => {
     const { t, i18n } = useTranslation('locale')
     
@@ -34,7 +35,7 @@ export const TopCatRightBlock: React.FC<{
                     }
                 </div>
             </div>
-            <Link href={`/category/${props.category}/${getCatUrl(props.category)}`} className="mt-20 hover-main"> { t('home.whatIsNewBlock.educationBlock.viewAll') } <i className="la la-angle-right ms-3"></i> </Link>
+            <Link href={`/category/${props.category}--${props.categories[props.category-1].url}`} className="mt-20 hover-main"> { t('home.whatIsNewBlock.educationBlock.viewAll') } <i className="la la-angle-right ms-3"></i> </Link>
         </div>
     )
 }

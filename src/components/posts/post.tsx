@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { postType } from "../../types/postsType"
-import Image from 'next/image'
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 type Type = {
     postType: "imgLeftTop" | "imgLeftBottom" | "imgTop" | "imgRight"
@@ -27,14 +28,17 @@ export const Post = (props: Type) => {
                 // Post with image on the top
                 <div className={`${props.extra ? "py-4" : ""} tc-post-grid-default mt-30 mt-lg-0`}>
                     <div className="item">
-                        <div className="img img-cover th-200 radius-6 overflow-hidden">
+                        <Link
+                            className="img img-cover th-200 radius-6 overflow-hidden"
+                            href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}
+                        >
                             <img src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt=""/>
-                        </div>
+                        </Link>
                         <div style={{overflowWrap: "anywhere"}} className="content pt-20">
                             <h2 className="title mb-10">
                                 <Link
                                     style={{maxWidth: "100%", hyphens: "auto", overflowWrap: "anywhere"}}
-                                    href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}
+                                    href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}
                                     className="hover-underline fsz-28px"
                                 >
                                     {" "}{props.post?.title}{" "}
@@ -67,7 +71,7 @@ export const Post = (props: Type) => {
                         <div className="col-8">
                         <div style={{overflowWrap: "anywhere"}} className="content">
                             <h2 className="title mb-10">
-                                <Link href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`} className="hover-underline fsz-28px">
+                                <Link href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`} className="hover-underline fsz-28px">
                                     {props.post?.title}
                                 </Link>
                             </h2>
@@ -89,9 +93,12 @@ export const Post = (props: Type) => {
                         </div>
                         </div>
                         <div className="col-4">
-                            <div className="img th-120 img-cover radius-4 overflow-hidden">
+                            <Link
+                                className="img th-120 img-cover radius-4 overflow-hidden"
+                                href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}
+                            >
                                 <img src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -103,20 +110,23 @@ export const Post = (props: Type) => {
         <div className={titleClassName}>
             <div className="row gx-3">
                 <div className="col-4">
-                    <div className="img th-140 img-cover radius-4 overflow-hidden">
+                    <Link
+                        className="img th-140 img-cover radius-4 overflow-hidden"
+                        href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}
+                    >
                         <img src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
-                        {
+                        {/* {
                             props.post?.videoUrl
-                            ? <a href={props.post.videoUrl} data-lity="" className="video_icon icon-60">
+                            ? <a href={props.post.videoUrl} data-fancybox="" className="video_icon icon-60">
                                 <i className="ion-play"></i>
                             </a> : null
-                        }
-                    </div>
+                        } */}
+                    </Link>
                 </div>
                 <div className="col-8">
                 <div style={{overflowWrap: "anywhere"}} className="content">
                     <h2 className="title">
-                        <Link href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title}</Link>
+                        <Link href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}>{props.post?.title}</Link>
                     </h2>
                     <p className="text mt-15 mb-20">
                         {props.post?.description}

@@ -1,8 +1,9 @@
 import { foundPostType } from "@/types/postsType"
-import Image from 'next/image'
+import Link from "next/link";
 
 const FoundPost: React.FC<{
-    foundPost: foundPostType;
+    foundPost: foundPostType
+    lang: string
 }> = (props) => {
     return (
         <div className="search-result-item">
@@ -17,13 +18,16 @@ const FoundPost: React.FC<{
                 </div>
                 <div className="col-lg-7">
                     <div className="content mt-4 mt-lg-0">
-                        <h3 className="title"> <a href={props.foundPost.url}>{props.foundPost.title}</a> </h3>
+                        <h3 className="title"> <Link href={`/${props.lang}/post/${props.foundPost.id}--${props.foundPost.url}`}>{props.foundPost?.title}</Link> </h3>
                         <div className="text color-666 fsz-16px">
-                            {props.foundPost.description}
+                            {props.foundPost?.description}
                         </div>
-                        <div className="meta-bot">
-                            <small className="fsz-13px color-999">Author Name</small>
-                        </div>
+                        {
+                            props.foundPost.author
+                            ? <div className="meta-bot">
+                                <small className="fsz-13px color-999">{props.foundPost.author}</small>
+                            </div> : null
+                        }
                     </div>
                 </div>
             </div>

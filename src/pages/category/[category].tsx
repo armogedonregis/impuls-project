@@ -25,9 +25,14 @@ type categoriesType = {
 export default function Categories(props: categoriesType) {
 
     const router = useRouter()
+    const currLangCatUrl = props.categories[props.categoryId - 1].url
     useEffect(() => {
         Number(props.catPosts?.posts?.totalPages) - 1 < Number(props.currentPage)
-        ? router.push(`${props.lang === 'es' ? "" : "/" + props.lang}/category/${props.categoryId}/${props.categoryUrl}`)
+        ? router.push(`${props.lang === 'es' ? "" : "/" + props.lang}/category/${props.categoryId}--${currLangCatUrl}`)
+        : null
+
+        currLangCatUrl !== props.categoryUrl
+        ? router.push(`${props.lang === 'es' ? "" : "/" + props.lang}/category/${props.categoryId}--${currLangCatUrl}${props.currentPage > 0 ? "?page=" : ""}${props.currentPage > 0 ? props.currentPage : ""}`)
         : null
     }, [router])
 
@@ -65,9 +70,10 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     const lang = ctx.locale
 
     // Получаем запрашиваемую категорию
-    const categoryUrl = ctx.query["category"]
-    const currentPage = ctx.query["page"] ? ctx.query["page"] : 0
-    const categoryId = ctx.query["id"]
+    const tempUrl: any = ctx.query["category"]
+    const currentPage: any = ctx.query["page"] ? ctx.query["page"] : 0
+    const categoryId = tempUrl.substring(tempUrl.search("/category/"), tempUrl.search("--"))
+    const categoryUrl = tempUrl.substring(tempUrl.search("--") + 2)
     
     // Вытягиваем категории
     const categories_ = await fetch(`${isServer}/categories/${lang}`)
@@ -81,6 +87,26 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     // Сериализуем в джейсона
     const catPosts = await catPosts_.json()
     const favoritePosts = await favoritePosts_.json()
+
+    const currLangCatUrl = categories[categoryId - 1].url
+    if (Number(catPosts.posts?.totalPages) - 1 < Number(currentPage)) {
+        console.log("redirect1")
+        return {
+            redirect: {
+                permanent: false,
+                destination: `${lang === 'es' ? "" : "/" + lang}/category/${categoryId}--${currLangCatUrl}`
+            }
+        }
+    }
+    else if (currLangCatUrl !== categoryUrl) {
+        console.log("redirect2")
+        return {
+            redirect: {
+                permanent: false,
+                destination: `${lang === 'es' ? "" : "/" + lang}/category/${categoryId}--${currLangCatUrl}${currentPage > 0 ? "?page=" : ""}${currentPage > 0 ? currentPage : ""}`
+            }
+        }
+    }
 
     return {
         props: {

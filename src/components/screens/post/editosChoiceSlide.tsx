@@ -1,17 +1,21 @@
 import { postType } from "@/types/postsType"
 import { useTranslation } from "next-i18next"
-import { Fancybox } from '@fancyapps/ui'
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
+import Link from "next/link"
 
 export const EditorsChoiceSlide: React.FC<{
     post: postType
+    lang: string
 }> = (props) => {
     const { t, i18n } = useTranslation('locale')
 
     return (
         <div className="swiper-slide">
             <div className="item">
-                <div className="img img-cover">
+                <Link
+                    className="img img-cover"
+                    href={`/${props.lang}/post/${props.post?.id}--${props.post?.url ? props.post.url : "/"}`}
+                >
                     <img src={props.post?.imageSmall} alt="" className="main-img" />
                     {
                         props.post?.videoUrl
@@ -34,10 +38,10 @@ export const EditorsChoiceSlide: React.FC<{
                             )) : null
                         }
                     </div>
-                </div>
+                </Link>
                 <div className="content">
                     <h4 className="title mt-20">
-                        <a href={`/post/${props.post?.id}/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</a>
+                        <Link href={`/${props.lang}/post/${props.post?.id}--${props.post?.url ? props.post.url : "/"}`}>{props.post?.title}</Link>
                     </h4>
                 </div>
             </div>

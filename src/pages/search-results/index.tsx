@@ -10,11 +10,11 @@ import { NextPageContext } from "next"
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type searchLayout = {
-    posts: postsType;
-    categories: categoryType[];
-    socials: socialsType;
-    foundPosts: foundPostType[];
-    lang: string;
+    posts: postsType
+    categories: categoryType[]
+    socials: socialsType
+    foundPosts: foundPostType[]
+    lang: string
 }
 
 export default function SearchResults(props: searchLayout) {
@@ -33,6 +33,7 @@ export default function SearchResults(props: searchLayout) {
             >
                 <SearchResultsScreen
                     foundPosts={props.foundPosts}
+                    lang={props.lang}
                 />
             </PageLayout>
         </HeadLayout>

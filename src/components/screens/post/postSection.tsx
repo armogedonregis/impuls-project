@@ -38,24 +38,23 @@ const PostSection = (props: postSection) => {
                                 <p className="text-uppercase mb-20">{t('postPage.share')}</p>
                                 <div className="share-icons">
                                     <Link
-                                        href={`https://www.facebook.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}/${props.postName}`}
+                                        href={`https://www.facebook.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}--${props.postName}`}
                                         target={"_blank"}
                                     > <i className="la la-facebook-f">
                                     </i> </Link>
-                                    <Link href={`https://www.instagram.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}/${props.postName}`}
+                                    <Link href={`https://www.instagram.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}--${props.postName}`}
                                         target={"_blank"}
                                     > <i className="la la-instagram">
                                     </i> </Link>
-                                    {
+                                    {/* {
                                         props.post?.videoUrl
                                         ? <Link 
-                                            href={`https://www.youtube.com/share?v=${props.post.videoUrl}`}
+                                            href={`https://youtu.be/${props.post.videoUrl}`}
                                             target={"_blank"}
                                         > <i className="la la-youtube">
                                         </i> </Link>
                                         : null
-                                    }
-                                    
+                                    } */}
                                 </div>
                             </div>
                         </div>

@@ -63,8 +63,8 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     // Определяем локализацию
     const lang = ctx.locale
     // Id of the targeted post
-    const postId = ctx.query["id"]
-    const postName = ctx.query["name"]
+    const postName: any = ctx.query["name"]
+    const postId = postName.substring(postName.search("/post/"), postName.search("--"))
 
     // Вытягиваем все данные для текущего поста
     const postEs_ = await fetch(`${isServer}/post/es/${postId}`)

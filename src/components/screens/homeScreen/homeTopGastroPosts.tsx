@@ -1,34 +1,40 @@
 // правый пост в хедере
 import { postType } from "@/types/postsType"
-import { getCatUrl, getFullCategory } from "@/utils/getCategory"
 import Link from "next/link"
-import Image from 'next/image'
 import { useTranslation } from "next-i18next"
+import { categoryType } from "@/types/categoriesType"
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
  ? Acc[number] : Enumerate<N, [...Acc, Acc['length']]>
 
  type IntRange<F extends number, T extends number> = Exclude<Enumerate<T>, Enumerate<F>>
 
-export const TopHomePostsBlock: React.FC<{
+export const HomeTopGastroPosts: React.FC<{
     posts: postType[]
     category: IntRange<1, 13>
+    categories: categoryType[]
 }> = (props) => {
     const { t, i18n } = useTranslation('locale')
     
     return (
         <div className="col">
             <div className="tc-breaking-style10 px-lg-5">
-                <p className="text-uppercase fsz-14px mb-40">{ t('home.gastroBlock.title') }</p>
-                <div className="img img-cover">
-                    <img src={props.posts[0]?.imageSmall ? props.posts[0]?.imageSmall : '/'} alt="" />
-                </div>
                 {
                     props.posts
-                    ? <div className="info">
+                    ? 
+                    <>
+                    <p className="text-uppercase fsz-14px mb-40">{ t('home.gastroBlock.title') }</p>
+                    <Link className="img img-cover" href={`post/${props.posts[0]?.id}--${props.posts[0]?.url ? props.posts[0]?.url : ""}`}>
+                        {
+                            props.posts[0]?.imageSmall
+                            ? <img src={props.posts[0].imageSmall} alt="" />
+                            : null
+                        }
+                    </Link>
+                    <div className="info">
                         <h2 className="fsz-32px mb-20">
                             <Link
-                                href={`post/${props.posts[0]?.id}/${props.posts[0]?.url ? props.posts[0]?.url : ""}`}> {props.posts[0].title}
+                                href={`post/${props.posts[0]?.id}--${props.posts[0]?.url ? props.posts[0]?.url : ""}`}> {props.posts[0].title}
                             </Link>
                         </h2>
                         {
@@ -49,7 +55,7 @@ export const TopHomePostsBlock: React.FC<{
                                     ? <li key={id}>
                                         <h2 className="fsz-20px" key={id}>
                                             <a
-                                                href={`post/${item.id}/${item.url ? item.url : ""}`}
+                                                href={`post/${item.id}--${item.url ? item.url : ""}`}
                                                 key={id}
                                             >
                                                 {item.title}
@@ -59,14 +65,15 @@ export const TopHomePostsBlock: React.FC<{
                                 )) : null
                             }
                         </ul>
-                        <Link href={`category/${getCatUrl(props.category)}`} className="fsz-14px text-capitalize mt-15">
+                        <Link href={`category/${props.category}--${props.categories[props.category-1].url}`} className="fsz-14px text-capitalize mt-15">
                             { t('home.gastroBlock.viewAll') }<i className="la la-angle-right ms-1"></i>
                         </Link>
-                    </div> : null
+                    </div>
+                    </> : null
                 }
             </div>
         </div>
     )
 }
 
-export default TopHomePostsBlock
+export default HomeTopGastroPosts

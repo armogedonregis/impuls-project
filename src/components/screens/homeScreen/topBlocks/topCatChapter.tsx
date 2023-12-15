@@ -20,11 +20,13 @@ const TopCatChapter = (props: TopCatChaperType) => {
                 <TopCatLeftBlock
                     category={2}
                     posts={props.posts[2]}
+                    categories={props.categories}
                 />
                 {/* Education block - right */}
                 <TopCatRightBlock
                     category={5}
                     posts={props.posts[5]}
+                    categories={props.categories}
                 />
             </div>
         </div>

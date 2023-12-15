@@ -1,7 +1,7 @@
 import { postType } from "@/types/postsType"
-import { CategoryPost } from "../../../posts/categoryPost";
-import Link from "next/link";
-import { getCatUrl, getFullCategory } from "@/utils/getCategory";
+import { CategoryPost } from "../../../posts/categoryPost"
+import Link from "next/link"
+import { categoryType } from "@/types/categoriesType"
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
  ? Acc[number] : Enumerate<N, [...Acc, Acc['length']]>
@@ -10,6 +10,7 @@ type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] exte
 
 type catLargeBlockType = {
     category: IntRange<1, 13>
+    categories: categoryType[]
     posts: postType[]
     catTitle: string
     catViewAll: string
@@ -24,7 +25,7 @@ const CatLargeBlock = (props: catLargeBlockType) => {
                     <p className="text-uppercase mb-20"> {props.catTitle} </p>
                 </div>
                 <div className="col-lg-6 text-lg-end">
-                    <Link href={`/category/${props.category}/${getCatUrl(props.category)}`} className="text-capitalize hover-main"> {props.catViewAll} <i className="la la-angle-right ms-1"></i> </Link>
+                    <Link href={`/category/${props.category}--${props.categories[props.category-1].url}`} className="text-capitalize hover-main"> {props.catViewAll} <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>
             <div className="tc-post-list-style3">

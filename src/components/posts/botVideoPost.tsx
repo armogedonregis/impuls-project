@@ -24,7 +24,7 @@ export const BotVideoPost = (props: videoPostType) => {
                                     <div className="col-8">
                                         <h2 className="title fsz-28px">
                                             <Link
-                                                href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}
+                                                href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}
                                                 className="hover-underline"
                                             >
                                                 {props.post?.title}

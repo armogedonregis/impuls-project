@@ -52,6 +52,7 @@ export type foundPostType = {
     description: string
     url: string
     imageSmall: string
+    author?: string
 }
 
 // Images from Instagram

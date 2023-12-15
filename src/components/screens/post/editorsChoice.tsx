@@ -8,6 +8,7 @@ import { useTranslation } from "next-i18next"
 
 type editorsChoiceType = {
     rPosts: postType[]
+    lang: string
 }
 
 const EditorsChoice = (props: editorsChoiceType) => {
@@ -45,7 +46,11 @@ const EditorsChoice = (props: editorsChoiceType) => {
                                 props.rPosts
                                 ? props.rPosts.map((item, id) => (
                                     <SwiperSlide key={id}>
-                                        <EditorsChoiceSlide key={id} post={item} />
+                                        <EditorsChoiceSlide
+                                            key={id}
+                                            post={item}
+                                            lang={props.lang}
+                                        />
                                     </SwiperSlide>
                                 )) : null
                             }

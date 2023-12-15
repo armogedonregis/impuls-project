@@ -14,23 +14,23 @@ export const HeadMain = (props: headMainProps) => {
             <meta charSet="utf-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=1" />
-            <meta name="title" content="Impuls PLUS" />
+            <meta name="title" content={props.title} />
             <meta name="description" content={props.description} />
             <meta name="keywords" content={props.keywords ? props.keywords : ""} />
             <meta name="author" content={props.author} />
             <meta name="robots" content="index, follow, max-image-preview:large" />
             <meta name="referrer" content="unsafe-url" />
-            <meta property="article:author" content="Impuls PLUS" />
+            <meta property="article:author" content={props.author} />
             <meta property="og:site_name" content="Impuls PLUS" />
             <meta property="og:type" content="article" />
             <meta property="article:published_time" content="" />
-            <meta property="og:title" content="Impuls PLUS" />
-            <meta property="og:description" content="Impuls PLUS" />
-            <meta property="og:url" content="#" />
-            <meta property="og:image" content="#" />
-            <meta property="twitter:title" content="Impuls PLUS" />
-            <meta name="twitter:site" content="" />
-            <meta property="twitter:description" content="Impuls PLUS" />
+            <meta property="og:title" content={props.title} />
+            <meta property="og:description" content={props.description} />
+            <meta property="og:url" content="" />
+            <meta property="og:image" content="" />
+            <meta property="twitter:title" content={props.title} />
+            <meta name="twitter:site" content="Impuls PLUS" />
+            <meta property="twitter:description" content={props.description} />
             <meta name="twitter:image:src" content="" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:creator" content="" />

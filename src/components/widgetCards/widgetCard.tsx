@@ -14,12 +14,15 @@ export const WidgetCard = (props: card) => {
         // Widget top post (card)
         props.type == "main"
         ? <div className="img-card">
-            <div className="img img-cover">
+            <Link className="img img-cover" href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : "/"}`}>
                 <img src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
-            </div>
-            <div className="content">
+            </Link>
+            <Link
+                className="content"
+                href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : "/"}`}
+            >
                 <h3 className="title title-white">
-                    <Link href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title}</Link>
+                    {props.post?.title}
                 </h3>
                 <div className="meta-bot mt-15 fsz-12px">
                     {
@@ -28,9 +31,9 @@ export const WidgetCard = (props: card) => {
                         : null
                     }
                 </div>
-            </div>
+            </Link>
         </div>
-        : <Link href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`} className="number-card">
+        : <Link href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`} className="number-card">
             <span className="number">
                 {props.numCardId}
             </span>

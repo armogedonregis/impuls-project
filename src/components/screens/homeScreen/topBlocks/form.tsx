@@ -13,15 +13,13 @@ export const Form = () => {
         const formData = {
             firstName: nameRef.current?.value,
             email: emailRef.current?.value,
-            tags: [],
+            tags: [
+                ""
+            ],
             gdpr: true
         }
         checkBoxRef.current?.checked ? fetch(`${isServer}/subscribe/add`, {
             method: "POST",
-            headers: {
-                "Content-Type": 'application/json',
-                "Access-Control-Allow-Origin": "*"
-            },
             body: JSON.stringify(formData)
         }) : null
     }

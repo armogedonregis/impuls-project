@@ -9,14 +9,14 @@ type heroPostType = {
 export const HeroPost = (props: heroPostType) => {
     return (
         <>
-            <div className="img img-cover th-550 radius-6 overflow-hidden">
+            <Link className="img img-cover th-550 radius-6 overflow-hidden" href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}>
                 <img src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
-            </div>
+            </Link>
             <div className="content pt-30">
                 <h2 className="title mb-20 fsz-28px">
                     <Link
                         style={{maxWidth: "100%", hyphens: "auto", overflowWrap: "anywhere"}}
-                        href={`post/${props.post?.id}/${props.post?.url ? props.post?.url : ""}`}
+                        href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}
                     >
                             {props.post?.title}
                     </Link>
