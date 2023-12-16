@@ -6,9 +6,10 @@ import { categoryType } from "@/types/categoriesType"
 import { instaImg, postType, postsByCategory, favPostType } from "@/types/postsType"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
+import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 type categoriesType = {
     catPosts: postsByCategory
@@ -23,6 +24,8 @@ type categoriesType = {
 }
 
 export default function Categories(props: categoriesType) {
+    const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
+    const { t, i18n } = useTranslation('locale')
 
     const router = useRouter()
     const currLangCatUrl = props.categories[props.categoryId - 1].url
@@ -40,10 +43,10 @@ export default function Categories(props: categoriesType) {
 
     return (
         <HeadLayout
-            title={props.catPosts?.category?.name || "Impuls TV category"}
-            description={props.catPosts?.posts?.message || "description"}
-            author={""}
-            keywords={""}
+            title={`Impuls PLUS ${props.catPosts?.category?.name}`}
+            description={t('head.categoryPage.description')}
+            author={t('head.categoryPage.keywords')}
+            keywords={t('head.categoryPage.author')}
         >
             <PageLayout
                 categories={props.categories}
@@ -51,6 +54,8 @@ export default function Categories(props: categoriesType) {
                 lang={props.lang}
                 isCat={isCategory}
                 thisCategory={props.catPosts?.category}
+                isNavBarOpen={isNavBarOpen}
+                openNavBar={openNavBar}
             >
                 <CategoryPage
                     catPosts={props.catPosts}
@@ -84,13 +89,24 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     // Вытягиваем избранные посты данной категории
     const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
 
+    let catPosts
+
     // Сериализуем в джейсона
-    const catPosts = await catPosts_.json()
+    try {
+        catPosts = await catPosts_.json()
+    }
+    catch {
+        return {
+            redirect: {
+                permanent: false,
+                destination: `/404`
+            }
+        }
+    }
     const favoritePosts = await favoritePosts_.json()
 
     const currLangCatUrl = categories[categoryId - 1].url
     if (Number(catPosts.posts?.totalPages) - 1 < Number(currentPage)) {
-        console.log("redirect1")
         return {
             redirect: {
                 permanent: false,
@@ -99,7 +115,6 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
         }
     }
     else if (currLangCatUrl !== categoryUrl) {
-        console.log("redirect2")
         return {
             redirect: {
                 permanent: false,

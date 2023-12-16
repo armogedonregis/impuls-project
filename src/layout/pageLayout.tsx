@@ -4,7 +4,7 @@ import { Navbar } from '@/components/navbar'
 import { categoryType } from '@/types/categoriesType'
 import { SideBar } from '@/components/sideBar/sideBar'
 import { socialsType } from '@/types/socials'
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
 import { Montserrat } from 'next/font/google'
 import { useDarkMode } from '@/utils/useDarkMode'
@@ -20,6 +20,8 @@ const font = Montserrat({
 type LayoutProps = {
     children: React.ReactNode
     categories: categoryType[]
+    isNavBarOpen: Boolean
+    openNavBar: Dispatch<SetStateAction<Boolean>>
     socials: socialsType
     lang: string
     isCat?: boolean
@@ -32,7 +34,6 @@ type LayoutProps = {
 
 export default function PageLayout(props: LayoutProps) {
     const [isOpenedSlideBar, setIsOpenedSlideBar] = useState<boolean>(false)
-    const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
 
     const [show, setShow] = useState<boolean>(false)
     const handleClose = () => setShow(false)
@@ -47,11 +48,11 @@ export default function PageLayout(props: LayoutProps) {
             className={`${isDark ? "dark-theme" : ""} ${font.className}`}
         >
             <Navbar
-                isNavBarOpen={isNavBarOpen}
+                isNavBarOpen={props.isNavBarOpen}
             />
             <Header
-                isNavBarOpen={isNavBarOpen}
-                openNavBar={openNavBar}
+                isNavBarOpen={props.isNavBarOpen}
+                openNavBar={props.openNavBar}
                 categories={props.categories}
                 setShow={setShow}
                 lang={props.lang}

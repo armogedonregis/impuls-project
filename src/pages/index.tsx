@@ -7,7 +7,9 @@ import { favPostType, instaImg, postsType, topPostType } from '@/types/postsType
 import { HomeParams } from '@/utils/headerParams'
 import { instaFetchServer, isServer } from '@/utils/server'
 import { NextPageContext } from 'next'
+import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useState } from 'react'
 
 type IPosts = {
     posts: postsType
@@ -19,18 +21,22 @@ type IPosts = {
 }
 
 export default function Home(props: IPosts) {
+    const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
+    const { t, i18n } = useTranslation('locale')
 
     return (
         <HeadLayout
-            title={"Impuls PLUS"}
-            description={"Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones"}
-            author={"Impuls PLUS"}
-            keywords={""}
+            title={t('head.home.title')}
+            description={t('head.home.description')}
+            author={t('head.home.keywords')}
+            keywords={t('head.home.author')}
         >
             <PageLayout
                 categories={props.categories}
                 socials={socialsData}
                 lang={props.lang}
+                isNavBarOpen={isNavBarOpen}
+                openNavBar={openNavBar}
             >
                 <HomeScreen
                     instaImgs={props.instaImgs}
@@ -48,7 +54,7 @@ export default function Home(props: IPosts) {
 
 export const getStaticProps = async (ctx: NextPageContext) => {
     // Определяем локализацию
-    const lang = ctx.locale;
+    const lang = ctx.locale
 
     // Вытягиваем посты
     const posts_ = await fetch(`${isServer}/posts/home/${lang}?categoryIds=${HomeParams.categoryId}&postsSize=${HomeParams.postsSize}&sliderSize=${HomeParams.sliderSize}`)

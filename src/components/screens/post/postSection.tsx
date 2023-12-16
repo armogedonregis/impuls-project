@@ -5,6 +5,7 @@ import parse from 'html-react-parser'
 import { PostVideoBlock } from "./videoBlock"
 import { useTranslation } from "next-i18next"
 import { webSite } from "@/utils/server"
+import styles from './styles/postSection.module.css'
 
 type postSection = {
     post: singlePost
@@ -40,21 +41,15 @@ const PostSection = (props: postSection) => {
                                     <Link
                                         href={`https://www.facebook.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}--${props.postName}`}
                                         target={"_blank"}
+                                        className={styles.SocialsIcon}
                                     > <i className="la la-facebook-f">
                                     </i> </Link>
-                                    <Link href={`https://www.instagram.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}--${props.postName}`}
+                                    <Link
+                                        href={`https://www.instagram.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}--${props.postName}`}
                                         target={"_blank"}
+                                        className={styles.SocialsIcon}
                                     > <i className="la la-instagram">
                                     </i> </Link>
-                                    {/* {
-                                        props.post?.videoUrl
-                                        ? <Link 
-                                            href={`https://youtu.be/${props.post.videoUrl}`}
-                                            target={"_blank"}
-                                        > <i className="la la-youtube">
-                                        </i> </Link>
-                                        : null
-                                    } */}
                                 </div>
                             </div>
                         </div>

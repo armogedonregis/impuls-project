@@ -7,7 +7,9 @@ import { foundPostType, postsType } from "@/types/postsType"
 import { socialsType } from "@/types/socials"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
+import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useState } from "react"
 
 type searchLayout = {
     posts: postsType
@@ -18,18 +20,22 @@ type searchLayout = {
 }
 
 export default function SearchResults(props: searchLayout) {
+    const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
+    const { t, i18n } = useTranslation('locale')
 
     return (
         <HeadLayout
-            title={"Impuls PLUS"}
-            description={"Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones"}
-            author={"Impuls PLUS"}
-            keywords={""}
+            title={t('head.searchedPosts.title')}
+            description={t('head.searchedPosts.description')}
+            author={t('head.searchedPosts.keywords')}
+            keywords={t('head.searchedPosts.author')}
         >
             <PageLayout
                 categories={props.categories}
                 socials={socialsData}
                 lang={props.lang}
+                isNavBarOpen={isNavBarOpen}
+                openNavBar={openNavBar}
             >
                 <SearchResultsScreen
                     foundPosts={props.foundPosts}

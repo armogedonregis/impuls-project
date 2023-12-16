@@ -1,4 +1,51 @@
 {
+    "head": {
+        "home": {
+            "title": "",
+            "description": "",
+            "keywords": "",
+            "author": ""
+        },
+        "categoryPage": {
+            "description": "",
+            "keywords": "",
+            "author": ""
+        },
+        "singlePost": {
+            "description": "",
+            "keywords": ""
+        },
+        "searchedPosts": {
+            "title": "",
+            "description": "",
+            "keywords": "",
+            "author": ""
+        },
+        "notFound_404": {
+            "title": "",
+            "description": "",
+            "keywords": "",
+            "author": ""
+        },
+        "about": {
+            "title": "",
+            "description": "",
+            "keywords": "",
+            "author": ""
+        },
+        "contact": {
+            "title": "",
+            "description": "",
+            "keywords": "",
+            "author": ""
+        },
+        "policy": {
+            "title": "",
+            "description": "",
+            "keywords": "",
+            "author": ""
+        }
+    },
     "footer": {
         "about": "About",
         "contact": "Contact",

@@ -7,7 +7,9 @@ import { directionPost, postType, singlePost } from "@/types/postsType"
 import { socialsType } from "@/types/socials"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
+import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import { useState } from "react"
 
 type postLayout = {
     categories: categoryType[]
@@ -25,14 +27,17 @@ type postLayout = {
 }
 
 export default function Post(props: postLayout) {
+    const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
+    const { t, i18n } = useTranslation('locale')
+    
     const currentPost = props.lang === 'es' ? props.postEs : props.lang === 'en' ? props.postEn : props.postRu
 
     return (
         <HeadLayout
             title={currentPost.title}
-            description={currentPost.categories?.at(1)?.name || "description"}
-            author={currentPost.author || "author"}
-            keywords={"keyword"}
+            description={t('head.singlePost')}
+            author={currentPost.author || ""}
+            keywords={t('head.keywords')}
         >
             <PageLayout
                 categories={props.categories}
@@ -42,6 +47,8 @@ export default function Post(props: postLayout) {
                 postEs={props.postEs}
                 postEn={props.postEn}
                 postRu={props.postRu}
+                isNavBarOpen={isNavBarOpen}
+                openNavBar={openNavBar}
 
             >
                 <SinglePost
@@ -87,6 +94,22 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
     const rPosts = await rPosts_.json()
     const prevPosts = await prev_.json()
     const nextPosts = await next_.json()
+
+    if (
+        postEs["status"] === 404
+        || postEn["status"] === 404
+        || postRu["status"] === 404
+        || postEs["message"]?.search("For input string:") === 0
+        || postEn["message"]?.search("For input string:") === 0
+        || postRu["message"]?.search("For input string:") === 0
+    ) {
+        return {
+            redirect: {
+                permanent: false,
+                destination: `/404`
+            }
+        }
+    }
 
     return {
         props: {

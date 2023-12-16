@@ -6,6 +6,7 @@ import { LangBar } from './langBar'
 import { categoryType } from '@/types/categoriesType'
 import { categoryData, singlePost } from '@/types/postsType'
 import { useTranslation } from 'next-i18next'
+import styles from './styles/header.module.css'
 
 export const Header: React.FC<{
     isNavBarOpen: Boolean
@@ -32,7 +33,7 @@ export const Header: React.FC<{
                     <HeaderLogo
                         openMobNavbar={openMobNavbar}
                     />
-                    <div className={`collapse navbar-collapse custom-height ${isOpenedMobNavbar ? "show" : ""}`} id="navbarSupportedContent">
+                    <div className={`${styles.CollapseNavbar} collapse navbar-collapse custom-height ${isOpenedMobNavbar ? "show" : ""}`} id="navbarSupportedContent">
                         <DropDownCategory categories={props.categories} lang={props.lang} />
                         <div className="nav-side">
                             <LangBar
