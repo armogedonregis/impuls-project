@@ -26,7 +26,7 @@ export const Form = (props: formType) => {
             ],
             gdpr: true
         }
-        if(checkBoxRef.current?.checked) {
+        if (checkBoxRef.current?.checked) {
             const res = await fetch('/api/email-send', {
                 method: "POST",
                 headers: {
@@ -35,6 +35,15 @@ export const Form = (props: formType) => {
                 body: JSON.stringify(formData)
             })
             const jsonResult = await res.json();
+            if (emailRef.current) {
+                emailRef.current.value = "";
+            }
+            if (nameRef.current) {
+                nameRef.current.value = "";
+            }
+            if (checkBoxRef.current.checked) {
+                checkBoxRef.current.checked = false;
+            }
             setError(jsonResult);
         }
     }
