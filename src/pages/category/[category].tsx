@@ -45,8 +45,8 @@ export default function Categories(props: categoriesType) {
         <HeadLayout
             title={`Impuls PLUS ${props.catPosts?.category?.name}`}
             description={t('head.categoryPage.description')}
-            author={t('head.categoryPage.keywords')}
-            keywords={t('head.categoryPage.author')}
+            author={t('head.categoryPage.author')}
+            keywords={t('head.categoryPage.keywords')}
         >
             <PageLayout
                 categories={props.categories}

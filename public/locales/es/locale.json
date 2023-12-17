@@ -1,164 +1,165 @@
 {
     "head": {
         "home": {
-            "title": "",
-            "description": "",
+            "title": "Impuls PLUS",
+            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
             "keywords": "",
-            "author": ""
+            "author": "Impuls PLUS"
         },
         "categoryPage": {
-            "description": "",
+            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
             "keywords": "",
-            "author": ""
+            "author": "Impuls PLUS"
         },
         "singlePost": {
-            "description": "",
-            "keywords": ""
+            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
+            "keywords": "",
+            "author": "Impuls PLUS"
         },
         "searchedPosts": {
-            "title": "",
-            "description": "",
+            "title": "Search Results",
+            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
             "keywords": "",
-            "author": ""
+            "author": "Impuls PLUS"
         },
         "notFound_404": {
-            "title": "",
-            "description": "",
+            "title": "Impuls PLUS",
+            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
             "keywords": "",
-            "author": ""
+            "author": "Impuls PLUS"
         },
         "about": {
-            "title": "",
-            "description": "",
+            "title": "Impuls PLUS",
+            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
             "keywords": "",
-            "author": ""
+            "author": "Impuls PLUS"
         },
         "contact": {
-            "title": "",
-            "description": "",
+            "title": "Impuls PLUS",
+            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
             "keywords": "",
-            "author": ""
+            "author": "Impuls PLUS"
         },
         "policy": {
-            "title": "",
-            "description": "",
+            "title": "Impuls PLUS",
+            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
             "keywords": "",
-            "author": ""
+            "author": "Impuls PLUS"
         }
     },
     "footer": {
-        "about": "About",
-        "contact": "Contact",
-        "policy": "Policy",
-        "copyright": "© 2023 Copyrights by",
-        "rights": "All Rights Reserved"
+        "about": "",
+        "contact": "",
+        "policy": "",
+        "copyright": "",
+        "rights": ""
     },
     "header": {
-        "headerDropDown": "All Categories",
-        "inicio": "Inicio"
+        "headerDropDown": "",
+        "inicio": ""
     },
     "sidebar": {
-        "about": "About us",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio tempora quia iure quae. Soluta corporis quidem aperiam amet nihil.",
-        "contactNfollow": "Contact & follow",
-        "address": "streat name 12, hollywood City, USA",
-        "mail": "Newzin@gmail.com"
+        "about": "",
+        "description": "",
+        "contactNfollow": "",
+        "address": "",
+        "mail": ""
     },
     "navbar": {
-        "title": "You can search by category or news title",
-        "enter": "Enter keyword",
-        "btn": "Search"
+        "title": "",
+        "enter": "",
+        "btn": ""
     },
     "home": {
         "gastroBlock": {
-            "title": "Gastronomy",
-            "viewAll": "View All Posts"
+            "title": "",
+            "viewAll": ""
         },
-        "favRandPosts": "Favorite random posts",
+        "favRandPosts": "",
         "whatIsNewBlock": {
             "tourismBlock": {
-                "title": "Tourism",
-                "viewAll": "All Tourism News"
+                "title": "",
+                "viewAll": ""
             },
             "educationBlock": {
-                "title": "Education",
-                "viewAll": "All Education News"
+                "title": "",
+                "viewAll": ""
             },
-            "topPosts": "Top posts",
+            "topPosts": "",
             "form": {
-                "title": "Newsletter",
-                "desciption": "Subscribe our newsletter to get the latest updates about news & promotions",
-                "nameIn": "You Full Name",
-                "mailIn": "Enter you email",
-                "policy": "By signing up, you agree to the our terms and our",
-                "policyLink": "Privacy Policy",
-                "button": "Subscribe"
+                "title": "",
+                "desciption": "",
+                "nameIn": "",
+                "mailIn": "",
+                "policy": "",
+                "policyLink": "",
+                "button": ""
             }
         },
         "gastroSlider": {
-            "title": "Gastronomy",
-            "viewAll": "View All Posts"
+            "title": "",
+            "viewAll": ""
         },
         "fashionBlock": {
-            "title": "Trend & Fashion",
-            "viewAll": "All Trend & Fashion News"
+            "title": "",
+            "viewAll": ""
         },
         "HealthBlock": {
-            "title": "Health",
-            "viewAll": "All Health News"
+            "title": "",
+            "viewAll": ""
         },
         "financeBlock": {
-            "title": "Finance & Law",
-            "viewAll": "All Finance & Law News"
+            "title": "",
+            "viewAll": ""
         },
         "investBlock": {
-            "title": "Investments",
-            "viewAll": "All Investments News"
+            "title": "",
+            "viewAll": ""
         },
         "networkBlock": {
-            "title": "Networking",
-            "viewAll": "All Networking News"
+            "title": "",
+            "viewAll": ""
         },
         "sportBlock": {
-            "title": "Sport",
-            "viewAll": "All Sport News"
+            "title": "",
+            "viewAll": ""
         },
         "featAuthors": {
-            "title": "Featured authors",
-            "firstAuthor": "David K.",
-            "firstAuthorDesc": "Magazine boss",
-            "secondAuthor": "Antonio M.",
-            "secondAuthorDesc": "Gastronomy critic",
-            "thirdAuthor": "Elena S.",
-            "thirdAuthorDesc": "Author, translator"
+            "title": "",
+            "firstAuthor": "",
+            "firstAuthorDesc": "",
+            "secondAuthor": "",
+            "secondAuthorDesc": "",
+            "thirdAuthor": "",
+            "thirdAuthorDesc": ""
         },   
-        "instaBlock": "Instagram",
+        "instaBlock": "",
         "stayConnected": {
-            "title": "Stay Conntected",
-            "facebook": "Facebook",
-            "instagram": "Instagram",
-            "youtube": "Youtube"
+            "title": "",
+            "facebook": "",
+            "instagram": "",
+            "youtube": ""
         }
     },
     "cat_sPage": {
-        "trendingPosts": "Trending posts",
-        "hatText": "We believe better things are created by great designers",
+        "trendingPosts": "",
+        "hatText": "",
         "pagination": {
-            "next": "next",
-            "prev": "prev"
+            "next": "",
+            "prev": ""
         }
     },
     "postPage": {
-        "share": "Share",
+        "share": "",
         "editorsChoice": {
-            "title": "Editor's Choice",
-            "sliderBarVideo": "videos"
+            "title": "",
+            "sliderBarVideo": ""
         },
-        "conditionText": "Please type text on your language, when searching the posts",
-        "views": "Views",
+        "conditionText": "",
+        "views": "",
         "directions": {
-            "next": "next",
-            "prev": "previous"
+            "next": "",
+            "prev": ""
         }
     }
 }

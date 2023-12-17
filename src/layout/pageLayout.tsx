@@ -6,14 +6,15 @@ import { SideBar } from '@/components/sideBar/sideBar'
 import { socialsType } from '@/types/socials'
 import React, { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
-import { Montserrat } from 'next/font/google'
 import { useDarkMode } from '@/utils/useDarkMode'
 import { categoryData, singlePost } from '@/types/postsType'
+import { Montserrat } from 'next/font/google'
 
 const font = Montserrat({
     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
     subsets: ['latin', 'cyrillic'],
     display: 'swap',
+    variable: '--font-montserrat',
     fallback: ['Arial', 'sans-serif']
 })
 
@@ -45,7 +46,7 @@ export default function PageLayout(props: LayoutProps) {
 
     return (
         <div
-            className={`${isDark ? "dark-theme" : ""} ${font.className}`}
+            className={`${isDark ? "dark-theme" : ""} ${font.variable}`}
         >
             <Navbar
                 isNavBarOpen={props.isNavBarOpen}

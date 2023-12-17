@@ -29,13 +29,14 @@ type homeLayout = {
     socials: socialsType
     sliderPosts: swiperPostData[]
     topPosts: topPostType[]
+    lang: string
 }
 
 export const HomeScreen = (props: homeLayout) => {
     const { t, i18n } = useTranslation('locale')
     
     return (
-        <main className="home-style10 tc-header-style10">
+        <main className={`home-style10 tc-header-style10`}>
             {/* Карусель и посты */}
             <div className="row gx-0">
                 <TopHomeSwiper sliderPosts={props.sliderPosts}/>
@@ -74,7 +75,7 @@ export const HomeScreen = (props: homeLayout) => {
                         />
 
                         {/* Widget cards (right side of what's new section) */}
-                        <TopPosts_n_Form topPosts={props.topPosts} />
+                        <TopPosts_n_Form lang={props.lang} topPosts={props.topPosts} />
                     </div>
                 </div>
             </section>

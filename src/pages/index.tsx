@@ -28,8 +28,8 @@ export default function Home(props: IPosts) {
         <HeadLayout
             title={t('head.home.title')}
             description={t('head.home.description')}
-            author={t('head.home.keywords')}
-            keywords={t('head.home.author')}
+            author={t('head.home.author')}
+            keywords={t('head.home.keywords')}
         >
             <PageLayout
                 categories={props.categories}
@@ -46,6 +46,7 @@ export default function Home(props: IPosts) {
                     socials={socialsData}
                     sliderPosts={props.posts.sliderPosts}
                     topPosts={props.topPosts}
+                    lang={props.lang}
                 />
             </PageLayout>
         </HeadLayout>

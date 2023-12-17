@@ -1,10 +1,10 @@
 import { directionPost } from "@/types/postsType"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { PrevPost } from "./directionPosts/prevPost"
-import { Navigation } from "swiper/modules"
 import { NextPost } from "./directionPosts/nextPost"
 import 'swiper/css'
 import 'swiper/css/bundle'
+import Link from "next/link"
 
 type directionPosts = {
     prevPosts: directionPost[]
@@ -27,13 +27,8 @@ const DirectionPostsSlider = (props: directionPosts) => {
                                 800: { slidesPerView: 2 },
                             }}
                             spaceBetween={60}
-                            navigation={{
-                                nextEl: ".swiper-button-next",
-                                prevEl: ".swiper-button-prev",
-                            }}
                             keyboard={false}
                             speed={1000}
-                            modules={[Navigation]}
                             loop={false}
                             autoplay={{ delay: 6000 }}
                             style={{overflow: 'hidden'}}
@@ -58,8 +53,16 @@ const DirectionPostsSlider = (props: directionPosts) => {
                                     }
                                 </div>
                             </div>
-                            <div className="swiper-button-next"></div>
-                            <div className="swiper-button-prev"></div>
+                            {
+                                props.nextPosts[0]
+                                ? <Link href={`/post/${props.nextPosts[0].id}--${props.nextPosts[0].url}`} className="swiper-button-next"/>
+                                : null
+                            }
+                            {
+                                props.prevPosts[0]
+                                ? <Link href={`/post/${props.prevPosts[0].id}--${props.prevPosts[0].url}`} className="swiper-button-prev"/>
+                                : null
+                            }
                         </Swiper>
                     </div>
                 </div>

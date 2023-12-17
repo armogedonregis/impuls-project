@@ -35,9 +35,9 @@ export default function Post(props: postLayout) {
     return (
         <HeadLayout
             title={currentPost.title}
-            description={t('head.singlePost')}
-            author={currentPost.author || ""}
-            keywords={t('head.keywords')}
+            description={t('head.singlePost.description')}
+            author={currentPost.author || t('head.singlePost.author')}
+            keywords={t('head.singlePost.keywords')}
         >
             <PageLayout
                 categories={props.categories}

@@ -4,6 +4,7 @@ import { Form } from "./form"
 
 const TopPosts_n_Form: React.FC<{
     topPosts: topPostType[]
+    lang: string
 }> = (props) => {
 
     return (
@@ -13,7 +14,7 @@ const TopPosts_n_Form: React.FC<{
                     {/* Top posts */}
                     <TopPosts topPosts={props.topPosts} />
                     {/* Form */}
-                    <Form />
+                    <Form lang={props.lang} />
                 </div>
             </div>
         </div>

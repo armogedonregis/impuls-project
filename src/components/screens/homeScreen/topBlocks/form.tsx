@@ -1,28 +1,49 @@
-import { isServer } from "@/utils/server"
 import { useTranslation } from "next-i18next"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
-export const Form = () => {
+type formType = {
+    lang: string
+}
+
+export const Form = (props: formType) => {
     const { t, i18n } = useTranslation('locale')
-    
+
     const nameRef = useRef<HTMLInputElement>(null)
     const emailRef = useRef<HTMLInputElement>(null)
     const checkBoxRef = useRef<HTMLInputElement>(null)
+    const [error, setError] = useState<any>();
 
     const subscribe = async () => {
         const formData = {
             firstName: nameRef.current?.value,
             email: emailRef.current?.value,
             tags: [
-                ""
+                props.lang === 'es'
+                    ? "impuls_web_es"
+                    : props.lang === 'en'
+                        ? "impuls_web_en"
+                        : "impuls_web_ru"
             ],
             gdpr: true
         }
-        checkBoxRef.current?.checked ? fetch(`${isServer}/subscribe/add`, {
-            method: "POST",
-            body: JSON.stringify(formData)
-        }) : null
+        if(checkBoxRef.current?.checked) {
+            const res = await fetch('/api/email-send', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+            const jsonResult = await res.json();
+            setError(jsonResult);
+        }
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setError(undefined)
+        }, 5000)
+    }, [error])
 
     return (
         <div className="col-lg-12 custom-col-half custom-col-small tc-subscribe-style3 mt-30 custom-mt-70 custom-col-margin">
@@ -62,10 +83,11 @@ export const Form = () => {
                 </div>
                 <a
                     className="btn w-100 bg-main mt-30 rounded-pill"
-                    onClick={async () => { subscribe() }}
+                    onClick={subscribe}
                 >
                     <span className="text-white">{t('home.whatIsNewBlock.form.button')}</span>
                 </a>
+                {error && <p style={{ textAlign: "center", marginTop: "10px" }}>{error.message}</p>}
             </div>
         </div>
     )

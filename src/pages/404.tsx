@@ -23,8 +23,8 @@ export default function NotFound404(props: not_found) {
         <HeadLayout
             title={t('head.notFound_404.title')}
             description={t('head.notFound_404.description')}
-            author={t('head.notFound_404.keywords')}
-            keywords={t('head.notFound_404.author')}
+            author={t('head.notFound_404.author')}
+            keywords={t('head.notFound_404.keywords')}
         >
             <PageLayout
                 categories={props.categories}

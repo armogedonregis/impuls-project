@@ -3,6 +3,6 @@ module.exports = {
     'postcss-import': {},
     cssnano: {
       preset: "default"
-    }
-  }
+    },
+  },
 }
