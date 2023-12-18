@@ -14,12 +14,12 @@ export const WidgetCard = (props: card) => {
         // Widget top post (card)
         props.type == "main"
         ? <div className="img-card">
-            <Link className="img img-cover" href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : "/"}`}>
+            <Link className="img img-cover" href={`post/${props.post?.url ? props.post?.url : ""}`}>
                 <img src={props.post?.imageSmall ? props.post.imageSmall : '/'} alt="" />
             </Link>
             <Link
                 className="content"
-                href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : "/"}`}
+                href={`post/${props.post?.url ? props.post?.url : "/"}`}
             >
                 <h3 className="title title-white">
                     {props.post?.title}
@@ -33,7 +33,7 @@ export const WidgetCard = (props: card) => {
                 </div>
             </Link>
         </div>
-        : <Link href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`} className="number-card">
+        : <Link href={`post/${props.post?.url ? props.post?.url : ""}`} className="number-card">
             <span className="number">
                 {props.numCardId}
             </span>

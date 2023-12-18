@@ -14,7 +14,7 @@ export const CategoryPost = (props: catPostType) => {
                 <div className="col-lg-5">
                     <Link
                         className="img img-cover th-250 radius-5 overflow-hidden"
-                        href={`post/${props.post?.id}--${props.post?.url ? props.post.url : "/"}`}
+                        href={`post/${props.post?.url ? props.post.url : ""}`}
                     >
                         {
                             props.post?.imageSmall
@@ -25,7 +25,7 @@ export const CategoryPost = (props: catPostType) => {
                 </div>
                 <div className="col-lg-7">
                     <div className="content mt-4 mt-lg-0">
-                        <h2 className="title fsz-28px mb-20"> <Link href={`post/${props.post?.id}--${props.post?.url ? props.post.url : "/"}`}>{props.post?.title}</Link> </h2>
+                        <h2 className="title fsz-28px mb-20"> <Link href={`post/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</Link> </h2>
                         <div className="text fsz-14px"> {props.post?.description}
                         </div>
                         <div className="meta-bot">

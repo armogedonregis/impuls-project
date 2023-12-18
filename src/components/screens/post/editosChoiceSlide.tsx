@@ -33,7 +33,7 @@ export const EditorsChoiceSlide: React.FC<{
                     </div>
                     : <Link
                         className="img img-cover"
-                        href={`/${props.lang}/post/${props.post?.id}--${props.post?.url ? props.post.url : "/"}`}
+                        href={`/${props.lang}/post/${props.post?.url ? props.post.url : ""}`}
                     >
                         <img src={props.post?.imageSmall} alt="" className="main-img" />
                         <div className="tags">
@@ -48,7 +48,7 @@ export const EditorsChoiceSlide: React.FC<{
                 }
                 <div className="content">
                     <h4 className="title mt-20">
-                        <Link href={`/${props.lang}/post/${props.post?.id}--${props.post?.url ? props.post.url : "/"}`}>{props.post?.title}</Link>
+                        <Link href={`/${props.lang}/post/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</Link>
                     </h4>
                 </div>
             </div>

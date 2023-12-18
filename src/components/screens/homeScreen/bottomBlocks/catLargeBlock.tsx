@@ -25,7 +25,7 @@ const CatLargeBlock = (props: catLargeBlockType) => {
                     <p className="text-uppercase mb-20"> {props.catTitle} </p>
                 </div>
                 <div className="col-lg-6 text-lg-end">
-                    <Link href={`/category/${props.category}--${props.categories[props.category-1].url}`} className="text-capitalize hover-main"> {props.catViewAll} <i className="la la-angle-right ms-1"></i> </Link>
+                    <Link href={`/category/${props.categories[props.category-1].url}`} className="text-capitalize hover-main"> {props.catViewAll} <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>
             <div className="tc-post-list-style3">

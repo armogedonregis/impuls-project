@@ -8,7 +8,7 @@ export const PrevPost: React.FC<{
     const { t, i18n } = useTranslation('locale')
     
     return (
-        <Link href={`/post/${post?.id}--${post?.url}`} className="item">
+        <Link href={`/post/${post?.url}`} className="item">
             <p className="color-666 fsz-12px text-uppercase">{t('postPage.directions.prev')}</p>
             <h6 className="title">{post?.title}</h6>
         </Link>

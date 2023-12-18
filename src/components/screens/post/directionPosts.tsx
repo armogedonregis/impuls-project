@@ -55,12 +55,12 @@ const DirectionPostsSlider = (props: directionPosts) => {
                             </div>
                             {
                                 props.nextPosts[0]
-                                ? <Link href={`/post/${props.nextPosts[0].id}--${props.nextPosts[0].url}`} className="swiper-button-next"/>
+                                ? <Link href={`/post/${props.nextPosts[0].url}`} className="swiper-button-next"/>
                                 : null
                             }
                             {
                                 props.prevPosts[0]
-                                ? <Link href={`/post/${props.prevPosts[0].id}--${props.prevPosts[0].url}`} className="swiper-button-prev"/>
+                                ? <Link href={`/post/${props.prevPosts[0].url}`} className="swiper-button-prev"/>
                                 : null
                             }
                         </Swiper>

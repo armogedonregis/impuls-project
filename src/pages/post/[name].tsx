@@ -10,14 +10,13 @@ import { NextPageContext } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useState } from "react"
+import { getCookie, setCookie } from 'cookies-next'
 
 type postLayout = {
     categories: categoryType[]
     socials: socialsType
     lang: string
-    postEs: singlePost
-    postEn: singlePost
-    postRu: singlePost
+    post: singlePost
     rPosts: postType[]
     isExist: boolean
     prevPosts: directionPost[]
@@ -29,14 +28,12 @@ type postLayout = {
 export default function Post(props: postLayout) {
     const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
     const { t, i18n } = useTranslation('locale')
-    
-    const currentPost = props.lang === 'es' ? props.postEs : props.lang === 'en' ? props.postEn : props.postRu
 
     return (
         <HeadLayout
-            title={currentPost.title}
+            title={props.post.title}
             description={t('head.singlePost.description')}
-            author={currentPost.author || t('head.singlePost.author')}
+            author={props.post.author || t('head.singlePost.author')}
             keywords={t('head.singlePost.keywords')}
         >
             <PageLayout
@@ -44,15 +41,12 @@ export default function Post(props: postLayout) {
                 socials={socialsData}
                 lang={props.lang}
                 isSinglePost={true}
-                postEs={props.postEs}
-                postEn={props.postEn}
-                postRu={props.postRu}
                 isNavBarOpen={isNavBarOpen}
                 openNavBar={openNavBar}
 
             >
                 <SinglePost
-                    post={currentPost}
+                    post={props.post}
                     rPosts={props.rPosts}
                     socials={socialsData}
                     prevPosts={props.prevPosts}
@@ -66,17 +60,60 @@ export default function Post(props: postLayout) {
     )
 }
 
-export const getServerSideProps = async (ctx: NextPageContext) => {
+export const getServerSideProps = async ({req, res, locale, query}: NextPageContext) => {
     // Определяем локализацию
-    const lang = ctx.locale
+    const lang = locale
     // Id of the targeted post
-    const postName: any = ctx.query["name"]
-    const postId = postName.substring(postName.search("/post/"), postName.search("--"))
+    const postName: any = query["name"]
 
-    // Вытягиваем все данные для текущего поста
-    const postEs_ = await fetch(`${isServer}/post/es/${postId}`)
-    const postEn_ = await fetch(`${isServer}/post/en/${postId}`)
-    const postRu_ = await fetch(`${isServer}/post/ru/${postId}`)
+    // Вытягиваем пост
+    let post_
+    post_ = await fetch(`${isServer}/post-url/${lang}/${postName}`)
+    // To JSON
+    let post
+    post = await post_.json()
+
+    if(
+        post["status"] === 404
+        || post["message"]?.search("Post with this ID was not found!") === 0
+    ) {
+        const lastPostLang = getCookie('lastPostLang', { req, res })
+        post_ = await fetch(`${isServer}/post-url/${lastPostLang}/${postName}`)
+        post = await post_.json()
+        const lastPostId = post.id
+
+        try {
+            post_ = await fetch(`${isServer}/post/${lang}/${lastPostId}`)
+            post = await post_.json()
+
+            if (post["message"] && post["message"].Search("For input string:") === 0)
+            {
+                return {
+                    redirect: {
+                        permanent: false,
+                        destination: `${lang === 'es' ? "" : "/" + lang}/404`
+                    }
+                }
+            }
+            return {
+                redirect: {
+                    permanent: false,
+                    destination: `${lang === 'es' ? "" : "/" + lang}/post/${post.url}`
+                }
+            }
+        }
+        catch {
+            return {
+                redirect: {
+                    permanent: false,
+                    destination: `${lang === 'es' ? "" : "/" + lang}/404`
+                }
+            }
+        }
+    }
+    const postId = post.id
+    setCookie('lastPostLang', lang, { req, res })
+
     // Рекомендуемые посты
     const rPosts_ = await fetch(`${isServer}/posts/recommended/${lang}/${postId}?limit=8`)
     // Вытягиваем категории
@@ -88,28 +125,9 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
 
     // Сериализуем в джейсона
     const categories = await categories_.json()
-    const postEs = await postEs_.json()
-    const postEn = await postEn_.json()
-    const postRu = await postRu_.json()
     const rPosts = await rPosts_.json()
     const prevPosts = await prev_.json()
     const nextPosts = await next_.json()
-
-    if (
-        postEs["status"] === 404
-        || postEn["status"] === 404
-        || postRu["status"] === 404
-        || postEs["message"]?.search("For input string:") === 0
-        || postEn["message"]?.search("For input string:") === 0
-        || postRu["message"]?.search("For input string:") === 0
-    ) {
-        return {
-            redirect: {
-                permanent: false,
-                destination: `/404`
-            }
-        }
-    }
 
     return {
         props: {
@@ -118,7 +136,7 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
                 'locale'
             ])),
             categories, lang, rPosts, prevPosts, nextPosts,
-            postName, postId, postEs, postEn, postRu
+            postName, postId, post
         }
     }
 }

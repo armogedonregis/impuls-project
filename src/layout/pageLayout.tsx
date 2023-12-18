@@ -28,9 +28,6 @@ type LayoutProps = {
     isCat?: boolean
     thisCategory?: categoryData
     isSinglePost?: boolean
-    postEs?: singlePost
-    postEn?: singlePost
-    postRu?: singlePost
 }
 
 export default function PageLayout(props: LayoutProps) {
@@ -62,9 +59,6 @@ export default function PageLayout(props: LayoutProps) {
                 isCat={props.isCat}
                 thisCategory={props.thisCategory}
                 isSinglePost={true}
-                postEs={props.postEs}
-                postEn={props.postEn}
-                postRu={props.postRu}
             />
                 {/* Page aka screen body */}
                 {props.children}

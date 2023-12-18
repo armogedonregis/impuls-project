@@ -18,7 +18,7 @@ const WidgetTrends = (props: widgetTrends) => {
             <div className="tc-post-list-style1">
                 <Link
                     className="tc-post-overlay-default"
-                    href={`/post/${props.favoritePosts[0].id}--${props.favoritePosts[0]?.url}`}
+                    href={`/post/${props.favoritePosts[0]?.url}`}
                 >
                     <div className="img th-200 img-cover">
                         <img 

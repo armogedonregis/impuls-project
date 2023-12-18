@@ -27,7 +27,7 @@ export const TopCatLeftBlock: React.FC<{
                 </div>
                 <div className="col-lg-6 text-lg-end">
                     <Link
-                        href={`/category/${props.category}--${props.categories[props.category-1].url}`} className="text-capitalize hover-main"
+                        href={`/category/${props.categories[props.category-1].url}`} className="text-capitalize hover-main"
                     > { t('home.whatIsNewBlock.tourismBlock.viewAll') } <i className="la la-angle-right ms-1"></i> </Link>
                 </div>
             </div>

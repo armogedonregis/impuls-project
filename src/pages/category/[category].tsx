@@ -8,8 +8,8 @@ import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import { getCookie, setCookie } from 'cookies-next'
 
 type categoriesType = {
     catPosts: postsByCategory
@@ -26,18 +26,6 @@ type categoriesType = {
 export default function Categories(props: categoriesType) {
     const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
     const { t, i18n } = useTranslation('locale')
-
-    const router = useRouter()
-    const currLangCatUrl = props.categories[props.categoryId - 1].url
-    useEffect(() => {
-        Number(props.catPosts?.posts?.totalPages) - 1 < Number(props.currentPage)
-        ? router.push(`${props.lang === 'es' ? "" : "/" + props.lang}/category/${props.categoryId}--${currLangCatUrl}`)
-        : null
-
-        currLangCatUrl !== props.categoryUrl
-        ? router.push(`${props.lang === 'es' ? "" : "/" + props.lang}/category/${props.categoryId}--${currLangCatUrl}${props.currentPage > 0 ? "?page=" : ""}${props.currentPage > 0 ? props.currentPage : ""}`)
-        : null
-    }, [router])
 
     const isCategory = true
 
@@ -70,55 +58,77 @@ export default function Categories(props: categoriesType) {
     )
 }
 
-export const getServerSideProps = async (ctx: NextPageContext) => {
+export const getServerSideProps = async ({req, res, locale, query}: NextPageContext) => {
     // Определяем локализацию
-    const lang = ctx.locale
+    const lang = locale
 
     // Получаем запрашиваемую категорию
-    const tempUrl: any = ctx.query["category"]
-    const currentPage: any = ctx.query["page"] ? ctx.query["page"] : 0
-    const categoryId = tempUrl.substring(tempUrl.search("/category/"), tempUrl.search("--"))
-    const categoryUrl = tempUrl.substring(tempUrl.search("--") + 2)
+    const categoryUrl: any = query["category"]
+    let currentPage: any = query["page"] ? query["page"] : 1
+    currentPage -= 1
     
     // Вытягиваем категории
     const categories_ = await fetch(`${isServer}/categories/${lang}`)
     const categories = await categories_.json()
 
-    // Вытягиваем посты данной категории
-    const catPosts_ = await fetch(`${isServer}/posts/${lang}?page=${currentPage ? currentPage : "0"}&size=20&categoryId=${categoryId}`)
     // Вытягиваем избранные посты данной категории
     const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
-
-    let catPosts
-
-    // Сериализуем в джейсона
-    try {
-        catPosts = await catPosts_.json()
-    }
-    catch {
-        return {
-            redirect: {
-                permanent: false,
-                destination: `/404`
-            }
-        }
-    }
     const favoritePosts = await favoritePosts_.json()
 
-    const currLangCatUrl = categories[categoryId - 1].url
-    if (Number(catPosts.posts?.totalPages) - 1 < Number(currentPage)) {
-        return {
-            redirect: {
-                permanent: false,
-                destination: `${lang === 'es' ? "" : "/" + lang}/category/${categoryId}--${currLangCatUrl}`
+    let catPosts_
+    // Вытягиваем посты данной категории в первый раз
+    catPosts_ = await fetch(`${isServer}/posts/${lang}/${categoryUrl}?page=${currentPage ? currentPage - 1 : "0"}&size=20`)
+
+    let catPosts
+    let categoryId
+    let lastLocale
+    try {
+        catPosts = await catPosts_.json()
+        categoryId = catPosts.category.id
+
+        setCookie('locale', locale, { req, res })
+
+        if(catPosts.posts.totalPages < currentPage) {
+            return {
+                redirect: {
+                    permanent: false,
+                    destination: `/${locale}/category/${categories[categoryId - 1].url}`
+                }
             }
         }
     }
-    else if (currLangCatUrl !== categoryUrl) {
-        return {
-            redirect: {
-                permanent: false,
-                destination: `${lang === 'es' ? "" : "/" + lang}/category/${categoryId}--${currLangCatUrl}${currentPage > 0 ? "?page=" : ""}${currentPage > 0 ? currentPage : ""}`
+    catch {
+        lastLocale = getCookie('locale', { req, res })
+
+        // Вытягиваем посты данной категории если в первый раз не получилось
+        catPosts_ = await fetch(`${isServer}/posts/${lastLocale}/${categoryUrl}?page=${currentPage ? currentPage : "0"}&size=20`)
+
+        try {
+            catPosts = await catPosts_.json()
+            categoryId = catPosts.category.id
+
+            if(catPosts.posts.totalPages < currentPage) {
+                return {
+                    redirect: {
+                        permanent: false,
+                        destination: `/${locale}/category/${categories[categoryId - 1].url}`
+                    }
+                }
+            }
+
+            return {
+                redirect: {
+                    permanent: false,
+                    destination: `/${locale}/category/${categories[categoryId - 1].url}${currentPage > 0 ? "?page=" : ""}${currentPage > 0 ? currentPage + 1 : ""}`
+                }
+            }
+        }
+        catch {
+            return {
+                redirect: {
+                    permanent: false,
+                    destination: `${lang === 'es' ? "" : "/" + lang}/404`
+                }
             }
         }
     }

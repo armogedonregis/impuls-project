@@ -7,9 +7,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const response = await axios.post(
             `${instaFetchServer}/subscribe/add`, req.body
         )
-        return res.status(200).json({ message: response.data, status: "ok" });
+        return res.status(200).json({ message: response.data });
     }
     catch (error) {
-        return res.status(403).json({ message: error, status: "error" })
+        return res.status(403).json({ message: error })
     }
 }

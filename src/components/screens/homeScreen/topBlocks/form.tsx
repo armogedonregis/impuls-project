@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 type formType = {
     lang: string
@@ -7,11 +7,14 @@ type formType = {
 
 export const Form = (props: formType) => {
     const { t, i18n } = useTranslation('locale')
-
+    
+    const [message, setMessage] = useState<string>("")
     const nameRef = useRef<HTMLInputElement>(null)
+    const messageRef = useRef<HTMLParagraphElement>(null)
     const emailRef = useRef<HTMLInputElement>(null)
     const checkBoxRef = useRef<HTMLInputElement>(null)
-    const [error, setError] = useState<any>();
+
+    let isStatusOk
 
     const subscribe = async () => {
         const formData = {
@@ -19,40 +22,28 @@ export const Form = (props: formType) => {
             email: emailRef.current?.value,
             tags: [
                 props.lang === 'es'
-                    ? "impuls_web_es"
-                    : props.lang === 'en'
-                        ? "impuls_web_en"
-                        : "impuls_web_ru"
+                ? "impuls_web_es"
+                : props.lang === 'en'
+                ? "impuls_web_en"
+                : "impuls_web_ru"
             ],
             gdpr: true
         }
-        if (checkBoxRef.current?.checked) {
-            const res = await fetch('/api/email-send', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            })
-            const jsonResult = await res.json();
-            if (emailRef.current) {
-                emailRef.current.value = "";
-            }
-            if (nameRef.current) {
-                nameRef.current.value = "";
-            }
-            if (checkBoxRef.current.checked) {
-                checkBoxRef.current.checked = false;
-            }
-            setError(jsonResult);
-        }
-    }
+        const result = await fetch('/api/email-send', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
 
-    useEffect(() => {
-        setTimeout(() => {
-            setError(undefined)
-        }, 5000)
-    }, [error])
+        let resMessage = await result.json()
+
+        if (resMessage.message === "Subscriber added successfully") { isStatusOk = true }
+        else { isStatusOk = false }
+        
+        setMessage(prev => resMessage.message)
+    }
 
     return (
         <div className="col-lg-12 custom-col-half custom-col-small tc-subscribe-style3 mt-30 custom-mt-70 custom-col-margin">
@@ -90,13 +81,27 @@ export const Form = (props: formType) => {
                         <a className="text-decoration-underline color-000">{t('home.whatIsNewBlock.form.policyLink')}</a>
                     </label>
                 </div>
+                <p
+                    style={{
+                        marginTop: 20,
+                        fontSize: 16,
+                        color: isStatusOk ? "red" : "green",
+                        display: message.length > 0 ? "block" : "none"
+                    }}
+                    ref={messageRef}
+                >
+                        {message}
+                </p>
                 <a
                     className="btn w-100 bg-main mt-30 rounded-pill"
-                    onClick={subscribe}
+                    onClick={() => {
+                        checkBoxRef.current?.checked
+                        ? subscribe()
+                        : null
+                    }}
                 >
                     <span className="text-white">{t('home.whatIsNewBlock.form.button')}</span>
                 </a>
-                {error && <p style={{ textAlign: "center", marginTop: "10px" }}>{error.message}</p>}
             </div>
         </div>
     )

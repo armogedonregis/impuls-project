@@ -18,7 +18,7 @@ const FoundPost: React.FC<{
                 </div>
                 <div className="col-lg-7">
                     <div className="content mt-4 mt-lg-0">
-                        <h3 className="title"> <Link href={`/${props.lang}/post/${props.foundPost.id}--${props.foundPost.url}`}>{props.foundPost?.title}</Link> </h3>
+                        <h3 className="title"> <Link href={`/${props.lang}/post/${props.foundPost.url}`}>{props.foundPost?.title}</Link> </h3>
                         <div className="text color-666 fsz-16px">
                             {props.foundPost?.description}
                         </div>

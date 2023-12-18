@@ -15,7 +15,7 @@ export const NumberedTrendsWidget: React.FC<{
             <div className="content">
                 <h6 className="title fsz-16px fw-bold ltspc--1 hover-main">
                     <Link
-                        href={`/post/${props.favoritePost.id}--${props.favoritePost?.url ? props.favoritePost.url : "/"}`}
+                        href={`/post/${props.favoritePost?.url ? props.favoritePost.url : ""}`}
                     >
                         {props.favoritePost?.title}
                     </Link>

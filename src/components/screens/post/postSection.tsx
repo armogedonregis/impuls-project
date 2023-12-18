@@ -29,7 +29,7 @@ const PostSection = (props: postSection) => {
                 {
                     !props.post.videoUrl
                     ? <div className="tc-main-post-img img-cover pt-40 mb-50">
-                        <img src={props.post?.mainImageLink} alt=""/>
+                        <img key={props.post?.mainImageLink} src={props.post?.mainImageLink} alt="" />
                     </div> : null
                 }
                 <div className="tc-main-post-content color-000">
@@ -39,13 +39,13 @@ const PostSection = (props: postSection) => {
                                 <p className="text-uppercase mb-20">{t('postPage.share')}</p>
                                 <div className="share-icons">
                                     <Link
-                                        href={`https://www.facebook.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}--${props.postName}`}
+                                        href={`https://www.facebook.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postName}`}
                                         target={"_blank"}
                                         className={styles.SocialsIcon}
                                     > <i className="la la-facebook-f">
                                     </i> </Link>
                                     <Link
-                                        href={`https://www.instagram.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postId}--${props.postName}`}
+                                        href={`https://www.instagram.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postName}`}
                                         target={"_blank"}
                                         className={styles.SocialsIcon}
                                     > <i className="la la-instagram">

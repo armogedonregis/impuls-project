@@ -24,7 +24,7 @@ export const HomeTopGastroPosts: React.FC<{
                     ? 
                     <>
                     <p className="text-uppercase fsz-14px mb-40">{ t('home.gastroBlock.title') }</p>
-                    <Link className="img img-cover" href={`post/${props.posts[0]?.id}--${props.posts[0]?.url ? props.posts[0]?.url : ""}`}>
+                    <Link className="img img-cover" href={`post/${props.posts[0]?.url ? props.posts[0]?.url : ""}`}>
                         {
                             props.posts[0]?.imageSmall
                             ? <img src={props.posts[0].imageSmall} alt="" />
@@ -34,7 +34,7 @@ export const HomeTopGastroPosts: React.FC<{
                     <div className="info">
                         <h2 className="fsz-32px mb-20">
                             <Link
-                                href={`post/${props.posts[0]?.id}--${props.posts[0]?.url ? props.posts[0]?.url : ""}`}> {props.posts[0].title}
+                                href={`post/${props.posts[0]?.url ? props.posts[0]?.url : ""}`}> {props.posts[0].title}
                             </Link>
                         </h2>
                         {
@@ -55,7 +55,7 @@ export const HomeTopGastroPosts: React.FC<{
                                     ? <li key={id}>
                                         <h2 className="fsz-20px" key={id}>
                                             <a
-                                                href={`post/${item.id}--${item.url ? item.url : ""}`}
+                                                href={`post/${item.url ? item.url : ""}`}
                                                 key={id}
                                             >
                                                 {item.title}
@@ -65,7 +65,7 @@ export const HomeTopGastroPosts: React.FC<{
                                 )) : null
                             }
                         </ul>
-                        <Link href={`category/${props.category}--${props.categories[props.category-1].url}`} className="fsz-14px text-capitalize mt-15">
+                        <Link href={`category/${props.categories[props.category-1].url}`} className="fsz-14px text-capitalize mt-15">
                             { t('home.gastroBlock.viewAll') }<i className="la la-angle-right ms-1"></i>
                         </Link>
                     </div>

@@ -23,7 +23,7 @@ export const VideoCard = (props: videoCardType) => {
                             <div className="date mb-20 fsz-12px">
                                 <span>{props.post?.author}</span>
                             </div>
-                            <h2 className="title fsz-40px"> <Link href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : ""}`}>
+                            <h2 className="title fsz-40px"> <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>
                                 {props.post?.title}
                             </Link> </h2>
                             <p className="fsz-14px"> {props.post?.description} </p>

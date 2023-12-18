@@ -47,7 +47,7 @@ export const BottomSwiperSlideContent = (props: bottomSwiperSlide) => {
             <div className={"item " + itemClassName}>
                 <Link
                     className={"img img-cover " + imgContainerClassName + " radius-6 overflow-hidden"}
-                    href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : "/"}`}
+                    href={`post/${props.post?.url ? props.post?.url : ""}`}
                 >
                     {
                         props.post?.imageSmall
@@ -57,7 +57,7 @@ export const BottomSwiperSlideContent = (props: bottomSwiperSlide) => {
                 </Link>
                 <div className="content pt-30">
                     <h2 className="title mb-20 fsz-28px">
-                        <Link href={`post/${props.post?.id}--${props.post?.url ? props.post?.url : "/"}`}>{props.post?.title} </Link>
+                        <Link href={`post/${props.post?.url ? props.post?.url : ""}`}>{props.post?.title} </Link>
                     </h2>
                     <p className="text mb-20 fsz-14px">
                         {props.post?.description}

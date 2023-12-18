@@ -10,7 +10,7 @@ const CatPost: React.FC<{
                 <div className={`col-lg-5 ${props.post?.isPrime ? "order-1-2" : ""}`}>
                     <Link
                         className="img th-230 img-cover overflow-hidden radius-6"
-                        href={`/post/${props.post.id}--${props.post?.url ? props.post.url : "/"}`}
+                        href={`/post/${props.post?.url ? props.post.url : ""}`}
                     >
                         {
                             props.post?.imageSmall
@@ -21,7 +21,7 @@ const CatPost: React.FC<{
                 </div>
                 <div className="col-lg-7">
                     <div className="content mt-20 mt-lg-0">
-                        <h2 className="title mb-15"> <Link href={`/post/${props.post.id}--${props.post?.url ? props.post.url : "/"}`}>{props.post?.title}</Link> </h2>
+                        <h2 className="title mb-15"> <Link href={`/post/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</Link> </h2>
                         <p className="text color-666 mb-20">
                             {props.post?.description}
                         </p>

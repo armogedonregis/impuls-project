@@ -32,7 +32,7 @@ export const DropDownCategory: React.FC<{
                                         ? <Link
                                             key={item.id}
                                             className="dropdown-item"
-                                            href={`/category/${item.id}--${item.url ? item.url : ""}`}
+                                            href={`/category/${item.url ? item.url : ""}`}
                                         >
                                             {item.name}
                                         </Link> : null
@@ -51,7 +51,7 @@ export const DropDownCategory: React.FC<{
                                     ? <Link
                                         key={item.id}
                                         className="dropdown-item"
-                                        href={`/category/${item.id}--${item.url ? item.url : ""}`}
+                                        href={`/category/${item.url ? item.url : ""}`}
                                     >
                                         {item.name}
                                     </Link> : null

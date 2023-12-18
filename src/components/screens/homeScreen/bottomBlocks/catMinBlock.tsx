@@ -7,7 +7,7 @@ const CatMinBlockPostTitle: React.FC<{post: postType}> = (props) => {
         <li className="mb-20 fsz-28px d-flex">
             <span className="icon-10 bg-dark1 rounded-circle me-3 flex-shrink-0 mt-2"></span>
             <h2 className="fsz-20px">
-                <Link href={`post/${props.post?.id}--${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</Link>
+                <Link href={`post/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</Link>
             </h2>
         </li>
     )
@@ -36,7 +36,7 @@ const CatMinBlock = (props: catLargeBlockType) => {
                     !props.withoutImage && props.posts[0] ?
                     <Link
                         className="img img-cover th-250 radius-7 overflow-hidden"
-                        href={`post/${props.posts[0]?.id}--${props.posts[0]?.url ? props.posts[0].url : "/"}`}
+                        href={`post/${props.posts[0]?.url ? props.posts[0].url : ""}`}
                     >
                         {
                             props.posts[0]?.imageSmall
@@ -49,7 +49,7 @@ const CatMinBlock = (props: catLargeBlockType) => {
                 <h2 className="title fsz-28px pb-30 mb-30 border-1 border-bottom brd-gray">
                     {
                         props.posts
-                        ? <Link href={`post/${props.posts[0]?.id}--${props.posts[0]?.url ? props.posts[0].url : "/"}`}>
+                        ? <Link href={`post/${props.posts[0]?.url ? props.posts[0].url : ""}`}>
                             {props.posts[0]?.title}
                         </Link> : null
                     }
@@ -62,7 +62,7 @@ const CatMinBlock = (props: catLargeBlockType) => {
                         <CatMinBlockPostTitle post={props.posts[4]}/>
                     </ul> : null
                 }
-                <Link href={`/category/${props.category}--${props.categories[props.category-1].url}`} className="mt-20 hover-main"> {props.catViewAll} <i className="la la-angle-right ms-3"></i> </Link>
+                <Link href={`/category/${props.categories[props.category-1].url}`} className="mt-20 hover-main"> {props.catViewAll} <i className="la la-angle-right ms-3"></i> </Link>
             </div>
         </div> : null
     )

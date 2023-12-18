@@ -19,9 +19,6 @@ export const Header: React.FC<{
     isCat?: boolean
     thisCategory?: categoryData
     isSinglePost?: boolean
-    postEs?: singlePost
-    postEn?: singlePost
-    postRu?: singlePost
 }> = ({...props}) => {
     const { t, i18n } = useTranslation('locale')
     const [isOpenedMobNavbar, openMobNavbar] = useState<boolean>(false)
@@ -38,9 +35,6 @@ export const Header: React.FC<{
                         <div className="nav-side">
                             <LangBar
                                 isSinglePost={true}
-                                postEs={props.postEs}
-                                postEn={props.postEn}
-                                postRu={props.postRu}
                             />
                             <ChoiseTheme
                                 isDark={props.isDark}

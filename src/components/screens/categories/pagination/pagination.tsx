@@ -14,7 +14,7 @@ const PagBtn: React.FC<{
     return (
         <Link
             className={`${Number(count - 1) == Number(currentPage) ? "active" : ""}`}
-            href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryId}--${categoryUrl}${Number(count > 1) ? "?page=" : ""}${Number(count) > 1 ? Number(count - 1) : ""}`}
+            href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryUrl}${Number(count > 1) ? "?page=" : ""}${Number(count) > 1 ? Number(count) : ""}`}
         >
             <span>{count}</span>
         </Link>
@@ -30,7 +30,7 @@ const CatPagination: React.FC<{
 }> = ({catPosts, categoryUrl, lang, currentPage, categoryId}) => {
     const { t, i18n } = useTranslation('locale')
     
-    let pages = catPosts.posts?.totalPages + 1
+    let pages = catPosts.posts?.totalPages + 2
 
     let currentPages: number[] = []
     let maxPage: number = 1
@@ -50,7 +50,7 @@ const CatPagination: React.FC<{
             {
                 currentPage > 0
                 ? <Link
-                    href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryId}--${categoryUrl}${Number(currentPage) > 1 ? "?page=" : ""}${Number(currentPage) > 1 ? Number(currentPage) - 1 : ""}`}
+                    href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryUrl}${Number(currentPage) > 1 ? "?page=" : ""}${Number(currentPage) > 1 ? Number(currentPage) : ""}`}
                 >
                     <span className="text text-uppercase"><i className={`${styles.arrowPrev} la la-angle-right`}/> {t('cat_sPage.pagination.prev')} </span>
                 </Link> : null
@@ -87,7 +87,7 @@ const CatPagination: React.FC<{
             {
                 currentPage < pages - 2
                 ? <Link
-                    href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryId}--${categoryUrl}?page=${Number(currentPage) + 1}`}
+                    href={`${lang === 'es' ? "" : "/" + lang}/category/${categoryUrl}?page=${Number(currentPage) + 2}`}
                 >
                     <span className="text text-uppercase">{t('cat_sPage.pagination.next')} <i className="la la-angle-right"></i> </span>
                 </Link> : null

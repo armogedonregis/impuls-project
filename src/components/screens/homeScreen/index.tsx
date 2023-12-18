@@ -3,7 +3,6 @@ import { favPostType, instaImg, postType, swiperPostData, topPostType } from '@/
 import { socialsType } from '@/types/socials'
 import TopHomeSwiper from './topHomeSwiper/topHomeSwiper'
 import { useTranslation } from 'next-i18next'
-import { HomeTopGastroPosts } from '@/components/screens/homeScreen/homeTopGastroPosts'
 import CatLargeBlock from './bottomBlocks/catLargeBlock'
 import CatMinBlock from './bottomBlocks/catMinBlock'
 import InstaBlock from './bottomBlocks/instaBlock'
@@ -16,6 +15,7 @@ import FavoriteRandomPosts from './topBlocks/favoriteRandomPosts'
 import TopCatChapter from './topBlocks/topCatChapter'
 import TopPosts_n_Form from './topBlocks/topPosts&Form'
 import GastronomySlider from './trandsNews/trandsNews'
+import HomeTopGastroPosts from './topBlocks/homeTopGastroPosts'
 
 interface categorizedPosts {
     [key: string]: postType[]
