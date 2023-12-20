@@ -48,7 +48,7 @@
     },
     "sidebar": {
         "about": "О нас",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio tempora quia iure quae. Soluta corporis quidem aperiam amet nihil.",
+        "description": "В журнале IMPULS вы найдете последние тенденции в высокой кухне, лучшие туристические направления и самые эксклюзивные услуги.",
         "contactNfollow": "Связаться & Подписаться",
         "address": "streat name 12, hollywood City, USA",
         "mail": "Newzin@gmail.com"
@@ -80,7 +80,7 @@
                 "nameIn": "Ваше имя",
                 "mailIn": "Ваш E-mail",
                 "policy": "Регистрируясь, вы соглашаетесь с нашими условиями и нашей",
-                "policyLink": "Политика конфиденциальности",
+                "policyLink": "политикой конфиденциальности",
                 "button": "Подписаться"
             }
         },

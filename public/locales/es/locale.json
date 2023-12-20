@@ -48,7 +48,7 @@
     },
     "sidebar": {
         "about": "Acerca de nosotros",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio tempora quia iure quae. Soluta corporis quidem aperiam amet nihil.",
+        "description": "Con la revista IMPULS encontrarás desde las últimas tendencias en alta cocina hasta los mejores destinos de viaje y los servicios más exclusivos.",
         "contactNfollow": "Contactar & Seguir",
         "address": "streat name 12, hollywood City, USA",
         "mail": "Newzin@gmail.com"
@@ -80,9 +80,10 @@
                 "nameIn": "Tu nombre",
                 "mailIn": "Tu E-mail",
                 "policy": "RESPONSABLE DEL TRATAMIENTO: DESARROLLO WEB EFICAZ S.L.U. FINALIDAD: Envío de nuestra newsletter DERECHOS: Tiene derecho al acceso, rectificación, supresión, oposición, limitación y portabilidad de sus datos personales. También puede retirar el consentimiento prestado para este tratamiento en cualquier momento. Puede acudir igualmente a la Autoridad de Control (AEPD) para reclamar sus derechos en materia de protección de datos. Además, puede oponerse a la segmentación que haremos de los datos personales para poder enviarle promociones e información acorde a sus gustos y necesidades. Para más información acuda a nuestra política de privacidad",
-                "policyLink": "Política de privacidad",
+                "policyLink": "política de privacidad",
                 "button": "Suscríbete"
-            }
+            },
+            "stayConnected": "Mantente conectada"
         },
         "gastroSlider": {
             "title": "Gastronomía",

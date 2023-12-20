@@ -58,7 +58,7 @@ export const getStaticProps = async (ctx: NextPageContext) => {
     const lang = ctx.locale
 
     // Вытягиваем посты
-    const posts_ = await fetch(`${isServer}/posts/home/${lang}?categoryIds=${HomeParams.categoryId}&postsSize=${HomeParams.postsSize}&sliderSize=${HomeParams.sliderSize}`)
+    const posts_ = await fetch(`${isServer}/posts/home/${lang}?categoryIds=${HomeParams.categoryId}&postsSize=${HomeParams.postsSize}&sliderSize=${HomeParams.sliderSize}&categoryPostsSizes=11:20`)
     // Вытягиваем избранные посты
     const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
     // Вытягиваем категории
@@ -83,6 +83,6 @@ export const getStaticProps = async (ctx: NextPageContext) => {
             ])),
             posts, favoritePosts, categories, instaImgs, lang, topPosts
         },
-        revalidate: 60
+        revalidate: 15
     }
 }

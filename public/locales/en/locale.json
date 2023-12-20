@@ -48,7 +48,7 @@
     },
     "sidebar": {
         "about": "About us",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio tempora quia iure quae. Soluta corporis quidem aperiam amet nihil.",
+        "description": "With IMPULS magazine you will find from the latest trends in haute cuisine to the best travel destinations and the most exclusive services.",
         "contactNfollow": "Contact & Follow",
         "address": "streat name 12, hollywood City, USA",
         "mail": "Newzin@gmail.com"
@@ -80,9 +80,10 @@
                 "nameIn": "Your Name",
                 "mailIn": "Your E-mail",
                 "policy": "By signing up, you agree to the our terms and our",
-                "policyLink": "Privacy Policy",
+                "policyLink": "privacy policy",
                 "button": "Subscribe"
-            }
+            },
+            "stayConnected": "Stay connected"
         },
         "gastroSlider": {
             "title": "Gastronomy",

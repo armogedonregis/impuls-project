@@ -1,6 +1,4 @@
 import { instaImg } from "@/types/postsType"
-import Link from "next/link"
-import Image from 'next/image'
 
 const InstaBlockImage: React.FC<{
     image: instaImg
@@ -10,9 +8,9 @@ const InstaBlockImage: React.FC<{
         ? <div className="col-4">
             {
             image?.media_url
-                ? <Link style={{width: '100%'}} target={"blank"} href={image?.media_url} className="img">
+                ? <a style={{width: '100%'}} className="img">
                     <img src={image.media_url} alt="" />
-                </Link> : null
+                </a> : null
             }
         </div> : null
     )

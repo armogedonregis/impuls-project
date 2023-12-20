@@ -1,4 +1,5 @@
 import { useTranslation } from "next-i18next"
+import Link from "next/link"
 import { useRef, useState } from "react"
 
 type formType = {
@@ -78,7 +79,12 @@ export const Form = (props: formType) => {
                     <input ref={checkBoxRef} className="form-check-input" type="checkbox" name="subCheck" id="subCheck1" />
                     <label className="form-check-label fsz-14px lh-5" htmlFor="subCheck1">
                         {t('home.whatIsNewBlock.form.policy')}&nbsp;
-                        <a className="text-decoration-underline color-000">{t('home.whatIsNewBlock.form.policyLink')}</a>
+                        <Link
+                            href={`/${props.lang}/policy`}
+                            className="text-decoration-underline color-000"
+                        >
+                            {t('home.whatIsNewBlock.form.policyLink')}
+                        </Link>
                     </label>
                 </div>
                 <p
