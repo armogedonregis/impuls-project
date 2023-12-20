@@ -23,8 +23,8 @@ export default function Contact(props: aboutPage) {
         <HeadLayout
             title={t('head.contact.title')}
             description={t('head.contact.description')}
-            author={t('head.contact.keywords')}
-            keywords={t('head.contact.author')}
+            author={t('head.contact.author')}
+            keywords={""}
         >
             <PageLayout
                 categories={props.categories}

@@ -27,9 +27,9 @@ const PostSection = (props: postSection) => {
         <section className="tc-main-post-style1 pb-60">
             <article className="container">
                 {
-                    !props.post.videoUrl
-                    ? <div className="tc-main-post-img img-cover pt-40 mb-50">
-                        <img key={props.post?.mainImageLink} src={props.post?.mainImageLink} alt="" />
+                    !props.post?.videoUrl && props.post?.mainImageLink
+                    ? <div key={props.post.mainImageLink} className="tc-main-post-img img-cover pt-40 mb-50">
+                        <img src={props.post?.mainImageLink} alt=""/>
                     </div> : null
                 }
                 <div className="tc-main-post-content color-000">

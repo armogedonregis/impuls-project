@@ -1,7 +1,8 @@
 import { postType } from "@/types/postsType"
 import { useTranslation } from "next-i18next"
-import '@fancyapps/ui/dist/fancybox/fancybox.css'
 import Link from "next/link"
+import { Fancybox } from '@fancyapps/ui'
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 export const EditorsChoiceSlide: React.FC<{
     post: postType

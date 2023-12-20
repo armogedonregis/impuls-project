@@ -31,10 +31,10 @@ export default function Post(props: postLayout) {
 
     return (
         <HeadLayout
-            title={props.post.title}
-            description={t('head.singlePost.description')}
-            author={props.post.author || t('head.singlePost.author')}
-            keywords={t('head.singlePost.keywords')}
+            title={props.post.title || ""}
+            description={props.post.seoDescription || ""}
+            author={props.post.author || ""}
+            keywords={""}
         >
             <PageLayout
                 categories={props.categories}
@@ -66,28 +66,39 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
     // Id of the targeted post
     const postName: any = query["name"]
 
-    // Вытягиваем пост
-    let post_
-    post_ = await fetch(`${isServer}/post-url/${lang}/${postName}`)
-    // To JSON
-    let post
-    post = await post_.json()
+    let post_, post
+
+    try {
+        // Вытягиваем пост
+        post_ = await fetch(`${isServer}/post-url/${lang}/${postName}`)
+        // To JSON
+        post = await post_.json()
+    }
+    catch {
+        return {
+            redirect: {
+                permanent: false,
+                destination: `${lang === 'es' ? "" : "/" + lang}/404`
+            }
+        }
+    }
 
     if(
         post["status"] === 404
-        || post["message"]?.search("Post with this ID was not found!") === 0
+        || post["message"]?.search("Post with this URL was not found!") === 0
     ) {
-        const lastPostLang = getCookie('lastPostLang', { req, res })
-        post_ = await fetch(`${isServer}/post-url/${lastPostLang}/${postName}`)
-        post = await post_.json()
-        const lastPostId = post.id
-
         try {
+            // Берём айди поста на прошлом языке
+            const lastPostLang = getCookie('lastPostLang', { req, res })
+            post_ = await fetch(`${isServer}/post-url/${lastPostLang}/${postName}`)
+            post = await post_.json()
+            const lastPostId = post.id
+
+            // Вытягиваем урл поста для языка, на который переключились
             post_ = await fetch(`${isServer}/post/${lang}/${lastPostId}`)
             post = await post_.json()
 
-            if (post["message"] && post["message"].Search("For input string:") === 0)
-            {
+            if (post["message"] && post["message"].Search("For input string:") === 0) {
                 return {
                     redirect: {
                         permanent: false,
@@ -95,6 +106,7 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
                     }
                 }
             }
+
             return {
                 redirect: {
                     permanent: false,
@@ -111,23 +123,48 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
             }
         }
     }
-    const postId = post.id
+
+    let postId
+    try { postId = post.id }
+    catch {
+        return {
+            redirect: {
+                permanent: false,
+                destination: `${lang === 'es' ? "" : "/" + lang}/404`
+            }
+        }
+    }
     setCookie('lastPostLang', lang, { req, res })
 
-    // Рекомендуемые посты
-    const rPosts_ = await fetch(`${isServer}/posts/recommended/${lang}/${postId}?limit=8`)
-    // Вытягиваем категории
-    const categories_ = await fetch(`${isServer}/categories/${lang}`)
-    // Getting prev post
-    const prev_ = await fetch(`${isServer}/post/${lang}/${postId}/prev`)
-    // Getting next post
-    const next_ = await fetch(`${isServer}/post/${lang}/${postId}/next`)
+    // Fetch
+    let rPosts_, categories_, prev_, next_
+    // Serializing
+    let categories, rPosts, prevPosts, nextPosts
 
-    // Сериализуем в джейсона
-    const categories = await categories_.json()
-    const rPosts = await rPosts_.json()
-    const prevPosts = await prev_.json()
-    const nextPosts = await next_.json()
+    try {
+        // Рекомендуемые посты
+        rPosts_ = await fetch(`${isServer}/posts/recommended/${lang}/${postId}?limit=8`)
+        // Вытягиваем категории
+        categories_ = await fetch(`${isServer}/categories/${lang}`)
+        // Getting prev post
+        prev_ = await fetch(`${isServer}/post/${lang}/${postId}/prev`)
+        // Getting next post
+        next_ = await fetch(`${isServer}/post/${lang}/${postId}/next`)
+
+        // Сериализуем в джейсона
+        categories = await categories_.json()
+        rPosts = await rPosts_.json()
+        prevPosts = await prev_.json()
+        nextPosts = await next_.json()
+    }
+    catch {
+        return {
+            redirect: {
+                permanent: false,
+                destination: `${lang === 'es' ? "" : "/" + lang}/404`
+            }
+        }
+    }
 
     return {
         props: {

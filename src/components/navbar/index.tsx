@@ -11,11 +11,11 @@ export const Navbar: React.FC<{
     const [hidden, hide] = useState<Boolean>(false)
 
     const props = useSpring({
-        height: isNavBarOpen? 118 : 0,
+        height: isNavBarOpen? 150 : 0,
         paddingTop: isNavBarOpen ? 20 : 0,
         paddingBottom: isNavBarOpen ? 20 : 0,
         display: isNavBarOpen ? "block" : hidden ? "none" : "block",
-        config: { duration: 340 },
+        config: { duration: 400 },
         onRest: () => {
             if(!isNavBarOpen) { hide((prev) => true) }
             else { hide((prev) => false) }

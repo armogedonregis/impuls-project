@@ -13,7 +13,7 @@ export const DropDownCategory: React.FC<{
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
                 <Link className="nav-link active" href="/">
-                    { t('header.inicio') }
+                    { t('header.home') }
                 </Link>
             </li>
             <li className="nav-item dropdown">

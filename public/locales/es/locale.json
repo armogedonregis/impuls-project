@@ -2,164 +2,152 @@
     "head": {
         "home": {
             "title": "Impuls PLUS",
-            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
-            "keywords": "",
+            "description": "Revista internacional de relaciones sociales, económicas y culturales",
             "author": "Impuls PLUS"
         },
         "categoryPage": {
-            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
-            "keywords": "",
-            "author": "Impuls PLUS"
-        },
-        "singlePost": {
-            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
-            "keywords": "",
+            "description": "Explora Nuestras Categorías",
             "author": "Impuls PLUS"
         },
         "searchedPosts": {
-            "title": "Search Results",
-            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
-            "keywords": "",
+            "title": "Resultados de la búsqueda",
+            "description": "Aquí están los resultados de tu consulta.",
             "author": "Impuls PLUS"
         },
         "notFound_404": {
-            "title": "Impuls PLUS",
-            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
-            "keywords": "",
+            "title": "Página no encontrada.",
+            "description": "Vuelve al sitio principal para obtener más contenido.",
             "author": "Impuls PLUS"
         },
         "about": {
-            "title": "Impuls PLUS",
-            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
-            "keywords": "",
+            "title": "Acerca de nosotros",
+            "description": "Proyecto trilíngüe, en español, inglés y ruso, que se inscribe perfectamente en el espacio multicultural actual. Con una clara apuesta por la calidad tanto del contenido como de la forma.",
             "author": "Impuls PLUS"
         },
         "contact": {
-            "title": "Impuls PLUS",
-            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
-            "keywords": "",
+            "title": "Contacta con nosotros",
+            "description": "Ante cualquier duda o pregunta estaremos encantados de atenderte, así como de escuchar tu sugerencia sobre la colaboración.",
             "author": "Impuls PLUS"
         },
         "policy": {
-            "title": "Impuls PLUS",
-            "description": "Portal en español, inglés y ruso sobre la actualidad en los ámbitos de turismo, cultura, moda, tendencias, finanzas, salud, deportes, educación, inversiones",
-            "keywords": "",
+            "title": "Política de privacidad",
+            "description": "Explora nuestra Política de Privacidad para entender cómo recopilamos, utilizamos y protegemos tu información personal. Estamos comprometidos con tu privacidad y transparencia.",
             "author": "Impuls PLUS"
         }
     },
     "footer": {
-        "about": "",
-        "contact": "",
-        "policy": "",
-        "copyright": "",
-        "rights": ""
+        "about": "Acerca de nosotros",
+        "contact": "Contactos",
+        "policy": "Aviso Legal y Política de privacidad",
+        "copyright": "© 2024 Revista Impuls PLUS",
+        "rights": "Todos los derechos reservados"
     },
     "header": {
-        "headerDropDown": "",
-        "inicio": ""
+        "headerDropDown": "Categorías",
+        "home": "Inicio"
     },
     "sidebar": {
-        "about": "",
-        "description": "",
-        "contactNfollow": "",
-        "address": "",
-        "mail": ""
+        "about": "Acerca de nosotros",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio tempora quia iure quae. Soluta corporis quidem aperiam amet nihil.",
+        "contactNfollow": "Contactar & Seguir",
+        "address": "streat name 12, hollywood City, USA",
+        "mail": "Newzin@gmail.com"
     },
     "navbar": {
-        "title": "",
-        "enter": "",
-        "btn": ""
+        "title": "Con la revista IMPULS encontrarás desde las últimas tendencias en alta cocina hasta los mejores destinos de viaje y los servicios más exclusivos.",
+        "enter": "Escribe lo que buscas",
+        "btn": "Buscar"
     },
     "home": {
         "gastroBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Gastronomía",
+            "viewAll": "Ver todos los posts"
         },
-        "favRandPosts": "",
+        "favRandPosts": "Destacados",
         "whatIsNewBlock": {
             "tourismBlock": {
-                "title": "",
-                "viewAll": ""
+                "title": "Turismo",
+                "viewAll": "Ver todos los posts"
             },
             "educationBlock": {
-                "title": "",
-                "viewAll": ""
+                "title": "Educación",
+                "viewAll": "Ver todos los posts"
             },
-            "topPosts": "",
+            "topPosts": "Top Posts",
             "form": {
-                "title": "",
-                "desciption": "",
-                "nameIn": "",
-                "mailIn": "",
-                "policy": "",
-                "policyLink": "",
-                "button": ""
+                "title": "Newsletter",
+                "description": "¡Suscríbete a nuestra Newsletter! Recibirás los últimos reportajes y noticias de interés",
+                "nameIn": "Tu nombre",
+                "mailIn": "Tu E-mail",
+                "policy": "RESPONSABLE DEL TRATAMIENTO: DESARROLLO WEB EFICAZ S.L.U. FINALIDAD: Envío de nuestra newsletter DERECHOS: Tiene derecho al acceso, rectificación, supresión, oposición, limitación y portabilidad de sus datos personales. También puede retirar el consentimiento prestado para este tratamiento en cualquier momento. Puede acudir igualmente a la Autoridad de Control (AEPD) para reclamar sus derechos en materia de protección de datos. Además, puede oponerse a la segmentación que haremos de los datos personales para poder enviarle promociones e información acorde a sus gustos y necesidades. Para más información acuda a nuestra política de privacidad",
+                "policyLink": "Política de privacidad",
+                "button": "Suscríbete"
             }
         },
         "gastroSlider": {
-            "title": "",
-            "viewAll": ""
+            "title": "Gastronomía",
+            "viewAll": "Ver todos los posts"
         },
         "fashionBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Tendencias & Moda",
+            "viewAll": "Ver todos los posts"
         },
         "HealthBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Salud",
+            "viewAll": "Ver todos los posts"
         },
         "financeBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Finanzas & Leyes",
+            "viewAll": "Ver todos los posts"
         },
         "investBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Inversiones",
+            "viewAll": "Ver todos los posts"
         },
         "networkBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Networking",
+            "viewAll": "Ver todos los posts"
         },
         "sportBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Deporte",
+            "viewAll": "Ver todos los posts"
         },
         "featAuthors": {
-            "title": "",
-            "firstAuthor": "",
-            "firstAuthorDesc": "",
-            "secondAuthor": "",
-            "secondAuthorDesc": "",
-            "thirdAuthor": "",
-            "thirdAuthorDesc": ""
+            "title": "Autores destacados",
+            "firstAuthor": "David K.",
+            "firstAuthorDesc": "Jefe de redacción",
+            "secondAuthor": "Antonio M.",
+            "secondAuthorDesc": "Crítico gastronómico",
+            "thirdAuthor": "Elena S.",
+            "thirdAuthorDesc": "Autora, traductora"
         },   
-        "instaBlock": "",
+        "instaBlock": "Instagram",
         "stayConnected": {
-            "title": "",
-            "facebook": "",
-            "instagram": "",
-            "youtube": ""
+            "title": "Síguenos",
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "twitter": "Twitter"
         }
     },
     "cat_sPage": {
-        "trendingPosts": "",
-        "hatText": "",
+        "trendingPosts": "Top Posts",
+        "hatText": "Creemos que las mejores cosas son creadas por grandes diseñadores",
         "pagination": {
-            "next": "",
-            "prev": ""
+            "next": "Siguiente",
+            "prev": "Anterior"
         }
     },
     "postPage": {
-        "share": "",
+        "share": "Compartir",
         "editorsChoice": {
-            "title": "",
-            "sliderBarVideo": ""
+            "title": "Selección del editor",
+            "sliderBarVideo": "Videos"
         },
-        "conditionText": "",
-        "views": "",
+        "conditionText": "Por favor escribe el texto en tu idioma cuando busques las publicaciones",
+        "views": "Vistas",
         "directions": {
-            "next": "",
-            "prev": ""
+            "next": "Siguiente",
+            "prev": "Anterior"
         }
     }
 }

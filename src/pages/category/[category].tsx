@@ -34,7 +34,7 @@ export default function Categories(props: categoriesType) {
             title={`Impuls PLUS ${props.catPosts?.category?.name}`}
             description={t('head.categoryPage.description')}
             author={t('head.categoryPage.author')}
-            keywords={t('head.categoryPage.keywords')}
+            keywords={""}
         >
             <PageLayout
                 categories={props.categories}
@@ -107,7 +107,7 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
             catPosts = await catPosts_.json()
             categoryId = catPosts.category.id
 
-            if(catPosts.posts.totalPages < currentPage) {
+            if((catPosts.category?.count / 20) + 1 < currentPage) {
                 return {
                     redirect: {
                         permanent: false,

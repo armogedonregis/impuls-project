@@ -50,7 +50,7 @@ export const Form = (props: formType) => {
             <div className="sub-form radius-7">
                 <p className="text-uppercase fsz-14px mb-30"> {t('home.whatIsNewBlock.form.title')} </p>
                 <div className="text fsz-14px mb-15">
-                    {t('home.whatIsNewBlock.form.desciption')}
+                    {t('home.whatIsNewBlock.form.description')}
                 </div>
                 <div className="form-group">
                     <span className="icon">

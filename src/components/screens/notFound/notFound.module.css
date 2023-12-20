@@ -1,0 +1,8 @@
+.SearchBtn404 {
+    display: none;
+}
+@media (min-width: 600px) {
+    .SearchBtn404 {
+        display: inline;
+    }
+}

@@ -2,7 +2,6 @@ import { postType } from "@/types/postsType"
 import { Fancybox } from '@fancyapps/ui'
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
 import Link from "next/link"
-import Image from 'next/image'
 
 type videoPostType = {
     post: postType

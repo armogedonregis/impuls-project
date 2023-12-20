@@ -105,6 +105,7 @@ export type singlePost = {
     author?: string
     isPrime: boolean
     viewCounter: number
+    seoDescription: string
 }
 
 // Next or previous posts for the single post page

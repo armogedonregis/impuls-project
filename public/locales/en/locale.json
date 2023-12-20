@@ -1,72 +1,61 @@
 {
     "head": {
         "home": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Impuls PLUS",
+            "description": "International Journal Of Socio-Economic And Cultural Relations",
+            "author": "Impuls PLUS"
         },
         "categoryPage": {
-            "description": "",
-            "keywords": "",
-            "author": ""
-        },
-        "singlePost": {
-            "description": "",
-            "keywords": ""
+            "description": "Explore Our Categories",
+            "author": "Impuls PLUS"
         },
         "searchedPosts": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Search Results",
+            "description": "Here are the results for your query.",
+            "author": "Impuls PLUS"
         },
         "notFound_404": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Page not found",
+            "description": "Please navigate back to the main site for more content.",
+            "author": "Impuls PLUS"
         },
         "about": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "About us",
+            "description": "Trilingual project in Spanish, English and Russian which perfectly fits in the current multicultural space. It clearly commits to quality both in the content and the form.",
+            "author": "Impuls PLUS"
         },
         "contact": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Contact us",
+            "description": "If you have any question, we will be happy to assist you, as well as to listen to your suggestion about the collaboration.",
+            "author": "Impuls PLUS"
         },
         "policy": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Privacy Policy",
+            "description": "Explore our Privacy Policy to understand how we collect, use, and protect your personal information. We're committed to your privacy and transparency.",
+            "author": "Impuls PLUS"
         }
     },
     "footer": {
         "about": "About",
-        "contact": "Contact",
-        "policy": "Policy",
-        "copyright": "© 2023 Copyrights by",
+        "contact": "Contacts",
+        "policy": "Legal Notice and Privacy Policy",
+        "copyright": "© 2024 Impuls PLUS Magazine",
         "rights": "All Rights Reserved"
     },
     "header": {
-        "headerDropDown": "All Categories",
-        "inicio": "Inicio"
+        "headerDropDown": "Categories",
+        "home": "Home"
     },
     "sidebar": {
         "about": "About us",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio tempora quia iure quae. Soluta corporis quidem aperiam amet nihil.",
-        "contactNfollow": "Contact & follow",
+        "contactNfollow": "Contact & Follow",
         "address": "streat name 12, hollywood City, USA",
         "mail": "Newzin@gmail.com"
     },
     "navbar": {
-        "title": "You can search by category or news title",
-        "enter": "Enter keyword",
+        "title": "With IMPULS magazine you will find from the latest trends in haute cuisine to the best travel destinations and the most exclusive services.",
+        "enter": "Enter what you are looking for",
         "btn": "Search"
     },
     "home": {
@@ -74,22 +63,22 @@
             "title": "Gastronomy",
             "viewAll": "View All Posts"
         },
-        "favRandPosts": "Favorite random posts",
+        "favRandPosts": "Featured",
         "whatIsNewBlock": {
             "tourismBlock": {
                 "title": "Tourism",
-                "viewAll": "All Tourism News"
+                "viewAll": "View All Posts"
             },
             "educationBlock": {
                 "title": "Education",
-                "viewAll": "All Education News"
+                "viewAll": "View All Posts"
             },
             "topPosts": "Top posts",
             "form": {
                 "title": "Newsletter",
-                "desciption": "Subscribe our newsletter to get the latest updates about news & promotions",
-                "nameIn": "You Full Name",
-                "mailIn": "Enter you email",
+                "description": "Subscribe to our Newsletter! You will receive the latest articles and news.",
+                "nameIn": "Your Name",
+                "mailIn": "Your E-mail",
                 "policy": "By signing up, you agree to the our terms and our",
                 "policyLink": "Privacy Policy",
                 "button": "Subscribe"
@@ -101,32 +90,32 @@
         },
         "fashionBlock": {
             "title": "Trend & Fashion",
-            "viewAll": "All Trend & Fashion News"
+            "viewAll": "View All Posts"
         },
         "HealthBlock": {
             "title": "Health",
-            "viewAll": "All Health News"
+            "viewAll": "View All Posts"
         },
         "financeBlock": {
             "title": "Finance & Law",
-            "viewAll": "All Finance & Law News"
+            "viewAll": "View All Posts"
         },
         "investBlock": {
             "title": "Investments",
-            "viewAll": "All Investments News"
+            "viewAll": "View All Posts"
         },
         "networkBlock": {
             "title": "Networking",
-            "viewAll": "All Networking News"
+            "viewAll": "View All Posts"
         },
         "sportBlock": {
             "title": "Sport",
-            "viewAll": "All Sport News"
+            "viewAll": "View All Posts"
         },
         "featAuthors": {
             "title": "Featured authors",
             "firstAuthor": "David K.",
-            "firstAuthorDesc": "Magazine boss",
+            "firstAuthorDesc": "Chief Editor",
             "secondAuthor": "Antonio M.",
             "secondAuthorDesc": "Gastronomy critic",
             "thirdAuthor": "Elena S.",
@@ -134,31 +123,31 @@
         },   
         "instaBlock": "Instagram",
         "stayConnected": {
-            "title": "Stay Conntected",
+            "title": "Follow us",
             "facebook": "Facebook",
             "instagram": "Instagram",
-            "youtube": "Youtube"
+            "twitter": "Twitter"
         }
     },
     "cat_sPage": {
-        "trendingPosts": "Trending posts",
+        "trendingPosts": "Top Posts",
         "hatText": "We believe better things are created by great designers",
         "pagination": {
-            "next": "next",
-            "prev": "prev"
+            "next": "Next",
+            "prev": "Previous"
         }
     },
     "postPage": {
         "share": "Share",
         "editorsChoice": {
             "title": "Editor's Choice",
-            "sliderBarVideo": "videos"
+            "sliderBarVideo": "Videos"
         },
         "conditionText": "Please type text on your language, when searching the posts",
         "views": "Views",
         "directions": {
-            "next": "next",
-            "prev": "previous"
+            "next": "Next",
+            "prev": "Previous"
         }
     }
 }

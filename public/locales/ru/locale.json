@@ -1,164 +1,153 @@
 {
     "head": {
         "home": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Impuls PLUS",
+            "description": "Международный журнал социально-экономических и культурных связей",
+            "author": "Impuls PLUS"
         },
         "categoryPage": {
-            "description": "",
-            "keywords": "",
-            "author": ""
-        },
-        "singlePost": {
-            "description": "",
-            "keywords": ""
+            "description": "Изучите Наши Категории",
+            "author": "Impuls PLUS"
         },
         "searchedPosts": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Результаты поиска",
+            "description": "Вот результаты вашего запроса.",
+            "author": "Impuls PLUS"
         },
         "notFound_404": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Страница не найдена.",
+            "description": "Пожалуйста, вернитесь на главную страницу для просмотра других материалов.",
+            "author": "Impuls PLUS"
         },
         "about": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "О нас",
+            "description": "Трёхъязычный проект, на испанском, английском и русском языках, идеально вписанный в рамки современного мультикультурного пространства. С особой ставкой на качество содержания и формы.",
+            "author": "Impuls PLUS"
         },
         "contact": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Связаться с нами",
+            "description": "Если у Вас есть вопросы, мы с радостью поможем разрешить их, а также рассмотреть все Ваши предложения.",
+            "author": "Impuls PLUS"
         },
         "policy": {
-            "title": "",
-            "description": "",
-            "keywords": "",
-            "author": ""
+            "title": "Политика конфиденциальности",
+            "description": "Ознакомьтесь с нашей Политикой конфиденциальности, чтобы понять, как мы собираем, используем и защищаем вашу личную информацию. Мы придерживаемся принципов конфиденциальности и прозрачности.",
+            "author": "Impuls PLUS"
         }
     },
     "footer": {
-        "about": "",
-        "contact": "",
-        "policy": "",
-        "copyright": "",
-        "rights": ""
+        "about": "О нас",
+        "contact": "Контакты",
+        "policy": "Юридическое уведомление и Политика конфиденциальности",
+        "copyright": "© 2023 Журнал Impuls PLUS",
+        "rights": "Все права защищены"
     },
     "header": {
-        "headerDropDown": "",
-        "inicio": ""
+        "headerDropDown": "Категории",
+        "home": "Главная"
     },
     "sidebar": {
-        "about": "",
-        "description": "",
-        "contactNfollow": "",
-        "address": "",
-        "mail": ""
+        "about": "О нас",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem optio tempora quia iure quae. Soluta corporis quidem aperiam amet nihil.",
+        "contactNfollow": "Связаться & Подписаться",
+        "address": "streat name 12, hollywood City, USA",
+        "mail": "Newzin@gmail.com"
     },
     "navbar": {
-        "title": "",
-        "enter": "",
-        "btn": ""
+        "title": "В журнале IMPULS вы найдете последние тенденции в высокой кухне, лучшие туристические направления и самые эксклюзивные услуги.",
+        "enter": "Напишите, что именно вы ищете",
+        "btn": "Поиск"
     },
     "home": {
         "gastroBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Гастрономия",
+            "viewAll": "Посмотреть все Посты"
         },
-        "favRandPosts": "",
+        "favRandPosts": "Избранное",
         "whatIsNewBlock": {
             "tourismBlock": {
-                "title": "",
-                "viewAll": ""
+                "title": "Туризм",
+                "viewAll": "Посмотреть все Посты"
             },
             "educationBlock": {
-                "title": "",
-                "viewAll": ""
+                "title": "Образование",
+                "viewAll": "Посмотреть все посты"
             },
-            "topPosts": "",
+            "topPosts": "Топ-посты",
             "form": {
-                "title": "",
-                "desciption": "",
-                "nameIn": "",
-                "mailIn": "",
-                "policy": "",
-                "policyLink": "",
-                "button": ""
+                "title": "Рассылка",
+                "description": "Подпишитесь на нашу рассылку! Вы будете получать свежие репортажи и новости.",
+                "nameIn": "Ваше имя",
+                "mailIn": "Ваш E-mail",
+                "policy": "Регистрируясь, вы соглашаетесь с нашими условиями и нашей",
+                "policyLink": "Политика конфиденциальности",
+                "button": "Подписаться"
             }
         },
         "gastroSlider": {
-            "title": "",
-            "viewAll": ""
+            "title": "Гастрономия",
+            "viewAll": "Посмотреть все посты"
         },
         "fashionBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Тенденции и мода",
+            "viewAll": "Посмотреть все посты"
         },
         "HealthBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Здоровье",
+            "viewAll": "Посмотреть все посты"
         },
         "financeBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Финансы и закон",
+            "viewAll": "Посмотреть все посты"
         },
         "investBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Инвестиции",
+            "viewAll": "Посмотреть все посты"
         },
         "networkBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Нетворкинг",
+            "viewAll": "Посмотреть все посты"
         },
         "sportBlock": {
-            "title": "",
-            "viewAll": ""
+            "title": "Спорт",
+            "viewAll": "Посмотреть все посты"
         },
         "featAuthors": {
-            "title": "",
-            "firstAuthor": "",
-            "firstAuthorDesc": "",
-            "secondAuthor": "",
-            "secondAuthorDesc": "",
-            "thirdAuthor": "",
-            "thirdAuthorDesc": ""
+            "title": "Ведущие авторы",
+            "firstAuthor": "Давид К.",
+            "firstAuthorDesc": "Главный редактор",
+            "secondAuthor": "Антонио М.",
+            "secondAuthorDesc": "Гастрономический критик",
+            "thirdAuthor": "Елена С.",
+            "thirdAuthorDesc": "Автор, переводчик"
         },   
-        "instaBlock": "",
+        "instaBlock": "Instagram",
         "stayConnected": {
-            "title": "",
-            "facebook": "",
-            "instagram": "",
-            "youtube": ""
+            "title": "Подписывайтесь на нас",
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "twitter": "Twitter"
         }
     },
     "cat_sPage": {
-        "trendingPosts": "",
-        "hatText": "",
+        "trendingPosts": "Топ-посты",
+        "hatText": "Мы верим, что лучшие вещи создаются великими дизайнерами",
         "pagination": {
-            "next": "",
-            "prev": ""
+            "next": "Следующий",
+            "prev": "Предыдущий"
         }
     },
     "postPage": {
-        "share": "",
+        "share": "Поделиться",
         "editorsChoice": {
-            "title": "",
-            "sliderBarVideo": ""
+            "title": "Выбор редакции",
+            "sliderBarVideo": "Видео"
         },
-        "conditionText": "",
-        "views": "",
+        "conditionText": "Пожалуйста, введите текст на вашем языке при поиске сообщений",
+        "views": "Просмотры",
         "directions": {
-            "next": "",
-            "prev": ""
+            "next": "Следующий",
+            "prev": "Предыдущий"
         }
     }
 }

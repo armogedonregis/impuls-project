@@ -30,8 +30,8 @@ export const CategoryPage = (props: catPageProps) => {
                                             props.catPosts?.posts?.content?.length > 0
                                             ? props.catPosts.posts.content.map((item, id) => {
                                                 return id !== Math.round(props.catPosts.posts.content.length / 2)
-                                                ? <CatPost key={id} post={item} />
-                                                : <div key={id}>
+                                                ? <CatPost key={item.id} post={item} />
+                                                : <div key={item.id}>
                                                     <CatBanner />
                                                     <CatPost post={item} />
                                                 </div>

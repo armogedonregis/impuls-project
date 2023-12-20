@@ -4,7 +4,7 @@ import { HeaderLogo } from './headerLogo'
 import { ChoiseTheme } from './choiseTheme'
 import { LangBar } from './langBar'
 import { categoryType } from '@/types/categoriesType'
-import { categoryData, singlePost } from '@/types/postsType'
+import { categoryData } from '@/types/postsType'
 import { useTranslation } from 'next-i18next'
 import styles from './styles/header.module.css'
 

@@ -23,8 +23,8 @@ export default function Policy(props: aboutPage) {
         <HeadLayout
             title={t('head.policy.title')}
             description={t('head.policy.description')}
-            author={t('head.policy.keywords')}
-            keywords={t('head.policy.author')}
+            author={t('head.policy.author')}
+            keywords={""}
         >
             <PageLayout
                 categories={props.categories}

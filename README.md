@@ -1,3 +1,37 @@
+## Run the development server:
+
+First, run the development server:
+
+```bash
+npm i
+npm run dev
+```
+
+## Run the production server:
+```bash
+cd /home/frontend
+npm i
+npm run build
+npm run start
+```
+
+## Run the docker:
+```bash
+cd /home/frontend
+docker-compose up
+```
+
+## Launch via pm2 clean mode:
+```bash
+cd /home/frontend
+rm -rf .next
+rm -rf node_modules
+pm2 delete frontend
+npm i
+npm run build
+PORT=3000 pm2 start npm --name frontend -- run start
+```
+
 +++ Pages files:
 Static site pages - about, contact and policy are located in these directory:
 

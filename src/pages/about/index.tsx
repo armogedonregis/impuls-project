@@ -23,8 +23,8 @@ export default function About(props: aboutPage) {
         <HeadLayout
             title={t('head.about.title')}
             description={t('head.about.description')}
-            author={t('head.about.keywords')}
-            keywords={t('head.about.author')}
+            author={t('head.about.author')}
+            keywords={""}
         >
             <PageLayout
                 categories={props.categories}
