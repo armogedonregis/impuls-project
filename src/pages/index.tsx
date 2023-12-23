@@ -29,7 +29,7 @@ export default function Home(props: IPosts) {
             title={t('head.home.title')}
             description={t('head.home.description')}
             author={t('head.home.author')}
-            keywords={t('head.home.keywords')}
+            keywords={""}
         >
             <PageLayout
                 categories={props.categories}

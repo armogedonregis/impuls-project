@@ -15,7 +15,7 @@ const SlideBarCatCards: React.FC<{
         props.category
         ? <Link href={`/category/${props.category?.url}`} className="cat-card">
             <div className="img img-cover">
-                <img 
+                <img
                     src={`/assets/img/categories/category_${props.category.id}.png`}
                     alt=""
                 />
