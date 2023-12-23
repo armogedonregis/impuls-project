@@ -8,8 +8,7 @@ const PagBtn: React.FC<{
     categoryUrl: string,
     lang: string,
     currentPage: number
-    categoryId: number
-}> = ({count, categoryUrl, lang, currentPage, categoryId}) => {
+}> = ({count, categoryUrl, lang, currentPage}) => {
 
     return (
         <Link
@@ -26,11 +25,10 @@ const CatPagination: React.FC<{
     categoryUrl: string
     lang: string,
     currentPage: number
-    categoryId: number
-}> = ({catPosts, categoryUrl, lang, currentPage, categoryId}) => {
+}> = ({catPosts, categoryUrl, lang, currentPage}) => {
     const { t, i18n } = useTranslation('locale')
     
-    let pages = catPosts.posts?.totalPages + 2
+    let pages = catPosts.posts?.totalPages + 1
 
     let currentPages: number[] = []
     let maxPage: number = 1
@@ -64,7 +62,6 @@ const CatPagination: React.FC<{
                         categoryUrl={categoryUrl}
                         lang={lang}
                         currentPage={currentPage}
-                        categoryId={categoryId}
                     /> : null
                 ))
             }
@@ -81,7 +78,6 @@ const CatPagination: React.FC<{
                     categoryUrl={categoryUrl}
                     lang={lang}
                     currentPage={currentPage}
-                    categoryId={categoryId}
                 /> : null
             }
             {

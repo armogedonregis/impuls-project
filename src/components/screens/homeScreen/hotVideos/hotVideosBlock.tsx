@@ -3,8 +3,6 @@ import { VideoCard } from "../../../swiperSlider/videoCard"
 import { SwiperSlide } from "swiper/react"
 import { postType } from "@/types/postsType"
 import { BotVideoPost } from "../../../posts/botVideoPost"
-import { Fancybox } from '@fancyapps/ui'
-import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 const HotVideosBlock: React.FC<{
     videoCards: postType[]

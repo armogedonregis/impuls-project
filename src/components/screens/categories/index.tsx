@@ -1,4 +1,4 @@
-import { postsByCategory, favPostType } from "@/types/postsType"
+import { postsByCategory, topPostType } from "@/types/postsType"
 import CatAds from "./catAds"
 import CatBanner from "./catBanner"
 import CatPost from "./catPost"
@@ -10,7 +10,7 @@ type catPageProps = {
     categoryUrl: string
     lang: string
     currentPage: number
-    favoritePosts: favPostType[]
+    topPosts: topPostType[]
     categoryId: number
 }
 
@@ -32,7 +32,10 @@ export const CategoryPage = (props: catPageProps) => {
                                                 return id !== Math.round(props.catPosts.posts.content.length / 2)
                                                 ? <CatPost key={item.id} post={item} />
                                                 : <div key={item.id}>
-                                                    <CatBanner />
+                                                    {/* Large category banner with source of it's image as a string */}
+                                                    <CatBanner
+                                                        pictureSrc={`/assets/img/banners/largeCatBanner/banner_${props.lang}.png`}
+                                                    />
                                                     <CatPost post={item} />
                                                 </div>
                                             }) : null
@@ -46,7 +49,6 @@ export const CategoryPage = (props: catPageProps) => {
                                     categoryUrl={props.categoryUrl}
                                     lang={props.lang}
                                     currentPage={props.currentPage}
-                                    categoryId={props.categoryId}
                                 />
                             </div>
                             
@@ -55,11 +57,13 @@ export const CategoryPage = (props: catPageProps) => {
                                     <WidgetTrends
                                         categoryId={props.categoryId}
                                         categoryUrl={props.categoryUrl}
-                                        favoritePosts={props.favoritePosts}
+                                        topPosts={props.topPosts}
                                     />
 
-                                    {/* Реклама в блоке виджетов */}
-                                    <CatAds />
+                                    {/* Advertisement in widget block with a source of it's image as a string */}
+                                    <CatAds
+                                        pictureSrc={`/assets/img/banners/minCatBanner/banner_${props.lang}.png`}
+                                    />
                                 </div>
                             </div>
 

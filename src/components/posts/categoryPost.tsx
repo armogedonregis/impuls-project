@@ -1,6 +1,5 @@
 import { postType } from "@/types/postsType"
 import Link from "next/link"
-import Image from 'next/image'
 
 type catPostType = {
     post: postType
@@ -24,12 +23,23 @@ export const CategoryPost = (props: catPostType) => {
                     </Link>
                 </div>
                 <div className="col-lg-7">
+                    <ul style={{marginBottom: 10}} className="fsz-12px">
+                        <li>
+                            {
+                                props.post?.publicationDate
+                                ? <span className="me-3"><i className="la la-calendar me-2"></i>{props.post.publicationDate}</span>
+                                : null
+                            }
+                            {
+                                props.post?.author
+                                ? <span className="me-3"><i className="la la-user me-2"></i>{props.post.author}</span>
+                                : null
+                            }
+                        </li>
+                    </ul>
                     <div className="content mt-4 mt-lg-0">
                         <h2 className="title fsz-28px mb-20"> <Link href={`post/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</Link> </h2>
                         <div className="text fsz-14px"> {props.post?.description}
-                        </div>
-                        <div className="meta-bot">
-                            <small className="fsz-12px"> {props.post?.author} </small>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,8 @@ export const HomeScreen = (props: homeLayout) => {
     
     return (
         <main className={`home-style10 tc-header-style10`}>
-            {/* Карусель и посты */}
+
+            {/* Top big carousel with posts */}
             <div className="row gx-0">
                 <TopHomeSwiper sliderPosts={props.sliderPosts}/>
                 <HomeTopGastroPosts
@@ -47,7 +48,7 @@ export const HomeScreen = (props: homeLayout) => {
                 />
             </div>
 
-            {/* Категории с параллакс эффектом */}
+            {/* Home categories */}
             <CategoryHome
                 categories={props.categories}
             />
@@ -60,7 +61,7 @@ export const HomeScreen = (props: homeLayout) => {
             {/* Banner */}
             <LargeLeaderBoard
                 url={"/"}
-                img={"/assets/img/banner1.png"}
+                img={`/assets/img/banners/homeBanners/topBanner/banner_${props.lang}.png`}
                 type={1}
             />
 
@@ -80,10 +81,10 @@ export const HomeScreen = (props: homeLayout) => {
                 </div>
             </section>
 
-            {/* <!-- ====== start banner ====== --> */}
+            {/* Bottom banner */}
             <LargeLeaderBoard
                 url={"/"}
-                img={"/assets/img/banner1.png"}
+                img={`/assets/img/banners/homeBanners/botBanner/banner_${props.lang}.png`}
                 type={2}
             />
 
@@ -93,12 +94,12 @@ export const HomeScreen = (props: homeLayout) => {
                 posts={props.posts[1]}
             />
 
-            {/* <!-- ====== start tc-hot-videos-style11 ====== --> */}
+            {/* Hot videos block */}
             <HotVideosBlock
                 videoCards={props.posts[11]}
             />
 
-            {/* <!-- ====== start posts ====== --> */}
+            {/* Bottom posts */}
             <section className="posts bg-gray1 px-lg-5 pb-80 pt-80">
                 <div className="row">
                     <div className="col-lg-3 custom-col-half custom-col-trends custom-col-large--trends">
@@ -165,9 +166,7 @@ export const HomeScreen = (props: homeLayout) => {
                         />
 
                         {/* Stay connected block */}
-                        <StayConnected
-                            socials={props.socials}
-                        />
+                        {/* <StayConnected socials={props.socials} /> */}
                     </div>
                 </div>
             </section>

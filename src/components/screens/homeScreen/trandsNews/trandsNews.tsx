@@ -39,7 +39,7 @@ const GastronomySlider = (props: GastronomySliderType) => {
                         991: { slidesPerView: 2 },
                         1200: { slidesPerView: 2 },
                         1400: {  slidesPerView: 3 },
-                        2000: {  slidesPerView: 6 },
+                        2000: {  slidesPerView: 4 },
                     }}
                     navigation={{
                         nextEl: ".arrows .swiper-button-next",

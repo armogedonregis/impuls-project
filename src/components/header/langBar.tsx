@@ -3,7 +3,8 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 type langBarType = {
-    isSinglePost?: boolean
+    translations?: boolean[]
+    notFoundPage?: boolean
 }
 
 export const LangBar = (props: langBarType) => {
@@ -16,8 +17,13 @@ export const LangBar = (props: langBarType) => {
         <div className="header-lang">
             <div className="another-lang-links">
                 {
-                    HeaderLang.map((item, id) => (
-                        <Link
+                    HeaderLang.map((item, id) => {
+                        return props.translations !== undefined
+                        && props.translations[id] === true
+                        && !props.notFoundPage
+                        || props.translations === undefined
+                        && !props.notFoundPage
+                        ? <Link
                             key={item.id} href={router.asPath}
                             locale={item.locale}
                             className="lang-link text-white"
@@ -27,8 +33,8 @@ export const LangBar = (props: langBarType) => {
                                 <img src={item.icon ? item.icon : '/'} alt="" />
                             </span>
                             <span> {item.title} </span>
-                        </Link>
-                    ))
+                        </Link> : null
+                    })
                 }
             </div>
             <div className="lang-link">

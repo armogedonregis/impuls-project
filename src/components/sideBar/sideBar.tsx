@@ -5,7 +5,6 @@ import { categoryType } from '@/types/categoriesType'
 import { socialsType } from '@/types/socials'
 import Link from 'next/link'
 import { isDarkSessionStorage } from '@/utils/useSessionStorage'
-import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
 
 const SlideBarCatCards: React.FC<{
@@ -17,7 +16,7 @@ const SlideBarCatCards: React.FC<{
         ? <Link href={`/category/${props.category?.url}`} className="cat-card">
             <div className="img img-cover">
                 <img 
-                    src={props.category?.image ? props.category?.image : '/'}
+                    src={`/assets/img/categories/category_${props.category.id}.png`}
                     alt=""
                 />
             </div>
@@ -52,7 +51,7 @@ export const SideBar = (props: sideBarType) => {
             className={`${isDarkSessionStorage() ? "dark-theme" : ""} sidebar-popup-style1`}
             show={props.show}
             onHide={props.handleClose}
-            onEntered={() => 
+            onEntered={() =>
                 props.setIsOpenedSlideBar(prev => !prev)
             }
             onExited={() =>
@@ -74,16 +73,15 @@ export const SideBar = (props: sideBarType) => {
                     <h6 className="text-uppercase mb-15 ltspc-1"> {t('sidebar.about')} <i className="la la-angle-right ms-1"></i> </h6>
                 </Offcanvas.Title>
                 <div className="text">
-                    {t('sidebar.description')}.
+                    {t('sidebar.description')}
                 </div>
                 {
                     props.categories
-                    ?  
-                    <div 
+                    ? <div 
                         className="sidebar-categories mt-40"
                         style={{opacity: props.isOpenedSlideBar ? 1 : 0}}
                     >
-                        <h6 className="ctext-uppercase mb-30 ltspc-1"> categories <i className="la la-angle-right ms-1"></i> </h6>
+                        <h6 className="ctext-uppercase mb-30 ltspc-1"> {t('sidebar.categories')} <i className="la la-angle-right ms-1"></i> </h6>
                         {
                             props.categories[0]
                             ? <>
@@ -101,7 +99,6 @@ export const SideBar = (props: sideBarType) => {
                                 />
                             </> : null
                         }
-                        
                     </div> : null
                 }
                     
@@ -121,7 +118,7 @@ export const SideBar = (props: sideBarType) => {
                             &nbsp;<Link href="tel:+12123456789">+12 123 456 789</Link>
                         </li>
                     </ul>
-                    <div className="social-links">
+                    {/* <div className="social-links">
                         <Link href={props.socials?.facebook}>
                             <i className="la la-facebook-f"></i>
                         </Link>&nbsp;
@@ -131,7 +128,7 @@ export const SideBar = (props: sideBarType) => {
                         <Link href={props.socials?.youtube}>
                             <i className="la la-youtube"></i>
                         </Link>
-                    </div>
+                    </div> */}
                 </div>
             </Offcanvas.Body>
         </Offcanvas>

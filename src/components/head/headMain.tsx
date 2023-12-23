@@ -46,7 +46,6 @@ export const HeadMain = (props: headMainProps) => {
                 href="https://iew.es/"
                 key="canonical"
             />
-            <link rel="shortcut icon" href="assets/img/fav.png" title="Favicon" sizes="16x16" />
             <link rel="shortcut icon" href="/assets/img/fav.png" title="Favicon" sizes="16x16" />
         </Head>
     )

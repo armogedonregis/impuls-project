@@ -24,7 +24,7 @@ const PostSection = (props: postSection) => {
             props.post.videoUrl
             ? <PostVideoBlock post={props.post} />: null
         }
-        <section className="tc-main-post-style1 pb-60">
+        <section className={`tc-main-post-style1 pb-60`}>
             <article className="container">
                 {
                     !props.post?.videoUrl && props.post?.mainImageLink
@@ -84,7 +84,7 @@ const PostSection = (props: postSection) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="single_content">
+                            <div className={`single_content`}>
                                 {
                                     props.post
                                     ? parse(props.post?.description ? props.post?.description : "")

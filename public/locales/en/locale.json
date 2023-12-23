@@ -51,12 +51,17 @@
         "description": "With IMPULS magazine you will find from the latest trends in haute cuisine to the best travel destinations and the most exclusive services.",
         "contactNfollow": "Contact & Follow",
         "address": "streat name 12, hollywood City, USA",
-        "mail": "Newzin@gmail.com"
+        "mail": "Newzin@gmail.com",
+        "categories": "categories"
     },
     "navbar": {
         "title": "With IMPULS magazine you will find from the latest trends in haute cuisine to the best travel destinations and the most exclusive services.",
         "enter": "Enter what you are looking for",
         "btn": "Search"
+    },
+    "searchedPosts": {
+        "title": "Search Results",
+        "conditionText": "Please type text on your language, when searching the posts"
     },
     "home": {
         "gastroBlock": {
@@ -81,7 +86,15 @@
                 "mailIn": "Your E-mail",
                 "policy": "By signing up, you agree to the our terms and our",
                 "policyLink": "privacy policy",
-                "button": "Subscribe"
+                "button": "Subscribe",
+                "errorHandler": {
+                    "nameErr": "Written name is too short",
+                    "defErr": "Wrong e-mail address",
+                    "dotErr": "Dot must be placed after «@» symbol",
+                    "mailErr": "Too short e-mail name",
+                    "hostErr": "E-mail host name must have 3 or more characters",
+                    "domainErr": "E-mail domain name must have 2 or more characters"
+                }
             },
             "stayConnected": "Stay connected"
         },
@@ -144,11 +157,17 @@
             "title": "Editor's Choice",
             "sliderBarVideo": "Videos"
         },
-        "conditionText": "Please type text on your language, when searching the posts",
         "views": "Views",
         "directions": {
             "next": "Next",
             "prev": "Previous"
         }
+    },
+    "notFound_404": {
+        "title": "404",
+        "description": "Oops! Page Not Found.",
+        "sorry": "Sorry, the requested page could not be found.",
+        "searchBtn": "Try searching?",
+        "goBack": "back to home"
     }
 }

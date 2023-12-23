@@ -8,6 +8,7 @@ type videoPostType = {
 }
 
 export const BotVideoPost = (props: videoPostType) => {
+
     return (
         <div className="col-lg-4 custom-top-0 border-1 border-end brd-gray mt-50">
             <div className="item border-0">
@@ -17,7 +18,20 @@ export const BotVideoPost = (props: videoPostType) => {
                             props.post
                             ? <div className="content">
                                 <div className="date mb-20 fsz-12px">
-                                    <span className="meta-bot mt-15">{props.post?.author}</span>
+                                    <ul style={{marginBottom: 10}} className="fsz-12px">
+                                        <li>
+                                            {
+                                                props.post?.publicationDate
+                                                ? <span className="me-3"><i className="la la-calendar me-2"></i>{props.post.publicationDate}</span>
+                                                : null
+                                            }
+                                            {
+                                                props.post?.author
+                                                ? <span className="me-3"><i className="la la-user me-2"></i>{props.post.author}</span>
+                                                : null
+                                            }
+                                        </li>
+                                    </ul>
                                 </div>
                                 <div className="sub-videos-flex">
                                     <div className="col-8">

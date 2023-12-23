@@ -1,10 +1,10 @@
-import { favPostType } from "@/types/postsType"
+import { topPostType } from "@/types/postsType"
 import Link from "next/link"
 import { NumberedTrendsWidget } from "./widgetTrendsSmall"
 import { useTranslation } from "next-i18next"
 
 type widgetTrends = {
-    favoritePosts: favPostType[]
+    topPosts: topPostType[]
     categoryId: number
     categoryUrl: string
 }
@@ -18,28 +18,28 @@ const WidgetTrends = (props: widgetTrends) => {
             <div className="tc-post-list-style1">
                 <Link
                     className="tc-post-overlay-default"
-                    href={`/post/${props.favoritePosts[0]?.url}`}
+                    href={`/post/${props.topPosts[0]?.url}`}
                 >
                     <div className="img th-200 img-cover">
                         <img 
-                            src={props.favoritePosts[0]?.image ? props.favoritePosts[0].image : '/'}
+                            src={props.topPosts[0]?.imageSmall ? props.topPosts[0].imageSmall : '/'}
                             alt=""
                         />
                     </div>
                     <div className="content ps-20 pe-20 pb-20 text-white">
                         <h4 className="title">
-                            {props.favoritePosts[0]?.title}
+                            {props.topPosts[0]?.title}
                         </h4>
                     </div>
                 </Link>
                 <div className="items px-4 py-2">
                     {
-                        props.favoritePosts.length > 0
-                        ? props.favoritePosts.map((item, id) => {
+                        props.topPosts.length > 0
+                        ? props.topPosts.map((item, id) => {
                             return id < 4 && id > 0
                             ? <NumberedTrendsWidget
                                 key={item.id}
-                                favoritePost={item}
+                                topPost={item}
                                 num={id + 1}
                                 categoryId={props.categoryId}
                                 categoryUrl={props.categoryUrl}

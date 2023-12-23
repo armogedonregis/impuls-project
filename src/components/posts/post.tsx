@@ -135,12 +135,12 @@ export const Post = (props: Type) => {
                         <li>
                             {
                                 props.post?.publicationDate
-                                ? <span className="me-3"><i className="la la-calendar me-2"></i>{props.post.publicationDate}</span>
+                                ? <span className="me-3"><i className="la la-calendar me-2"></i>{props.post?.publicationDate}</span>
                                 : null
                             }
                             {
                                 props.post?.author
-                                ? <span className="me-3"><i className="la la-user me-2"></i>{props.post.author}</span>
+                                ? <span className="me-3"><i className="la la-user me-2"></i>{props.post?.author}</span>
                                 : null
                             }
                         </li>

@@ -18,7 +18,8 @@ export const Header: React.FC<{
     setDark: Dispatch<SetStateAction<string>>
     isCat?: boolean
     thisCategory?: categoryData
-    isSinglePost?: boolean
+    translations?: boolean[]
+    notFoundPage?: boolean
 }> = ({...props}) => {
     const { t, i18n } = useTranslation('locale')
     const [isOpenedMobNavbar, openMobNavbar] = useState<boolean>(false)
@@ -34,7 +35,8 @@ export const Header: React.FC<{
                         <DropDownCategory categories={props.categories} lang={props.lang} />
                         <div className="nav-side">
                             <LangBar
-                                isSinglePost={true}
+                                translations={props.translations}
+                                notFoundPage={props.notFoundPage}
                             />
                             <ChoiseTheme
                                 isDark={props.isDark}
@@ -77,10 +79,10 @@ export const Header: React.FC<{
                 </div>
             </nav>
             {
-                props.isCat && 
+                props.isCat &&
                 <div
                     className="tc-categories pt-50 pb-50"
-                    style={{backgroundImage: `url(/assets/img/category.png)`}}
+                    style={{backgroundImage: `url(/assets/img/categories/category_${props.thisCategory?.id}.png)`}}
                 >
                     <div className="container">
                         <div className="content text-center">

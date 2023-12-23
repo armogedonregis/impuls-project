@@ -18,7 +18,7 @@
   letter-spacing: -0.003em;
   line-height: 32px;
   color: #242424;
-  font-family: "Montserrat";
+  font-family: 'Inter', sans-serif;
 }
 
 .dark-theme .single_content p {

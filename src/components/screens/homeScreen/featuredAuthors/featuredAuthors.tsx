@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from 'next/image'
 import { useTranslation } from "next-i18next"
 
 const FeaturedAuthors = () => {
@@ -11,7 +10,9 @@ const FeaturedAuthors = () => {
 
             <Link href="/" className="columnist-card d-flex align-items-center pb-20 border-bottom border-1 brd-gray">
                 <div className="img img-cover icon-70 rounded-circle overflow-hidden flex-lg-shrink-0 me-4">
-                    <img src="/assets/img/author.png" alt="" />
+
+                    {/* First author image */}
+                    <img src={`/assets/img/authors/author_1.png`} alt="" />
                 </div>
                 <div className="info">
                     <h4 className="name fsz-14px mb-10 fw-bold hover-main">
@@ -24,7 +25,9 @@ const FeaturedAuthors = () => {
             </Link>
             <Link href="/" className="columnist-card d-flex align-items-center pb-20 pt-20 border-bottom border-1 brd-gray">
                 <div className="img img-cover icon-70 rounded-circle overflow-hidden flex-lg-shrink-0 me-4">
-                    <img src="/assets/img/author.png" alt="" />
+
+                    {/* Second author image */}
+                    <img src={`/assets/img/authors/author_2.png`} alt="" />
                 </div>
                 <div className="info">
                     <h4 className="name fsz-14px mb-10 fw-bold hover-main">
@@ -37,7 +40,9 @@ const FeaturedAuthors = () => {
             </Link>
             <Link href="/" className="columnist-card d-flex align-items-center pb-20 pt-20 border-bottom border-1 brd-gray">
                 <div className="img img-cover icon-70 rounded-circle overflow-hidden flex-lg-shrink-0 me-4">
-                    <img src="/assets/img/author.png" alt="" />
+
+                    {/* Third author image */}
+                    <img src={`/assets/img/authors/author_3.png`} alt="" />
                 </div>
                 <div className="info">
                     <h4 className="name fsz-14px mb-10 fw-bold hover-main">

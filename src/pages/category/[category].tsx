@@ -3,7 +3,7 @@ import { CategoryPage } from "@/components/screens/categories"
 import { HeadLayout } from "@/layout/headLayout"
 import PageLayout from "@/layout/pageLayout"
 import { categoryType } from "@/types/categoriesType"
-import { instaImg, postType, postsByCategory, favPostType } from "@/types/postsType"
+import { instaImg, postType, postsByCategory, topPostType } from "@/types/postsType"
 import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
 import { useTranslation } from "next-i18next"
@@ -20,7 +20,7 @@ type categoriesType = {
     lang: string
     categoryUrl: string
     currentPage: number
-    favoritePosts: favPostType[]
+    topPosts: topPostType[]
 }
 
 export default function Categories(props: categoriesType) {
@@ -51,7 +51,7 @@ export default function Categories(props: categoriesType) {
                     categoryId={props.categoryId}
                     lang={props.lang}
                     currentPage={props.currentPage}
-                    favoritePosts={props.favoritePosts}
+                    topPosts={props.topPosts}
                 />
             </PageLayout>
         </HeadLayout>
@@ -65,19 +65,18 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
     // Получаем запрашиваемую категорию
     const categoryUrl: any = query["category"]
     let currentPage: any = query["page"] ? query["page"] : 1
-    currentPage -= 1
     
     // Вытягиваем категории
     const categories_ = await fetch(`${isServer}/categories/${lang}`)
     const categories = await categories_.json()
 
     // Вытягиваем избранные посты данной категории
-    const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
-    const favoritePosts = await favoritePosts_.json()
+    let topPosts_, topPosts
 
     let catPosts_
     // Вытягиваем посты данной категории в первый раз
     catPosts_ = await fetch(`${isServer}/posts/${lang}/${categoryUrl}?page=${currentPage ? currentPage - 1 : "0"}&size=20`)
+    currentPage -= 1
 
     let catPosts
     let categoryId
@@ -85,6 +84,9 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
     try {
         catPosts = await catPosts_.json()
         categoryId = catPosts.category.id
+
+        topPosts_ = await fetch(`${isServer}/posts/top/${lang}?id=${categoryId}`)
+        topPosts = await topPosts_.json()
 
         setCookie('locale', locale, { req, res })
 
@@ -106,6 +108,9 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
         try {
             catPosts = await catPosts_.json()
             categoryId = catPosts.category.id
+
+            topPosts_ = await fetch(`${isServer}/posts/top/${lang}?id=${categoryId}`)
+            topPosts = await topPosts_.json()
 
             if((catPosts.category?.count / 20) + 1 < currentPage) {
                 return {
@@ -140,7 +145,7 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
                 'locale'
             ])),
             categories, categoryId, lang, catPosts,
-            categoryUrl, currentPage, favoritePosts
+            categoryUrl, currentPage, topPosts
         }
     }
 }

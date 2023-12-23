@@ -90,6 +90,7 @@ export type topPostType = {
     url: string
     imageSmall: string
     author?: string
+    publicationDate?: string
 }
 
 // Single post page

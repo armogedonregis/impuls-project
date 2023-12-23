@@ -23,6 +23,7 @@ type postLayout = {
     nextPosts: directionPost[]
     postName: string
     postId: number
+    translations: boolean[]
 }
 
 export default function Post(props: postLayout) {
@@ -40,10 +41,9 @@ export default function Post(props: postLayout) {
                 categories={props.categories}
                 socials={socialsData}
                 lang={props.lang}
-                isSinglePost={true}
                 isNavBarOpen={isNavBarOpen}
                 openNavBar={openNavBar}
-
+                translations={props.translations}
             >
                 <SinglePost
                     post={props.post}
@@ -67,6 +67,9 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
     const postName: any = query["name"]
 
     let post_, post
+    
+    // Available translartions
+    let translations: boolean[] = []
 
     try {
         // Вытягиваем пост
@@ -166,6 +169,18 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
         }
     }
 
+    // Spanish translation
+    post.availableTranslations["ES"] !== undefined
+    ? translations.push(true) : translations.push(false)
+
+    // English translation
+    post.availableTranslations["EN"] !== undefined
+    ? translations.push(true) : translations.push(false)
+
+    // Russian translation
+    post.availableTranslations["RU"] !== undefined
+    ? translations.push(true) : translations.push(false)
+
     return {
         props: {
             ...(await serverSideTranslations(lang!, [
@@ -173,7 +188,7 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
                 'locale'
             ])),
             categories, lang, rPosts, prevPosts, nextPosts,
-            postName, postId, post
+            postName, postId, post, translations
         }
     }
 }

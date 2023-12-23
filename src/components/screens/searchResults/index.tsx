@@ -16,7 +16,7 @@ export const SearchResultsScreen = (props: searchPostsType) => {
                 <div className="container">
                     <div className="row text-uppercase fsz-14px mb-40 pt-80">
                         <div className="col-lg-6">
-                            <p className="text-uppercase mb-20"> Search Results </p>
+                            <p className="text-uppercase mb-20"> {t('searchedPosts.title')} </p>
                         </div>
                         <div className="col-lg-6 text-lg-end" />
                     </div>
@@ -29,7 +29,7 @@ export const SearchResultsScreen = (props: searchPostsType) => {
                                 foundPost={item}
                                 lang={props.lang}
                             />)
-                            : <p> {t('postPage.conditionText')} </p>
+                            : <p> {t('searchedPosts.conditionText')} </p>
                         }
                     </div>
                 </div>

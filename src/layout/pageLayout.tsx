@@ -27,7 +27,8 @@ type LayoutProps = {
     lang: string
     isCat?: boolean
     thisCategory?: categoryData
-    isSinglePost?: boolean
+    translations?: boolean[]
+    notFoundPage?: boolean
 }
 
 export default function PageLayout(props: LayoutProps) {
@@ -58,7 +59,8 @@ export default function PageLayout(props: LayoutProps) {
                 setDark={setTheme}
                 isCat={props.isCat}
                 thisCategory={props.thisCategory}
-                isSinglePost={true}
+                translations={props.translations}
+                notFoundPage={props.notFoundPage}
             />
                 {/* Page aka screen body */}
                 {props.children}

@@ -11,7 +11,7 @@ export const Navbar: React.FC<{
     const [hidden, hide] = useState<Boolean>(false)
 
     const props = useSpring({
-        height: isNavBarOpen? 150 : 0,
+        height: isNavBarOpen? 180 : 0,
         paddingTop: isNavBarOpen ? 20 : 0,
         paddingBottom: isNavBarOpen ? 20 : 0,
         display: isNavBarOpen ? "block" : hidden ? "none" : "block",
@@ -48,7 +48,6 @@ export const Navbar: React.FC<{
                 </div>
                 <div className="col-lg-6">
                     <div className="form">
-                        <span className="color-777 fst-italic text-capitalize mb-2 fsz-13px">{t('navbar.enter')}</span>
                         <div className="form-group">
                             <span className="icon">
                                 <i className="la la-search"></i>
@@ -56,7 +55,7 @@ export const Navbar: React.FC<{
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Elon Musk ... "
+                                placeholder={t('navbar.enter')}
                                 ref={inputRef}
                                 onKeyPress={handleKeyPress}
                             />

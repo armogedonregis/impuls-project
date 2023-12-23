@@ -51,12 +51,17 @@
         "description": "Con la revista IMPULS encontrarás desde las últimas tendencias en alta cocina hasta los mejores destinos de viaje y los servicios más exclusivos.",
         "contactNfollow": "Contactar & Seguir",
         "address": "streat name 12, hollywood City, USA",
-        "mail": "Newzin@gmail.com"
+        "mail": "Newzin@gmail.com",
+        "categories": "categorias"
     },
     "navbar": {
         "title": "Con la revista IMPULS encontrarás desde las últimas tendencias en alta cocina hasta los mejores destinos de viaje y los servicios más exclusivos.",
         "enter": "Escribe lo que buscas",
         "btn": "Buscar"
+    },
+    "searchedPosts": {
+        "title": "Resultados de la búsqueda",
+        "conditionText": "Por favor escriba el texto en su idioma cuando busque las publicaciones"
     },
     "home": {
         "gastroBlock": {
@@ -81,7 +86,15 @@
                 "mailIn": "Tu E-mail",
                 "policy": "RESPONSABLE DEL TRATAMIENTO: DESARROLLO WEB EFICAZ S.L.U. FINALIDAD: Envío de nuestra newsletter DERECHOS: Tiene derecho al acceso, rectificación, supresión, oposición, limitación y portabilidad de sus datos personales. También puede retirar el consentimiento prestado para este tratamiento en cualquier momento. Puede acudir igualmente a la Autoridad de Control (AEPD) para reclamar sus derechos en materia de protección de datos. Además, puede oponerse a la segmentación que haremos de los datos personales para poder enviarle promociones e información acorde a sus gustos y necesidades. Para más información acuda a nuestra política de privacidad",
                 "policyLink": "política de privacidad",
-                "button": "Suscríbete"
+                "button": "Suscríbete",
+                "errorHandler": {
+                    "nameErr": "El nombre escrito es demasiado corto",
+                    "defErr": "Dirección de correo errónea",
+                    "dotErr": "El punto debe colocarse después del símbolo «@»",
+                    "mailErr": "Nombre de correo electrónico demasiado corto",
+                    "hostErr": "El nombre del host de correo electrónico debe tener 3 o más caracteres",
+                    "domainErr": "El nombre de dominio del correo electrónico debe tener 2 o más caracteres"
+                }
             },
             "stayConnected": "Mantente conectada"
         },
@@ -150,5 +163,12 @@
             "next": "Siguiente",
             "prev": "Anterior"
         }
+    },
+    "notFound_404": {
+        "title": "404",
+        "description": "¡Ups! Página no encontrada.",
+        "sorry": "Lo sentimos, no se pudo encontrar la página solicitada.",
+        "searchBtn": "¿Intenta buscar?",
+        "goBack": "de vuelta a casa"
     }
 }

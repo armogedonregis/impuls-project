@@ -83,6 +83,6 @@ export const getStaticProps = async (ctx: NextPageContext) => {
             ])),
             posts, favoritePosts, categories, instaImgs, lang, topPosts
         },
-        revalidate: 15
+        revalidate: 60
     }
 }
