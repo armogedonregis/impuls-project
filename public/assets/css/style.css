@@ -15943,7 +15943,7 @@ small.loading01 {
 
 .sub-videos-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
 }
 

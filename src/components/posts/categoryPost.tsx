@@ -23,7 +23,12 @@ export const CategoryPost = (props: catPostType) => {
                     </Link>
                 </div>
                 <div className="col-lg-7">
-                    <ul style={{marginBottom: 10}} className="fsz-12px">
+                    <div className="content mt-4 mt-lg-0">
+                        <h2 className="title fsz-28px mb-20"> <Link href={`post/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</Link> </h2>
+                        <div className="text fsz-14px"> {props.post?.description}
+                        </div>
+                    </div>
+                    <ul className="fsz-12px">
                         <li>
                             {
                                 props.post?.publicationDate
@@ -37,11 +42,6 @@ export const CategoryPost = (props: catPostType) => {
                             }
                         </li>
                     </ul>
-                    <div className="content mt-4 mt-lg-0">
-                        <h2 className="title fsz-28px mb-20"> <Link href={`post/${props.post?.url ? props.post.url : ""}`}>{props.post?.title}</Link> </h2>
-                        <div className="text fsz-14px"> {props.post?.description}
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

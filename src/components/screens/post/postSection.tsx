@@ -59,7 +59,13 @@ const PostSection = (props: postSection) => {
                                     {
                                         !props.post.videoUrl && props.post?.categories
                                         ? <div className="col-lg-8">
-                                            <p className="text-uppercase mb-15">{props.post?.categories[0]?.name}</p>
+                                            <p className="text-uppercase mb-15">
+                                                {
+                                                    props.post?.categories?.map((item, id) => {
+                                                        return id < 1 ? `${item.name}` : `, ${item.name}`
+                                                    })
+                                                }
+                                            </p>
                                             <h1 className="title">{props.post?.title}</h1>
                                         </div> : null
                                     }

@@ -106,29 +106,28 @@ export const SideBar = (props: sideBarType) => {
                     <h6 className="text-uppercase mb-20 ltspc-1"> {t('sidebar.contactNfollow')} <i className="la la-angle-right ms-1"></i> </h6>
                     <ul className="m-0">
                         <li className="mb-3">
-                            <i className="las la-map-marker me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="/">{t('sidebar.contactNfollow')}</Link>
+                            <Link
+                                href={`http://maps.google.com/?q=${t('sidebar.contact.address1')},%20${t('sidebar.contact.address2')}`}
+                                target={"_blank"}
+                            >
+                                <i className="las la-map-marker me-2 color-main fs-5" />
+                                {t('sidebar.contact.address1')}
+                                ,&nbsp;{t('sidebar.contact.address2')}
+                            </Link>
                         </li>
                         <li className="mb-3">
-                            <i className="las la-envelope me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="/">{t('sidebar.address')}</Link>
+                            <Link href={`mailto:${t('sidebar.contact.email')}`}>
+                            <i className="las la-envelope me-2 color-main fs-5" />
+                                {t('sidebar.contact.email')}
+                            </Link>
                         </li>
                         <li className="mb-3">
-                            <i className="las la-phone-volume me-2 color-main fs-5"></i>
-                            &nbsp;<Link href="tel:+12123456789">+12 123 456 789</Link>
+                            <Link href={`tel:${t('sidebar.contact.phone').split(' ').join('')}`}>
+                                <i className="las la-phone-volume me-2 color-main fs-5" />
+                                {t('sidebar.contact.phone')}
+                            </Link>
                         </li>
                     </ul>
-                    {/* <div className="social-links">
-                        <Link href={props.socials?.facebook}>
-                            <i className="la la-facebook-f"></i>
-                        </Link>&nbsp;
-                        <Link href={props.socials?.instagram}>
-                            <i className="la la-instagram"></i>
-                        </Link>&nbsp;
-                        <Link href={props.socials?.youtube}>
-                            <i className="la la-youtube"></i>
-                        </Link>
-                    </div> */}
                 </div>
             </Offcanvas.Body>
         </Offcanvas>

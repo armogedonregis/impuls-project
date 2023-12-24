@@ -37,6 +37,7 @@ export const Header: React.FC<{
                             <LangBar
                                 translations={props.translations}
                                 notFoundPage={props.notFoundPage}
+                                lang={props.lang}
                             />
                             <ChoiseTheme
                                 isDark={props.isDark}

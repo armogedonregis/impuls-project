@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 type langBarType = {
     translations?: boolean[]
     notFoundPage?: boolean
+    lang: string
 }
 
 export const LangBar = (props: langBarType) => {
@@ -18,11 +19,12 @@ export const LangBar = (props: langBarType) => {
             <div className="another-lang-links">
                 {
                     HeaderLang.map((item, id) => {
-                        return props.translations !== undefined
+                        return (props.translations !== undefined
                         && props.translations[id] === true
                         && !props.notFoundPage
                         || props.translations === undefined
-                        && !props.notFoundPage
+                        && !props.notFoundPage)
+                        && item.locale !== props.lang
                         ? <Link
                             key={item.id} href={router.asPath}
                             locale={item.locale}

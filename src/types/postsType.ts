@@ -95,6 +95,11 @@ export type topPostType = {
 
 // Single post page
 export type singlePost = {
+    availableTranslations: {
+        ES?: string,
+        EN?: string,
+        RU?: string
+    },
     id: number
     title: string
     description: string

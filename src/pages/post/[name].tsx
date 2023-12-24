@@ -35,7 +35,8 @@ export default function Post(props: postLayout) {
             title={props.post.title || ""}
             description={props.post.seoDescription || ""}
             author={props.post.author || ""}
-            keywords={""}
+            post={props.post}
+            lang={props.lang}
         >
             <PageLayout
                 categories={props.categories}

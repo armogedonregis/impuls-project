@@ -28,7 +28,7 @@ export default function SearchResults(props: searchLayout) {
             title={t('head.searchedPosts.title')}
             description={t('head.searchedPosts.description')}
             author={t('head.searchedPosts.author')}
-            keywords={""}
+            lang={props.lang}
         >
             <PageLayout
                 categories={props.categories}

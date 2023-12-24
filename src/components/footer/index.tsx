@@ -48,7 +48,8 @@ export const Footer = (props: footerType) => {
                     height: 46,
                     backgroundColor: "#000",
                     borderRadius: "50%",
-                    display: "inline-block"
+                    display: "relative",
+                    zIndex: 9999
                 }}
                 component={<ArrowUp/>}
             />

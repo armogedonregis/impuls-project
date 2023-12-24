@@ -24,7 +24,7 @@ export default function About(props: aboutPage) {
             title={t('head.about.title')}
             description={t('head.about.description')}
             author={t('head.about.author')}
-            keywords={""}
+            lang={props.lang}
         >
             <PageLayout
                 categories={props.categories}

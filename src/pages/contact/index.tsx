@@ -24,7 +24,7 @@ export default function Contact(props: aboutPage) {
             title={t('head.contact.title')}
             description={t('head.contact.description')}
             author={t('head.contact.author')}
-            keywords={""}
+            lang={props.lang}
         >
             <PageLayout
                 categories={props.categories}
