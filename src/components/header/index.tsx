@@ -21,8 +21,16 @@ export const Header: React.FC<{
     translations?: boolean[]
     notFoundPage?: boolean
 }> = ({...props}) => {
+
     const { t, i18n } = useTranslation('locale')
     const [isOpenedMobNavbar, openMobNavbar] = useState<boolean>(false)
+
+    const catObjects = t('cat_sPage.categories', { returnObjects: true })
+
+    let catDescription
+    if(props.isCat && props.thisCategory) {
+        catDescription = catObjects[props.thisCategory.id].description
+    }
     
     return (
         <header className={'tc-header-style10 home-style10'}>
@@ -88,7 +96,7 @@ export const Header: React.FC<{
                     <div className="container">
                         <div className="content text-center">
                             <h2 className="main-title">{props.thisCategory?.name}</h2>
-                            <p className="fsz-16px">{t('cat_sPage.hatText')}.</p>
+                            <p className="fsz-16px">{catDescription}</p>
                         </div>
                     </div>
                 </div>

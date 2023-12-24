@@ -203,11 +203,60 @@
     },
     "cat_sPage": {
         "trendingPosts": "Top Posts",
-        "hatText": "We believe better things are created by great designers",
         "pagination": {
             "next": "Next",
             "prev": "Previous"
-        }
+        },
+        "categories": [
+            {
+                "title": "Gastronomy",
+                "description": "Section designed for people who often ask themselves: What good restaurants are in this area? Where can I go to have lunch or dinner?"
+            },
+            {
+                "title": "Tourism",
+                "description": "Do you love traveling? Visiting exhibitions? Or maybe, finding out the touristic industry innovations? Click here and let yourself go!"
+            },
+            {
+                "title": "Trend & Fashion",
+                "description": "Find out the latest trends, technologies, lifestyle, feminism, fashion, designers, collections, clothing, accessories, etc.!"
+            },
+            {
+                "title": "Finance & Law",
+                "description": "Domestic and international financial news, breaking news about labor, civil, corporate, banking, fiscal, international law, etc."
+            },
+            {
+                "title": "Health",
+                "description": "The latest information about highly recommended hospitals, medical advances, the latest discoveries and disease prevention"
+            },
+            {
+                "title": "Education",
+                "description": "Selected information about highly prestigious educational centers, both domestic and international"
+            },
+            {
+                "title": "Sport",
+                "description": "Here we inform you about sportspersons, establishments and trends reflecting the spirit of physical culture, sports and competition"
+            },
+            {
+                "title": "Investments",
+                "description": "Explore safe and profitable investment opportunities! Diversify your portfolio with expert advice and reach your financial goals!"
+            },
+            {
+                "title": "Culture",
+                "description": "Immerse yourself in the world of art, literature, music and more! Discover trends, reviews and events that enrich the spirit!"
+            },
+            {
+                "title": "Business Culture",
+                "description": "Trends, strategies and ethics in business. Cultivate an innovative and sustainable business culture for success!"
+            },
+            {
+                "title": "Networking",
+                "description": "Connect, collaborate and grow! Join our network of professionals to expand opportunities, share ideas and strengthen your career!"
+            },
+            {
+                "title": "Impuls TV",
+                "description": "A lifestyle channel in SPAN, ENG and RUS, for a select public, with the aim of fostering social and business relationships"
+            }
+        ]
     },
     "postPage": {
         "share": "Share",

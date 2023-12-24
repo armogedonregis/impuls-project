@@ -6,7 +6,6 @@ import { useTranslation } from 'next-i18next'
 import CatLargeBlock from './bottomBlocks/catLargeBlock'
 import CatMinBlock from './bottomBlocks/catMinBlock'
 import InstaBlock from './bottomBlocks/instaBlock'
-import StayConnected from './bottomBlocks/stayConnected'
 import CategoryHome from './categoryHome'
 import FeaturedAuthors from './featuredAuthors/featuredAuthors'
 import HotVideosBlock from './hotVideos/hotVideosBlock'
@@ -164,9 +163,6 @@ export const HomeScreen = (props: homeLayout) => {
                             catViewAll={t('home.networkBlock.viewAll')}
                             categories={props.categories}
                         />
-
-                        {/* Stay connected block */}
-                        {/* <StayConnected socials={props.socials} /> */}
                     </div>
                 </div>
             </section>

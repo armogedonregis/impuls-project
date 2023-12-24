@@ -6,8 +6,9 @@ import { swiperPostData } from '@/types/postsType'
 const TopHomeSwiper: React.FC<{
     sliderPosts: swiperPostData[]
 }> = (props) => {
+
     return (
-        <div className="tc-header-style10 col-md-6 col-lg-7 col-xxl-8">
+        <div className={`tc-header-style10 col-md-6 col-lg-7 col-xxl-8`}>
             <div className="head-slider">
                 <div className="tc-header-slider10">
                     <Carousel
@@ -21,6 +22,8 @@ const TopHomeSwiper: React.FC<{
                         }}
                         keyboard={false}
                     >
+                        <div className="swiper-button-next"></div>
+                        <div className="swiper-button-prev"></div>
                         {
                             props.sliderPosts
                             ? props.sliderPosts.map((item, id) => {
@@ -31,8 +34,6 @@ const TopHomeSwiper: React.FC<{
                                 )
                             }) : null
                         }
-                        <div className="swiper-button-next"></div>
-                        <div className="swiper-button-prev"></div>
                     </Carousel>
                 </div>
             </div>

@@ -112,7 +112,9 @@ export const SideBar = (props: sideBarType) => {
                             >
                                 <i className="las la-map-marker me-2 color-main fs-5" />
                                 {t('sidebar.contact.address1')}
-                                ,&nbsp;{t('sidebar.contact.address2')}
+                                <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {t('sidebar.contact.address2')}
                             </Link>
                         </li>
                         <li className="mb-3">

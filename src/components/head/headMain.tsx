@@ -93,13 +93,13 @@ export const HeadMain = (props: headMainProps) => {
                 props.categoryId &&
                 <>
                     {
-                        <link rel="alternate" hrefLang="es" href={`/post/${categoriesStatic["es"][catId].url}`} />
+                        <link rel="alternate" hrefLang="es" href={`/category/${categoriesStatic["es"][catId].url}`} />
                     }
                     {
-                        <link rel="alternate" hrefLang="en" href={`/post/${categoriesStatic["en"][catId].url}`} />
+                        <link rel="alternate" hrefLang="en" href={`en/category/${categoriesStatic["en"][catId].url}`} />
                     }
                     {
-                        <link rel="alternate" hrefLang="ru" href={`/post/${categoriesStatic["ru"][catId].url}`} />
+                        <link rel="alternate" hrefLang="ru" href={`ru/category/${categoriesStatic["ru"][catId].url}`} />
                     }
                 </>
             }
