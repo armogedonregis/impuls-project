@@ -5,23 +5,23 @@ import Link from "next/link"
 
 type videoPostType = {
     post: postType
+    isLast?: boolean
 }
 
 export const BotVideoPost = (props: videoPostType) => {
 
     return (
-        <div className="col-lg-4 custom-top-0 border-1 border-end brd-gray mt-50">
-            <div style={{height: '100%'}} className="item border-0">
-                <div style={{height: '100%'}} className="custom_sub-video row gx-3 align-items-center">
-                    <div style={{height: '100%'}} className="col-12 custom__sub-video--order custom__sub-video--width">
+        <div className={`col-lg-4 custom-top-0 border-1 ${props.isLast ? '' : 'border-end'} brd-gray mt-50`}>
+            <div className="item border-0">
+                <div className="custom_sub-video row gx-3 align-items-center">
+                    <div className="col-12 custom__sub-video--order custom__sub-video--width">
                         {
                             props.post
-                            ? <div style={{height: '100%'}} className="content">
-                                <div style={{height: '100%'}} className="sub-videos-flex">
+                            ? <div className="content">
+                                <div className="sub-videos-flex">
                                     <div
                                         className="col-8"
                                         style={{
-                                            height: "60%",
                                             display: 'flex',
                                             flexDirection: 'column',
                                             justifyContent: 'space-between'
@@ -38,7 +38,7 @@ export const BotVideoPost = (props: videoPostType) => {
                                             </h2>
                                             <p className="text mt-15"> {props.post?.description} </p>
                                         </div>
-                                        <div className="col-8 date mb-30 fsz-12px">
+                                        <div style={{marginTop: 20, marginBottom: 40}} className="col-8 date fsz-12px">
                                             <ul className="fsz-12px">
                                                 <li>
                                                     {

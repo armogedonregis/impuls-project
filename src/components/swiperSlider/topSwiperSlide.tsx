@@ -1,16 +1,11 @@
 import { swiperPostData } from "@/types/postsType"
-import Image from "next/image"
 import Link from "next/link"
-import styles from './topSwiperSlide.module.css'
 
 export const TopSwiperSlideContent = (props: swiperPostData) => {
     return (
-        <div className={`${styles.Slide} card-slide`}>
+        <div className={`card-slide`}>
             <div className="img img-cover">
-                <Image
-                    width={1200}
-                    height={800}
-                    priority
+                <img
                     src={props.image ? props.image : '/'}
                     alt=""
                 />
@@ -28,9 +23,11 @@ export const TopSwiperSlideContent = (props: swiperPostData) => {
                         : null
                     }
                 </div>
-                <h2 className="mb-20"> <Link href={`post/${props.url ? props.url : ""}`}>
+                <h2 style={{wordWrap: 'break-word'}} className="mb-20">
+                    <Link href={`post/${props.url ? props.url : ""}`}>
                     {props?.title}
-                </Link> </h2>
+                    </Link>
+                </h2>
                 <p className="text">{props?.description}</p>
             </div>
         </div>

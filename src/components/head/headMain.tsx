@@ -63,28 +63,42 @@ export const HeadMain = (props: headMainProps) => {
                 !props.post &&
                 !props.categoryId &&
                 <>
-                    <link rel="alternate" hrefLang="es" href={`${router.asPath.length > 1 ? router.asPath : ''}`} />
-                    <link rel="alternate" hrefLang="en" href={`/en${router.asPath.length > 1 ? router.asPath : ''}`} />
-                    <link rel="alternate" hrefLang="ru" href={`/ru${router.asPath.length > 1 ? router.asPath : ''}`} />
-                    <link rel="alternate" hrefLang="x-default" href={`${router.asPath.length > 1 ? router.asPath : ''}`} />
+                    <link rel="alternate" hrefLang="es" href={`https://iew.es${router.asPath}`} />
+                    <link rel="alternate" hrefLang="en" href={`https://iew.es/en${router.asPath.length > 1 ? router.asPath : ''}`} />
+                    <link rel="alternate" hrefLang="ru" href={`https://iew.es/ru${router.asPath.length > 1 ? router.asPath : ''}`} />
+                    <link rel="alternate" hrefLang="x-default" href={`https://iew.es${router.asPath}`} />
+                    <link rel="canonical" href={`https://iew.es${router.asPath}`} key="canonical" />
                 </>
+            }
+            {
+                props.post && props.post.availableTranslations["ES"] !== undefined
+                ? <link rel="canonical" href={`https://iew.es/post/${props.post.availableTranslations["ES"]}`} key="canonical" />
+                : props.post && props.post.availableTranslations["EN"] !== undefined
+                ? <link rel="canonical" href={`https://iew.es/en/post/${props.post.availableTranslations["EN"]}`} key="canonical" />
+                : props.post && props.post.availableTranslations["RU"] !== undefined
+                ? <link rel="canonical" href={`https://iew.es/ru/post/${props.post.availableTranslations["RU"]}`} key="canonical" />
+                : null
+            }
+            {
+                props.categoryId &&
+                <link rel="canonical" href={`https://iew.es/category/${categoriesStatic["es"][catId].url}`} key="canonical" />
             }
             {
                 props.post &&
                 <>
                     {
                         props.post.availableTranslations["ES"] !== undefined
-                        ? <link rel="alternate" hrefLang="es" href={`/post/${props.post.availableTranslations["ES"]}`} />
+                        ? <link rel="alternate" hrefLang="es" href={`https://iew.es/post/${props.post.availableTranslations["ES"]}`} />
                         : null
                     }
                     {
                         props.post.availableTranslations["EN"] !== undefined
-                        ? <link rel="alternate" hrefLang="en" href={`/en/post/${props.post.availableTranslations["EN"]}`} />
+                        ? <link rel="alternate" hrefLang="en" href={`https://iew.es/en/post/${props.post.availableTranslations["EN"]}`} />
                         : null
                     }
                     {
                         props.post.availableTranslations["RU"] !== undefined
-                        ? <link rel="alternate" hrefLang="ru" href={`/ru/post/${props.post.availableTranslations["RU"]}`} />
+                        ? <link rel="alternate" hrefLang="ru" href={`https://iew.es/ru/post/${props.post.availableTranslations["RU"]}`} />
                         : null
                     }
                 </>
@@ -93,21 +107,16 @@ export const HeadMain = (props: headMainProps) => {
                 props.categoryId &&
                 <>
                     {
-                        <link rel="alternate" hrefLang="es" href={`/category/${categoriesStatic["es"][catId].url}`} />
+                        <link rel="alternate" hrefLang="es" href={`https://iew.es/category/${categoriesStatic["es"][catId].url}`} />
                     }
                     {
-                        <link rel="alternate" hrefLang="en" href={`en/category/${categoriesStatic["en"][catId].url}`} />
+                        <link rel="alternate" hrefLang="en" href={`https://iew.es/en/category/${categoriesStatic["en"][catId].url}`} />
                     }
                     {
-                        <link rel="alternate" hrefLang="ru" href={`ru/category/${categoriesStatic["ru"][catId].url}`} />
+                        <link rel="alternate" hrefLang="ru" href={`https://iew.es/ru/category/${categoriesStatic["ru"][catId].url}`} />
                     }
                 </>
             }
-            <link
-                rel="canonical"
-                href="https://iew.es/"
-                key="canonical"
-            />
             <link rel="icon" href="/assets/img/favicon.ico" />
             <link rel="shortcut icon" href="/assets/img/favicon.ico" title="Favicon" sizes="32x32" />
         </Head>

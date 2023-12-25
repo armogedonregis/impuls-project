@@ -46,8 +46,10 @@ const HotVideosBlock: React.FC<{
                         {
                             props.videoCards
                             ? props.videoCards?.map((item, id) => {
-                                return item.videoUrl && postsCount < 5 && id > 1
+                                return item.videoUrl && postsCount < 4 && id > 1
                                 ? <BotVideoPost key={id} post={props.videoCards[postsCount++]} />
+                                : item.videoUrl && postsCount === 4
+                                ? <BotVideoPost isLast={true} key={id} post={props.videoCards[postsCount++]} />
                                 : null
                             }) : null
                         }
