@@ -4565,12 +4565,23 @@ small.text {
   background-color: #000;
   opacity: 0.4;
 }
+@media(max-width: 1023px) {
+  .tc-header-style10 .head-slider .card-slide .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    padding: 50px 20px 50px;
+  }
+}
+@media(min-width: 1024px) {
 .tc-header-style10 .head-slider .card-slide .info {
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 10;
-  padding: 50px 20px 50px;
+  padding: 50px;
+}
 }
 .tc-header-style10 .head-slider .card-slide .info .tag {
   padding: 8px 20px;
