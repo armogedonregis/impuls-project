@@ -217,44 +217,44 @@
                 "description": "¿Te encanta viajar? ¿Visitar exposiciones? O ¿conocer las innovaciones en el sector del turismo? ¡Entra aquí y déjate llevar!"
             },
             {
+                "title": "Cultura",
+                "description": "¡Sumérgete en el mundo de arte, literatura, música y más! ¡Descubre tendencias, reseñas y eventos que enriquecen el espíritu!"
+            },
+            {
                 "title": "Tendencias & Moda",
                 "description": "¡Descubre lo último en tecnologías, estilo de vida, feminismo, pasarelas, diseñadores, colecciones, prendas de vestir, accesorios etc.!"
-            },
-            {
-                "title": "Finanzas & Leyes",
-                "description": "Noticias financieras nacionales e internacionales, última hora del derecho laboral, civil, bancario, tributario, internacional, etc."
-            },
-            {
-                "title": "Salud",
-                "description": "Últimas noticias sobre hospitales altamente recomendados, avances médicos, últimos descubrimientos y prevención de enfermedades"
             },
             {
                 "title": "Educación",
                 "description": "Información selecta sobre centros educativos de alto prestigio a nivel nacional e internacional"
             },
             {
-                "title": "Deporte",
-                "description": "Aquí te informamos de deportistas, establecimientos y tendencias que representan el espíritu de cultura física, deporte y competición"
-            },
-            {
-                "title": "Inversiones",
-                "description": "¡Explora oportunidades de inversión seguras y rentables! ¡Diversifica tu cartera con asesoría experta y alcanza tus metas financieras!"
-            },
-            {
-                "title": "Cultura",
-                "description": "¡Sumérgete en el mundo de arte, literatura, música y más! ¡Descubre tendencias, reseñas y eventos que enriquecen el espíritu!"
+                "title": "Salud",
+                "description": "Últimas noticias sobre hospitales altamente recomendados, avances médicos, últimos descubrimientos y prevención de enfermedades"
             },
             {
                 "title": "Cultura de Negocios",
                 "description": "Tendencias, estrategias y ética en el mundo empresarial. ¡Cultiva una cultura de negocios innovadora y sostenible para el éxito!"
             },
             {
-                "title": "Networking",
-                "description": "¡Conecta, colabora y crece! ¡Únete a nuestra red de profesionales para expandir oportunidades, compartir ideas y fortalecer tu carrera!"
+                "title": "Finanzas & Leyes",
+                "description": "Noticias financieras nacionales e internacionales, última hora del derecho laboral, civil, bancario, tributario, internacional, etc."
+            },
+            {
+                "title": "Inversiones",
+                "description": "¡Explora oportunidades de inversión seguras y rentables! ¡Diversifica tu cartera con asesoría experta y alcanza tus metas financieras!"
+            },
+            {
+                "title": "Deporte",
+                "description": "Aquí te informamos de deportistas, establecimientos y tendencias que representan el espíritu de cultura física, deporte y competición"
             },
             {
                 "title": "Impuls TV",
                 "description": "Canal de lifestyle en ESP, ENG y RUS, para un público selecto, con el objetivo de fomentar las relaciones culturales y empresariales"
+            },
+            {
+                "title": "Networking",
+                "description": "¡Conecta, colabora y crece! ¡Únete a nuestra red de profesionales para expandir oportunidades, compartir ideas y fortalecer tu carrera!"
             }
 
         ]

@@ -29,7 +29,7 @@ export const Header: React.FC<{
 
     let catDescription
     if(props.isCat && props.thisCategory) {
-        catDescription = catObjects[props.thisCategory.id].description
+        catDescription = catObjects[(props.thisCategory.id - 1)].description
     }
     
     return (

@@ -26,7 +26,7 @@ type categoriesType = {
 export default function Categories(props: categoriesType) {
     const [isNavBarOpen, openNavBar] = useState<Boolean>(false)
     const { t, i18n } = useTranslation('locale')
-
+    
     const isCategory = true
 
     let description
