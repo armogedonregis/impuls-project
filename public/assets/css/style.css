@@ -492,7 +492,7 @@ h4 {
   font-family: 'Montserrat';
   font-weight: 700;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 h5,
@@ -4570,7 +4570,7 @@ small.text {
   bottom: 0;
   left: 0;
   z-index: 10;
-  padding: 50px;
+  padding: 50px 20px 50px;
 }
 .tc-header-style10 .head-slider .card-slide .info .tag {
   padding: 8px 20px;
@@ -4627,9 +4627,15 @@ small.text {
   background-color: #000;
 }
 
-@media (max-width: 1400px) {
+@media (min-width: 769px) and (max-width: 1400px) {
   .tc-header-style10 .head-slider .card-slide .info {
     bottom: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tc-header-style10 .head-slider .card-slide .info {
+    top: 0px;
   }
 }
 

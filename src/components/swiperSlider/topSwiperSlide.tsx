@@ -23,7 +23,7 @@ export const TopSwiperSlideContent = (props: swiperPostData) => {
                         : null
                     }
                 </div>
-                <h2 style={{wordWrap: 'break-word'}} className="mb-20">
+                <h2 style={{ overflowWrap: "anywhere" }} className="mb-20">
                     <Link href={`post/${props.url ? props.url : ""}`}>
                     {props?.title}
                     </Link>

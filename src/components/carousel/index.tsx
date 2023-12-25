@@ -23,7 +23,7 @@ export const Carousel = ({ children, navigation, pagination,
             speed={1000}
             pagination={pagination}
             mousewheel={mouseWheel ? mouseWheel : false}
-            modules={[Pagination, Navigation, Mousewheel, Autoplay, EffectFade]}
+            modules={[Pagination, Navigation, Mousewheel, EffectFade]}
             loop={true}
             autoplay={
                 delayProp ? { delay: delayProp } : { delay: 6000 }

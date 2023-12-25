@@ -15,7 +15,7 @@ const TopHomeSwiper: React.FC<{
                         slidesPerView={1}
                         spaceBetween={0}
                         delayProp={6000}
-                        autoplay={true}
+                        autoplay={false}
                         navigation={{
                             nextEl: '.tc-header-slider10 .swiper-button-next',
                             prevEl: '.tc-header-slider10 .swiper-button-prev',
