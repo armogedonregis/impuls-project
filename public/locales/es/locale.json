@@ -89,9 +89,9 @@
         }
     },
     "footer": {
-        "about": "Acerca de nosotros",
-        "contact": "Contactos",
-        "policy": "Aviso Legal y Política de privacidad",
+        "about": "Sobre nosotros",
+        "contact": "Contacto",
+        "policy": "Política de privacidad",
         "copyright": "© 2024 Revista Impuls PLUS",
         "rights": "Todos los derechos reservados"
     },

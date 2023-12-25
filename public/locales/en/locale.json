@@ -89,9 +89,9 @@
         }
     },
     "footer": {
-        "about": "About",
-        "contact": "Contacts",
-        "policy": "Legal Notice and Privacy Policy",
+        "about": "About us",
+        "contact": "Contact",
+        "policy": "Privacy Policy",
         "copyright": "© 2024 Impuls PLUS Magazine",
         "rights": "All Rights Reserved"
     },
