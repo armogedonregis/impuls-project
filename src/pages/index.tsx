@@ -3,9 +3,9 @@ import { HomeScreen } from '@/components/screens/homeScreen'
 import { HeadLayout } from '@/layout/headLayout'
 import PageLayout from '@/layout/pageLayout'
 import { categoryType } from '@/types/categoriesType'
+import { localEnvData } from '@/types/layout'
 import { favPostType, instaImg, postsType, topPostType } from '@/types/postsType'
 import { HomeParams } from '@/utils/headerParams'
-import { instaFetchServer, isServer } from '@/utils/server'
 import { NextPageContext } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -18,6 +18,7 @@ type IPosts = {
     instaImgs: instaImg[]
     lang: string
     topPosts: topPostType[]
+    localEnvData: localEnvData
 }
 
 export default function Home(props: IPosts) {
@@ -30,6 +31,7 @@ export default function Home(props: IPosts) {
             description={t('head.home.description')}
             author={t('head.home.author')}
             lang={props.lang}
+            localEnvData={props.localEnvData}
         >
             <PageLayout
                 categories={props.categories}
@@ -57,16 +59,18 @@ export const getStaticProps = async (ctx: NextPageContext) => {
     // Определяем локализацию
     const lang = ctx.locale
 
+    // Пробрасываем клиенту данные переменных локальной среды
+    const localEnvData = { website: process.env.WEBSITE }
     // Вытягиваем посты
-    const posts_ = await fetch(`${isServer}/posts/home/${lang}?categoryIds=${HomeParams.categoryId}&postsSize=${HomeParams.postsSize}&sliderSize=${HomeParams.sliderSize}&categoryPostsSizes=11:20`)
+    const posts_ = await fetch(`${process.env.API}/posts/home/${lang}?categoryIds=${HomeParams.categoryId}&postsSize=${HomeParams.postsSize}&sliderSize=${HomeParams.sliderSize}&categoryPostsSizes=11:20`)
     // Вытягиваем избранные посты
-    const favoritePosts_ = await fetch(`${isServer}/posts/favorite/${lang}`)
+    const favoritePosts_ = await fetch(`${process.env.API}/posts/favorite/${lang}`)
     // Вытягиваем категории
-    const categories_ = await fetch(`${isServer}/categories/${lang}`)
+    const categories_ = await fetch(`${process.env.API}/categories/${lang}`)
     // Вытягиваем картинки из инстаграмма
-    const instaImgs_ = await fetch(`${instaFetchServer}/instagram/photos?count=6`)
+    const instaImgs_ = await fetch(`${process.env.INSTA}/instagram/photos?count=6`)
     // Топ посты
-    const topPosts_ = await fetch(`${isServer}/posts/top/${lang}`)
+    const topPosts_ = await fetch(`${process.env.API}/posts/top/${lang}`)
 
     // Сериализуем в джейсона
     const posts = await posts_.json()
@@ -81,7 +85,7 @@ export const getStaticProps = async (ctx: NextPageContext) => {
                 'common',
                 'locale'
             ])),
-            posts, favoritePosts, categories, instaImgs, lang, topPosts
+            posts, favoritePosts, categories, instaImgs, lang, topPosts, localEnvData
         },
         revalidate: 60
     }

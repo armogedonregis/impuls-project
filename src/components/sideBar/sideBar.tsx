@@ -4,8 +4,8 @@ import styles from "./sideBar.module.css"
 import { categoryType } from '@/types/categoriesType'
 import { socialsType } from '@/types/socials'
 import Link from 'next/link'
-import { isDarkSessionStorage } from '@/utils/useSessionStorage'
 import { useTranslation } from 'next-i18next'
+import { useDarkMode } from '@/utils/useDarkMode'
 
 const SlideBarCatCards: React.FC<{
     category: categoryType
@@ -35,6 +35,7 @@ type sideBarType = {
     setIsOpenedSlideBar: Dispatch<SetStateAction<boolean>>
     categories: categoryType[]
     socials: socialsType
+    isDark: boolean
 }
 
 export const SideBar = (props: sideBarType) => {
@@ -48,7 +49,7 @@ export const SideBar = (props: sideBarType) => {
 
     return (
         <Offcanvas
-            className={`${isDarkSessionStorage() ? "dark-theme" : ""} sidebar-popup-style1`}
+            className={`${props.isDark ? "dark-theme" : ""} sidebar-popup-style1`}
             show={props.show}
             onHide={props.handleClose}
             onEntered={() =>

@@ -1,13 +1,13 @@
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { Navbar } from '@/components/navbar'
-import { categoryType } from '@/types/categoriesType'
+import { categoryLangUrl, categoryType } from '@/types/categoriesType'
 import { SideBar } from '@/components/sideBar/sideBar'
 import { socialsType } from '@/types/socials'
 import React, { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
 import { useDarkMode } from '@/utils/useDarkMode'
-import { categoryData, singlePost } from '@/types/postsType'
+import { categoryData } from '@/types/postsType'
 import { Montserrat } from 'next/font/google'
 
 const font = Montserrat({
@@ -74,6 +74,7 @@ export default function PageLayout(props: LayoutProps) {
                 isOpenedSlideBar={isOpenedSlideBar}
                 setIsOpenedSlideBar={setIsOpenedSlideBar}
                 socials={props.socials}
+                isDark={isDark}
             />
         </div>
     )

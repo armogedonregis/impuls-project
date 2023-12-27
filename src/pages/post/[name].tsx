@@ -5,12 +5,12 @@ import PageLayout from "@/layout/pageLayout"
 import { categoryType } from "@/types/categoriesType"
 import { directionPost, postType, singlePost } from "@/types/postsType"
 import { socialsType } from "@/types/socials"
-import { isServer } from "@/utils/server"
 import { NextPageContext } from "next"
 import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useState } from "react"
 import { getCookie, setCookie } from 'cookies-next'
+import { localEnvData } from "@/types/layout"
 
 type postLayout = {
     categories: categoryType[]
@@ -24,6 +24,7 @@ type postLayout = {
     postName: string
     postId: number
     translations: boolean[]
+    localEnvData: localEnvData
 }
 
 export default function Post(props: postLayout) {
@@ -37,6 +38,7 @@ export default function Post(props: postLayout) {
             author={props.post.author || ""}
             post={props.post}
             lang={props.lang}
+            localEnvData={props.localEnvData}
         >
             <PageLayout
                 categories={props.categories}
@@ -64,6 +66,10 @@ export default function Post(props: postLayout) {
 export const getServerSideProps = async ({req, res, locale, query}: NextPageContext) => {
     // Определяем локализацию
     const lang = locale
+
+    // Пробрасываем клиенту данные переменных локальной среды
+    const localEnvData = { website: process.env.WEBSITE }
+
     // Id of the targeted post
     const postName: any = query["name"]
 
@@ -74,7 +80,7 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
 
     try {
         // Вытягиваем пост
-        post_ = await fetch(`${isServer}/post-url/${lang}/${postName}`)
+        post_ = await fetch(`${process.env.API}/post-url/${lang}/${postName}`)
         // To JSON
         post = await post_.json()
     }
@@ -94,12 +100,12 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
         try {
             // Берём айди поста на прошлом языке
             const lastPostLang = getCookie('lastPostLang', { req, res })
-            post_ = await fetch(`${isServer}/post-url/${lastPostLang}/${postName}`)
+            post_ = await fetch(`${process.env.API}/post-url/${lastPostLang}/${postName}`)
             post = await post_.json()
             const lastPostId = post.id
 
             // Вытягиваем урл поста для языка, на который переключились
-            post_ = await fetch(`${isServer}/post/${lang}/${lastPostId}`)
+            post_ = await fetch(`${process.env.API}/post/${lang}/${lastPostId}`)
             post = await post_.json()
 
             if (post["message"] && post["message"].Search("For input string:") === 0) {
@@ -147,13 +153,13 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
 
     try {
         // Рекомендуемые посты
-        rPosts_ = await fetch(`${isServer}/posts/recommended/${lang}/${postId}?limit=8`)
+        rPosts_ = await fetch(`${process.env.API}/posts/recommended/${lang}/${postId}?limit=8`)
         // Вытягиваем категории
-        categories_ = await fetch(`${isServer}/categories/${lang}`)
+        categories_ = await fetch(`${process.env.API}/categories/${lang}`)
         // Getting prev post
-        prev_ = await fetch(`${isServer}/post/${lang}/${postId}/prev`)
+        prev_ = await fetch(`${process.env.API}/post/${lang}/${postId}/prev`)
         // Getting next post
-        next_ = await fetch(`${isServer}/post/${lang}/${postId}/next`)
+        next_ = await fetch(`${process.env.API}/post/${lang}/${postId}/next`)
 
         // Сериализуем в джейсона
         categories = await categories_.json()
@@ -189,7 +195,7 @@ export const getServerSideProps = async ({req, res, locale, query}: NextPageCont
                 'locale'
             ])),
             categories, lang, rPosts, prevPosts, nextPosts,
-            postName, postId, post, translations
+            postName, postId, post, translations, localEnvData
         }
     }
 }

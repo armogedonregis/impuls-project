@@ -4,7 +4,6 @@ import { socialsType } from "@/types/socials"
 import parse from 'html-react-parser'
 import { PostVideoBlock } from "./videoBlock"
 import { useTranslation } from "next-i18next"
-import { webSite } from "@/utils/server"
 import styles from './styles/postSection.module.css'
 
 type postSection = {
@@ -39,13 +38,13 @@ const PostSection = (props: postSection) => {
                                 <p className="text-uppercase mb-20">{t('postPage.share')}</p>
                                 <div className="share-icons">
                                     <Link
-                                        href={`https://www.facebook.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postName}`}
+                                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.WEBSITE}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postName}`}
                                         target={"_blank"}
                                         className={styles.SocialsIcon}
                                     > <i className="la la-facebook-f">
                                     </i> </Link>
                                     <Link
-                                        href={`https://www.instagram.com/sharer/sharer.php?u=${webSite}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postName}`}
+                                        href={`https://www.instagram.com/sharer/sharer.php?u=${process.env.WEBSITE}${props.lang === 'es' ? "" : "/" + props.lang}/post/${props.postName}`}
                                         target={"_blank"}
                                         className={styles.SocialsIcon}
                                     > <i className="la la-instagram">

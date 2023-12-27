@@ -1,5 +1,6 @@
 /* Screen body - main tag */
 .Main {
+    min-height: 49.3vh;
     font-family: 'Montserrat', sans-serif;
     padding: 30px 50px;
 }
