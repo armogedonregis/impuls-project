@@ -146,15 +146,20 @@
                 "policyLink": "privacy policy",
                 "button": "Subscribe",
                 "errorHandler": {
+                    "agreeErr": "You did not agree with our privacy policy",
                     "nameErr": "Written name is too short",
                     "defErr": "Wrong e-mail address",
                     "dotErr": "Dot must be placed after «@» symbol",
                     "mailErr": "Too short e-mail name",
                     "hostErr": "E-mail host name must have 3 or more characters",
                     "domainErr": "E-mail domain name must have 2 or more characters"
-                }
+                },
+                "sucess": "You have successfully subscribed to our newsletter"
             },
             "stayConnected": "Stay connected"
+        },
+        "hotvideosBlock": {
+            "playVideo": "Play Video"
         },
         "gastroSlider": {
             "title": "Gastronomy",
@@ -260,6 +265,10 @@
     },
     "postPage": {
         "share": "Share",
+        "playVideo": {
+            "firstRow": "play",
+            "secondRow": "video"
+        },
         "editorsChoice": {
             "title": "Editor's Choice",
             "sliderBarVideo": "Videos"
